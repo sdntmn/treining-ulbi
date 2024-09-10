@@ -7,8 +7,13 @@ export function buildDevServer(options: BuildOptions): DevServerConfiguration {
     open: true,
     historyApiFallback: true,
     hot: true,
-    static: {
-      directory: options.paths.build,
-    },
+    static: [
+      {
+        directory: options.paths.build,
+      },
+      {
+        directory: options.paths.public,
+      },
+    ],
   };
 }
