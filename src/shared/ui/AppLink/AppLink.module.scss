@@ -1,0 +1,11 @@
+.app-link {
+color: var(--primary-color);
+
+  &__primary {
+    color: var(--primary-color);
+  }
+
+  &__secondary {
+    color: var(--secondary-color);
+  }
+}
