@@ -6,7 +6,7 @@ import { cn } from "shared/lib/helpers/classNames/classNames"
 import { useTheme } from "shared/lib/hooks/useTheme/useTheme"
 // Import "./ThemeSwitcher.module.scss";
 interface ThemeSwitcherProps {
-  readonly className?: string
+  className?: string
 }
 
 export function ThemeSwitcher({ className }: ThemeSwitcherProps) {
@@ -18,6 +18,7 @@ export function ThemeSwitcher({ className }: ThemeSwitcherProps) {
       onClick={toggleTheme}
     >
       {theme === Theme.default ? <LightIcon /> : <DarkIcon />}
+      привет
     </Button>
   )
 }

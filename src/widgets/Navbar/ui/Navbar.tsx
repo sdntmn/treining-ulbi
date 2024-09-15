@@ -15,13 +15,13 @@ export const Navbar: React.FC<NavbarProps> = ({ className }) => {
     <div className={cn("navbar", {}, [className])}>
       <div className={cn("navbar__links")}>
         <AppLink
-          to={"/"}
-          className={cn("navbar__link")}
           appLinkColor={AppLinkColor.Secondary}
+          className={cn("navbar__link")}
+          to="/"
         >
           {t("navLinkMain")}
         </AppLink>
-        <AppLink to={"/about"} appLinkColor={AppLinkColor.Secondary}>
+        <AppLink appLinkColor={AppLinkColor.Secondary} to="/about">
           {t("navLinkAbout")}
         </AppLink>
       </div>

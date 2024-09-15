@@ -7,9 +7,8 @@
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
-    "eslint:all",
-    "plugin:react/all",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "plugin:i18next/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -22,7 +21,9 @@
     "react",
     "@typescript-eslint",
     "perfectionist",
-    "eslint-plugin-prefer-arrow"
+    "eslint-plugin-prefer-arrow",
+    "i18next",
+    "prettier"
   ],
   "settings": {
     "react": {
@@ -36,8 +37,6 @@
     }
   },
   "rules": {
-    "import/prefer-default-export": "off",
-    "no-shadow":"off",
     "no-unused-vars": [1, { "argsIgnorePattern": "^_"}],
     "perfectionist/sort-imports": [
       "error",
@@ -76,6 +75,17 @@
     ],
     "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".tsx"] }],
     "react/react-in-jsx-scope": "off",
-    "one-var": ["error", { "var": "always", "let": "never", "const": "never" }]
+    "import/prefer-default-export": "off",
+    "one-var": ["error", { "var": "always", "let": "never", "const": "never" }],
+    "import/no-unresolved": "off",
+    "react/jsx-props-no-spreading": "warn",
+    "react/function-component-definition": "off",
+    "import/extensions": "off",
+    "import/no-extraneous-dependencies": "off",
+    "no-underscore-dangle": "off",
+    "react-default-props-match-prop-types": "off",
+    "no-ternary": "off",
+    "react/prefer-read-only-props": "off",
+    "i18next/no-literal-string": ["error", { " markupOnly": true }]
   }
 }
