@@ -1,5 +1,7 @@
 {
   "aboutPageTitle": "aboutPageTitle",
   "language": "language",
-  "mainPageTitle": "mainPageTitle"
+  "mainPageTitle": "mainPageTitle",
+  "navLinkAbout": "navLinkAbout",
+  "navLinkMain": "navLinkMain"
 }

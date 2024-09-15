@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext } from "react"
 
 export enum Theme {
   default = "app-default-theme",
@@ -6,10 +6,10 @@ export enum Theme {
 }
 
 export interface ThemeContext {
-  theme?: Theme;
-  setTheme?: (theme: Theme) => void;
+  theme?: Theme
+  setTheme?: (theme: Theme) => void
 }
 
-export const ThemeContext = createContext<ThemeContext>({});
+export const ThemeContext = createContext<ThemeContext>({})
 
-export const LOCAL_STORAGE_THEME_KEY = "theme";
+export const LOCAL_STORAGE_THEME_KEY = "theme"

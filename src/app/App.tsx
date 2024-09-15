@@ -1,17 +1,14 @@
-import { cn } from "shared/lib/helpers/classNames/classNames";
+import { Suspense } from "react"
+import { cn } from "shared/lib/helpers/classNames/classNames"
+import { useTheme } from "shared/lib/hooks/useTheme/useTheme"
+import { Navbar } from "widgets/Navbar"
+import { Sidebar } from "widgets/SideBar"
 
-import { useTheme } from "shared/lib/hooks/useTheme/useTheme";
-
-import { АррRouter } from "./providers/router";
-import { Navbar } from "widgets/Navbar";
-import "./styles/index.scss";
-import { Sidebar } from "widgets/SideBar";
-import { useTranslation } from "react-i18next";
-import { Suspense } from "react";
+import { АррRouter } from "./providers/router"
+import "./styles/index.scss"
 
 const App = () => {
-  const { theme, toggleTheme } = useTheme();
-  const { t, i18n } = useTranslation();
+  const { theme } = useTheme()
 
   return (
     <div className={cn("app", {}, [theme])}>
@@ -23,7 +20,7 @@ const App = () => {
         </div>
       </Suspense>
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App

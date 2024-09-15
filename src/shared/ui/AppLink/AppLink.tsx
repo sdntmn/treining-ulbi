@@ -1,8 +1,7 @@
-import { Link, LinkProps } from "react-router-dom";
+import { Link, type LinkProps } from "react-router-dom"
+import { cn } from "shared/lib/helpers/classNames/classNames"
 
-import { cn } from "shared/lib/helpers/classNames/classNames";
-
-import "./AppLink.module.scss";
+import "./AppLink.module.scss"
 
 export enum AppLinkColor {
   Primary = "primary",
@@ -10,9 +9,9 @@ export enum AppLinkColor {
 }
 
 interface AppLinkProps extends LinkProps {
-  className?: string;
-  children: React.ReactNode;
-  appLinkColor?: AppLinkColor;
+  className?: string
+  children: React.ReactNode
+  appLinkColor?: AppLinkColor
 }
 
 export const AppLink: React.FC<AppLinkProps> = ({
@@ -23,8 +22,12 @@ export const AppLink: React.FC<AppLinkProps> = ({
   ...otherProps
 }) => {
   return (
-    <Link className={cn("app-link", {}, [className, `app-link__${appLinkColor}`])} to={to} {...otherProps}>
+    <Link
+      className={cn("app-link", {}, [className, `app-link__${appLinkColor}`])}
+      to={to}
+      {...otherProps}
+    >
       {children}
     </Link>
-  );
-};
+  )
+}
