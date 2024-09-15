@@ -89,6 +89,7 @@
     "react-default-props-match-prop-types": "off",
     "no-ternary": "off",
     "react/prefer-read-only-props": "off",
-    "i18next/no-literal-string": ["error", { " markupOnly": true }]
+    "i18next/no-literal-string": ["error", { " markupOnly": true }],
+    "max-len": ["error", { "code": 80 }, { "ignoreComments": true }]
   }
 }

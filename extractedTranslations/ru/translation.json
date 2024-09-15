@@ -3,5 +3,6 @@
   "language": "language",
   "mainPageTitle": "mainPageTitle",
   "navLinkAbout": "navLinkAbout",
-  "navLinkMain": "navLinkMain"
+  "navLinkMain": "navLinkMain",
+  "notFoundPage": "notFoundPage"
 }
