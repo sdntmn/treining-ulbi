@@ -1,4 +1,5 @@
-type Mods = Record<string, boolean | string>
+// eslint-disable-next-line prettier/prettier
+type Mods = Record<string, boolean | string>;
 
 const classNames = (
   cls: string,
@@ -9,10 +10,9 @@ const classNames = (
     cls,
     ...additional.filter(Boolean),
     ...Object.entries(mods)
-      .filter(([_className, value]) => Boolean(value))
-      .map(([className, _value]) => className),
+      .filter(([_, value]) => Boolean(value))
+      .map(([className]) => className),
   ].join(" ")
 }
 
 export const cn = classNames
-export const cls = classNames
