@@ -1,8 +1,11 @@
 {
   "aboutPageTitle": "aboutPageTitle",
+  "errorPage": "errorPage",
   "language": "language",
   "mainPageTitle": "mainPageTitle",
   "navLinkAbout": "navLinkAbout",
   "navLinkMain": "navLinkMain",
-  "notFoundPage": "notFoundPage"
+  "notFoundPage": "notFoundPage",
+  "notFoundPage          ": "notFoundPage          ",
+  "refreshPage": "refreshPage"
 }

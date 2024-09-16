@@ -1,5 +1,7 @@
 {
   "language": "Русский",
   "navLinkAbout": "О нас",
-  "navLinkMain": "Главная страница"
+  "navLinkMain": "Главная страница",
+  "errorPage": "Произошла непредвиденная ошибка",
+  "refreshPage": "Обновить страница"
 }

@@ -7,5 +7,6 @@
   "arrowParens": "always",
   "bracketSpacing": true,
   "bracketSameLine": false,
-  "endOfLine": "auto"
+  "endOfLine": "auto",
+  "functionParentheses": false
 }

@@ -32,33 +32,44 @@
     },
     "import/resolver": {
       "node": {
-        "extensions": [".ts", ".tsx"],
-        "moduleDirectory": ["node_modules", "src/js"]
+        "extensions": [ ".ts", ".tsx" ],
+        "moduleDirectory": [ "node_modules", "src/js" ]
       }
     }
   },
   "rules": {
-    "no-shadow":"off",
-    "no-unused-vars": [1, { "argsIgnorePattern": "^_"}],
+    "no-shadow": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "args": "all",
+        "argsIgnorePattern": "^_",
+        "caughtErrors": "all",
+        "caughtErrorsIgnorePattern": "^_",
+        "destructuredArrayIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "ignoreRestSiblings": true
+      }
+    ],
     "sort-imports": "off",
     "perfectionist/sort-imports": [
       "error",
-        {
-          "order": "asc",
-          "ignoreCase": true,
-          "internalPattern": ["~/**"],
-          "newlinesBetween": "always",
-          "groups": [
-            "type",
-            ["builtin", "external"],
-            "internal-type",
-            "internal",
-            ["parent-type", "sibling-type", "index-type"],
-            ["parent", "sibling", "index"],
-            "object"
-          ]
-        }
-      ],
+      {
+        "order": "asc",
+        "ignoreCase": true,
+        "internalPattern": [ "~/**" ],
+        "newlinesBetween": "always",
+        "groups": [
+          "type",
+          [ "builtin", "external" ],
+          "internal-type",
+          "internal",
+          [ "parent-type", "sibling-type", "index-type" ],
+          [ "parent", "sibling", "index" ],
+          "object"
+        ]
+      }
+    ],
     "perfectionist/sort-objects": "off", // ?
     "indent": [
       "error",
@@ -76,20 +87,21 @@
       "error",
       "never"
     ],
-    "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".tsx"] }],
+    "react/jsx-filename-extension": [ 2, { "extensions": [ ".js", ".jsx", ".tsx" ] } ],
     "react/react-in-jsx-scope": "off",
     "import/prefer-default-export": "off",
-    "one-var": ["error", { "var": "always", "let": "never", "const": "never" }],
+    "one-var": [ "error", { "var": "always", "let": "never", "const": "never" } ],
     "import/no-unresolved": "off",
     "react/jsx-props-no-spreading": "warn",
-    "react/function-component-definition": "off",
+    // "react/function-component-definition": "off",
     "import/extensions": "off",
     "import/no-extraneous-dependencies": "off",
     "no-underscore-dangle": "off",
     "react-default-props-match-prop-types": "off",
     "no-ternary": "off",
     "react/prefer-read-only-props": "off",
-    "i18next/no-literal-string": ["error", { " markupOnly": true }],
-    "max-len": ["error", { "code": 80 }, { "ignoreComments": true }]
+    "i18next/no-literal-string": [ "error", { " markupOnly": true } ],
+    "max-len": [ "error", { "code": 80 }, { "ignoreComments": true } ],
+    "function-spacing": "off"
   }
 }

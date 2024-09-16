@@ -1,5 +1,7 @@
 {
   "language": "English",
   "navLinkAbout": "About us",
-  "navLinkMain": "Main page"
+  "navLinkMain": "Main page",
+  "errorPage": "There was an unforeseen error",
+  "refreshPage": "Upload page"
 }
