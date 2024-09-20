@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next"
-import { Button } from "shared/Button/Button"
-import { cn } from "shared/lib/helpers/classNames/classNames"
+import { cn } from "shared/lib/classNames/classNames"
+import { Button } from "shared/ui/Button/Button"
 
 import "./PageError.module.scss"
 

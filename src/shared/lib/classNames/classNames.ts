@@ -1,5 +1,4 @@
-// eslint-disable-next-line prettier/prettier
-type Mods = Record<string, boolean | string>;
+type Mods = Record<string, boolean | string>
 
 const classNames = (
   cls: string,

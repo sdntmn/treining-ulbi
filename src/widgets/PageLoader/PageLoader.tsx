@@ -1,4 +1,4 @@
-import { cn } from "shared/lib/helpers/classNames/classNames"
+import { cn } from "shared/lib/classNames/classNames"
 import { Loader } from "shared/ui/Loader/Loader"
 
 import "./PageLoader.module.scss"

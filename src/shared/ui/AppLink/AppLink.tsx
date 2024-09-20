@@ -1,5 +1,5 @@
 import { Link, type LinkProps } from "react-router-dom"
-import { cn } from "shared/lib/helpers/classNames/classNames"
+import { cn } from "shared/lib/classNames/classNames"
 
 import "./AppLink.module.scss"
 
@@ -15,7 +15,7 @@ interface AppLinkProps extends LinkProps {
 }
 
 export const AppLink: React.FC<AppLinkProps> = ({
-  className,
+  className = "",
   children,
   appLinkColor = AppLinkColor.Primary,
   to,

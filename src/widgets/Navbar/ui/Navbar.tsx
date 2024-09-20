@@ -1,6 +1,6 @@
 import React from "react"
 import { useTranslation } from "react-i18next"
-import { cn } from "shared/lib/helpers/classNames/classNames"
+import { cn } from "shared/lib/classNames/classNames"
 import { AppLink, AppLinkColor } from "shared/ui/AppLink/AppLink"
 
 import "./Navbar.module.scss"

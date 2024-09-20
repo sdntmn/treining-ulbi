@@ -1,5 +1,3 @@
-import { expect } from "@jest/globals"
-
 import { cn } from "./classNames"
 
 describe("cn", () => {

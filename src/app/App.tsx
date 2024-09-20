@@ -1,5 +1,5 @@
 import { Suspense } from "react"
-import { cn } from "shared/lib/helpers/classNames/classNames"
+import { cn } from "shared/lib/classNames/classNames"
 import { useTheme } from "shared/lib/hooks/useTheme/useTheme"
 import { Navbar } from "widgets/Navbar"
 import { Sidebar } from "widgets/SideBar"

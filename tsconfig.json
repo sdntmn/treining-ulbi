@@ -18,7 +18,7 @@
     },
     // esModuleInterop позволяет работать с пакетами, которые используют
     // common js как с обычными пакета с помощью import (require() module.export) = common js
-    // import Moment from 'moment';
+    // import Moment from "moment";
     // без флага esModuleInterop результат undefined
     // console.log(Moment);
     // c флагом результат [object Object]
@@ -27,9 +27,9 @@
     // Если какая-либо библиотека не имеет default import,
     // лоадеры вроде ts-loader или babel-loader автоматически создают их
     // вместо такого импорта
-    // import * as React from 'react';
+    // import * as React from "react";
     // можно писать такой
-    // import React from 'react';
+    // import React from "react";
     "allowSyntheticDefaultImports": true
   },
   "ts-node": {
@@ -38,4 +38,9 @@
     }
   },
   "testEnvironment": "jsdom",
+  "include": [
+    "./config/jest/setup-jest.ts",
+    "./src/**/*.ts",
+    "./src/**/*.tsx"
+  ],
 }
