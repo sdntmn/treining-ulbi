@@ -9,12 +9,12 @@
   &__collapsed {
     width: var(--sidebar-width-collapsed);
     position: relative;
+  }
 
-    &-btn {
-      position: absolute;
-      right: 0;
-      bottom: 90px;
-    }
+  &__collapsed-btn {
+    position: absolute;
+    right: 0;
+    bottom: 90px;
   }
 
   &__switchers {

@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+import React from "react"
 import { useTranslation } from "react-i18next"
 import { cn } from "shared/lib/classNames/classNames"
 
@@ -7,7 +9,7 @@ interface NotFoundPageProps {
   className?: string
 }
 
-export const NotFoundPage = ({ className }: NotFoundPageProps) => {
+export const NotFoundPage: React.FC<NotFoundPageProps> = ({ className }) => {
   const { t } = useTranslation("notPage")
 
   return (

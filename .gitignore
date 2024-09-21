@@ -4,3 +4,5 @@ node_modules
 .vscode
 node_modules
 yarn-error.log
+
+*storybook.log

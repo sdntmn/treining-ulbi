@@ -1,16 +1,18 @@
-import { memo, useState } from "react"
+import React, { memo, useState } from "react"
 import { cn } from "shared/lib/classNames/classNames"
 import { Button, ButtonVar } from "shared/ui/Button/Button"
 import { LangSwitcher } from "widgets/LangSwitcher/LangSwitcher"
 import { ThemeSwitcher } from "widgets/ThemeSwitcher"
 
-import cls from "./Sidebar.module.scss"
+import "./Sidebar.module.scss"
 
 interface SidebarProps {
   className?: string
 }
 
-export const Sidebar = memo(function Sidebar({ className }: SidebarProps) {
+export const Sidebar: React.FC<SidebarProps> = memo(function Sidebar({
+  className,
+}: SidebarProps) {
   const [collapsed, setCollapsed] = useState(false)
 
   const onToggle = () => {
@@ -20,13 +22,16 @@ export const Sidebar = memo(function Sidebar({ className }: SidebarProps) {
   return (
     <div
       data-testid="sidebar"
-      className={cn("sidebar", { [cls.collapsed]: collapsed }, [className])}
+      className={cn("sidebar", {}, [
+        collapsed && "sidebar__collapsed",
+        className,
+      ])}
     >
       <Button
         data-testid="sidebar-toggle"
         onClick={onToggle}
         className="sidebar__collapsed-btn"
-        buttonVar={ButtonVar.CLEAR}
+        buttonVar={ButtonVar.OUTLINE}
       >
         {collapsed ? ">" : "<"}
       </Button>

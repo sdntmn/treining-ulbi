@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+import React from "react"
 import { cn } from "shared/lib/classNames/classNames"
 import { Loader } from "shared/ui/Loader/Loader"
 
@@ -7,7 +9,9 @@ interface PageLoaderProps {
   className?: string
 }
 
-export const PageLoader = ({ className }: PageLoaderProps) => (
+export const PageLoader: React.FC<PageLoaderProps> = ({
+  className,
+}: PageLoaderProps) => (
   <div className={cn("page-lLoader", {}, [className])}>
     <Loader />
   </div>

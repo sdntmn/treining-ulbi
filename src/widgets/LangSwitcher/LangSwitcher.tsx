@@ -1,3 +1,4 @@
+import React from "react"
 import { useTranslation } from "react-i18next"
 import { cn } from "shared/lib/classNames/classNames"
 import { Button, ButtonVar } from "shared/ui/Button/Button"
@@ -6,7 +7,9 @@ interface LangSwitcherProps {
   className?: string
 }
 
-export const LangSwitcher = ({ className }: LangSwitcherProps) => {
+export const LangSwitcher: React.FC<LangSwitcherProps> = ({
+  className,
+}: LangSwitcherProps) => {
   const { t, i18n } = useTranslation("translation")
 
   const changeLanguage = async () => {

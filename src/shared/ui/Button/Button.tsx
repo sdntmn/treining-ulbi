@@ -5,9 +5,10 @@ import cls from "./Button.module.scss"
 
 export enum ButtonVar {
   CLEAR = "clear",
+  OUTLINE = "outline",
 }
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string
   buttonVar?: ButtonVar
 }
