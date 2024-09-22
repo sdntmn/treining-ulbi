@@ -1,0 +1,20 @@
+name: Демонстрация GitVerse CI/CD
+on:
+  push:
+jobs:
+  build-test:
+    name: Test context
+    runs-on: ubuntu-latest
+    env:
+      gitverse.event_name: ${{ github.event_name }}
+    steps:
+      - name: Display event name
+        run: echo ${{ github.event_name }}
+      - name: Display Workflow
+        run: echo ${{ github.workflow }}
+      - name: Display repository name
+        run: echo ${{ github.repository }}
+      - name: Display repository owner
+        run: echo ${{ github.repository_owner }}
+      - name: Display actor
+        run: echo ${{ github.actor }}
