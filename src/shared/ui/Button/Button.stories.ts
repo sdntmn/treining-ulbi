@@ -5,7 +5,6 @@ import { Button, ButtonVar } from "./Button"
 const meta: Meta<typeof Button> = {
   title: "shared/Button",
   component: Button,
-  tags: ["autodocs"],
 } satisfies Meta<typeof Button>
 
 export default meta

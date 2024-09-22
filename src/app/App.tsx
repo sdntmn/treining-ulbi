@@ -5,6 +5,7 @@ import { Navbar } from "widgets/Navbar"
 import { Sidebar } from "widgets/SideBar"
 
 import { АррRouter } from "./providers/router"
+
 import "./styles/index.scss"
 
 const App = () => {

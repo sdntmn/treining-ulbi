@@ -20,13 +20,13 @@ export const AppLink: React.FC<AppLinkProps> = ({
   children,
   appLinkColor = AppLinkColor.Primary,
   to,
-  // ...otherProps
+  ...otherProps
 }) => {
   return (
     <Link
       className={cn("app-link", {}, [className, `app-link__${appLinkColor}`])}
       to={to}
-      // {...otherProps}
+      {...otherProps}
     >
       {children}
     </Link>

@@ -13,7 +13,6 @@ const meta = {
     to: "/",
     children: "Link text",
   },
-  tags: ["autodocs"],
   decorators: [
     (Story) => (
       <BrowserRouter>
