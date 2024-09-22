@@ -5,8 +5,6 @@ jobs:
   build-test:
     name: Test context
     runs-on: ubuntu-latest
-    env:
-      gitverse.event_name: ${{ github.event_name }}
     steps:
       - name: Display event name
         run: echo ${{ github.event_name }}
