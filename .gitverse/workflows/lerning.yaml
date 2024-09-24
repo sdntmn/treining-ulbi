@@ -1,18 +1,29 @@
-name: Демонстрация GitVerse CI/CD
+name: Testing, linting and building "Lerning project"
 on:
   push:
+    branches: [master]
+  pull_request:
+    branches: [master]
 jobs:
-  build-test:
-    name: Test context
+  pipeline:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20.x]
+
     steps:
-      - name: Display event name
-        run: echo ${{ github.event_name }}
-      - name: Display Workflow
-        run: echo ${{ github.workflow }}
-      - name: Display repository name
-        run: echo ${{ github.repository }}
-      - name: Display repository owner
-        run: echo ${{ github.repository_owner }}
-      - name: Display actor
-        run: echo ${{ github.actor }}
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies
+        run: npm install
+      - name: build production project
+        run: npm run build:prod
+      - name: linting typescript
+        run: npm run lint:ts
+      - name: linting css
+        run: npm run lint:scss
+      - name: unit testing
+        run: npm run test:unit
