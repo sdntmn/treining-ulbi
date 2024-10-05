@@ -1,7 +1,62 @@
 .button {
-  padding: 10px 16px;
+  
   cursor: pointer;
   color: var(--primary-color);
+
+  &__clear {
+    padding: 0;
+    border: none;
+    background: none;
+    outline: none;
+  }
+
+  &__outline {
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    background: none;
+  }
+
+  &__praymary {
+    background: var(--button-background);
+    color: var(--secondary-color);
+    border: 1px solid var(--button-background);
+  }
+
+  &__square-m {
+    padding: 8px;
+  }
+
+  &__square-l {
+    padding: 10px;
+  }
+
+  &__square-xl {
+    padding: 12px;
+  }
+
+  &__size-m {
+    padding: 8px 12px;
+  }
+
+  &__size-l {
+    padding: 10px 16px;
+  }
+
+  &__size-xl {
+    padding: 12px 20px;
+  }
+
+  &__font-m {
+    font: var(--font-m);
+  }
+
+  &__font-l {
+    font: var(--font-l);
+  }
+
+  &__font-xl {
+    font: var(--font-xl);
+  }
 
   &:hover {
     opacity: 0.7;
@@ -10,76 +65,10 @@
   }
 }
 
-.clear {
-  padding: 0;
-  border: none;
-  background: none;
-  outline: none;
-}
-
-.clearInverted {
-  padding: 0;
-  border: none;
-  background: none;
-  outline: none;
-  color: var(--secondary-color);
-}
-
-.outline {
-  border: 1px solid var(--primary-color);
-  padding: 16px, 20px;
-  color: var(--primary-color);
-  background: none;
-}
-
 .outlineRed {
   border: 1px solid var(--button-background-red);
   color: var(--button-background-red);
   background: none;
-}
-
-.background {
-  background: var(--button-background);
-  color: var(--secondary-color);
-  border: none;
-}
-
-.backgroundDark {
-  background: var(--primary-bg-color);
-  color: var(--primary-color);
-  border: none;
-}
-
-.square {
-  width: var(--font-size-m);
-  padding: 0;
-}
-
-.square.size_m {
-  width: var(--font-line-m);
-  height: var(--font-line-m);
-}
-
-.square.size_l {
-  width: var(--font-line-l);
-  height: var(--font-line-l);
-}
-
-.square.size_xl {
-  width: var(--font-line-xl);
-  height: var(--font-line-xl);
-}
-
-.size_m {
-  font: var(--font-m);
-}
-
-.size_l {
-  font: var(--font-l);
-}
-
-.size_xl {
-  font: var(--font-xl);
 }
 
 .disabled {

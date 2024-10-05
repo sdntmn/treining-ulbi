@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
-import { Button, ButtonVar } from "./Button"
+import { Button, ButtonFontSize, ButtonSize, ButtonVar } from "./Button"
 
 const meta: Meta<typeof Button> = {
   title: "shared/Button",
@@ -21,4 +21,16 @@ export const Secondary: Story = {
 
 export const Outliny: Story = {
   args: { children: "Текст", buttonVar: ButtonVar.OUTLINE },
+}
+
+export const Background: Story = {
+  args: { children: "Текст", buttonVar: ButtonVar.PRIMARY },
+}
+
+export const Size: Story = {
+  args: { children: "Текст", buttonVar: ButtonVar.PRIMARY, size: ButtonSize.L },
+}
+
+export const FontSize: Story = {
+  args: { children: "Текст", buttonVar: ButtonVar.PRIMARY, fontSize: ButtonFontSize.FONT_L },
 }

@@ -6,40 +6,66 @@
   position: relative;
   transition: width 0.3s;
 
+  &__switchers {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 20px;
+    position: absolute;
+    bottom: 20px;
+  }
+
   &__collapsed {
     width: var(--sidebar-width-collapsed);
     position: relative;
+
+    .sidebar__switchers {
+      flex-direction: column;
+    }
+
+    .sidebar__item {
+      display: flex;
+      justify-content: center;
+      padding: 0;
+    }
+
+    .sidebar__link {
+      opacity: 0;
+      transition: 0.3s opacity;
+      width: 0;
+    }
   }
 
   &__collapsed-btn {
     position: absolute;
     right: 0;
-    bottom: 90px;
+    bottom: 160px;
   }
 
-  &__switchers {
-    width: 100%;
-    justify-content: center;
-    position: absolute;
-    bottom: 20px;
+  &__items {
+    margin-top: 20px;
     display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
 
-  &__lang-switcher {
-    margin-left: 20px;
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+  }
+
+  &__icon {
+    fill: var(--secondary-color);
+  }
+
+  &__link {
+    opacity: 1;
   }
 }
 
-// .lang {
-//   margin-left: 20px;
-// }
 
-// .items {
-//   margin-top: 20px;
-//   margin-left: 30px;
-//   display: flex;
-//   flex-direction: column;
-// }
 
 //   .switchers {
 //     flex-direction: column;
