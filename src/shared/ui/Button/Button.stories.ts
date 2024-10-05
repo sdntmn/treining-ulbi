@@ -32,5 +32,9 @@ export const Size: Story = {
 }
 
 export const FontSize: Story = {
-  args: { children: "Текст", buttonVar: ButtonVar.PRIMARY, fontSize: ButtonFontSize.FONT_L },
+  args: {
+    children: "Текст",
+    buttonVar: ButtonVar.PRIMARY,
+    fontSize: ButtonFontSize.FONT_L,
+  },
 }

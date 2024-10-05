@@ -38,7 +38,15 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export const Button: React.FC<ButtonProps> = (props) => {
-  const { className, children, buttonVar, square = ButtonSquare.SQUARE_M, size, fontSize = ButtonFontSize.FONT_M, ...otherProps } = props
+  const {
+    className,
+    children,
+    buttonVar,
+    square = ButtonSquare.SQUARE_M,
+    size,
+    fontSize = ButtonFontSize.FONT_M,
+    ...otherProps
+  } = props
 
   return (
     <button
