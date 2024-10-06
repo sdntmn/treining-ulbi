@@ -1,8 +1,8 @@
-import React, { memo, useState } from "react"
+import React, { useState } from "react"
 import { useTranslation } from "react-i18next"
 import AboutIcon from "shared/assets/icons/about-page.svg"
 import MainIcon from "shared/assets/icons/main-page.svg"
-import { RouterPath } from "shared/config/routerConfig/routerConfig"
+import { RouteNames, RouterPath } from "shared/config/routerConfig/routerConfig"
 import { cn } from "shared/lib/classNames/classNames"
 import { AppLink, AppLinkColor } from "shared/ui/AppLink/AppLink"
 import { Button, ButtonFontSize, ButtonVar } from "shared/ui/Button/Button"
@@ -15,9 +15,9 @@ interface SidebarProps {
   className?: string
 }
 
-export const Sidebar: React.FC<SidebarProps> = memo(function Sidebar({
+export const Sidebar: React.FC<SidebarProps> = ({
   className,
-}: SidebarProps) {
+}: SidebarProps) => {
   const { t } = useTranslation("translation")
   const [collapsed, setCollapsed] = useState(false)
 
@@ -37,7 +37,7 @@ export const Sidebar: React.FC<SidebarProps> = memo(function Sidebar({
         <AppLink
           appLinkColor={AppLinkColor.Secondary}
           className="sidebar__item"
-          to={RouterPath.main}
+          to={RouterPath[RouteNames.Main] as string}
         >
           <MainIcon className="sidebar__icon" />
           <span className={cn("sidebar__link")}>{t("navLinkMain")}</span>
@@ -46,7 +46,7 @@ export const Sidebar: React.FC<SidebarProps> = memo(function Sidebar({
         <AppLink
           className="sidebar__item"
           appLinkColor={AppLinkColor.Secondary}
-          to={RouterPath.about}
+          to={RouterPath[RouteNames.About] as string}
         >
           <AboutIcon className="sidebar__icon" />
           <span className={cn("sidebar__link")}>{t("navLinkAbout")}</span>
@@ -69,4 +69,4 @@ export const Sidebar: React.FC<SidebarProps> = memo(function Sidebar({
       </div>
     </div>
   )
-})
+}

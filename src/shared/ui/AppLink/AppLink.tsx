@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React from "react"
 import { Link, type LinkProps } from "react-router-dom"
 import { cn } from "shared/lib/classNames/classNames"

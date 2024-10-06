@@ -1,9 +1,10 @@
+import React from "react"
 import { Suspense } from "react"
 import { Route, Routes } from "react-router-dom"
 import { routerConfig } from "shared/config/routerConfig/routerConfig"
 import { PageLoader } from "widgets/PageLoader/PageLoader"
 
-export const АррRouter = () => {
+export const АррRouter: React.FC = () => {
   return (
     <Routes>
       {Object.values(routerConfig).map(({ element, path }) => (
