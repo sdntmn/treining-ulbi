@@ -1,7 +1,9 @@
 {
+  "": "",
   "aboutPageTitle": "aboutPageTitle",
   "errorPage": "errorPage",
   "language": "language",
+  "login": "login",
   "mainPageTitle": "mainPageTitle",
   "navLinkAbout": "navLinkAbout",
   "navLinkMain": "navLinkMain",

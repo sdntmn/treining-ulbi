@@ -3,6 +3,7 @@ import React, { useEffect, Suspense } from "react"
 import { I18nextProvider } from "react-i18next"
 
 import i18n from "../../src/shared/config/i18n/i18n"
+import { ThemeProvider } from "./../../src/app/providers/ThemeProvider/ui/ThemeProvider"
 
 import "app/styles/index.scss"
 
@@ -71,19 +72,21 @@ const preview: Preview = {
       }, [locale])
 
       return (
-        <Suspense fallback={<div>loading translations...</div>}>
-          <I18nextProvider i18n={i18n}>
-            <div
-              style={{
-                width: "100vw",
-                ...(position === "center" ? centerPosition : {}),
-              }}
-              className={`app ${theme === "dark" ? "app-dark-theme" : "app-default-theme"}`}
-            >
-              <Story />
-            </div>
-          </I18nextProvider>
-        </Suspense>
+        <ThemeProvider initialTheme={theme}>
+          <Suspense fallback={<div>loading translations...</div>}>
+            <I18nextProvider i18n={i18n}>
+              <div
+                style={{
+                  width: "100vw",
+                  ...(position === "center" ? centerPosition : {}),
+                }}
+                className={`app ${theme === "dark" ? "app-dark-theme" : ""}`}
+              >
+                <Story />
+              </div>
+            </I18nextProvider>
+          </Suspense>
+        </ThemeProvider>
       )
     },
   ],
