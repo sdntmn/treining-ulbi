@@ -1,7 +1,12 @@
 {
   "": "",
   "aboutPageTitle": "aboutPageTitle",
+  "enter": "enter",
+  "enterName": "enterName",
+  "enterPassword": "enterPassword",
+  "errorFormAuth": "",
   "errorPage": "errorPage",
+  "goOut": "goOut",
   "language": "language",
   "login": "login",
   "mainPageTitle": "mainPageTitle",
@@ -9,5 +14,6 @@
   "navLinkMain": "navLinkMain",
   "notFoundPage": "notFoundPage",
   "notFoundPage          ": "notFoundPage          ",
-  "refreshPage": "refreshPage"
+  "refreshPage": "refreshPage",
+  "titleForm": "titleForm"
 }

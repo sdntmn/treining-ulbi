@@ -1,0 +1,46 @@
+
+
+.paragraf {
+  font: var(--font-m);
+  color: var(--secondary-color);
+
+  &__title {
+    font: var(--font-l);
+    color: var(--primary-color);
+  }
+
+  &__text {
+    font: var(--font-m);
+    color: var(--primary-color);  
+  }
+
+  &__error {
+    .paragraf__title {
+      color: var(--primary-error-color);
+    }
+
+    .paragraf__text {
+      color: var(--primary-error-color);
+    }
+  }
+
+  &__left {
+    text-align: left;
+  }
+
+  &__right {
+    text-align: right;
+  }
+
+  &__center {
+    text-align: center;
+  }
+
+  &__size_m {
+    font: var(--font-m);
+  }
+
+  &__size_l {
+    font: var(--font-l);  
+  }
+}

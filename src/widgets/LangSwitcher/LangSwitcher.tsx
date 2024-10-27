@@ -20,7 +20,7 @@ export const LangSwitcher: React.FC<LangSwitcherProps> = ({
 
   return (
     <Button
-      className={cn("", {}, [className])}
+      className={cn("", [className])}
       buttonVar={ButtonVar.CLEAR}
       square={ButtonSquare.SQUARE_M}
       onClick={changeLanguage}

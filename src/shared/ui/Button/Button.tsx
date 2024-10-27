@@ -35,6 +35,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children?: React.ReactNode
   fontSize?: ButtonFontSize
   size?: ButtonSize
+  disabled?: boolean
 }
 
 export const Button: React.FC<ButtonProps> = (props) => {
@@ -45,18 +46,20 @@ export const Button: React.FC<ButtonProps> = (props) => {
     square = ButtonSquare.SQUARE_M,
     size,
     fontSize = ButtonFontSize.FONT_M,
+    disabled,
     ...otherProps
   } = props
 
   return (
     <button
       type="button"
-      className={cn("button", {}, [
+      className={cn("button", [
         className,
         buttonVar && `button__${buttonVar}`,
         square && `button__${square}`,
         fontSize && `button__${fontSize}`,
         size && `button__${size}`,
+        disabled && "button__disabled",
       ])}
       {...otherProps}
     >

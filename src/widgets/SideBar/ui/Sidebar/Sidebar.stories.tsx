@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
-import React from "react"
-import { BrowserRouter } from "react-router-dom"
+import { RouterDecorator } from "shared/config/storybook/RouterDecorator/RouterDecorator"
 
 import { Sidebar } from "./Sidebar"
 
@@ -11,17 +10,13 @@ const meta: Meta<typeof Sidebar> = {
   globals: {
     position: "left",
   },
-  decorators: [
-    (Story) => (
-      <BrowserRouter>
-        <Story />
-      </BrowserRouter>
-    ),
-  ],
-}
+  decorators: [RouterDecorator()],
+} satisfies Meta<typeof Sidebar>
 
 export default meta
 
-type Story = StoryObj<typeof Sidebar>
+type Story = StoryObj<typeof meta>
 
-export const Primary: Story = {}
+export const Primary: Story = {
+  args: {},
+}

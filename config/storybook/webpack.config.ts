@@ -1,5 +1,5 @@
 import path from "path"
-import webpack, { RuleSetRule } from "webpack"
+import webpack, { RuleSetRule, DefinePlugin } from "webpack"
 
 import { buildCssLoader } from "../build/loaders/buildCssLoader"
 import { BuildPatchs } from "../build/types/config"
@@ -12,17 +12,11 @@ export default ({ config }: { config: webpack.Configuration }) => {
     src: path.resolve(__dirname, "..", "..", "src"),
     public: "",
   }
-  config.resolve?.modules?.push(paths.src)
+  config.resolve?.modules?.unshift(paths.src)
   config.resolve?.extensions?.push(".ts", ".tsx")
 
-  // config.module?.rules?.map((rule) => {
-  //   if (rule && typeof rule === "object" && /svg/.test(rule.test as string)) {
-  //     return { ...rule, exclude: /\.svg$/i }
-  //   }
-  //   return rule
-  // })
-
   let rules = config.module?.rules
+
   if (rules) {
     rules = rules
       .filter(
@@ -39,7 +33,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
 
         return rule
       })
-    if (config.module) {
+    if (config.module && config.module.rules) {
       config.module.rules = rules
     }
   }
@@ -50,6 +44,12 @@ export default ({ config }: { config: webpack.Configuration }) => {
   })
 
   config.module?.rules?.push(buildCssLoader(true))
+
+  config?.plugins?.push(
+    new DefinePlugin({
+      __IS_DEV__: JSON.stringify(true),
+    })
+  )
 
   return config
 }

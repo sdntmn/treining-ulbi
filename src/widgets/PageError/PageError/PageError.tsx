@@ -16,7 +16,7 @@ export const PageError: React.FC<PageErrorProps> = ({ className }) => {
     location.reload()
   }
   return (
-    <div className={cn("page-error", {}, [className])}>
+    <div className={cn("page-error", [className])}>
       <p>{t("errorPage")}</p>
       <Button onClick={reloadPage}>{t("refreshPage")}</Button>
     </div>

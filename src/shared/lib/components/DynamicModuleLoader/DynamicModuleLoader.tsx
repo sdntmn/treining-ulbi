@@ -1,0 +1,50 @@
+import { Reducer } from "@reduxjs/toolkit"
+import {
+  ReduxStoreWithManager,
+  StateSchemaKey,
+} from "app/providers/StoreProvider/configStore/StateSchema"
+import { useEffect } from "react"
+import React from "react"
+import { useDispatch, useStore } from "react-redux"
+
+export type ReducersList = {
+  [name in StateSchemaKey]?: Reducer
+}
+
+interface DynamicModuleLoaderProps {
+  children: React.ReactNode
+  reducers: ReducersList
+  removeAfterUnmount?: boolean
+}
+
+export const DynamicModuleLoader: React.FC<DynamicModuleLoaderProps> = ({
+  children,
+  reducers,
+  removeAfterUnmount = true,
+}: DynamicModuleLoaderProps) => {
+  const store = useStore() as ReduxStoreWithManager
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    const mountedReducers = store.reducerManager.getMountedReducers()
+    Object.entries(reducers).forEach(([name, reducer]) => {
+      const mounted = mountedReducers[name as StateSchemaKey]
+      // добавляем редюсер только если его нет
+      if (!mounted) {
+        store.reducerManager.add(name as StateSchemaKey, reducer)
+        dispatch({ type: `@INIT ${name} reducer` })
+      }
+    })
+
+    return () => {
+      if (removeAfterUnmount) {
+        Object.entries(reducers).forEach(([name]) => {
+          store.reducerManager.remove(name as StateSchemaKey)
+          dispatch({ type: `@DESTROY ${name} reducer` })
+        })
+      }
+    }
+  }, [dispatch, reducers, removeAfterUnmount, store.reducerManager])
+
+  return <>{children}</>
+}

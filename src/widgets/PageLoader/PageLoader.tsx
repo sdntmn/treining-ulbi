@@ -12,7 +12,7 @@ interface PageLoaderProps {
 export const PageLoader: React.FC<PageLoaderProps> = ({
   className,
 }: PageLoaderProps) => (
-  <div className={cn("page-lLoader", {}, [className])}>
+  <div className={cn("page-loader", [className])}>
     <Loader />
   </div>
 )

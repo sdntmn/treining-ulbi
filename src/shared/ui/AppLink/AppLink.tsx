@@ -23,7 +23,7 @@ export const AppLink: React.FC<AppLinkProps> = ({
 }) => {
   return (
     <Link
-      className={cn("app-link", {}, [className, `app-link__${appLinkColor}`])}
+      className={cn("app-link", [className, `app-link__${appLinkColor}`])}
       to={to}
       {...otherProps}
     >

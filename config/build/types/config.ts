@@ -10,6 +10,7 @@ export interface BuildPatchs {
 export interface BuildEnv {
   mode: BuildMode
   port: number
+  apiUrl: string
 }
 
 export interface BuildOptions {
@@ -17,4 +18,6 @@ export interface BuildOptions {
   paths: BuildPatchs
   isDev: boolean
   port: number
+  apiUrl: string
+  project: "storybook" | "frontend" | "jest"
 }

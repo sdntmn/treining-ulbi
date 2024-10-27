@@ -6,5 +6,7 @@
   "plugins": ["i18next-extract", ["@babel/plugin-transform-react-jsx",
       {
         "runtime": "automatic"
-      }]]
+      }
+    ]
+  ]
 }

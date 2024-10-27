@@ -28,16 +28,13 @@ export const Sidebar: React.FC<SidebarProps> = ({
   return (
     <div
       data-testid="sidebar"
-      className={cn("sidebar", {}, [
-        collapsed && "sidebar__collapsed",
-        className,
-      ])}
+      className={cn("sidebar", [collapsed && "sidebar__collapsed", className])}
     >
       <div className="sidebar__items">
         <AppLink
           appLinkColor={AppLinkColor.Secondary}
           className="sidebar__item"
-          to={RouterPath[RouteNames.Main] as string}
+          to={RouterPath[RouteNames.Main]}
         >
           <MainIcon className="sidebar__icon" />
           <span className={cn("sidebar__link")}>{t("navLinkMain")}</span>
@@ -46,7 +43,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
         <AppLink
           className="sidebar__item"
           appLinkColor={AppLinkColor.Secondary}
-          to={RouterPath[RouteNames.About] as string}
+          to={RouterPath[RouteNames.About]}
         >
           <AboutIcon className="sidebar__icon" />
           <span className={cn("sidebar__link")}>{t("navLinkAbout")}</span>

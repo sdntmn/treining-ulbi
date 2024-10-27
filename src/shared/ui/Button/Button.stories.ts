@@ -19,6 +19,15 @@ export const Secondary: Story = {
   args: { children: "Текст", buttonVar: ButtonVar.CLEAR },
 }
 
+export const Disabled: Story = {
+  args: {
+    children: "Текст",
+    buttonVar: ButtonVar.PRIMARY,
+    fontSize: ButtonFontSize.FONT_L,
+    disabled: true,
+  },
+}
+
 export const Outliny: Story = {
   args: { children: "Текст", buttonVar: ButtonVar.OUTLINE },
 }

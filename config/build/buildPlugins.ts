@@ -8,6 +8,8 @@ import { type BuildOptions } from "./types/config"
 export function buildPlugins({
   paths,
   isDev,
+  apiUrl,
+  project,
 }: BuildOptions): webpack.WebpackPluginInstance[] {
   const plugins: webpack.WebpackPluginInstance[] = [
     new HtmlWebpackPlugin({ template: paths.html }),
@@ -20,13 +22,19 @@ export function buildPlugins({
       name: "vendor",
       minChunks: 2,
     }),
-    new webpack.DefinePlugin({ __IS_DEV__: JSON.stringify(isDev) }),
+    new webpack.DefinePlugin({
+      __IS_DEV__: JSON.stringify(isDev),
+      __API__: JSON.stringify(apiUrl),
+      __PROJECT__: JSON.stringify(project),
+    }),
     new BundleAnalyzerPlugin({ openAnalyzer: false }),
   ]
 
   if (isDev) {
     plugins.push(new webpack.HotModuleReplacementPlugin())
-    // plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }))
+    plugins.push(
+      new BundleAnalyzerPlugin({ openAnalyzer: false, analyzerPort: 8890 })
+    )
   }
   return plugins
 }
