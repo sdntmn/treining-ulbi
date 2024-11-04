@@ -1,14 +1,10 @@
 import { Dispatch } from "@reduxjs/toolkit"
 import { StateSchema } from "app/providers/StoreProvider"
-import axios from "axios"
 import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk"
 
 import { userActions } from "../../../../../entities/User"
 import { loginByUsername } from "./loginByUserName"
 
-jest.mock("axios")
-
-const mockedAxios = jest.mocked(axios)
 
 describe("Тест loginByUserName", () => {
   let dispatch: Dispatch
@@ -20,13 +16,13 @@ describe("Тест loginByUserName", () => {
   })
 
   const userValue = { username: "123", id: "1" }
+  const thunk = new TestAsyncThunk(loginByUsername)
   test("Успешный запрос ввода пароля и логина", async () => {
-    mockedAxios.post.mockReturnValue(Promise.resolve({ data: userValue }))
-    const action = loginByUsername({ username: "123", password: "123" })
-    const result = await action(dispatch, getState, undefined)
-    expect(dispatch).toHaveBeenCalledWith(userActions.setAuthData(userValue))
-    expect(dispatch).toHaveBeenCalledTimes(3) // количество вызовов диспатч
-    expect(mockedAxios.post).toHaveBeenCalled()
+    thunk.api.post.mockReturnValue(Promise.resolve({ data: userValue }))
+    const result = await thunk.callThunk({ username: "123", password: "123" })
+    expect(thunk.dispatch).toHaveBeenCalledWith(userActions.setAuthData(userValue))
+    expect(thunk.dispatch).toHaveBeenCalledTimes(3) // количество вызовов диспатч
+    expect(thunk.api.post).toHaveBeenCalled()
     expect(result.meta.requestStatus).toBe("fulfilled")
     expect(result.payload).toEqual(userValue)
   })
@@ -57,9 +53,7 @@ describe("Тест loginByUserName", () => {
   // })
 
   test("Тест ошибки ввода login", async () => {
-    mockedAxios.post.mockReturnValue(Promise.resolve({ status: 403 }))
-    const thunk = new TestAsyncThunk(loginByUsername)
-    // thunk.api.post.mockReturnValue(Promise.resolve({ status: 403 }))
+    thunk.api.post.mockReturnValue(Promise.resolve({ status: 403 }))
     const result = await thunk.callThunk({ username: "123", password: "123" })
 
     expect(thunk.dispatch).toHaveBeenCalledTimes(2)

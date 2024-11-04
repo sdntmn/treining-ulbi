@@ -5,62 +5,44 @@ import {
   combineReducers,
 } from "@reduxjs/toolkit"
 
-import {
-  MountedReducers,
-  ReducerManager,
-  StateSchema,
-  StateSchemaKey,
-} from "./StateSchema"
+import { ReducerManager, StateSchema, StateSchemaKey } from "./StateSchema"
 
 export function createReducerManager(
   initialReducers: ReducersMapObject<StateSchema>
 ): ReducerManager {
   const reducers = { ...initialReducers }
 
-  let combinedReducer = combineReducers(reducers)
+  let combinedReducer = combineReducers(reducers) as Reducer
 
   // Название редюсеров для удаления
-  let keysToRemove: StateSchemaKey[] = []
-  const mountReducers: MountedReducers = {
-    user: false,
-    loginForm: false,
-  }
+  let keysToRemove: Array<StateSchemaKey> = []
 
   return {
     getReducerMap: () => reducers,
-    getMountedReducers: () => mountReducers,
-    reduce: (state: StateSchema, action: Action): StateSchema => {
+    reduce: (state: StateSchema, action: Action) => {
       if (keysToRemove.length > 0) {
-        state = { ...state }
-        keysToRemove.forEach((key: StateSchemaKey) => {
+        state = { ...state } as StateSchema
+        keysToRemove.forEach((key) => {
           delete state[key]
         })
-
         keysToRemove = []
       }
-
-      return combinedReducer(state, action) as StateSchema
+      return combinedReducer(state, action)
     },
-
     add: (key: StateSchemaKey, reducer: Reducer) => {
-      if (!key || !(key in reducers)) {
+      if (!key || reducers[key]) {
         return
       }
+      reducers[key] = reducer
 
-      reducers[key] = reducer as Reducer
-      mountReducers[key] = true
       combinedReducer = combineReducers(reducers)
     },
-
     remove: (key: StateSchemaKey) => {
       if (!key || !reducers[key]) {
         return
       }
-
       delete reducers[key]
       keysToRemove.push(key)
-
-      mountReducers[key] = false
       combinedReducer = combineReducers(reducers)
     },
   }

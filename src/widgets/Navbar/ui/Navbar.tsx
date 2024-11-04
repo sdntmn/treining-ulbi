@@ -1,10 +1,10 @@
 import { getUserAuthData, User, userActions } from "entities/User"
 import { LoginModal } from "features/AuthByUserName"
-import React, { useCallback, useState } from "react"
+import React, { memo, useCallback, useState } from "react"
 import { useTranslation } from "react-i18next"
-import { useDispatch, useSelector } from "react-redux"
+import { useSelector } from "react-redux"
 import { cn } from "shared/lib/classNames/classNames"
-// import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
 import { Button, ButtonVar } from "shared/ui/Button/Button"
 
 import "./Navbar.module.scss"
@@ -13,12 +13,14 @@ interface NavbarProps {
   className?: string
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ className }) => {
-  const dispath = useDispatch()
+export const Navbar: React.FC<NavbarProps> = memo(function Navbar({
+  className,
+}: NavbarProps) {
+  const dispath = useAppDispatch()
   const { t } = useTranslation("translation")
   const [isAuthModal, setIsAuthModal] = useState<boolean>(false)
 
-  const authData: User = useSelector(getUserAuthData)
+  const authData: User | undefined = useSelector(getUserAuthData)
 
   const onCloseModalAuth = useCallback(() => {
     setIsAuthModal(false)
@@ -67,4 +69,4 @@ export const Navbar: React.FC<NavbarProps> = ({ className }) => {
       )}
     </div>
   )
-}
+})

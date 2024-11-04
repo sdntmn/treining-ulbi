@@ -54,7 +54,9 @@ export const Modal: React.FC<ModalProps> = ({
       window.addEventListener("keydown", onEscPress)
     }
     return () => {
-      clearTimeout(timerRef.current)
+      if (timerRef.current !== null) {
+        clearTimeout(timerRef.current)
+      }
       window.removeEventListener("keydown", onEscPress)
     }
   }, [isOpen, onEscPress])
@@ -74,8 +76,8 @@ export const Modal: React.FC<ModalProps> = ({
       <div
         className={cn("modal", [
           className,
-          isOpen && "modal__open",
-          isClosing && "modal__closing",
+          isOpen ? "modal__open" : "",
+          isClosing ? "modal__closing" : "",
         ])}
       >
         <div className="modal__overlay" onClick={closeHandler}>

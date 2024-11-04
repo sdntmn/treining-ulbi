@@ -1,0 +1,14 @@
+{
+  "profileCardErrorTitle": "Произошла ошибка при загрузки профиля",
+  "profileCardErrorText": "Попробуйте обновить страницу",
+  "profileCardInputPlaceholderFirstName": "Ваше имя",
+  "profileCardInputPlaceholderLastName": "Ваша фамилия",
+  "profileCardInputPlaceholderAge": "Ваш возраст",
+  "profileCardInputPlaceholderCity": "Город",
+  "profileCardInputPlaceholderAvatar": "Аватар",
+  "profileCardInputPlaceholderNick": "Ник",
+  "btnProfileEdit": "Редактировать",
+  "btnProfileCancel": "Отменить",
+  "btnProfileSave": "Сохранить",
+  "headerProfileTitle": "Профиль"
+}

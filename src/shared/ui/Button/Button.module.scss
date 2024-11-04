@@ -15,6 +15,12 @@
     background: none;
   }
 
+  &__outline-error {
+    border: 1px solid var(--primary-error-color);
+    color: var(--primary-error-color);
+    background: none;
+  }
+
   &__praymary {
     background: var(--button-background);
     color: var(--secondary-color);
@@ -69,10 +75,4 @@
     fill-opacity: 0.6;
     stroke-opacity: 0.6;
   }
-}
-
-.outlineRed {
-  border: 1px solid var(--button-background-red);
-  color: var(--button-background-red);
-  background: none;
 }

@@ -1,4 +1,7 @@
-const classNames = (cls: string, additional: string[] = []): string => {
+const classNames = (
+  cls: string,
+  additional: Array<string | undefined> = []
+): string => {
   return [cls, ...additional.filter(Boolean)].join(" ")
 }
 

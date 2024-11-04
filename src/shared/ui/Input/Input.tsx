@@ -68,7 +68,9 @@ export const Input: React.FC<InputProps> = memo(function Input(
   }, [autofocus])
 
   return (
-    <div className={cn("input", [className, isReadonly && "input__readonly"])}>
+    <div
+      className={cn("input", [className, isReadonly ? "input__readonly" : ""])}
+    >
       {placeholder && (
         <div className="input__placeholder">{`${placeholder}`}</div>
       )}

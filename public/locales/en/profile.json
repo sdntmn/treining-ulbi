@@ -1,0 +1,14 @@
+{
+  "profileCardErrorTitle": "An error occurred while loading your profile.",
+  "profileCardErrorText": "Try refreshing the page",
+  "profileCardInputPlaceholderFirstName": "Your name",
+  "profileCardInputPlaceholderLastName": "Your last name",
+  "profileCardInputPlaceholderAge": "Your age",
+  "profileCardInputPlaceholderCity": "City",
+  "profileCardInputPlaceholderAvatar": "Avatar",
+  "profileCardInputPlaceholderNick": "Nick",
+  "btnProfileEdit": "Edit",
+  "btnProfileCancel": "Cancel",
+  "btnProfileSave": "Save",
+  "headerProfileTitle": "Profile"
+}

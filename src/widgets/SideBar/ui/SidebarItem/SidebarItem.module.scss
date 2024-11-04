@@ -1,23 +1,23 @@
-.item {
+.sidebar-item {
   display: flex;
   align-items: center;
-  margin-top: 10px;
-}
+  padding: 0 12px;
 
-.link {
-  margin-left: 10px;
-  opacity: 1;
-  color: var(--primary-color);
-}
+  &__link {
+    margin-left: 10px;
+    opacity: 1;
+    color: var(--primary-color);
+  }
 
-.icon {
-  fill: var(--primary-color);
-}
+  &__collapsed {
+    .sidebar-item__link {
+      opacity: 0;
+      transition: 0.3s opacity;
+      width: 0;
+    }
+  }
 
-.collapsed {
-  .link {
-    opacity: 0;
-    transition: 0.3s opacity;
-    width: 0;
+  &__icon{
+    fill: var(--primary-color);
   }
 }

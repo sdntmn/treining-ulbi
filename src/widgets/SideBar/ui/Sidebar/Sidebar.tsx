@@ -1,13 +1,11 @@
-import React, { useState } from "react"
-import { useTranslation } from "react-i18next"
-import AboutIcon from "shared/assets/icons/about-page.svg"
-import MainIcon from "shared/assets/icons/main-page.svg"
-import { RouteNames, RouterPath } from "shared/config/routerConfig/routerConfig"
+import React, { memo, useState } from "react"
 import { cn } from "shared/lib/classNames/classNames"
-import { AppLink, AppLinkColor } from "shared/ui/AppLink/AppLink"
 import { Button, ButtonFontSize, ButtonVar } from "shared/ui/Button/Button"
 import { LangSwitcher } from "widgets/LangSwitcher/LangSwitcher"
 import { ThemeSwitcher } from "widgets/ThemeSwitcher"
+
+import { SidebarItemsList } from "../../model/items"
+import { SidebarItem } from "../SidebarItem/SidebarItem"
 
 import "./Sidebar.module.scss"
 
@@ -15,11 +13,10 @@ interface SidebarProps {
   className?: string
 }
 
-export const Sidebar: React.FC<SidebarProps> = ({
+export const Sidebar: React.FC<SidebarProps> = memo(function Sidebar({
   className,
-}: SidebarProps) => {
-  const { t } = useTranslation("translation")
-  const [collapsed, setCollapsed] = useState(false)
+}: SidebarProps) {
+  const [collapsed, setCollapsed] = useState<boolean>(false)
 
   const onToggle = () => {
     setCollapsed((prev) => !prev)
@@ -28,26 +25,15 @@ export const Sidebar: React.FC<SidebarProps> = ({
   return (
     <div
       data-testid="sidebar"
-      className={cn("sidebar", [collapsed && "sidebar__collapsed", className])}
+      className={cn("sidebar", [
+        className,
+        collapsed ? "sidebar__collapsed" : "",
+      ])}
     >
       <div className="sidebar__items">
-        <AppLink
-          appLinkColor={AppLinkColor.Secondary}
-          className="sidebar__item"
-          to={RouterPath[RouteNames.Main]}
-        >
-          <MainIcon className="sidebar__icon" />
-          <span className={cn("sidebar__link")}>{t("navLinkMain")}</span>
-        </AppLink>
-
-        <AppLink
-          className="sidebar__item"
-          appLinkColor={AppLinkColor.Secondary}
-          to={RouterPath[RouteNames.About]}
-        >
-          <AboutIcon className="sidebar__icon" />
-          <span className={cn("sidebar__link")}>{t("navLinkAbout")}</span>
-        </AppLink>
+        {SidebarItemsList.map((item) => (
+          <SidebarItem item={item} collapsed={collapsed} key={item.path} />
+        ))}
       </div>
 
       <Button
@@ -66,4 +52,4 @@ export const Sidebar: React.FC<SidebarProps> = ({
       </div>
     </div>
   )
-}
+})

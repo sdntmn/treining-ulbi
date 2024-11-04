@@ -1,32 +1,40 @@
-// import { memo } from "react"
-// import { useSelector } from "react-redux"
-
-// import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink"
-// import { classNames } from "shared/lib/classNames/classNames"
-
-// import cls from "./SidebarItem.module.scss"
-
+import { getUserAuthData } from "entities/User"
 // import { getUserAuthData } from "entities/User"
-// import { ISidebarItemType } from "4_widgets/Sidebar/model/types/sidebar"
+import { memo } from "react"
+import { useTranslation } from "react-i18next"
+import { useSelector } from "react-redux"
+// import { useSelector } from "react-redux"
+import { cn } from "shared/lib/classNames/classNames"
+import { AppLink, AppLinkColor } from "shared/ui/AppLink/AppLink"
 
-// interface ISidebarItemProps {
-//   item: ISidebarItemType
-//   collapsed: boolean
-// }
+import { SidebarItemType } from "../../model/items"
 
-// export const SidebarItem = memo(({ item, collapsed }: ISidebarItemProps) => {
-//   const isAuth = useSelector(getUserAuthData)
-//   if (item.authOnly && !isAuth) {
-//     return null
-//   }
-//   return (
-//     <AppLink
-//       className={classNames(cls.item, [], { [cls.collapsed]: collapsed })}
-//       theme={AppLinkTheme.SECONDARY}
-//       to={item.path}
-//     >
-//       <item.Icon className={cls.icon} />
-//       <span className={cls.link}>{item.text}</span>
-//     </AppLink>
-//   )
-// })
+import "./SidebarItem.module.scss"
+
+interface SidebarItemProps {
+  item: SidebarItemType
+  collapsed: boolean
+}
+
+export const SidebarItem = memo(function SidebarItem({
+  item,
+  collapsed,
+}: SidebarItemProps) {
+  const { t } = useTranslation("translation")
+  const isAuth = useSelector(getUserAuthData)
+  if (item.authOnly && !isAuth) {
+    return null
+  }
+  return (
+    <AppLink
+      className={cn("sidebar-item", [
+        collapsed ? "sidebar-item__collapsed" : "",
+      ])}
+      appLinkColor={AppLinkColor.PRIMARY}
+      to={item.path}
+    >
+      <item.Icon className={"sidebar-item__icon"} />
+      <span className={"sidebar-item__link"}>{t(item.text)}</span>
+    </AppLink>
+  )
+})

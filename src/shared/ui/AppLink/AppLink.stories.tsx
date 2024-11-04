@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import type { Meta, StoryObj } from "@storybook/react"
 
 import React from "react"
@@ -28,12 +27,12 @@ type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
   args: {
-    appLinkColor: AppLinkColor.Primary,
+    appLinkColor: AppLinkColor.PRIMARY,
   },
 }
 
 export const Secondary: Story = {
   args: {
-    appLinkColor: AppLinkColor.Secondary,
+    appLinkColor: AppLinkColor.SECONDARY,
   },
 }

@@ -104,13 +104,16 @@
     "i18next/no-literal-string": [ "error", { "markupOnly": true, "ignoreAttribute": ["data-testid", "to"] } ],
     "max-len": [ "error", { "code": 100 , "ignoreComments": true } ],
     "function-spacing": "off",
+    // "react/prop-types": ["enabled", {"customValidators": "customValidator", "skipUndeclared": "skipUndeclared" } ],
+
     //?
     "no-useless-escape": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "error"
   },
   "globals": {
-    "__IS_DEV__": true
+    "__IS_DEV__": true,
+    "__IS__API__": true
   },
   "overrides": [
     {

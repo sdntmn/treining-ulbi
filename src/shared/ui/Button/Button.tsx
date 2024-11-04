@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes } from "react"
+import React, { ButtonHTMLAttributes, memo } from "react"
 
 import { cn } from "../../lib/classNames/classNames"
 
@@ -7,6 +7,7 @@ import "./Button.module.scss"
 export enum ButtonVar {
   CLEAR = "clear",
   OUTLINE = "outline",
+  OUTLINE_ERROR = "outline-error",
   PRIMARY = "praymary",
 }
 
@@ -38,18 +39,16 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean
 }
 
-export const Button: React.FC<ButtonProps> = (props) => {
-  const {
-    className,
-    children,
-    buttonVar,
-    square = ButtonSquare.SQUARE_M,
-    size,
-    fontSize = ButtonFontSize.FONT_M,
-    disabled,
-    ...otherProps
-  } = props
-
+export const Button: React.FC<ButtonProps> = memo(function Button({
+  className,
+  children,
+  buttonVar = ButtonVar.PRIMARY,
+  square,
+  size,
+  fontSize = ButtonFontSize.FONT_M,
+  disabled,
+  ...otherProps
+}: ButtonProps) {
   return (
     <button
       type="button"
@@ -59,11 +58,11 @@ export const Button: React.FC<ButtonProps> = (props) => {
         square && `button__${square}`,
         fontSize && `button__${fontSize}`,
         size && `button__${size}`,
-        disabled && "button__disabled",
+        disabled ? "button__disabled" : "",
       ])}
       {...otherProps}
     >
       {children}
     </button>
   )
-}
+})
