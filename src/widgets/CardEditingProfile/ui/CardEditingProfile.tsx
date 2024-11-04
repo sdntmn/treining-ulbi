@@ -9,6 +9,7 @@ import {
   ValidateProfileError,
 } from "entities/Profile"
 import { FC, useCallback } from "react"
+import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
 import { Currency, Country } from "shared/const/common"
 import { cn } from "shared/lib/classNames/classNames"
@@ -25,6 +26,7 @@ export const CardEditingProfile: FC<CardEditingProfileProps> = ({
   className,
 }: CardEditingProfileProps) => {
   const dispatch = useAppDispatch()
+  const { t } = useTranslation("proile")
   const formData = useSelector(getProfileForm)
   const isLoading = useSelector(getProfileIsLoading)
   const error = useSelector(getProfileError)
@@ -32,11 +34,11 @@ export const CardEditingProfile: FC<CardEditingProfileProps> = ({
   const validateErrors = useSelector(getProfileValidateErrors)
 
   const validateErrorTranslates = {
-    [ValidateProfileError.SERVER_ERROR]: "Ошибка сервера",
-    [ValidateProfileError.INCORRECT_AGE]: "",
-    [ValidateProfileError.INCORRECT_COUNTRY]: "Выберете страну",
-    [ValidateProfileError.INCORRECT_USER_DATA]: "Введите имя",
-    [ValidateProfileError.NO_DATA]: "Введите данные",
+    [ValidateProfileError.SERVER_ERROR]: t("errorEditProfileServer"),
+    [ValidateProfileError.INCORRECT_AGE]: t("errorEditProfileAge"),
+    [ValidateProfileError.INCORRECT_COUNTRY]: t("errorEditProfileCountry"),
+    [ValidateProfileError.INCORRECT_USER_DATA]: t("errorEditProfileUserData"),
+    [ValidateProfileError.NO_DATA]: t("errorEditProfileNoData"),
   }
 
   const onChangeFirstName = useCallback(

@@ -10,5 +10,11 @@
   "btnProfileEdit": "Редактировать",
   "btnProfileCancel": "Отменить",
   "btnProfileSave": "Сохранить",
-  "headerProfileTitle": "Профиль"
+  "headerProfileTitle": "Профиль",
+
+  "errorEditProfileServer": "Ошибка сервера при сохранении",
+  "errorEditProfileAge": "Не корректный возраст",
+  "errorEditProfileCountry": "Выберите страну",
+  "errorEditProfileUserData": "Имя и фамилия должны быть заполнены",
+  "errorEditProfileNoData": "Данные не указаны"
 }

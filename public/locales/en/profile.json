@@ -10,5 +10,11 @@
   "btnProfileEdit": "Edit",
   "btnProfileCancel": "Cancel",
   "btnProfileSave": "Save",
-  "headerProfileTitle": "Profile"
+  "headerProfileTitle": "Profile",
+
+  "errorEditProfileServer": "Server error while saving",
+  "errorEditProfileAge": "Incorrect age",
+  "errorEditProfileCountry": "Select country",
+  "errorEditProfileUserData": "First and last name must be filled in",
+  "errorEditProfileNoData": "Data not specified"
 }
