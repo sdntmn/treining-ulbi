@@ -1,6 +1,6 @@
 import { getUserAuthData } from "entities/User"
 // import { getUserAuthData } from "entities/User"
-import { memo } from "react"
+import React, { memo } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
 // import { useSelector } from "react-redux"
@@ -16,25 +16,24 @@ interface SidebarItemProps {
   collapsed: boolean
 }
 
-export const SidebarItem = memo(function SidebarItem({
-  item,
-  collapsed,
-}: SidebarItemProps) {
-  const { t } = useTranslation("translation")
-  const isAuth = useSelector(getUserAuthData)
-  if (item.authOnly && !isAuth) {
-    return null
+export const SidebarItem: React.FC<SidebarItemProps> = memo(
+  function SidebarItem({ item, collapsed }: SidebarItemProps) {
+    const { t } = useTranslation("translation")
+    const isAuth = useSelector(getUserAuthData)
+    if (item.authOnly && !isAuth) {
+      return null
+    }
+    return (
+      <AppLink
+        className={cn("sidebar-item", [
+          collapsed ? "sidebar-item__collapsed" : "",
+        ])}
+        appLinkColor={AppLinkColor.PRIMARY}
+        to={item.path}
+      >
+        <item.Icon className={"sidebar-item__icon"} />
+        <span className={"sidebar-item__link"}>{t(item.text)}</span>
+      </AppLink>
+    )
   }
-  return (
-    <AppLink
-      className={cn("sidebar-item", [
-        collapsed ? "sidebar-item__collapsed" : "",
-      ])}
-      appLinkColor={AppLinkColor.PRIMARY}
-      to={item.path}
-    >
-      <item.Icon className={"sidebar-item__icon"} />
-      <span className={"sidebar-item__link"}>{t(item.text)}</span>
-    </AppLink>
-  )
-})
+)

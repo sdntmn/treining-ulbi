@@ -1,4 +1,4 @@
-import { memo, useCallback } from "react"
+import React, { memo, useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import { Select } from "shared/ui/Select/Select"
 
@@ -17,28 +17,30 @@ const options = [
   { value: Currency.USD, content: Currency.USD },
 ]
 
-export const CurrencySelect = memo(function CurrencySelect({
-  value,
-  className,
-  isReadonly,
-  onChange,
-}: CurrencySelectProps) {
-  const { t } = useTranslation("sharedComponents")
-  const onChangeHandler = useCallback(
-    (value: string) => {
-      onChange?.(value as Currency)
-    },
-    [onChange]
-  )
+export const CurrencySelect: React.FC<CurrencySelectProps> = memo(
+  function CurrencySelect({
+    value,
+    className,
+    isReadonly,
+    onChange,
+  }: CurrencySelectProps) {
+    const { t } = useTranslation("sharedComponents")
+    const onChangeHandler = useCallback(
+      (value: string) => {
+        onChange?.(value as Currency)
+      },
+      [onChange]
+    )
 
-  return (
-    <Select
-      label={t("specifyCurrency")}
-      className={className}
-      options={options}
-      value={value}
-      onChange={onChangeHandler}
-      isReadonly={isReadonly}
-    />
-  )
-})
+    return (
+      <Select
+        label={t("specifyCurrency")}
+        className={className}
+        options={options}
+        value={value}
+        onChange={onChangeHandler}
+        isReadonly={isReadonly}
+      />
+    )
+  }
+)

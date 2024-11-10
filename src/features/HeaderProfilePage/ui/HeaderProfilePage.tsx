@@ -4,7 +4,7 @@ import {
   profileActions,
 } from "entities/Profile"
 import { getUserAuthData } from "entities/User"
-import { useCallback } from "react"
+import React, { useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
 import { cn } from "shared/lib/classNames/classNames"
@@ -18,7 +18,9 @@ interface HeaderProfilePageProps {
   className?: string
 }
 
-export const HeaderProfilePage = ({ className }: HeaderProfilePageProps) => {
+export const HeaderProfilePage: React.FC<HeaderProfilePageProps> = ({
+  className,
+}: HeaderProfilePageProps) => {
   const { t } = useTranslation("profile")
   const readOnly = useSelector(getProfileReadonly)
   const dispatch = useAppDispatch()

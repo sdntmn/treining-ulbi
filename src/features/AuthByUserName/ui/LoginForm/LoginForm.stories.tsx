@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react"
 import { StoreDecorator } from "shared/config/storybook/StoreDecorator/StoreDecorator"
 
 import LoginForm from "./LoginForm"
+import { RouterDecorator } from "shared/config/storybook/RouterDecorator/RouterDecorator"
 
 const meta: Meta<typeof LoginForm> = {
   title: "feature/LoginForm",
@@ -39,15 +40,15 @@ const initialStateError = {
 
 export const Primary: Story = {
   args: {},
-  decorators: [StoreDecorator(initialState)],
+  decorators: [StoreDecorator(initialState), RouterDecorator()],
 }
 
 export const LoginFormError: Story = {
   args: {},
-  decorators: [StoreDecorator(initialStateError)],
+  decorators: [StoreDecorator(initialStateError), RouterDecorator()],
 }
 
 export const LoginFormLoading: Story = {
   args: {},
-  decorators: [StoreDecorator(initialStateLoading)],
+  decorators: [StoreDecorator(initialStateLoading), RouterDecorator()],
 }

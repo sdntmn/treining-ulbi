@@ -6,7 +6,7 @@ const config: Config = {
   globals: {
     __IS_DEV__: true,
     __API__: "",
-    __PROJECT__: "",
+    __PROJECT__: "jest",
   },
   clearMocks: true,
   testEnvironment: "jsdom",
@@ -25,10 +25,12 @@ const config: Config = {
     "/node_modules/(?![@autofiy/autofiyable|@autofiy/property]).+\\.js$",
     "/node_modules/(?![@autofiy/autofiyable|@autofiy/property]).+\\.ts$",
     "/node_modules/(?![@autofiy/autofiyable|@autofiy/property]).+\\.tsx$",
+    "node_modules/(?!axios.*)",
   ],
   moduleNameMapper: {
     "\\.(s?css)$": "identity-obj-proxy",
     "\\.(svg)$": path.resolve(__dirname, "jestEmptyComponent.tsx"),
+    // axios: "axios/dist/node/axios.cjs",
   },
 }
 export default config

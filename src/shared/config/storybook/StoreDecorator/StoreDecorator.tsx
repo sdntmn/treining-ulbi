@@ -1,4 +1,3 @@
-import { ReducersMapObject } from "@reduxjs/toolkit"
 import { StoryFn } from "@storybook/react"
 import { StateSchema, StoreProvider } from "app/providers/StoreProvider"
 import { profileReducer } from "entities/Profile"
@@ -8,7 +7,7 @@ import { ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicM
 
 const defaultAsyncReducers: ReducersList = {
   loginForm: loginReducer,
-  profile: profileReducer
+  profile: profileReducer,
 }
 
 type StoreDecorator = (

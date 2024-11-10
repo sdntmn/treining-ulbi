@@ -1,4 +1,4 @@
-import { memo, useCallback } from "react"
+import React, { memo, useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import { Select } from "shared/ui/Select/Select"
 
@@ -18,29 +18,31 @@ const options = [
   { value: Country.Russia, content: Country.Russia },
 ]
 
-export const CountrySelect = memo(function CurrencySelect({
-  value,
-  className,
-  isReadonly,
+export const CountrySelect: React.FC<CountrySelectProps> = memo(
+  function CurrencySelect({
+    value,
+    className,
+    isReadonly,
 
-  onChange,
-}: CountrySelectProps) {
-  const { t } = useTranslation("sharedComponents")
-  const onChangeHandler = useCallback(
-    (value: string) => {
-      onChange?.(value as Country)
-    },
-    [onChange]
-  )
+    onChange,
+  }: CountrySelectProps) {
+    const { t } = useTranslation("sharedComponents")
+    const onChangeHandler = useCallback(
+      (value: string) => {
+        onChange?.(value as Country)
+      },
+      [onChange]
+    )
 
-  return (
-    <Select
-      label={t("specifyCountry")}
-      className={className}
-      options={options}
-      value={value}
-      onChange={onChangeHandler}
-      isReadonly={isReadonly}
-    />
-  )
-})
+    return (
+      <Select
+        label={t("specifyCountry")}
+        className={className}
+        options={options}
+        value={value}
+        onChange={onChangeHandler}
+        isReadonly={isReadonly}
+      />
+    )
+  }
+)

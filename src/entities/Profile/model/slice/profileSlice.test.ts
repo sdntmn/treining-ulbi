@@ -1,12 +1,14 @@
 import {
   profileActions,
   profileReducer,
-  ProfileSchema,
   // updateProfileData,
   // ValidateProfileError,
-} from "entities/Profile"
-import avatar from "shared/assets/tests/avatar.jpg"
+} from "../slice/profileSlice"
+// import avatar from "shared/assets/tests/avatar.jpg"
 import { Country, Currency } from "shared/const/common"
+
+import { updateProfileData } from "../services/updateProfileData/updateProfileData"
+import { ProfileSchema, ValidateProfileError } from "../types/profile"
 
 const data = {
   first: "Денис",
@@ -16,7 +18,7 @@ const data = {
   country: Country.Russia,
   city: "Tyumen",
   username: "admin",
-  avatar: avatar,
+  // avatar: avatar,
 }
 
 describe("profileSlice.test", () => {
@@ -55,37 +57,37 @@ describe("profileSlice.test", () => {
     })
   })
 
-  // test("test update profile service pending", () => {
-  //   const state: DeepPartial<ProfileSchema> = {
-  //     isLoading: false,
-  //     validateErrors: [ValidateProfileError.SERVER_ERROR],
-  //   }
+  test("test update profile service pending", () => {
+    const state: DeepPartial<ProfileSchema> = {
+      isLoading: false,
+      validateErrors: [ValidateProfileError.SERVER_ERROR],
+    }
 
-  //   expect(
-  //     profileReducer(state as ProfileSchema, updateProfileData.pending)
-  //   ).toEqual({
-  //     isLoading: true,
-  //     validateErrors: undefined,
-  //   })
-  // })
+    expect(
+      profileReducer(state as ProfileSchema, { ...updateProfileData.pending })
+    ).toEqual({
+      isLoading: true,
+      validateErrors: undefined,
+    })
+  })
 
-  // test("test update profile service fullfiled", () => {
-  //   const state: DeepPartial<ProfileSchema> = {
-  //     isLoading: true,
-  //   }
+  test("test update profile service fullfiled", () => {
+    const state: DeepPartial<ProfileSchema> = {
+      isLoading: true,
+    }
 
-  //   expect(
-  //     profileReducer(
-  //       state as ProfileSchema,
-  //       updateProfileData.fulfilled(data, "")
-  //     )
-  //   ).toEqual({
-  //     isLoading: false,
-  //     validateErrors: undefined,
-  //     isReadonly: true,
-  //     validateError: undefined,
-  //     form: data,
-  //     data,
-  //   })
-  // })
+    expect(
+      profileReducer(
+        state as ProfileSchema,
+        updateProfileData.fulfilled(data, "")
+      )
+    ).toEqual({
+      isLoading: false,
+      validateErrors: undefined,
+      isReadonly: true,
+      validateError: undefined,
+      form: data,
+      data,
+    })
+  })
 })

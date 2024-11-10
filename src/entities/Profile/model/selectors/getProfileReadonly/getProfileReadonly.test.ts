@@ -1,17 +1,18 @@
-import { IStateSchema } from "1_app/providers/StoreProvider"
+import { StateSchema } from "app/providers/StoreProvider"
+
 import { getProfileReadonly } from "./getProfileReadonly"
 
 describe("getProfileReadonly.test", () => {
   test("should work with filled state", () => {
-    const state: DeepPartial<IStateSchema> = {
+    const state: DeepPartial<StateSchema> = {
       profile: {
         isReadonly: true,
       },
     }
-    expect(getProfileReadonly(state as IStateSchema)).toEqual(true)
+    expect(getProfileReadonly(state as StateSchema)).toEqual(true)
   })
   test("should work with empty state", () => {
-    const state: DeepPartial<IStateSchema> = {}
-    expect(getProfileReadonly(state as IStateSchema)).toEqual(undefined)
+    const state: DeepPartial<StateSchema> = {}
+    expect(getProfileReadonly(state as StateSchema)).toEqual(undefined)
   })
 })

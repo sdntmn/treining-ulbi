@@ -1,10 +1,9 @@
 import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk"
-import avatar from "shared/assets/tests/avatar.jpg"
+// import avatar from "shared/assets/tests/avatar.jpg"
 
-import { Country } from "entities/Country"
-import { Currency } from "entities/Currency"
-import { ValidateProfileError } from "entities/Profile"
+import { Country, Currency } from "shared/const/common"
 
+import { ValidateProfileError } from "../../types/profile"
 import { updateProfileData } from "./updateProfileData"
 
 const data = {
@@ -15,7 +14,7 @@ const data = {
   country: Country.Russia,
   city: "Tyumen",
   username: "admin",
-  avatar: avatar,
+  // avatar: avatar,
   id: "1",
 }
 

@@ -8,7 +8,7 @@ import {
   ProfileCard,
   ValidateProfileError,
 } from "entities/Profile"
-import { FC, useCallback } from "react"
+import React, { useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
 import { Currency, Country } from "shared/const/common"
@@ -22,7 +22,7 @@ export interface CardEditingProfileProps {
   className?: string
 }
 
-export const CardEditingProfile: FC<CardEditingProfileProps> = ({
+export const CardEditingProfile: React.FC<CardEditingProfileProps> = ({
   className,
 }: CardEditingProfileProps) => {
   const dispatch = useAppDispatch()

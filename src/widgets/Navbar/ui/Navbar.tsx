@@ -62,10 +62,7 @@ export const Navbar: React.FC<NavbarProps> = memo(function Navbar({
         {t("login")}
       </Button>
       {isAuthModal && (
-        <LoginModal
-          isOpen={isAuthModal}
-          onClose={onCloseModalAuth}
-        ></LoginModal>
+        <LoginModal isOpen={isAuthModal} onClose={onCloseModalAuth} />
       )}
     </div>
   )

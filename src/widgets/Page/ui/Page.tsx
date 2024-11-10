@@ -1,4 +1,4 @@
-import { MutableRefObject, ReactNode, useRef } from "react"
+import React, { MutableRefObject, ReactNode, useRef } from "react"
 import { cn } from "shared/lib/classNames/classNames"
 
 import "./Page.module.scss"

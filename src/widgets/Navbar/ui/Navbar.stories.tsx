@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
-// import { StoreDecorator } from "shared/config/storybook/StoreDecorator/StoreDecorator"
-
+import { RouterDecorator } from "shared/config/storybook/RouterDecorator/RouterDecorator"
 import { StoreDecorator } from "shared/config/storybook/StoreDecorator/StoreDecorator"
 
 import { Navbar } from "./Navbar"
@@ -37,9 +36,9 @@ const initialStateAuth = {
 }
 
 export const Primary: Story = {
-  decorators: [StoreDecorator(initialState)],
+  decorators: [StoreDecorator(initialState), RouterDecorator()],
 }
 
 export const Auth: Story = {
-  decorators: [StoreDecorator(initialStateAuth)],
+  decorators: [StoreDecorator(initialStateAuth), RouterDecorator()],
 }

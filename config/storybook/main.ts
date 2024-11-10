@@ -24,6 +24,19 @@ const config: StorybookConfig = {
     backgroundsStoryGlobals: true,
   },
   staticDirs: ["../../public"],
+  babel: async (options) => ({
+    ...options,
+    presets: [
+      ...options.presets,
+      [
+        "@babel/preset-react",
+        {
+          runtime: "automatic",
+        },
+        "preset-react-jsx-transform",
+      ],
+    ],
+  }),
 }
 
 export default config

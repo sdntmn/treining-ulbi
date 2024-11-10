@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
-import AvatarImg from "../../assets/avatar.jpg"
+import AvatarImg from "../../assets/tests/avatar.jpg"
 import { Avatar } from "./Avatar"
 
 const meta = {
@@ -15,6 +15,7 @@ type Story = StoryObj<typeof meta>
 export const Primary: Story = {
   args: {
     size: 50,
+    alt: "аватар",
     src: AvatarImg,
   },
 }

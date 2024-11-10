@@ -113,7 +113,8 @@
   },
   "globals": {
     "__IS_DEV__": true,
-    "__IS__API__": true
+    "__IS__API__": true,
+    "__PROJECT__": true
   },
   "overrides": [
     {

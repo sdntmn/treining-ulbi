@@ -1,5 +1,6 @@
 import { CountrySelect } from "entities/Country"
 import { CurrencySelect } from "entities/Currency"
+import React from "react"
 import { useTranslation } from "react-i18next"
 import { Country, Currency } from "shared/const/common"
 import { cn } from "shared/lib/classNames/classNames"
@@ -32,7 +33,9 @@ interface ProfileCardProps {
   onChangeAge?: (value?: string) => void
 }
 
-export const ProfileCard = (props: ProfileCardProps) => {
+export const ProfileCard: React.FC<ProfileCardProps> = (
+  props: ProfileCardProps
+) => {
   const {
     isReadonly,
     isLoading,

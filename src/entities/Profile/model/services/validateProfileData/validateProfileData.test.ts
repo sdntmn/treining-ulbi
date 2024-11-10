@@ -1,7 +1,7 @@
-import avatar from "shared/assets/tests/avatar.jpg"
-import { Country } from "entities/Country"
-import { Currency } from "entities/Currency"
-import { ValidateProfileError } from "entities/Profile"
+// import avatar from "shared/assets/tests/avatar.jpg"
+import { Country, Currency } from "shared/const/common"
+
+import { ValidateProfileError } from "../../types/profile"
 import { validateProfileData } from "./validateProfileData"
 
 const data = {
@@ -12,7 +12,7 @@ const data = {
   country: Country.Russia,
   city: "Tyumen",
   username: "admin",
-  avatar: avatar,
+  // avatar: avatar,
 }
 
 describe("validateProfileData.test", () => {

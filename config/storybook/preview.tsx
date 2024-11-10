@@ -1,5 +1,5 @@
 import { Preview } from "@storybook/react"
-import React, { useEffect, Suspense } from "react"
+import * as React from "react"
 import { I18nextProvider } from "react-i18next"
 
 import i18n from "../../src/shared/config/i18n/i18n"
@@ -67,13 +67,13 @@ const preview: Preview = {
         alignItems: "center",
       }
 
-      useEffect(() => {
+      React.useEffect(() => {
         i18n.changeLanguage(locale)
       }, [locale])
 
       return (
         <ThemeProvider initialTheme={theme}>
-          <Suspense fallback={<div>loading translations...</div>}>
+          <React.Suspense fallback={<div>loading translations...</div>}>
             <I18nextProvider i18n={i18n}>
               <div
                 style={{
@@ -85,7 +85,7 @@ const preview: Preview = {
                 <Story />
               </div>
             </I18nextProvider>
-          </Suspense>
+          </React.Suspense>
         </ThemeProvider>
       )
     },

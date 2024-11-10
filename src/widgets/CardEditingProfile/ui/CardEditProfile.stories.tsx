@@ -1,46 +1,33 @@
-import { BrowserRouter } from "react-router-dom"
-import { ComponentStory, ComponentMeta } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/react/*"
+import { RouterDecorator } from "shared/config/storybook/RouterDecorator/RouterDecorator"
+import { StoreDecorator } from "shared/config/storybook/StoreDecorator/StoreDecorator"
 
 import { CardEditingProfile } from "./CardEditingProfile"
-import { Country } from "entities/Country"
-import { Currency } from "entities/Currency"
-import { StoreDecorator } from "shared/config/storybook/StoreDecorator/StoreDecorator"
-import avatar from "shared/assets/tests/avatar.jpg"
 
-export default {
+const meta = {
   title: "widgets/CardEditingProfile",
   component: CardEditingProfile,
-  argTypes: {
-    backgroundColor: { control: "color" },
+} satisfies Meta<typeof CardEditingProfile>
+
+export default meta
+
+type Story = StoryObj<typeof meta>
+
+const initialState = {
+  loginForm: {
+    username: "admin",
+    password: "123",
+    isLoading: false,
   },
-  decorators: [
-    (Story) => (
-      <BrowserRouter>
-        <Story />
-      </BrowserRouter>
-    ),
-  ],
-} as ComponentMeta<typeof CardEditingProfile>
+}
 
-const Template: ComponentStory<typeof CardEditingProfile> = (args) => (
-  <CardEditingProfile {...args} />
-)
+export const Primary: Story = {
+  args: {},
+  decorators: [StoreDecorator(initialState), RouterDecorator()],
+}
 
-export const Normal = Template.bind({})
-Normal.args = {}
-Normal.decorators = [
-  StoreDecorator({
-    profile: {
-      form: {
-        first: "Денис",
-        lastName: "Сорокин",
-        age: 46,
-        currency: Currency.RUB,
-        country: Country.Russia,
-        city: "Tyumen",
-        username: "admin",
-        avatar: avatar,
-      },
-    },
-  }),
-]
+// export const PorfilewithError: Story = {
+//   args: {
+//     error: "error",
+//   },
+// }

@@ -1,26 +1,24 @@
-import avatar from "shared/assets/tests/avatar.jpg"
+import { Country, Currency } from "shared/const/common"
+// import avatar from "shared/assets/tests/avatar.jpg"
 import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk"
-
-import { Country } from "entities/Country"
-import { Currency } from "entities/Currency"
 
 import { fetchProfileData } from "./fetchProfileData"
 
-const data = {
-  first: "Денис",
-  lastName: "Сорокин",
-  age: 46,
-  currency: Currency.RUB,
-  country: Country.Russia,
-  city: "Tyumen",
-  username: "admin",
-  avatar: avatar,
-}
-
 describe("fetchProfileData.test", () => {
+  const data = {
+    first: "Денис",
+    lastName: "Сорокин",
+    age: 46,
+    currency: Currency.RUB,
+    country: Country.Russia,
+    city: "Tyumen",
+    username: "admin",
+    // avatar: avatar,
+  }
+
   test("success", async () => {
     const thunk = new TestAsyncThunk(fetchProfileData)
-    thunk.api.get.mockReturnValue(Promise.resolve({ data }))
+    thunk.api.get.mockReturnValue(Promise.resolve({ data: data }))
 
     const result = await thunk.callThunk("1")
 

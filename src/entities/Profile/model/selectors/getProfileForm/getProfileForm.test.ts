@@ -1,9 +1,8 @@
-import { IStateSchema } from "1_app/providers/StoreProvider"
+import { StateSchema } from "app/providers/StoreProvider"
 
-import { Country } from "entities/Country"
-import { Currency } from "entities/Currency"
+import { Country } from "../../../../Country/model/types/country"
+import { Currency } from "../../../../Currency/model/types/currency"
 import { getProfileForm } from "./getProfileForm"
-import avatar from "shared/assets/tests/avatar.jpg"
 
 describe("getProfileForm.test", () => {
   test("should return error", () => {
@@ -15,17 +14,16 @@ describe("getProfileForm.test", () => {
       country: Country.Russia,
       city: "Tyumen",
       username: "admin",
-      avatar: avatar,
     }
-    const state: DeepPartial<IStateSchema> = {
+    const state: DeepPartial<StateSchema> = {
       profile: {
         form: data,
       },
     }
-    expect(getProfileForm(state as IStateSchema)).toEqual(data)
+    expect(getProfileForm(state as StateSchema)).toEqual(data)
   })
   test("should work with empty state", () => {
-    const state: DeepPartial<IStateSchema> = {}
-    expect(getProfileForm(state as IStateSchema)).toEqual(undefined)
+    const state: DeepPartial<StateSchema> = {}
+    expect(getProfileForm(state as StateSchema)).toEqual(undefined)
   })
 })

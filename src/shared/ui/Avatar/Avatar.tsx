@@ -1,4 +1,4 @@
-import { CSSProperties, useMemo } from "react"
+import React, { CSSProperties, useMemo } from "react"
 import { cn } from "shared/lib/classNames/classNames"
 
 import "./Avatar.module.scss"

@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
+import { Currency } from "entities/Currency"
+
 import { CurrencySelect } from "./CurrencySelect"
 
 const meta = {
@@ -12,5 +14,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
-  args: {},
+  args: {
+    value: Currency.RUB,
+  },
 }
