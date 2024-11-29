@@ -14,23 +14,31 @@ export const loginByUsername = createAsyncThunk<
   User,
   LoginByUsernameProps,
   ThunkConfig<string>
->("login/loginByUsername", async (authData: LoginByUsernameProps, thunkAPI) => {
-  const { extra, dispatch, rejectWithValue } = thunkAPI
-  try {
-    const response = await extra.api.post<User>("/login", authData)
+>(
+  "login/loginByUsername",
+  async ({ username, password }: LoginByUsernameProps, thunkAPI) => {
+    const { extra, dispatch, rejectWithValue } = thunkAPI
+    try {
+      const response = await extra.api.post<User>("/login", {
+        username,
+        password,
+      })
 
-    if (!response.data) {
-      throw new Error()
+      if (!response.data) {
+        throw new Error()
+      }
+
+      localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data))
+      dispatch(userActions.setAuthData(response.data))
+
+      if (extra.navigate) {
+        extra.navigate("/")
+      }
+
+      return response.data
+    } catch (e) {
+      console.log(e)
+      return rejectWithValue(i18n.t("errorFormAuth"))
     }
-
-    localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data))
-    dispatch(userActions.setAuthData(response.data))
-
-    extra.navigate("/")
-
-    return response.data
-  } catch (e) {
-    console.log(e)
-    return rejectWithValue(i18n.t("errorFormAuth"))
   }
-})
+)

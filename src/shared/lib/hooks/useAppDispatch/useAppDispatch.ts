@@ -1,4 +1,4 @@
-import { AppDispatch } from "app/providers/StoreProvider/configStore/store"
+import { AppDispatch } from "app/providers/StoreProvider"
 import { useDispatch } from "react-redux"
 
 // для получения возвращаемых типов

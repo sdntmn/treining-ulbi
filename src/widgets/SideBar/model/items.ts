@@ -1,7 +1,8 @@
 import AboutPageIcon from "shared/assets/icons/about-page.svg"
+import ArticleIcon from "shared/assets/icons/article.svg"
 import MainPageIcon from "shared/assets/icons/main-page.svg"
 import ProfilePageIcon from "shared/assets/icons/profile-page.svg"
-import { RouterPath } from "shared/config/routerConfig/routerConfig"
+import { RoutePath } from "shared/config/routerConfig/routerConfig"
 import { RouteNames } from "shared/config/routerConfig/routerConfig"
 
 export interface SidebarItemType {
@@ -12,10 +13,11 @@ export interface SidebarItemType {
 }
 
 export const SidebarItemsList: SidebarItemType[] = [
-  { path: RouterPath[RouteNames.MAIN], text: "Главная", Icon: MainPageIcon },
-  { path: RouterPath[RouteNames.ABOUT], text: "О сайте", Icon: AboutPageIcon },
+  { path: RoutePath[RouteNames.MAIN], text: "Главная", Icon: MainPageIcon },
+  { path: RoutePath[RouteNames.ABOUT], text: "О сайте", Icon: AboutPageIcon },
+  { path: RoutePath[RouteNames.ARTICLES], text: "Статьи", Icon: ArticleIcon },
   {
-    path: RouterPath[RouteNames.PROFILE],
+    path: RoutePath[RouteNames.PROFILE],
     text: "Профиль",
     Icon: ProfilePageIcon,
   },

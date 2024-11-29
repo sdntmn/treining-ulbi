@@ -13,7 +13,23 @@ interface UseThemeHook {
 export function useTheme(): UseThemeHook {
   const { theme, setTheme } = useContext(ThemeContext)
   const toggleTheme = () => {
-    const newTheme = theme === Theme.default ? Theme.dark : Theme.default
+    let newTheme: Theme = Theme.default
+
+    switch (theme) {
+    case Theme.default:
+      newTheme = Theme.dark
+      break
+
+    case Theme.dark:
+      newTheme = Theme.custom
+      break
+
+    case Theme.custom:
+      newTheme = Theme.default
+        break
+    default:
+      newTheme = Theme.default
+    }
     setTheme?.(newTheme)
     localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme)
   }

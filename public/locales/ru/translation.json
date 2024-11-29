@@ -6,5 +6,6 @@
   "navLinkAbout": "О нас",
   "navLinkMain": "Главная страница",
   "errorPage": "Произошла непредвиденная ошибка",
-  "refreshPage": "Обновить страница"
+  "refreshPage": "Обновить страница",
+  "errorNoData": "Нет данных"
 }

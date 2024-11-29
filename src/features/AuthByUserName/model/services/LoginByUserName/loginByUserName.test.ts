@@ -1,10 +1,10 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Dispatch } from "@reduxjs/toolkit"
 import { StateSchema } from "app/providers/StoreProvider"
 import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk"
 
 import { userActions } from "../../../../../entities/User"
 import { loginByUsername } from "./loginByUserName"
-
 
 describe("Тест loginByUserName", () => {
   let dispatch: Dispatch
@@ -20,7 +20,9 @@ describe("Тест loginByUserName", () => {
   test("Успешный запрос ввода пароля и логина", async () => {
     thunk.api.post.mockReturnValue(Promise.resolve({ data: userValue }))
     const result = await thunk.callThunk({ username: "123", password: "123" })
-    expect(thunk.dispatch).toHaveBeenCalledWith(userActions.setAuthData(userValue))
+    expect(thunk.dispatch).toHaveBeenCalledWith(
+      userActions.setAuthData(userValue)
+    )
     expect(thunk.dispatch).toHaveBeenCalledTimes(3) // количество вызовов диспатч
     expect(thunk.api.post).toHaveBeenCalled()
     expect(result.meta.requestStatus).toBe("fulfilled")

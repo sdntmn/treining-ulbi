@@ -6,5 +6,6 @@
   "navLinkAbout": "About us",
   "navLinkMain": "Main page",
   "errorPage": "There was an unforeseen error",
-  "refreshPage": "Upload page"
+  "refreshPage": "Upload page",
+  "errorNoData": "No data"
 }

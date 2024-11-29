@@ -1,18 +1,13 @@
-import {
-  Action,
-  EnhancedStore,
-  Reducer,
-  ReducersMapObject,
-} from "@reduxjs/toolkit"
-// import { ArticleDetailsCommentsSchema } from "3_pages/ArticlesDetailsPage"
-// import { ArticlesPageSchema } from "3_pages/ArticlesPage"
-// import { AddCommentFormSchema } from "5_features/AddCommentForm"
+import { Action, EnhancedStore, ReducersMapObject } from "@reduxjs/toolkit"
+import { ArticlesPageSchema } from "pages/ArticlesPage"
 // import { ScrollPageSchema } from "5_features/ScrollPage"
 import { AxiosInstance } from "axios"
-// import { IArticleDetailsSchema } from "entities/Article"
+import { ArticleDetailsSchema } from "entities/Article"
 import { ProfileSchema } from "entities/Profile"
 import { UserSchema } from "entities/User"
+import { AddCommentFormSchema } from "features/AddCommentForm"
 import { LoginSchema } from "features/AuthByUserName/model/types/LoginSchema"
+import { ArticleDetailsCommentsSchema } from "pages/ArticlesDetailsPage"
 import { NavigateOptions, To } from "react-router-dom"
 
 export interface StateSchema {
@@ -22,26 +17,26 @@ export interface StateSchema {
   // // Асинхронные редюсеры
   loginForm?: LoginSchema
   profile?: ProfileSchema
-  // articleDetails?: IArticleDetailsSchema
-  // articleDetailsComments?: ArticleDetailsCommentsSchema
-  // addCommentForm?: AddCommentFormSchema
-  // articlesPage?: ArticlesPageSchema
+  articleDetails?: ArticleDetailsSchema
+  articleDetailsComments?: ArticleDetailsCommentsSchema
+  addCommentForm?: AddCommentFormSchema
+  articlesPage?: ArticlesPageSchema
 }
 
-type ReducedState = {
-  user: UserSchema
-  loginForm?: LoginSchema | undefined
-  profile?: ProfileSchema | undefined
-}
+// type ReducedState = {
+//   user: UserSchema
+//   loginForm?: LoginSchema
+//   profile?: ProfileSchema
+// }
 
 export type StateSchemaKey = keyof StateSchema
-export type MountedReducers = Record<StateSchemaKey, boolean>
+// export type MountedReducers = Record<StateSchemaKey, boolean>
 
 export interface ReducerManager {
   getReducerMap: () => ReducersMapObject<StateSchema>
-  reduce: (state: StateSchema, action: Action) => ReducedState
-  // add: (key: StateSchemaKey, reducer: Reducer) => void
-  add: (key: StateSchemaKey, reducer: Reducer) => void
+  reduce: (state: StateSchema, action: Action) => StateSchema
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  add: (key: StateSchemaKey, reducer: any) => void
   remove: (key: StateSchemaKey) => void
 }
 

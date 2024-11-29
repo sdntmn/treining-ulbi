@@ -2,6 +2,7 @@ import {
   getProfileData,
   getProfileReadonly,
   profileActions,
+  updateProfileData,
 } from "entities/Profile"
 import { getUserAuthData } from "entities/User"
 import React, { useCallback } from "react"
@@ -27,6 +28,7 @@ export const HeaderProfilePage: React.FC<HeaderProfilePageProps> = ({
   const authData = useSelector(getUserAuthData)
   const profileData = useSelector(getProfileData)
   const canEdit = authData?.id === profileData?.id
+
   console.info(profileData?.id)
   console.info(authData?.id)
 
@@ -38,9 +40,9 @@ export const HeaderProfilePage: React.FC<HeaderProfilePageProps> = ({
     dispatch(profileActions.cancelEdit())
   }, [dispatch])
 
-  // const onSave = useCallback(() => {
-  //   dispatch(updateProfileData())
-  // }, [dispatch])
+  const onSave = useCallback(() => {
+    dispatch(updateProfileData())
+  }, [dispatch])
 
   return (
     <div className={cn("header-profile-page", [className])}>
@@ -67,7 +69,7 @@ export const HeaderProfilePage: React.FC<HeaderProfilePageProps> = ({
               <Button
                 className={"header-profile-page__btn"}
                 buttonVar={ButtonVar.OUTLINE}
-                // onClick={onSave}
+                onClick={onSave}
               >
                 {t("btnProfileSave")}
               </Button>

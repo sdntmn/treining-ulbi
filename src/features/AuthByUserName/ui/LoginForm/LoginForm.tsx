@@ -1,5 +1,4 @@
 /* eslint-disable max-len */
-import { useAppDispatch } from "app/providers/StoreProvider/configStore/store"
 import { getLoginError } from "features/AuthByUserName/model/selectors/getLoginError/getLoginError"
 import React, { memo, useCallback } from "react"
 import { useTranslation } from "react-i18next"
@@ -9,6 +8,7 @@ import {
   DynamicModuleLoader,
   ReducersList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
 import { Button, ButtonVar } from "shared/ui/Button/Button"
 import { Input } from "shared/ui/Input/Input"
 import { TextParagraf, TextVar } from "shared/ui/TextParagraf/TextParagraf"

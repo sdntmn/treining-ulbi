@@ -1,5 +1,3 @@
-import { CountrySelect } from "entities/Country"
-import { CurrencySelect } from "entities/Currency"
 import React from "react"
 import { useTranslation } from "react-i18next"
 import { Country, Currency } from "shared/const/common"
@@ -13,6 +11,8 @@ import {
   TextVar,
 } from "shared/ui/TextParagraf/TextParagraf"
 
+import { CountrySelect } from "../../../Country"
+import { CurrencySelect } from "../../../Currency"
 import { Profile } from "../../model/types/profile"
 
 import "./ProfileCard.module.scss"

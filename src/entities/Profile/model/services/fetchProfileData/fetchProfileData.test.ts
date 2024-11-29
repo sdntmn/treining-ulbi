@@ -1,5 +1,4 @@
 import { Country, Currency } from "shared/const/common"
-// import avatar from "shared/assets/tests/avatar.jpg"
 import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk"
 
 import { fetchProfileData } from "./fetchProfileData"
@@ -13,7 +12,6 @@ describe("fetchProfileData.test", () => {
     country: Country.Russia,
     city: "Tyumen",
     username: "admin",
-    // avatar: avatar,
   }
 
   test("success", async () => {

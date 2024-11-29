@@ -5,6 +5,8 @@ import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer"
 
 import { type BuildOptions } from "./types/config"
 
+import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin"
+
 export function buildPlugins({
   paths,
   isDev,
@@ -35,6 +37,7 @@ export function buildPlugins({
     plugins.push(
       new BundleAnalyzerPlugin({ openAnalyzer: false, analyzerPort: 8890 })
     )
+    plugins.push(new ReactRefreshWebpackPlugin())
   }
   return plugins
 }

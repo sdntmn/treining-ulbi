@@ -1,26 +1,17 @@
-// import { useAppDispatch } from "app/providers/StoreProvider/configStore/store"
-import {
-  fetchProfileData,
-  // getProfileData,
-  // getProfileForm,
-  // Profile,
-  profileReducer,
-} from "entities/Profile"
+import { fetchProfileData, profileReducer } from "entities/Profile"
 import { HeaderProfilePage } from "features/HeaderProfilePage"
-import React, { useEffect } from "react"
-// import { useSelector } from "react-redux"
-// import { useParams } from "react-router-dom"
-// import { useParams } from "react-router-dom"
+import React from "react"
+import { useParams } from "react-router-dom"
 import { cn } from "shared/lib/classNames/classNames"
 import {
   DynamicModuleLoader,
   ReducersList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
+import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect"
 import { CardEditingProfile } from "widgets/CardEditingProfile"
 import { Page } from "widgets/Page/ui/Page"
 
-// import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect"
 import "./ProfilePage.module.scss"
 
 const reducers: ReducersList = {
@@ -36,19 +27,13 @@ const ProfilePage: React.FC<ProfilePageProps> = ({
 }: ProfilePageProps) => {
   const dispatch = useAppDispatch()
 
-  // const { id } = useParams<{ id: string }>()
+  const { id } = useParams<{ id: string }>()
 
-  // useInitialEffect(() => {
-  //   if (id) {
-  //     dispatch(fetchProfileData(id))
-  //   }
-  // })
-
-  useEffect(() => {
-    if (__PROJECT__ !== "storybook") {
-      dispatch(fetchProfileData())
+  useInitialEffect(() => {
+    if (id) {
+      dispatch(fetchProfileData(id))
     }
-  }, [dispatch])
+  })
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>

@@ -18,12 +18,11 @@ export const StoreProvider: React.FC<StoreProviderProps> = (
 ) => {
   const { children, initialState, asyncReducers } = props
 
-  const navigate = useNavigate() //  порождает баги
+  // const navigate = useNavigate() //  порождает баги
 
   const store = createReduxStore(
     initialState as StateSchema,
     asyncReducers as ReducersMapObject<StateSchema>,
-    navigate
   )
 
   return <Provider store={store}>{children}</Provider>
