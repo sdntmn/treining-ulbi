@@ -23,7 +23,7 @@ describe("Тест loginByUserName", () => {
     expect(thunk.dispatch).toHaveBeenCalledWith(
       userActions.setAuthData(userValue)
     )
-    expect(thunk.dispatch).toHaveBeenCalledTimes(3) // количество вызовов диспатч
+    expect(thunk.dispatch).toHaveBeenCalledTimes(3) // количество вызовов dispatch
     expect(thunk.api.post).toHaveBeenCalled()
     expect(result.meta.requestStatus).toBe("fulfilled")
     expect(result.payload).toEqual(userValue)
@@ -34,7 +34,7 @@ describe("Тест loginByUserName", () => {
   //   const action = loginByUsername({ username: "123", password: "123" })
   //   const result = await action(dispatch, getState, undefined)
   //   expect(mockedAxios.post).toHaveBeenCalled()
-  //   expect(dispatch).toHaveBeenCalledTimes(2) // количество вызовов диспатч
+  //   expect(dispatch).toHaveBeenCalledTimes(2) // количество вызовов dispatch
   //   expect(result.meta.requestStatus).toBe("rejected")
   //   expect(result.payload).toBe("Вы ввели неверный логин или пароль")
   // })

@@ -1,4 +1,4 @@
-import { memo } from "react"
+import React, { memo } from "react"
 import TiledIcon from "shared/assets/icons/card.svg"
 import ListIcon from "shared/assets/icons/list.svg"
 import { cn } from "shared/lib/classNames/classNames"
@@ -26,28 +26,28 @@ const viewTypes = [
   },
 ]
 
-export const ArticleViewSelector = memo(function ArticleViewSelector(
-  props: ArticleViewSelectorProps
-) {
-  const { className, onViewClick } = props
+export const ArticleViewSelector: React.FC<ArticleViewSelectorProps> = memo(
+  function ArticleViewSelector(props: ArticleViewSelectorProps) {
+    const { className, onViewClick } = props
 
-  const onClick = (newView: ArticleViewType) => () => {
-    onViewClick?.(newView)
+    const onClick = (newView: ArticleViewType) => () => {
+      onViewClick?.(newView)
+    }
+
+    return (
+      <div className={cn("article-view-selector", [className])}>
+        {viewTypes.map((viewType) => {
+          return (
+            <Button
+              key={viewType.view}
+              buttonVar={ButtonVar.CLEAR}
+              onClick={onClick(viewType.view)}
+            >
+              <Icon Svg={viewType.icon} className={cn("", [])} />
+            </Button>
+          )
+        })}
+      </div>
+    )
   }
-
-  return (
-    <div className={cn("article-view-selector", [className])}>
-      {viewTypes.map((viewType) => {
-        return (
-          <Button
-            key={viewType.view}
-            buttonVar={ButtonVar.CLEAR}
-            onClick={onClick(viewType.view)}
-          >
-            <Icon Svg={viewType.icon} className={cn("", [])} />
-          </Button>
-        )
-      })}
-    </div>
-  )
-})
+)

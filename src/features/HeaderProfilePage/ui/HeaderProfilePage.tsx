@@ -29,9 +29,6 @@ export const HeaderProfilePage: React.FC<HeaderProfilePageProps> = ({
   const profileData = useSelector(getProfileData)
   const canEdit = authData?.id === profileData?.id
 
-  console.info(profileData?.id)
-  console.info(authData?.id)
-
   const onEdit = useCallback(() => {
     dispatch(profileActions.setReadonly(false))
   }, [dispatch])

@@ -1,4 +1,4 @@
-import { memo } from "react"
+import React, { memo } from "react"
 import { RoutePath } from "shared/config/routerConfig/routerConfig"
 import { cn } from "shared/lib/classNames/classNames"
 import { AppLink } from "shared/ui/AppLink/AppLink"
@@ -16,48 +16,55 @@ interface CommentCardProps {
   isLoading?: boolean
 }
 
-export const CommentCard = memo(function CommentCard(props: CommentCardProps) {
-  const { className, comment, isLoading } = props
+export const CommentCard: React.FC<CommentCardProps> = memo(
+  function CommentCard(props: CommentCardProps) {
+    const { className, comment, isLoading } = props
 
-  if (isLoading) {
+    if (isLoading) {
+      return (
+        <div
+          className={cn("comment-card", [
+            className,
+            isLoading && "comment-card__loading",
+          ])}
+        >
+          <div className="comment-card__header">
+            <Skeleton width={30} height={30} border="50%" />
+
+            <Skeleton
+              height={16}
+              width={100}
+              className="comment-card__username"
+            />
+          </div>
+
+          <Skeleton className="comment-card__text" width="100%" height={50} />
+        </div>
+      )
+    }
+
+    if (!comment) {
+      return null
+    }
+
     return (
       <div className={cn("comment-card", [className])}>
-        <div className="comment-card__header">
-          <Skeleton width={30} height={30} border="50%" />
+        <AppLink
+          to={`${RoutePath.profile}${comment.user.id}`}
+          className="comment-card__header"
+        >
+          {comment?.user.avatar ? (
+            <Avatar size={30} src={comment.user.avatar} />
+          ) : null}
 
-          <Skeleton
-            height={16}
-            width={100}
+          <TextParagraf
             className="comment-card__username"
+            title={comment?.user.username}
           />
-        </div>
+        </AppLink>
 
-        <Skeleton className="comment-card__text" width="100%" height={50} />
+        <TextParagraf className="comment-card__text" text={comment?.text} />
       </div>
     )
   }
-
-  if (!comment) {
-    return null
-  }
-
-  return (
-    <div className={cn("comment-card", [className])}>
-      <AppLink
-        to={`${RoutePath.profile}${comment.user.id}`}
-        className="comment-card__header"
-      >
-        {comment?.user.avatar ? (
-          <Avatar size={30} src={comment.user.avatar} />
-        ) : null}
-
-        <TextParagraf
-          className="comment-card__username"
-          title={comment?.user.username}
-        />
-      </AppLink>
-
-      <TextParagraf className="comment-card__text" text={comment?.text} />
-    </div>
-  )
-})
+)

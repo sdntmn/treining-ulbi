@@ -11,18 +11,6 @@ describe("cn", () => {
     const result = cn("cls", additional)
     expect(result).toBe("cls addClass1 addClass2")
   })
-
-  it("включает mods с булевым значениями true и false", () => {
-    const result = cn("cls", [])
-    expect(result).toBe("cls mod1")
-  })
-
-  it("включает несколько mods и дополнительные классы", () => {
-    const additional = ["addClass1", "addClass2"]
-    const result = cn("cls", additional)
-    expect(result).toBe("cls addClass1 addClass2 mod1")
-  })
-
   it("обрабатывает крайний случай: пустой cls", () => {
     const result = cn("")
     expect(result).toBe("")

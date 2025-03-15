@@ -39,8 +39,6 @@ export const TextParagraf: React.FC<TextParagrafProps> = memo(
       size = TextSize.M,
     } = props
 
-    console.log(textVar)
-
     return (
       <div
         className={cn("paragraf", [

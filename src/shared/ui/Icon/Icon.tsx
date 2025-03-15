@@ -5,10 +5,10 @@ import "./Icon.module.scss"
 
 interface IconProps {
   className?: string
-  Svg: React.VFC<React.SVGProps<SVGSVGElement>>
+  Svg: React.FC<React.SVGProps<SVGSVGElement>>
 }
 
-export const Icon = memo(function Icon(props: IconProps) {
+export const Icon: React.FC<IconProps> = memo(function Icon(props: IconProps) {
   const { className, Svg } = props
 
   return <Svg className={cn("icon", [className])} />

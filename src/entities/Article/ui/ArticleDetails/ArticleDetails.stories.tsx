@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 /* eslint-disable max-len */
 import type { Meta, StoryObj } from "@storybook/react"
 
@@ -60,13 +61,20 @@ const article: Article = {
 }
 
 export const Primary: Story = {
-  args: {},
+  args: { id: "1" },
+  decorators: [
+    StoreDecorator({
+      articleDetails: {
+        data: article,
+      },
+    }),
+  ],
 }
 
-Primary.decorators = [
-  StoreDecorator({
-    articleDetails: {
-      data: article,
-    },
-  }),
-]
+// Primary.decorators = [
+//   StoreDecorator({
+//     articleDetails: {
+//       data: article,
+//     },
+//   }),
+// ]

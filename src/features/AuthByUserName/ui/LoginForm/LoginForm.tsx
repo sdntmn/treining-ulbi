@@ -43,6 +43,8 @@ const LoginForm: React.FC<LoginFormProps> = memo(function LoginForm({
   const error = useSelector(getLoginError)
   const isLoading = useSelector(getLoginIsLoading)
 
+  // DEVTOOLS?.log('username', username)
+
   const onChangeUserName = useCallback(
     (value: string) => {
       dispatch(loginActions.setUserName(value))

@@ -32,7 +32,6 @@ export const CardEditingProfile: React.FC<CardEditingProfileProps> = ({
   const error = useSelector(getProfileError)
   const isReadonly = useSelector(getProfileReadonly)
   const validateErrors = useSelector(getProfileValidateErrors)
-
   const validateErrorTranslates = {
     [ValidateProfileError.SERVER_ERROR]: t("errorEditProfileServer"),
     [ValidateProfileError.INCORRECT_AGE]: t("errorEditProfileAge"),

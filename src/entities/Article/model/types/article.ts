@@ -40,11 +40,12 @@ export enum ArticleType {
   IT = "IT",
   SCIENCE = "SCIENCE",
   ECONOMICS = "ECONOMICS",
+  POLITICS = "POLITICS",
 }
 
 export enum ArticleViewType {
-  CARD = "CARD",
-  LIST = "LIST",
+  CARD = "card",
+  LIST = "list",
 }
 
 export interface Article {

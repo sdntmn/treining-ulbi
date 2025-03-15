@@ -59,7 +59,7 @@ const preview: Preview = {
       const { locale, theme, position = "center" } = context.globals
       const element = document.getElementById("storybook-root")
       if (element) {
-        element.style.padding = "0"
+        element.style.background = theme === "dark" ? "#fcfcfc" : "#F4F7FB"
       }
       const centerPosition = {
         display: "flex",
@@ -77,10 +77,9 @@ const preview: Preview = {
             <I18nextProvider i18n={i18n}>
               <div
                 style={{
-                  width: "100vw",
                   ...(position === "center" ? centerPosition : {}),
                 }}
-                className={`app ${theme === "dark" ? "app-dark-theme" : ""}`}
+                className={`app ${theme === "dark" ? "app-dark-theme" : "app-custom-theme"}`}
               >
                 <Story />
               </div>

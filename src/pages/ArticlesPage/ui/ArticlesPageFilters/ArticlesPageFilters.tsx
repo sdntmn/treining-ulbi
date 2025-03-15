@@ -1,19 +1,14 @@
 import { ArticleViewSelector } from "entities/Article"
-import {
-  ArticleType,
-  ArticleViewType,
-} from "entities/Article/model/types/article"
-import { memo, useCallback, useMemo } from "react"
+import { ArticleViewType } from "entities/Article/model/types/article"
+import React, { memo, useCallback } from "react"
 import { useSelector } from "react-redux"
 import { cn } from "shared/lib/classNames/classNames"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
-import { SortOrder } from "shared/types"
 import { Card } from "shared/ui/Card/Card"
 import { Input } from "shared/ui/Input/Input"
 import { Select } from "shared/ui/Select/Select"
 
 import { getArticlesPageView } from "../../model/selectors/articlesPageSelectors"
-import { fetchArticlesList } from "../../model/services/fetchArticlesList/fetchArticlesList"
 import { articlesPageActions } from "../../model/slices/articlePageSlace"
 
 import "./ArticlesPageFilters.module.scss"

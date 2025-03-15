@@ -48,7 +48,7 @@ const AddCommentForm: React.FC<AddCommentFormProps> = ({
   }, [onCommentTextChange, onSendComment, text])
 
   return (
-    <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+    <DynamicModuleLoader reducers={reducers}>
       <div className={cn("add-comment-form", [className])}>
         <Input
           className="add-comment-form__input"
@@ -56,7 +56,11 @@ const AddCommentForm: React.FC<AddCommentFormProps> = ({
           value={text}
           onChange={onCommentTextChange}
         />
-        <Button buttonVar={ButtonVar.OUTLINE} onClick={onSendHandler}>
+        <Button
+          buttonVar={ButtonVar.OUTLINE}
+          onClick={onSendHandler}
+          disabled={!text}
+        >
           {t("articleBtnSendComment")}
         </Button>
       </div>

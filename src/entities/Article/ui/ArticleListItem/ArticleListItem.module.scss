@@ -1,106 +1,118 @@
-.LIST {
-  .views {
+.article-item {
+    &__types p {
+    width: 115px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  &__views {
     margin-left: auto;
   }
 
-  .header {
+  &__card-list {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  &__header {
     display: flex;
     align-items: center;
   }
 
-  .username {
+  &__username {
     margin-left: 8px;
   }
 
-  .date {
+  &__date {
     margin-left: auto;
   }
 
-  .title {
+  &__title {
     margin-top: 8px;
   }
 
-  .img {
+  &__img {
     width: 100%;
     max-height: 250px;
     object-fit: cover;
     margin: 16px 0;
+    border-radius: 50%;
   }
 
-  .footer {
+  &__footer {
     display: flex;
     align-items: center;
     margin-top: 16px;
   }
 
-  .textBlock {
+  &__text-block {
     max-height: 208px;
     overflow-y: hidden;
     text-overflow: ellipsis;
   }
-}
 
-.CARD {
-  width: 230px;
-  transition: 0.2s;
-  cursor: pointer;
-  background: var(--card-bg);
-  border-radius: 12px;
-
-  .date {
+  &__date {
     position: absolute;
     right: 0;
     top: 0;
     display: none;
   }
 
-  &:hover {
-    opacity: 0.8;
-    transform: scale(1.01);
-
-    .date {
-      display: block;
-    }
-  }
-
-  .imageWrapper {
+  &__image-wrapper {
     width: 200px;
     height: 200px;
     position: relative;
   }
 
-  .img {
+  &__img {
     width: 200px;
     height: 200px;
     object-fit: cover;
   }
 
-  .infoWrapper {
+  &__info-wrapper {
     display: flex;
     align-items: center;
     margin-top: 8px;
   }
 
-  .types p {
-    width: 115px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .views {
+  &__views {
     margin-left: auto;
     margin-right: 8px;
   }
 
-  .title {
+  &__title {
     margin-top: 8px;
   }
 
-  .title p {
+  &__title p {
     width: 200px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+
+    // &__card {
+    // display: grid;
+    // grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    // gap: 16px; /* расстояние между карточками */
+    // padding: 16px;
+    // }
+
+    &__card-item{
+    width: 230px;
+    transition: 0.2s;
+    cursor: pointer;
+    background: var(--card-bg);
+    border-radius: 12px;
+
+    &:hover {
+      opacity: 0.8;
+      transform: scale(1.01);
+    }
+
+     &__date {
+        display: block;
+      }
   }
 }

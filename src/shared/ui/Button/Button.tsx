@@ -44,7 +44,7 @@ export const Button: React.FC<ButtonProps> = memo(function Button({
   children,
   buttonVar = ButtonVar.PRIMARY,
   square,
-  size,
+  size = ButtonSize.M,
   fontSize = ButtonFontSize.FONT_M,
   disabled,
   ...otherProps

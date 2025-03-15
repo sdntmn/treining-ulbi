@@ -1,4 +1,4 @@
-import { CSSProperties, memo } from "react"
+import React, { CSSProperties, memo } from "react"
 import { cn } from "shared/lib/classNames/classNames"
 
 import "./Skeleton.module.scss"
@@ -10,7 +10,9 @@ interface SkeletonProps {
   border?: string
 }
 
-export const Skeleton = memo(function Skeleton(props: SkeletonProps) {
+export const Skeleton: React.FC<SkeletonProps> = memo(function Skeleton(
+  props: SkeletonProps
+) {
   const { className, height, width, border } = props
 
   const styles: CSSProperties = {

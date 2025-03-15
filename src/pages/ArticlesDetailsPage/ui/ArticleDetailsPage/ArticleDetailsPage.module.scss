@@ -1,7 +1,8 @@
-.articleDetailsPage {
-  padding: 20px 20px 20px 45px;
+.article-details-page {
+  padding: 32px;
+
+  &__comments {
+  margin-top: 20px;
 }
 
-.commentTitle {
-  margin-top: 20px;
 }

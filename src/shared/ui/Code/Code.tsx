@@ -1,4 +1,4 @@
-import { memo, useCallback } from "react"
+import React, { memo, useCallback } from "react"
 
 import CopyIcon from "../../assets/icons/copy_file.svg"
 import { cn } from "../../lib/classNames/classNames"
@@ -11,7 +11,7 @@ interface CodeProps {
   text: string
 }
 
-export const Code = memo(function Code(props: CodeProps) {
+export const Code: React.FC<CodeProps> = memo(function Code(props: CodeProps) {
   const { className, text } = props
 
   const onCopy = useCallback(() => {

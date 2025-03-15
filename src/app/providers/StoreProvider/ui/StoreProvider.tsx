@@ -1,7 +1,6 @@
 import { ReducersMapObject } from "@reduxjs/toolkit"
 import React, { ReactNode } from "react"
 import { Provider } from "react-redux"
-import { useNavigate } from "react-router-dom"
 import { ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
 
 import { StateSchema } from "../../StoreProvider"
@@ -22,7 +21,7 @@ export const StoreProvider: React.FC<StoreProviderProps> = (
 
   const store = createReduxStore(
     initialState as StateSchema,
-    asyncReducers as ReducersMapObject<StateSchema>,
+    asyncReducers as ReducersMapObject<StateSchema>
   )
 
   return <Provider store={store}>{children}</Provider>

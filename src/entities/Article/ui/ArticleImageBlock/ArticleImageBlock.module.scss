@@ -1,3 +1,8 @@
 .article-image-block {
   max-width: 100%;
+  text-align: center;
+
+  &__image{
+    max-height: 160px;
+  }
 }

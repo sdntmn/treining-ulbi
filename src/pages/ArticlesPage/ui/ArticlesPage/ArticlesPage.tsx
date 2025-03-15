@@ -61,7 +61,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
       >
         <ArticlesPageFilters />
         <ArticleList
-          className={cn("articles-page__list", [className])}
+          className={cn(`articles-page__${view}`, [className])}
           isLoading={isLoading}
           view={view}
           articles={articles}

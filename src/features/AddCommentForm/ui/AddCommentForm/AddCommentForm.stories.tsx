@@ -1,24 +1,28 @@
-// import React from "react"
-// import { ComponentStory, ComponentMeta } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react"
 
-// import { action } from "@storybook/addon-actions"
-// import { StoreDecorator } from "shared/config/storybook/StoreDecorator/StoreDecorator"
-// import AddCommentForm from "./AddCommentForm"
+import { RouterDecorator } from "shared/config/storybook/RouterDecorator/RouterDecorator"
+import { StoreDecorator } from "shared/config/storybook/StoreDecorator/StoreDecorator"
 
-// export default {
-//   title: "features/AddCommentForm",
-//   component: AddCommentForm,
-//   argTypes: {
-//     backgroundColor: { control: "color" },
-//   },
-// } as ComponentMeta<typeof AddCommentForm>
+import AddCommentForm from "./AddCommentForm"
 
-// const Template: ComponentStory<typeof AddCommentForm> = (args) => (
-//   <AddCommentForm {...args} />
-// )
+const meta: Meta<typeof AddCommentForm> = {
+  title: "feature/AddCommentForm",
+  component: AddCommentForm,
+} satisfies Meta<typeof AddCommentForm>
 
-// export const Normal = Template.bind({})
-// Normal.args = {
-//   onSendComment: action("onSendComment"),
-// }
-// Normal.decorators = [StoreDecorator({})]
+export default meta
+
+type Story = StoryObj<typeof meta>
+
+const initialState = {
+  loginForm: {
+    username: "admin",
+    password: "123",
+    isLoading: false,
+  },
+}
+
+export const Primary: Story = {
+  args: {},
+  decorators: [StoreDecorator(initialState), RouterDecorator()],
+}

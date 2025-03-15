@@ -1,35 +1,38 @@
-// import React from "react"
-// import { ComponentStory, ComponentMeta } from "@storybook/react"
+/* eslint-disable max-len */
+/* eslint-disable prettier/prettier */
+import type { Meta, StoryObj } from "@storybook/react"
 
-// import { CommentCard } from "./CommentCard"
+import { Comment } from "entities/Comment/model/types/comment"
+import { User } from "entities/User"
+import { RouterDecorator } from "shared/config/storybook/RouterDecorator/RouterDecorator"
 
-// export default {
-//   title: "entities/Comment/CommentCard",
-//   component: CommentCard,
-//   argTypes: {
-//     backgroundColor: { control: "color" },
-//   },
-// } as ComponentMeta<typeof CommentCard>
+import { CommentCard } from "./CommentCard"
 
-// const Template: ComponentStory<typeof CommentCard> = (args) => (
-//   <CommentCard {...args} />
-// )
+const meta: Meta<typeof CommentCard> = {
+  title: "entities/CommentCard",
+  component: CommentCard,
+  parameters: {
+    position: "left"
+  },
+} satisfies Meta<typeof CommentCard>
 
-// export const Normal = Template.bind({})
-// Normal.args = {
-//   comment: {
-//     id: "1",
-//     text: "hello world",
-//     user: { id: "1", username: "Vasya" },
-//   },
-// }
+export default meta
 
-// export const Loading = Template.bind({})
-// Loading.args = {
-//   comment: {
-//     id: "1",
-//     text: "hello world",
-//     user: { id: "1", username: "Vasya" },
-//   },
-//   isLoading: true,
-// }
+type Story = StoryObj<typeof meta>
+
+const user: User = {
+  id: "1",
+  username: "UserName",
+  avatar: "https://img.lovepik.com/free-png/20211106/lovepik-lady-head-icon-png-image_400345236_wh1200.png",
+}
+
+const comment: Comment = {
+  id: "1",
+  user: user,
+  text: "Все ок",
+}
+
+export const Primary: Story = {
+  args: { comment: comment, isLoading: false },
+  decorators: [RouterDecorator()],
+}

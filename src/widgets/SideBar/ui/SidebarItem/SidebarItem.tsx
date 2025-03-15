@@ -7,7 +7,7 @@ import { useSelector } from "react-redux"
 import { cn } from "shared/lib/classNames/classNames"
 import { AppLink, AppLinkColor } from "shared/ui/AppLink/AppLink"
 
-import { SidebarItemType } from "../../model/items"
+import { SidebarItemType } from "../../model/types/sidebar"
 
 import "./SidebarItem.module.scss"
 

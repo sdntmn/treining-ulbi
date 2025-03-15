@@ -1,4 +1,4 @@
-import { memo } from "react"
+import React, { memo } from "react"
 import { useTranslation } from "react-i18next"
 import { cn } from "shared/lib/classNames/classNames"
 import { TextParagraf } from "shared/ui/TextParagraf/TextParagraf"
@@ -14,34 +14,37 @@ interface CommentListProps {
   isLoading?: boolean
 }
 
-export const CommentList = memo(function CommentList(props: CommentListProps) {
-  const { t } = useTranslation("comments")
-  const { className, isLoading, comments } = props
+export const CommentList: React.FC<CommentListProps> = memo(
+  function CommentList(props: CommentListProps) {
+    const { t } = useTranslation("comments")
+    const { className, isLoading, comments } = props
 
-  if (isLoading) {
+    console.log(isLoading)
+    if (isLoading) {
+      return (
+        <div className={cn("comment-list", [className])}>
+          <CommentCard isLoading />
+          <CommentCard isLoading />
+          <CommentCard isLoading />
+        </div>
+      )
+    }
+
     return (
       <div className={cn("comment-list", [className])}>
-        <CommentCard isLoading />
-        <CommentCard isLoading />
-        <CommentCard isLoading />
+        {comments?.length ? (
+          comments.map((comment) => (
+            <CommentCard
+              key={comment.id}
+              isLoading={isLoading}
+              className="comment-list__card"
+              comment={comment}
+            />
+          ))
+        ) : (
+          <TextParagraf text={t("noComments")} />
+        )}
       </div>
     )
   }
-
-  return (
-    <div className={cn("comment-list", [className])}>
-      {comments?.length ? (
-        comments.map((comment) => (
-          <CommentCard
-            key={comment.id}
-            isLoading={isLoading}
-            className="comment-list__card"
-            comment={comment}
-          />
-        ))
-      ) : (
-        <TextParagraf text={t("noComments")} />
-      )}
-    </div>
-  )
-})
+)

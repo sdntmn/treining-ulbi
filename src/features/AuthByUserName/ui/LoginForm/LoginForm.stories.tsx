@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
+import { RouterDecorator } from "shared/config/storybook/RouterDecorator/RouterDecorator"
 import { StoreDecorator } from "shared/config/storybook/StoreDecorator/StoreDecorator"
 
 import LoginForm from "./LoginForm"
-import { RouterDecorator } from "shared/config/storybook/RouterDecorator/RouterDecorator"
 
 const meta: Meta<typeof LoginForm> = {
   title: "feature/LoginForm",

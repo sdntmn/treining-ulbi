@@ -3,17 +3,26 @@ import { render, screen } from "@testing-library/react"
 import { Button, ButtonVar } from "./Button"
 
 describe("Button", () => {
-  test("Button тест рендер - только текст кнопки", () => {
+  test("рендерит кнопку с текстом", () => {
     render(<Button>TEST</Button>)
-
     expect(screen.getByText("TEST")).toBeInTheDocument()
   })
 
-  test("Button параметр buttonVar - clear", () => {
+  test("применяет стили для варианта clear", () => {
     render(<Button buttonVar={ButtonVar.CLEAR}>TEST</Button>)
-
     expect(screen.getByText("TEST")).toHaveClass("clear")
+  })
 
-    screen.debug()
+  test("обрабатывает клик", () => {
+    const onClick = jest.fn()
+    render(<Button onClick={onClick}>TEST</Button>)
+
+    screen.getByText("TEST").click()
+    expect(onClick).toHaveBeenCalled()
+  })
+
+  test("отключается при disabled=true", () => {
+    render(<Button disabled>TEST</Button>)
+    expect(screen.getByText("TEST")).toBeDisabled()
   })
 })
