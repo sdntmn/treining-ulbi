@@ -1,3 +1,5 @@
-.notSelected {
-  fill: var(--secondary-color);
+.article-view-selector {
+  &__not-selected {
+    fill: var(--secondary-color);
+  }
 }

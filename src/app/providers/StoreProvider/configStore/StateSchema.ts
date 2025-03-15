@@ -1,6 +1,6 @@
 import { Action, EnhancedStore, ReducersMapObject } from "@reduxjs/toolkit"
 import { ArticlesPageSchema } from "pages/ArticlesPage"
-// import { ScrollPageSchema } from "5_features/ScrollPage"
+// import { ScrollPageSchema } from "features/ScrollPage"
 import { AxiosInstance } from "axios"
 import { ArticleDetailsSchema } from "entities/Article"
 import { ProfileSchema } from "entities/Profile"

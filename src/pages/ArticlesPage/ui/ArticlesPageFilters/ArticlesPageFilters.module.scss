@@ -1,13 +1,15 @@
-.sortWrapper {
+.articles-page-filters {
+  &__sort-wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
+  }
 
-.search {
-  margin-top: 16px;
-}
+  &__search {
+    margin-top: 16px;
+  }
 
-.tabs {
-  margin-top: 16px;
+  &__tabs {
+    margin-top: 16px;
+  }
 }

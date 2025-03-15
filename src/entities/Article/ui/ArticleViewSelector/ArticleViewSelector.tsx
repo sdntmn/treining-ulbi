@@ -15,7 +15,12 @@ interface ArticleViewSelectorProps {
   onViewClick?: (view: ArticleViewType) => void
 }
 
-const viewTypes = [
+export interface ViewTypeItem {
+  view: ArticleViewType
+  icon: React.FC<React.SVGProps<SVGSVGElement>> // Для SVG-иконок
+}
+
+const viewTypes: ViewTypeItem[] = [
   {
     view: ArticleViewType.CARD,
     icon: TiledIcon,
@@ -28,25 +33,37 @@ const viewTypes = [
 
 export const ArticleViewSelector: React.FC<ArticleViewSelectorProps> = memo(
   function ArticleViewSelector(props: ArticleViewSelectorProps) {
-    const { className, onViewClick } = props
+    const { className, onViewClick, view } = props
 
     const onClick = (newView: ArticleViewType) => () => {
       onViewClick?.(newView)
     }
 
+    console.info("view", view)
+
+    const renderButton = (viewType: ViewTypeItem) => {
+      console.info("viewType.view", viewType.view)
+      return (
+        <Button
+          key={viewType.view}
+          buttonVar={ButtonVar.CLEAR}
+          onClick={onClick(viewType.view)}
+        >
+          <Icon
+            Svg={viewType.icon}
+            className={cn("article-view-selector", [
+              viewType.view !== view
+                ? "article-view-selector__not-selected"
+                : "",
+            ])}
+          />
+        </Button>
+      )
+    }
+
     return (
       <div className={cn("article-view-selector", [className])}>
-        {viewTypes.map((viewType) => {
-          return (
-            <Button
-              key={viewType.view}
-              buttonVar={ButtonVar.CLEAR}
-              onClick={onClick(viewType.view)}
-            >
-              <Icon Svg={viewType.icon} className={cn("", [])} />
-            </Button>
-          )
-        })}
+        {viewTypes.map(renderButton)}
       </div>
     )
   }
