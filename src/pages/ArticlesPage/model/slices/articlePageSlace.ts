@@ -16,26 +16,30 @@ const articlesAdapter = createEntityAdapter<Article, string>({
   selectId: (article) => article.id,
 })
 
+const baseInitialState = articlesAdapter.getInitialState<ArticlesPageSchema>({
+  isLoading: false,
+  ids: [],
+  error: undefined,
+  entities: {},
+  view: ArticleViewType.CARD,
+  page: 1,
+  hasMore: true,
+  limit: 9,
+  order: "asc",
+  sort: ArticleSortField.CREATED,
+  search: "",
+  _inited: false,
+})
+
+const initialState = articlesAdapter.getInitialState(baseInitialState)
+
 export const getArticles = articlesAdapter.getSelectors<StateSchema>(
-  (state) => state.articlesPage || articlesAdapter.getInitialState()
+  (state) => state.articlesPage ?? initialState
 )
 
 const articlesPageSlice = createSlice({
   name: "articlesPageSlice",
-  initialState: articlesAdapter.getInitialState<ArticlesPageSchema>({
-    isLoading: false,
-    error: undefined,
-    ids: [],
-    entities: {},
-    view: ArticleViewType.CARD,
-    page: 1,
-    hasMore: true,
-    limit: 9,
-    order: "asc",
-    sort: ArticleSortField.CREATED,
-    search: "",
-    _inited: false,
-  }),
+  initialState,
   reducers: {
     setView: (state, action: PayloadAction<ArticleViewType>) => {
       state.view = action.payload
@@ -56,12 +60,13 @@ const articlesPageSlice = createSlice({
     },
 
     initState: (state) => {
-      const view = localStorage.getItem(
-        ARTICLES_VIEW_LOCALSTORAGE_KEY
-      ) as ArticleViewType
+      const view =
+        (localStorage.getItem(
+          ARTICLES_VIEW_LOCALSTORAGE_KEY
+        ) as ArticleViewType) || ArticleViewType.CARD
+
       state.view = view
       state.limit = view === ArticleViewType.LIST ? 4 : 9
-      console.log(state.limit)
       state._inited = true
     },
   },
@@ -75,8 +80,12 @@ const articlesPageSlice = createSlice({
         fetchArticlesList.fulfilled,
         (state, action: PayloadAction<Article[]>) => {
           state.isLoading = false
-          articlesAdapter.addMany(state, action.payload)
-          state.hasMore = action.payload.length > 0
+          if (state.page === 1) {
+            articlesAdapter.setAll(state, action.payload)
+          } else {
+            articlesAdapter.addMany(state, action.payload)
+          }
+          state.hasMore = action.payload.length >= (state.limit || 9)
         }
       )
       .addCase(fetchArticlesList.rejected, (state, action) => {

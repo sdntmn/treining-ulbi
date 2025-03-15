@@ -1,10 +1,11 @@
+import { createSelector } from "@reduxjs/toolkit"
 /* eslint-disable max-len */
 import { ArticleDetails } from "entities/Article"
 import { getArticleDetailsIsLoading } from "entities/Article/model/selectors/articleDetails"
 import { CommentList } from "entities/Comment"
 import { AddCommentForm } from "features/AddCommentForm"
 import { addCommentForArticle } from "pages/ArticlesDetailsPage/model/services/addCommentForArticle/addCommentForArticle"
-import React, { memo, useCallback } from "react"
+import React, { memo, useCallback, useMemo } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
 import { useNavigate, useParams } from "react-router-dom"
@@ -40,8 +41,16 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = ({
   className,
 }: ArticleDetailsPageProps) => {
   const { t } = useTranslation("articleDetailsPage")
-  const { id } = useParams<{ id: string }>()
-  const comments = useSelector(getArticleComments.selectAll)
+  const { id } = useParams<keyof { id: string }>()
+  const comments = useSelector(
+    useMemo(
+      () =>
+        createSelector(getArticleComments.selectAll, (comments) =>
+          comments.filter((c) => c.id === id)
+        ),
+      [id]
+    )
+  )
   const isLoadingComments = useSelector(getArticleDetailsIsLoading)
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
@@ -57,7 +66,11 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = ({
     [dispatch]
   )
 
-  useInitialEffect(() => dispatch(fetchCommentsByArticleId(id)))
+  useInitialEffect(() => {
+    if (id) {
+      dispatch(fetchCommentsByArticleId(id))
+    }
+  })
 
   if (!id) {
     return <Page>{t("articleNotFound")}</Page>

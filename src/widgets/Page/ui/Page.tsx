@@ -1,6 +1,13 @@
+import { StateSchema } from "app/providers/StoreProvider"
+import { getScrollByPath, scrollSaveActions } from "features/ScrollSave"
 import React, { MutableRefObject, ReactNode, useRef } from "react"
+import { useSelector } from "react-redux"
+import { useLocation } from "react-router-dom"
 import { cn } from "shared/lib/classNames/classNames"
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
 import { useInfiniteScroll } from "shared/lib/hooks/useInfiniteScroll/useInfiniteScroll"
+import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect"
+import { useThrottle } from "shared/lib/hooks/useThrottle/useThrottle"
 
 import "./Page.module.scss"
 
@@ -17,20 +24,20 @@ export const Page: React.FC<PageProps> = ({
 }: PageProps) => {
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>
-  // const dispatch = useAppDispatch()
-  // const { pathname } = useLocation()
-  // const scrollPosition = useSelector((state: StateSchema) =>
-  //   getScrollPageByPath(state, pathname)
-  // )
+  const dispatch = useAppDispatch()
+  const { pathname } = useLocation()
+  const scrollPosition = useSelector((state: StateSchema) =>
+    getScrollByPath(state, pathname)
+  )
 
-  // const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
-  //   dispatch(
-  //     scrollPageActions.setScrollPosition({
-  //       position: e.currentTarget.scrollTop,
-  //       path: pathname,
-  //     })
-  //   )
-  // }, 500)
+  const onScroll = useThrottle((e) => {
+    dispatch(
+      scrollSaveActions.setScrollPosition({
+        position: e.currentTarget.scrollTop,
+        path: pathname,
+      })
+    )
+  }, 500)
 
   useInfiniteScroll({
     triggerRef,
@@ -38,15 +45,15 @@ export const Page: React.FC<PageProps> = ({
     callback: onScrollEnd,
   })
 
-  // useInitialEffect(() => {
-  //   wrapperRef.current.scrollTop = scrollPosition
-  // })
+  useInitialEffect(() => {
+    wrapperRef.current.scrollTop = scrollPosition
+  })
 
   return (
     <section
       ref={wrapperRef}
       className={cn("page", [className])}
-      // onScroll={onScroll}
+      onScroll={onScroll}
     >
       {children}
       {onScrollEnd ? (

@@ -1,18 +1,17 @@
 import { Action, EnhancedStore, ReducersMapObject } from "@reduxjs/toolkit"
-import { ArticlesPageSchema } from "pages/ArticlesPage"
-// import { ScrollPageSchema } from "features/ScrollPage"
 import { AxiosInstance } from "axios"
 import { ArticleDetailsSchema } from "entities/Article"
 import { ProfileSchema } from "entities/Profile"
 import { UserSchema } from "entities/User"
 import { AddCommentFormSchema } from "features/AddCommentForm"
 import { LoginSchema } from "features/AuthByUserName/model/types/LoginSchema"
+import { ScrollPageSchema } from "features/ScrollSave"
 import { ArticleDetailsCommentsSchema } from "pages/ArticlesDetailsPage"
-import { NavigateOptions, To } from "react-router-dom"
+import { ArticlesPageSchema } from "pages/ArticlesPage"
 
 export interface StateSchema {
   user: UserSchema
-  // scrollPage: ScrollPageSchema
+  scrollPage: ScrollPageSchema
 
   // // Асинхронные редюсеры
   loginForm?: LoginSchema
@@ -30,7 +29,6 @@ export interface StateSchema {
 // }
 
 export type StateSchemaKey = keyof StateSchema
-// export type MountedReducers = Record<StateSchemaKey, boolean>
 
 export interface ReducerManager {
   getReducerMap: () => ReducersMapObject<StateSchema>
@@ -46,7 +44,6 @@ export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
 
 export interface ThunkExtraArg {
   api: AxiosInstance
-  navigate?: (to: To, options?: NavigateOptions) => void
 }
 
 export interface ThunkConfig<T> {

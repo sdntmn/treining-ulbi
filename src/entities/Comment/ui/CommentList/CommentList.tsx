@@ -19,7 +19,6 @@ export const CommentList: React.FC<CommentListProps> = memo(
     const { t } = useTranslation("comments")
     const { className, isLoading, comments } = props
 
-    console.log(isLoading)
     if (isLoading) {
       return (
         <div className={cn("comment-list", [className])}>

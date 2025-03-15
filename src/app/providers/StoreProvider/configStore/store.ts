@@ -1,11 +1,9 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import {
-  configureStore,
-  Reducer,
-  ReducersMapObject,
-} from "@reduxjs/toolkit"
+import { configureStore, Reducer, ReducersMapObject } from "@reduxjs/toolkit"
 // import { profileReducer } from "entities/Profile"
 // import { loginReducer } from "features/AuthByUserName"
+
+import { scrollSaveReducer } from "features/ScrollSave"
 
 import { userReducer } from "../../../../entities/User"
 // import { scrollPageReducer } from "5_features/ScrollPage"
@@ -20,13 +18,13 @@ import {
 
 export function createReduxStore(
   initialState?: StateSchema,
-  asyncReducers?: ReducersMapObject<StateSchema>,
+  asyncReducers?: ReducersMapObject<StateSchema>
 ) {
   // Оставляем только обязательные редюсеры
   const rootReducers: ReducersMapObject<StateSchema> = {
     ...asyncReducers,
     user: userReducer,
-    // scrollPage: scrollPageReducer,
+    scrollPage: scrollSaveReducer,
   }
 
   const reducerManager = createReducerManager(rootReducers)
