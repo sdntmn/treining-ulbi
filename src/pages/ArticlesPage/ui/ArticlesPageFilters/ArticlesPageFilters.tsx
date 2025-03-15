@@ -21,7 +21,8 @@ export const ArticlesPageFilters: React.FC<ArticlesPageFiltersProps> = memo(
   function ArticlesPageFilters(props: ArticlesPageFiltersProps) {
     const { className } = props
     const dispatch = useAppDispatch()
-    const view = useSelector(getArticlesPageView)
+    const viewArticle = useSelector(getArticlesPageView)
+    console.info("ArticlesPageFilters view", viewArticle)
     //   const sort = useSelector(getArticlesPageSort)
     //   const order = useSelector(getArticlesPageOrder)
     //   const search = useSelector(getArticlesPageSearch)
@@ -80,7 +81,7 @@ export const ArticlesPageFilters: React.FC<ArticlesPageFiltersProps> = memo(
       <div className={cn("articles-page-filters", [className])}>
         <div className="articles-page-filters__sort-wrapper">
           <Select label="По" />
-          <ArticleViewSelector view={view} onViewClick={onChangeView} />
+          <ArticleViewSelector view={viewArticle} onViewClick={onChangeView} />
         </div>
         <Card className="articles-page-filters__search">
           <Input

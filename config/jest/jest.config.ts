@@ -30,6 +30,9 @@ const config: Config = {
   moduleNameMapper: {
     "\\.(s?css)$": "identity-obj-proxy",
     "\\.(svg)$": path.resolve(__dirname, "jestEmptyComponent.tsx"),
+    "^app/(.*)$": "<rootDir>/src/app/$1",
+    "^entities/(.*)$": "<rootDir>/src/entities/$1",
+    "^pages/(.*)$": "<rootDir>/src/pages/$1",
     // axios: "axios/dist/node/axios.cjs",
   },
 }

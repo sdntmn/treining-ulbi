@@ -61,6 +61,7 @@ const articlesPageSlice = createSlice({
       ) as ArticleViewType
       state.view = view
       state.limit = view === ArticleViewType.LIST ? 4 : 9
+      console.log(state.limit)
       state._inited = true
     },
   },

@@ -1,5 +1,6 @@
 import React, { MutableRefObject, ReactNode, useRef } from "react"
 import { cn } from "shared/lib/classNames/classNames"
+import { useInfiniteScroll } from "shared/lib/hooks/useInfiniteScroll/useInfiniteScroll"
 
 import "./Page.module.scss"
 
@@ -22,16 +23,6 @@ export const Page: React.FC<PageProps> = ({
   //   getScrollPageByPath(state, pathname)
   // )
 
-  // useInfiniteScroll({
-  //   triggerRef,
-  //   wrapperRef,
-  //   callback: onScrollEnd,
-  // })
-
-  // useInitialEffect(() => {
-  //   wrapperRef.current.scrollTop = scrollPosition
-  // })
-
   // const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
   //   dispatch(
   //     scrollPageActions.setScrollPosition({
@@ -40,6 +31,16 @@ export const Page: React.FC<PageProps> = ({
   //     })
   //   )
   // }, 500)
+
+  useInfiniteScroll({
+    triggerRef,
+    wrapperRef,
+    callback: onScrollEnd,
+  })
+
+  // useInitialEffect(() => {
+  //   wrapperRef.current.scrollTop = scrollPosition
+  // })
 
   return (
     <section
