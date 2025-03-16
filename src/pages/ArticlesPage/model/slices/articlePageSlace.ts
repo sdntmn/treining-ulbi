@@ -4,8 +4,12 @@ import {
   PayloadAction,
 } from "@reduxjs/toolkit"
 import { StateSchema } from "app/providers/StoreProvider"
-import { Article, ArticleViewType } from "entities/Article"
-import { ArticleSortField } from "entities/Article/model/types/article"
+import {
+  Article,
+  ArticleViewType,
+  ArticleSortField,
+  ArticleType,
+} from "entities/Article"
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from "shared/const/localstorage"
 import { SortOrder } from "shared/types"
 
@@ -29,6 +33,7 @@ const baseInitialState = articlesAdapter.getInitialState<ArticlesPageSchema>({
   sort: ArticleSortField.CREATED,
   search: "",
   _inited: false,
+  type: ArticleType.ALL,
 })
 
 const initialState = articlesAdapter.getInitialState(baseInitialState)
@@ -58,6 +63,9 @@ const articlesPageSlice = createSlice({
     setSearch: (state, action: PayloadAction<string>) => {
       state.search = action.payload
     },
+    setType: (state, action: PayloadAction<ArticleType>) => {
+      state.type = action.payload
+    },
 
     initState: (state) => {
       const view =
@@ -76,18 +84,20 @@ const articlesPageSlice = createSlice({
         state.error = undefined
         state.isLoading = true
       })
-      .addCase(
-        fetchArticlesList.fulfilled,
-        (state, action: PayloadAction<Article[]>) => {
-          state.isLoading = false
-          if (state.page === 1) {
-            articlesAdapter.setAll(state, action.payload)
-          } else {
-            articlesAdapter.addMany(state, action.payload)
-          }
-          state.hasMore = action.payload.length >= (state.limit || 9)
+      .addCase(fetchArticlesList.fulfilled, (state, action) => {
+        state.isLoading = false
+        // if (state.page === 1) {
+        //   articlesAdapter.setAll(state, action.payload)
+        // } else {
+        //   articlesAdapter.addMany(state, action.payload)
+        // }
+        if (action.meta.arg.replace) {
+          articlesAdapter.setAll(state, action.payload)
+        } else {
+          articlesAdapter.addMany(state, action.payload)
         }
-      )
+        state.hasMore = action.payload.length >= (state.limit || 9)
+      })
       .addCase(fetchArticlesList.rejected, (state, action) => {
         state.isLoading = false
         state.error = action.payload

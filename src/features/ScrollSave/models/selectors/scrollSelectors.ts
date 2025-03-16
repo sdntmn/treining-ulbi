@@ -1,10 +1,12 @@
 import { createSelector } from "@reduxjs/toolkit"
 import { StateSchema } from "app/providers/StoreProvider"
 
-export const getSaveScroll = (state: StateSchema) => state.scrollPage.scroll
+import { ScrollSchema } from "../types/ScrollSave"
+
+export const getSaveScroll = (state: StateSchema): ScrollSchema =>
+  state.scrollPage.scroll || {}
 
 export const getScrollByPath = createSelector(
-  getSaveScroll,
-  (state: StateSchema, path: string) => path,
-  (scroll, path) => scroll[path] || 0
+  [getSaveScroll, (_: StateSchema, path: string) => path],
+  (scroll: ScrollSchema, path) => scroll[path] || 0
 )

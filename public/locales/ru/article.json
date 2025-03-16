@@ -1,3 +1,11 @@
 {
-  "readMore": "читать далее..."
+  "readMore": "читать далее...",
+  "articleSortedLabel": "сортировка",
+  "articleOrderSortedLabel": "порядок",
+  "articleSearch": "искать",
+  "articlePlaceholderSearch": "Поиск",
+  "articleTypeTabsAll": "Все статьи",
+  "articleTypeTabsIT": "Айти",
+  "articleTypeTabsEconomics": "Экономика",
+  "articleTypeTabsScience": "Наука"
 }

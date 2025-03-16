@@ -45,11 +45,8 @@ export const ArticleList: React.FC<ArticleListProps> = (
   }
   return (
     <div className={cn("article-list", [className])}>
-      {isLoading
-        ? getSkeletons(view)
-        : articles.length
-          ? articles.map(renderArticle)
-          : "Нет статей"}
+      {articles.length ? articles.map(renderArticle) : "Нет статей"}
+      {isLoading && getSkeletons(view)}
     </div>
   )
 }

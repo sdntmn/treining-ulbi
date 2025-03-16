@@ -1,6 +1,11 @@
 import { StateSchema } from "app/providers/StoreProvider"
 import { getScrollByPath, scrollSaveActions } from "features/ScrollSave"
-import React, { MutableRefObject, ReactNode, useRef } from "react"
+import React, {
+  MutableRefObject,
+  ReactNode,
+  SyntheticEvent,
+  useRef,
+} from "react"
 import { useSelector } from "react-redux"
 import { useLocation } from "react-router-dom"
 import { cn } from "shared/lib/classNames/classNames"
@@ -30,10 +35,11 @@ export const Page: React.FC<PageProps> = ({
     getScrollByPath(state, pathname)
   )
 
-  const onScroll = useThrottle((e) => {
+  const onScroll = useThrottle((e: SyntheticEvent<HTMLElement>) => {
+    const scrollPosition = Math.round(e.currentTarget.scrollTop)
     dispatch(
       scrollSaveActions.setScrollPosition({
-        position: e.currentTarget.scrollTop,
+        position: scrollPosition,
         path: pathname,
       })
     )

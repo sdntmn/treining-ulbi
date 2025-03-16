@@ -3,9 +3,9 @@
   height: calc(100vh - var(--navbar-height));
   overflow-y: auto;
   flex-shrink: 100;
-}
 
-.trigger {
-  height: 20px;
-  margin: 10px;
+  &__trigger {
+    height: 20px;
+    margin: 10px;
+  }
 }

@@ -1,4 +1,4 @@
-import React, { ChangeEvent, memo, useMemo } from "react"
+import React, { ChangeEvent, useMemo } from "react"
 import { cn } from "shared/lib/classNames/classNames"
 
 import "./Select.module.scss"
@@ -7,22 +7,20 @@ export interface SelectOptions {
   value: string
   content: string
 }
-interface SelectProps {
+interface SelectProps<T extends string> {
   className?: string
   label?: string
   options?: SelectOptions[]
   isReadonly?: boolean
-  value?: string
-  onChange?: (value: string) => void
+  value?: T
+  onChange?: (value: T) => void
 }
 
-export const Select: React.FC<SelectProps> = memo(function Select(
-  props: SelectProps
-) {
+export const Select = <T extends string>(props: SelectProps<T>) => {
   const { className, label, options, value, isReadonly, onChange } = props
 
   const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
-    onChange?.(e.target.value)
+    onChange?.(e.target.value as T)
   }
 
   const optionsList = useMemo(() => {
@@ -40,7 +38,7 @@ export const Select: React.FC<SelectProps> = memo(function Select(
   return (
     <div className={cn("select", [className])}>
       {label && (
-        <span className={cn("select__label", [className])}>{label + ">"}</span>
+        <span className={cn("select__label", [className])}> {label}</span>
       )}
       <select
         className="select__input"
@@ -52,4 +50,4 @@ export const Select: React.FC<SelectProps> = memo(function Select(
       </select>
     </div>
   )
-})
+}

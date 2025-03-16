@@ -37,6 +37,7 @@ export interface ArticleText extends ArticleBaseBlock {
 export type ArticleBlock = ArticleCode | ArticleImage | ArticleText
 
 export enum ArticleType {
+  ALL = "ALL",
   IT = "IT",
   SCIENCE = "SCIENCE",
   ECONOMICS = "ECONOMICS",

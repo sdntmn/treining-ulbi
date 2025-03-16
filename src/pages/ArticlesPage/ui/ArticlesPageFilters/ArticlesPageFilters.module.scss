@@ -1,12 +1,14 @@
 .articles-page-filters {
   &__sort-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   &__search {
     margin-top: 16px;
+    background: #bac9d6;
+    border-radius: 4px;
   }
 
   &__tabs {

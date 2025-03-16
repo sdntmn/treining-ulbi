@@ -2,6 +2,7 @@
 import { ArticleList } from "entities/Article"
 import { memo, useCallback } from "react"
 import { useSelector } from "react-redux"
+import { useSearchParams } from "react-router-dom"
 import { cn } from "shared/lib/classNames/classNames"
 import {
   DynamicModuleLoader,
@@ -40,13 +41,14 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   const isLoading = useSelector(getArticlesPageIsLoading)
   const view = useSelector(getArticlesPageView)
   const error = useSelector(getArticlesPageError)
+  const [searchParams] = useSearchParams()
 
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticlesPage())
   }, [dispatch])
 
   useInitialEffect(() => {
-    dispatch(initArticlePage())
+    dispatch(initArticlePage(searchParams))
   })
 
   if (error) {

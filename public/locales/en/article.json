@@ -1,3 +1,11 @@
 {
-  "readMore": "read more..."
+  "readMore": "read more...",
+  "articleSortedLabel": "sorted",
+  "articleOrderSortedLabel": "order",
+  "articleSearch": "search",
+  "articlePlaceholderSearch": "Search",
+  "articleTypeTabsAll": "All articles",
+  "articleTypeTabsIT": "IT",
+  "articleTypeTabsEconomics": "Economy",
+  "articleTypeTabsScience": "Science"
 }

@@ -46,8 +46,28 @@ export interface ThunkExtraArg {
   api: AxiosInstance
 }
 
-export interface ThunkConfig<T> {
+export interface ThunkConfig<T, Arg = void> {
   rejectValue: T
   extra: ThunkExtraArg
   state: StateSchema
+  meta: {
+    arg: Arg
+    requestId: string
+    requestStatus: "pending" | "fulfilled" | "rejected"
+  }
 }
+
+// export interface ThunkConfig<
+//   RejectValue = unknown,
+//   Arg = void,
+//   State = StateSchema,
+// > {
+//   state: State
+//   extra: ThunkExtraArg
+//   rejectValue: RejectValue
+//   meta: {
+//     arg: Arg
+//     requestId: string
+//     requestStatus: "pending" | "fulfilled" | "rejected"
+//   }
+// }
