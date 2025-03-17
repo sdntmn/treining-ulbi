@@ -67,6 +67,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
           isLoading={isLoading}
           view={view}
           articles={articles}
+          target="_blank"
         />
       </Page>
     </DynamicModuleLoader>

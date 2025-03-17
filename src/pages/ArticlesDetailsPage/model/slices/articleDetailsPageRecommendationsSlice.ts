@@ -1,0 +1,52 @@
+/* eslint-disable max-len */
+import { createEntityAdapter, createSlice } from "@reduxjs/toolkit"
+import { StateSchema } from "app/providers/StoreProvider"
+import { Article } from "entities/Article"
+
+import { fetchArticleRecommendations } from "../services/fetchArticleRecommendations/fetchArticleRecommendations"
+import { ArticleDetailsRecommendationsSchema } from "../types/ArticleDetailsRecommendationsSchema"
+
+const recommendationsAdapter = createEntityAdapter<Article, string>({
+  selectId: (article: Article) => article.id,
+})
+
+const initialRecommendationsState =
+  recommendationsAdapter.getInitialState<ArticleDetailsRecommendationsSchema>({
+    isLoading: false,
+    error: undefined,
+    ids: [],
+    entities: {},
+  })
+
+export const getArticleRecommendations =
+  recommendationsAdapter.getSelectors<StateSchema>(
+    (state) =>
+      state.articleDetailsRecomendation ??
+      recommendationsAdapter.getInitialState()
+  )
+
+const articleDetailsPageRecommendationsSlice = createSlice({
+  name: "articleDetailsPageRecommendations",
+  initialState: initialRecommendationsState,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchArticleRecommendations.pending, (state) => {
+        state.error = undefined
+        state.isLoading = true
+      })
+      .addCase(fetchArticleRecommendations.fulfilled, (state, action) => {
+        state.isLoading = false
+        recommendationsAdapter.setAll(state, action.payload)
+        console.info(action.payload)
+        console.info(state)
+      })
+      .addCase(fetchArticleRecommendations.rejected, (state, action) => {
+        state.isLoading = false
+        state.error = action.payload ?? "Unknown error occurred"
+      })
+  },
+})
+
+export const { reducer: articleDetailsPageRecommendationsReducer } =
+  articleDetailsPageRecommendationsSlice

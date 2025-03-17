@@ -6,27 +6,25 @@ import { UserSchema } from "entities/User"
 import { AddCommentFormSchema } from "features/AddCommentForm"
 import { LoginSchema } from "features/AuthByUserName/model/types/LoginSchema"
 import { ScrollPageSchema } from "features/ScrollSave"
-import { ArticleDetailsCommentsSchema } from "pages/ArticlesDetailsPage"
+import {
+  ArticleDetailsCommentsSchema,
+  ArticleDetailsRecommendationsSchema,
+} from "pages/ArticlesDetailsPage"
 import { ArticlesPageSchema } from "pages/ArticlesPage"
 
 export interface StateSchema {
   user: UserSchema
   scrollPage: ScrollPageSchema
 
-  // // Асинхронные редюсеры
+  // Асинхронные редюсеры
   loginForm?: LoginSchema
   profile?: ProfileSchema
   articleDetails?: ArticleDetailsSchema
-  articleDetailsComments?: ArticleDetailsCommentsSchema
   addCommentForm?: AddCommentFormSchema
   articlesPage?: ArticlesPageSchema
+  articleDetailsComments?: ArticleDetailsCommentsSchema
+  articleDetailsRecomendation?: ArticleDetailsRecommendationsSchema
 }
-
-// type ReducedState = {
-//   user: UserSchema
-//   loginForm?: LoginSchema
-//   profile?: ProfileSchema
-// }
 
 export type StateSchemaKey = keyof StateSchema
 

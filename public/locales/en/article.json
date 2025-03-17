@@ -1,5 +1,4 @@
 {
-  "readMore": "read more...",
   "articleSortedLabel": "sorted",
   "articleOrderSortedLabel": "order",
   "articleSearch": "search",
@@ -7,5 +6,10 @@
   "articleTypeTabsAll": "All articles",
   "articleTypeTabsIT": "IT",
   "articleTypeTabsEconomics": "Economy",
-  "articleTypeTabsScience": "Science"
+  "articleTypeTabsScience": "Science",
+  "articleComments": "Comments",
+  "articleBtnBackToList": "Back to list",
+  "articleBtnReadMore": "Read more...",
+  "articleDetailsPage": "Article not found",
+  "articleRecomendations": "We recommend"
 }

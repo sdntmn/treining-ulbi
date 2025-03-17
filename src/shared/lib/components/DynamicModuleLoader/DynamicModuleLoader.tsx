@@ -43,7 +43,8 @@ export const DynamicModuleLoader: React.FC<DynamicModuleLoaderProps> = ({
         })
       }
     }
-  }, [dispatch, reducers, removeAfterUnmount, store.reducerManager])
+    // eslint-disable-next-line
+  }, [])
 
   return <>{children}</>
 }

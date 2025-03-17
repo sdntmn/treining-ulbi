@@ -1,5 +1,4 @@
 {
-  "readMore": "читать далее...",
   "articleSortedLabel": "сортировка",
   "articleOrderSortedLabel": "порядок",
   "articleSearch": "искать",
@@ -7,5 +6,10 @@
   "articleTypeTabsAll": "Все статьи",
   "articleTypeTabsIT": "Айти",
   "articleTypeTabsEconomics": "Экономика",
-  "articleTypeTabsScience": "Наука"
+  "articleTypeTabsScience": "Наука",
+  "articleComments": "Комментарии",
+  "articleBtnBackToList": "Назад к списку",
+  "articleBtnReadMore": "Читать далее...",
+  "articleDetailsPage": "Статья не найдена",
+  "articleRecomendations": "Рекомендуем"
 }

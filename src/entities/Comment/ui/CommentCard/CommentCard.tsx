@@ -50,16 +50,16 @@ export const CommentCard: React.FC<CommentCardProps> = memo(
     return (
       <div className={cn("comment-card", [className])}>
         <AppLink
-          to={`${RoutePath.profile}${comment.user.id}`}
+          to={`${RoutePath.profile}${comment?.user?.id}`}
           className="comment-card__header"
         >
-          {comment?.user.avatar ? (
-            <Avatar size={30} src={comment.user.avatar} />
+          {comment?.user?.avatar ? (
+            <Avatar size={30} src={comment?.user?.avatar} />
           ) : null}
 
           <TextParagraf
             className="comment-card__username"
-            title={comment?.user.username}
+            title={comment?.user?.username}
           />
         </AppLink>
 

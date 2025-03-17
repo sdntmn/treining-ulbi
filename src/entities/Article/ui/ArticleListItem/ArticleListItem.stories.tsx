@@ -10,12 +10,12 @@ import {
 } from "entities/Article/model/types/article"
 import { RouterDecorator } from "shared/config/storybook/RouterDecorator/RouterDecorator"
 
-import { ArticleItem } from "./ArticleListItem"
+import { ArticleListItem } from "./ArticleListItem"
 
-const meta: Meta<typeof ArticleItem> = {
+const meta: Meta<typeof ArticleListItem> = {
   title: "entities/ArticleItem",
-  component: ArticleItem,
-} satisfies Meta<typeof ArticleItem>
+  component: ArticleListItem,
+} satisfies Meta<typeof ArticleListItem>
 
 export default meta
 

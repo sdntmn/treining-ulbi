@@ -1,10 +1,11 @@
-import React, { memo, useCallback } from "react"
+import React, { HTMLAttributeAnchorTarget, memo, useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import { useNavigate } from "react-router-dom"
 import EyeIcon from "shared/assets/icons/eye-outlined.svg"
 import { RoutePath } from "shared/config/routerConfig/routerConfig"
 import { cn } from "shared/lib/classNames/classNames"
 import { useHover } from "shared/lib/hooks/useHover/useHover"
+import { AppLink } from "shared/ui/AppLink/AppLink"
 import { Avatar } from "shared/ui/Avatar/Avatar"
 import { Button, ButtonVar } from "shared/ui/Button/Button"
 import { Card } from "shared/ui/Card/Card"
@@ -25,14 +26,14 @@ interface ArticleItemProps {
   className?: string
   article: Article
   view: ArticleViewType
+  target?: HTMLAttributeAnchorTarget
 }
 
-export const ArticleItem: React.FC<ArticleItemProps> = memo(
+export const ArticleListItem: React.FC<ArticleItemProps> = memo(
   function ArticleItem(props: ArticleItemProps) {
-    const { className, article, view } = props
+    const { className, article, view, target } = props
     const { t } = useTranslation("article")
     const [isHover, bindHover] = useHover()
-    console.info(isHover)
     const navigate = useNavigate()
 
     const onOpenArticle = useCallback(() => {
@@ -90,9 +91,14 @@ export const ArticleItem: React.FC<ArticleItemProps> = memo(
               />
             )}
             <div className="article-item__footer">
-              <Button onClick={onOpenArticle} buttonVar={ButtonVar.OUTLINE}>
-                {t("readMore")}
-              </Button>
+              <AppLink
+                target={target}
+                to={RoutePath.article_details + article.id}
+              >
+                <Button onClick={onOpenArticle} buttonVar={ButtonVar.OUTLINE}>
+                  {t("articleBtnReadMore")}
+                </Button>
+              </AppLink>
               {views}
             </div>
           </Card>
@@ -101,8 +107,12 @@ export const ArticleItem: React.FC<ArticleItemProps> = memo(
     }
 
     return (
-      <div className={cn("article-item__card", [className])}>
-        <Card className="article-item__card-item " onClick={onOpenArticle}>
+      <AppLink
+        target={target}
+        className={cn("article-item__card", [className])}
+        to={RoutePath.article_details + article.id}
+      >
+        <Card className="article-item__card-item ">
           <div className="article-item__image-wrapper">
             <img
               src={article?.img}
@@ -120,7 +130,7 @@ export const ArticleItem: React.FC<ArticleItemProps> = memo(
           </div>
           <TextParagraf text={article?.title} className="article-item__title" />
         </Card>
-      </div>
+      </AppLink>
     )
   }
 )

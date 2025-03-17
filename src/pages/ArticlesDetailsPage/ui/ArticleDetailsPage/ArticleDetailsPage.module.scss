@@ -1,8 +1,17 @@
 .article-details-page {
   padding: 32px;
 
+  &__recommendations {
+    display: flex;
+    gap: 16px;
+    flex-wrap: nowrap;
+    overflow-y: auto;
+    margin-bottom: 16px;
+    padding: 16px 0;
+  }
+
   &__comments {
-  margin-top: 20px;
-}
+    margin-top: 20px;
+  }
 
 }

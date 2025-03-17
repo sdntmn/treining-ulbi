@@ -135,8 +135,11 @@ export const ArticleDetails: React.FC<ArticleDetailsProps> = memo(
       )
     }
 
-    useInitialEffect(() => dispatch(fetchArticleById(id)))
-    console.info(content)
+    useInitialEffect(() => {
+      if (id) {
+        dispatch(fetchArticleById(id))
+      }
+    })
 
     return (
       <DynamicModuleLoader reducers={reducers} removeAfterUnmount={true}>

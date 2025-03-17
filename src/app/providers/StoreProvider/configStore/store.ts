@@ -1,20 +1,11 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { configureStore, Reducer, ReducersMapObject } from "@reduxjs/toolkit"
-// import { profileReducer } from "entities/Profile"
-// import { loginReducer } from "features/AuthByUserName"
-
 import { scrollSaveReducer } from "features/ScrollSave"
-
-import { userReducer } from "../../../../entities/User"
-// import { scrollPageReducer } from "5_features/ScrollPage"
 import { $api } from "shared/api/api"
 
+import { userReducer } from "../../../../entities/User"
 import { createReducerManager } from "./reducerManager"
-import {
-  // ReduxStoreWithManager,
-  StateSchema,
-  ThunkExtraArg,
-} from "./StateSchema"
+import { StateSchema, ThunkExtraArg } from "./StateSchema"
 
 export function createReduxStore(
   initialState?: StateSchema,
