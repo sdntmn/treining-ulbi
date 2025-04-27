@@ -5,10 +5,7 @@ import { articleDetailsReducer } from "entities/Article/model/slice/articleDetai
 import { profileReducer } from "entities/Profile"
 import { addCommentFormReducer } from "features/AddCommentForm/model/slice/addCommentFormSlice"
 import { loginReducer } from "features/AuthByUserName"
-import {
-  articleDetailsCommentsReducer,
-  articleDetailsPageRecommendationsReducer,
-} from "pages/ArticlesDetailsPage"
+import { articleDetailsPageReducer } from "pages/ArticlesDetailsPage/model/slices"
 import React from "react"
 
 import { ReducersList } from "../../../lib/components/DynamicModuleLoader/DynamicModuleLoader"
@@ -18,8 +15,7 @@ const defaultAsyncReducers: ReducersList = {
   profile: profileReducer,
   articleDetails: articleDetailsReducer,
   addCommentForm: addCommentFormReducer,
-  articleDetailsRecomendation: articleDetailsPageRecommendationsReducer,
-  articleDetailsComments: articleDetailsCommentsReducer,
+  articleDetailsPage: articleDetailsPageReducer,
 }
 
 type StoreDecorator = (

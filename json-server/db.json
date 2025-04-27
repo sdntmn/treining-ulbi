@@ -2061,6 +2061,12 @@
       "userId": "3",
       "text": "1",
       "id": "NnhRtir"
+    },
+    {
+      "articleId": "2",
+      "userId": "3",
+      "text": "rrr",
+      "id": "l3IxjHH"
     }
   ],
   "users": [
@@ -2114,7 +2120,7 @@
       "first": "Матвей",
       "lastName": "Иванов",
       "age": 36,
-      "currency": "USD",
+      "currency": "RUB",
       "country": "Russia",
       "city": "Tyumen",
       "username": "admin",

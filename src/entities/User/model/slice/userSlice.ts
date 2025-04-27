@@ -13,11 +13,19 @@ export const userSlice = createSlice({
   reducers: {
     setAuthData: (state, action: PayloadAction<User>) => {
       state.authData = action.payload
+      localStorage.setItem(
+        USER_LOCALSTORAGE_KEY,
+        JSON.stringify(action.payload)
+      )
     },
     initAuthData: (state) => {
       const user = localStorage.getItem(USER_LOCALSTORAGE_KEY)
       if (user) {
-        state.authData = JSON.parse(user)
+        try {
+          state.authData = JSON.parse(user)
+        } catch (e) {
+          console.error("Failed to parse user data from localStorage", e)
+        }
       }
       state.initializedUser = true
     },

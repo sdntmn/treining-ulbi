@@ -1,20 +1,34 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { Dispatch } from "@reduxjs/toolkit"
-import { StateSchema } from "app/providers/StoreProvider"
-import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk"
-
 import { userActions } from "../../../../../entities/User"
+import { TestAsyncThunk } from "../../../../../shared/lib/tests/TestAsyncThunk/TestAsyncThunk"
 import { loginByUsername } from "./loginByUserName"
 
+const localStorageMock = {
+  getItem: jest.fn(),
+  setItem: jest.fn(),
+  clear: jest.fn(),
+}
+global.localStorage = {
+  getItem: jest.fn(),
+  setItem: jest.fn(),
+  clear: jest.fn(),
+  length: 0,
+  key: jest.fn(),
+  removeItem: jest.fn(),
+} as Storage
+
+jest.mock("../../../../../shared/config/i18n/i18n", () => ({
+  t: (key: string) => key,
+}))
+
+jest.mock(
+  "shared/const/localstorage",
+  () => ({
+    USER_LOCALSTORAGE_KEY: "user-local-storage",
+  }),
+  { virtual: true }
+)
+
 describe("Тест loginByUserName", () => {
-  let dispatch: Dispatch
-  let getState: () => StateSchema
-
-  beforeEach(() => {
-    dispatch = jest.fn()
-    getState = jest.fn()
-  })
-
   const userValue = { username: "123", id: "1" }
   const thunk = new TestAsyncThunk(loginByUsername)
   test("Успешный запрос ввода пароля и логина", async () => {

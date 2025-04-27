@@ -73,67 +73,63 @@ export const ArticleDetails: React.FC<ArticleDetailsProps> = memo(
       }
     }, [])
 
-    let content
+    const renderSkeleton = () => (
+      <>
+        <Skeleton
+          className="article-details__skeleton-avatar"
+          width={200}
+          height={200}
+          border="50%"
+        />
+        <Skeleton
+          className="article-details__skeleton-title"
+          width={300}
+          height={32}
+        />
+        <Skeleton
+          className="article-details__skeleton"
+          width={600}
+          height={24}
+        />
+        <Skeleton
+          className="article-details__skeleton"
+          width="100%"
+          height={200}
+        />
+        <Skeleton
+          className="article-details__skeleton"
+          width="100%"
+          height={200}
+        />
+      </>
+    )
 
-    if (isLoading) {
-      content = (
-        <>
-          <Skeleton
-            className="article-details__skeleton-avatar"
-            width={200}
-            height={200}
-            border="50%"
+    const renderContent = () => (
+      <>
+        <div className="article-details__avatar-wrapper">
+          <Avatar
+            size={200}
+            src={article?.img}
+            className="article-details__avatar"
           />
-          <Skeleton
-            className="article-details__skeleton-title"
-            width={300}
-            height={32}
-          />
-          <Skeleton
-            className="article-details__skeleton"
-            width={600}
-            height={24}
-          />
-          <Skeleton
-            className="article-details__skeleton"
-            width="100%"
-            height={200}
-          />
-          <Skeleton
-            className="article-details__skeleton"
-            width="100%"
-            height={200}
-          />
-        </>
-      )
-    } else {
-      content = (
-        <>
-          <div className="article-details__avatar-wrapper">
-            <Avatar
-              size={200}
-              src={article?.img}
-              className="article-details__avatar"
-            />
-          </div>
-          <TextParagraf
-            className="article-details__paragraf"
-            title={article?.title}
-            text={article?.subTitle}
-            size={TextSize.L}
-          />
-          <div className="article-details__info">
-            <Icon className="article-details__icon" Svg={EyeIcon} />
-            <TextParagraf text={String(article?.views)} />
-          </div>
-          <div className="article-details__info">
-            <Icon className="article-details__icon" Svg={CalendarIcon} />
-            <TextParagraf text={article?.createdAt} />
-          </div>
-          {article?.blocks.map(renderBlock)}
-        </>
-      )
-    }
+        </div>
+        <TextParagraf
+          className="article-details__paragraf"
+          title={article?.title}
+          text={article?.subTitle}
+          size={TextSize.L}
+        />
+        <div className="article-details__info">
+          <Icon className="article-details__icon" Svg={EyeIcon} />
+          <TextParagraf text={String(article?.views)} />
+        </div>
+        <div className="article-details__info">
+          <Icon className="article-details__icon" Svg={CalendarIcon} />
+          <TextParagraf text={article?.createdAt} />
+        </div>
+        {article?.blocks.map(renderBlock)}
+      </>
+    )
 
     useInitialEffect(() => {
       if (id) {
@@ -142,8 +138,10 @@ export const ArticleDetails: React.FC<ArticleDetailsProps> = memo(
     })
 
     return (
-      <DynamicModuleLoader reducers={reducers} removeAfterUnmount={true}>
-        <div className={cn("article-details", [className])}>{content}</div>
+      <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+        <div className={cn("article-details", [className])}>
+          {isLoading ? renderSkeleton() : renderContent()}
+        </div>
       </DynamicModuleLoader>
     )
   }

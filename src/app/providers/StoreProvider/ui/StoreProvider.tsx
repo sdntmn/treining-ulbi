@@ -1,7 +1,6 @@
 import { ReducersMapObject } from "@reduxjs/toolkit"
 import React, { ReactNode } from "react"
 import { Provider } from "react-redux"
-import { ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
 
 import { StateSchema } from "../../StoreProvider"
 import { createReduxStore } from "../configStore/store"
@@ -9,7 +8,7 @@ import { createReduxStore } from "../configStore/store"
 interface StoreProviderProps {
   children?: ReactNode
   initialState?: DeepPartial<StateSchema>
-  asyncReducers?: ReducersList
+  asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>
 }
 
 export const StoreProvider: React.FC<StoreProviderProps> = (

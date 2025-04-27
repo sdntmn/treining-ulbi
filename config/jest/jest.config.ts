@@ -20,7 +20,10 @@ const config: Config = {
     "^.+\\.tsx?$": ["babel-jest", { presets: ["@babel/preset-react"] }],
     "^.+\\.scss$": "jest-scss-transform",
   },
-  setupFilesAfterEnv: ["<rootDir>config/jest/setup-jest.ts"],
+  setupFilesAfterEnv: [
+    "<rootDir>config/jest/setup-jest.ts",
+    "<rootDir>src/app/setup-jest.ts",
+  ],
   transformIgnorePatterns: [
     "/node_modules/(?![@autofiy/autofiyable|@autofiy/property]).+\\.js$",
     "/node_modules/(?![@autofiy/autofiyable|@autofiy/property]).+\\.ts$",
@@ -33,6 +36,7 @@ const config: Config = {
     "^app/(.*)$": "<rootDir>/src/app/$1",
     "^entities/(.*)$": "<rootDir>/src/entities/$1",
     "^pages/(.*)$": "<rootDir>/src/pages/$1",
+    "^shared/(.*)$": "<rootDir>/src/shared/$1",
     // axios: "axios/dist/node/axios.cjs",
   },
 }

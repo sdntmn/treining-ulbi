@@ -4,12 +4,9 @@ import { ArticleDetailsSchema } from "entities/Article"
 import { ProfileSchema } from "entities/Profile"
 import { UserSchema } from "entities/User"
 import { AddCommentFormSchema } from "features/AddCommentForm"
-import { LoginSchema } from "features/AuthByUserName/model/types/LoginSchema"
+import { LoginSchema } from "features/AuthByUserName"
 import { ScrollPageSchema } from "features/ScrollSave"
-import {
-  ArticleDetailsCommentsSchema,
-  ArticleDetailsRecommendationsSchema,
-} from "pages/ArticlesDetailsPage"
+import { ArticleDetailsPageSchema } from "pages/ArticlesDetailsPage"
 import { ArticlesPageSchema } from "pages/ArticlesPage"
 
 export interface StateSchema {
@@ -22,8 +19,7 @@ export interface StateSchema {
   articleDetails?: ArticleDetailsSchema
   addCommentForm?: AddCommentFormSchema
   articlesPage?: ArticlesPageSchema
-  articleDetailsComments?: ArticleDetailsCommentsSchema
-  articleDetailsRecomendation?: ArticleDetailsRecommendationsSchema
+  articleDetailsPage?: ArticleDetailsPageSchema
 }
 
 export type StateSchemaKey = keyof StateSchema
@@ -44,6 +40,8 @@ export interface ThunkExtraArg {
   api: AxiosInstance
 }
 
+type RequestStatus = "pending" | "fulfilled" | "rejected"
+
 export interface ThunkConfig<T, Arg = void> {
   rejectValue: T
   extra: ThunkExtraArg
@@ -51,7 +49,7 @@ export interface ThunkConfig<T, Arg = void> {
   meta: {
     arg: Arg
     requestId: string
-    requestStatus: "pending" | "fulfilled" | "rejected"
+    requestStatus: RequestStatus
   }
 }
 

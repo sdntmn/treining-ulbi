@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import { ArticleList } from "entities/Article"
-import { memo, useCallback } from "react"
+import React, { memo, useCallback } from "react"
 import { useSelector } from "react-redux"
 import { useSearchParams } from "react-router-dom"
 import { cn } from "shared/lib/classNames/classNames"
@@ -35,7 +35,9 @@ const reducers: ReducersList = {
   articlesPage: articlesPageReducer,
 }
 
-const ArticlesPage = ({ className }: ArticlesPageProps) => {
+const ArticlesPage: React.FC<ArticlesPageProps> = ({
+  className,
+}: ArticlesPageProps) => {
   const dispatch = useAppDispatch()
   const articles = useSelector(getArticles.selectAll)
   const isLoading = useSelector(getArticlesPageIsLoading)
@@ -67,7 +69,6 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
           isLoading={isLoading}
           view={view}
           articles={articles}
-          target="_blank"
         />
       </Page>
     </DynamicModuleLoader>

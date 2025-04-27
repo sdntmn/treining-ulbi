@@ -17,16 +17,17 @@ const commentsAdapter = createEntityAdapter<Comment, string>({
 // Получаем селекторы для комментариев
 export const getArticleComments = commentsAdapter.getSelectors<StateSchema>(
   (state: StateSchema) =>
-    state.articleDetailsComments || commentsAdapter.getInitialState()
+    state.articleDetailsPage?.comments || commentsAdapter.getInitialState()
 )
 
 const articleDetailsCommentsSlice = createSlice({
   name: "articleDetailsCommentsSlice",
-  initialState: {
-    ...commentsAdapter.getInitialState(), // Используем spread для добавления дополнительных полей
+  initialState: commentsAdapter.getInitialState<ArticleDetailsCommentsSchema>({
     isLoading: false,
     error: undefined,
-  } as ArticleDetailsCommentsSchema, // Указываем тип состояния
+    ids: [],
+    entities: {},
+  }),
   reducers: {},
   extraReducers: (builder) => {
     builder
@@ -38,10 +39,7 @@ const articleDetailsCommentsSlice = createSlice({
         fetchCommentsByArticleId.fulfilled,
         (state, action: PayloadAction<Comment[]>) => {
           state.isLoading = false
-          console.info("articleDetailsCommentsSlice", action.payload)
-          // Передаем состояние и payload в setAll
           commentsAdapter.setAll(state, action.payload) // Передаем state как первый аргумент
-          console.info(state)
         }
       )
       .addCase(fetchCommentsByArticleId.rejected, (state, action) => {

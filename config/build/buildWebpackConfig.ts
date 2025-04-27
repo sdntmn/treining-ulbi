@@ -27,15 +27,23 @@ export function buildWebpackConfig(
     devServer: isDev ? buildDevServer(options) : undefined,
     optimization: {
       splitChunks: {
-        chunks: "async",
-        minSize: 5,
-        maxAsyncRequests: 6,
-        maxInitialRequests: 4,
+        chunks: "all", // вместо "async" для лучшего разделения
+        minSize: 20000, // увеличим минимальный размер чанка
+        maxSize: 70000, // добавим максимальный размер
+        minChunks: 1,
+        maxAsyncRequests: 30,
+        maxInitialRequests: 30,
+        automaticNameDelimiter: "~",
         cacheGroups: {
           vendors: {
             test: /[\\/]node_modules[\\/]/,
-            name: "vendors",
-            chunks: "all",
+            priority: -10,
+            reuseExistingChunk: true,
+          },
+          default: {
+            minChunks: 2,
+            priority: -20,
+            reuseExistingChunk: true,
           },
         },
       },

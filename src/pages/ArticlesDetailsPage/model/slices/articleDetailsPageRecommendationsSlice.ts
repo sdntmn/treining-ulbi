@@ -10,24 +10,22 @@ const recommendationsAdapter = createEntityAdapter<Article, string>({
   selectId: (article: Article) => article.id,
 })
 
-const initialRecommendationsState =
-  recommendationsAdapter.getInitialState<ArticleDetailsRecommendationsSchema>({
-    isLoading: false,
-    error: undefined,
-    ids: [],
-    entities: {},
-  })
+const initialState: ArticleDetailsRecommendationsSchema = {
+  ...recommendationsAdapter.getInitialState(),
+  isLoading: false,
+  error: undefined,
+}
 
 export const getArticleRecommendations =
   recommendationsAdapter.getSelectors<StateSchema>(
     (state) =>
-      state.articleDetailsRecomendation ??
+      state?.articleDetailsPage?.recommendations ??
       recommendationsAdapter.getInitialState()
   )
 
 const articleDetailsPageRecommendationsSlice = createSlice({
   name: "articleDetailsPageRecommendations",
-  initialState: initialRecommendationsState,
+  initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder

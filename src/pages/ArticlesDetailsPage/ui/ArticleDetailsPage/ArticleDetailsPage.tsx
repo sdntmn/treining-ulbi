@@ -6,10 +6,8 @@ import { AddCommentForm } from "features/AddCommentForm"
 import { getArticleRecommendationsIsLoading } from "pages/ArticlesDetailsPage/model/selectors/recommendations"
 import { addCommentForArticle } from "pages/ArticlesDetailsPage/model/services/addCommentForArticle/addCommentForArticle"
 import { fetchArticleRecommendations } from "pages/ArticlesDetailsPage/model/services/fetchArticleRecommendations/fetchArticleRecommendations"
-import {
-  articleDetailsPageRecommendationsReducer,
-  getArticleRecommendations,
-} from "pages/ArticlesDetailsPage/model/slices/articleDetailsPageRecommendationsSlice"
+import { articleDetailsPageReducer } from "pages/ArticlesDetailsPage/model/slices"
+import { getArticleRecommendations } from "pages/ArticlesDetailsPage/model/slices/articleDetailsPageRecommendationsSlice"
 import React, { memo, useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
@@ -36,8 +34,7 @@ interface ArticleDetailsPageProps {
 }
 
 const reducers: ReducersList = {
-  articleDetailsComments: articleDetailsPageRecommendationsReducer,
-  articleDetailsRecomendation: articleDetailsPageRecommendationsReducer,
+  articleDetailsPage: articleDetailsPageReducer,
 }
 
 const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = ({
