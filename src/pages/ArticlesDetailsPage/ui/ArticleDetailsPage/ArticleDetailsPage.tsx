@@ -6,8 +6,7 @@ import { AddCommentForm } from "features/AddCommentForm"
 import React, { memo, useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
-import { useNavigate, useParams } from "react-router-dom"
-import { RoutePath } from "shared/config/routerConfig/routerConfig"
+import { useParams } from "react-router-dom"
 import { cn } from "shared/lib/classNames/classNames"
 import {
   DynamicModuleLoader,
@@ -15,7 +14,6 @@ import {
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect"
-import { Button, ButtonVar } from "shared/ui/Button/Button"
 import { TextParagraf, TextSize } from "shared/ui/TextParagraf/TextParagraf"
 import { Page } from "widgets/Page"
 
@@ -26,6 +24,7 @@ import { fetchCommentsByArticleId } from "../../model/services/fetchCommentsByAr
 import { articleDetailsPageReducer } from "../../model/slices"
 import { getArticleComments } from "../../model/slices/articleDetailsCommentsSlice"
 import { getArticleRecommendations } from "../../model/slices/articleDetailsPageRecommendationsSlice"
+import { ArticleDetailsPageHeader } from "../ArticleDetailsPageHeader/ArticleDetailsPageHeader"
 
 import "./ArticleDetailsPage.module.scss"
 
@@ -41,7 +40,6 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = ({
   className,
 }: ArticleDetailsPageProps) => {
   const dispatch = useAppDispatch()
-  const navigate = useNavigate()
   const { t } = useTranslation("article")
   const { id } = useParams<{ id: string }>()
 
@@ -52,10 +50,6 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = ({
   const isLoadingRecommendations = useSelector(
     getArticleRecommendationsIsLoading
   )
-
-  const onBackToList = useCallback(() => {
-    navigate(RoutePath.articles)
-  }, [navigate])
 
   const onSendComment = useCallback(
     (text: string) => {
@@ -77,9 +71,7 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = ({
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <Page className={cn("article-details-page", [className])}>
-        <Button buttonVar={ButtonVar.OUTLINE} onClick={onBackToList}>
-          {t("articleBtnBackToList")}
-        </Button>
+        <ArticleDetailsPageHeader />
         <ArticleDetails id={id} />
         <TextParagraf
           size={TextSize.L}

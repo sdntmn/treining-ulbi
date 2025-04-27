@@ -3,9 +3,12 @@ import { LoginModal } from "features/AuthByUserName"
 import React, { memo, useCallback, useState } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
+import { RoutePath } from "shared/config/routerConfig/routerConfig"
 import { cn } from "shared/lib/classNames/classNames"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
+import { AppLink, AppLinkColor } from "shared/ui/AppLink/AppLink"
 import { Button, ButtonVar } from "shared/ui/Button/Button"
+import { TextParagraf, TextVar } from "shared/ui/TextParagraf/TextParagraf"
 
 import "./Navbar.module.scss"
 
@@ -37,6 +40,18 @@ export const Navbar: React.FC<NavbarProps> = memo(function Navbar({
   if (authData) {
     return (
       <header className={cn("navbar", [className])}>
+        <TextParagraf
+          className={"navbar-name"}
+          title={t("SDN")}
+          textVar={TextVar.PRIMARY}
+        />
+        <AppLink
+          to={RoutePath.article_create}
+          appLinkColor={AppLinkColor.SECONDARY}
+          className={"navbar__create-btn"}
+        >
+          {t("Создать статью")}
+        </AppLink>
         <Button
           className="navbar__login"
           buttonVar={ButtonVar.CLEAR}

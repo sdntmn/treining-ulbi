@@ -31,7 +31,7 @@ const AddCommentForm: React.FC<AddCommentFormProps> = ({
   className,
   onSendComment,
 }: AddCommentFormProps) => {
-  const { t } = useTranslation("articleDetailsPage")
+  const { t } = useTranslation("article")
   const text = useSelector(getAddCommentFormText)
   const dispatch = useAppDispatch()
 

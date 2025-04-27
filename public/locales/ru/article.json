@@ -11,5 +11,9 @@
   "articleBtnBackToList": "Назад к списку",
   "articleBtnReadMore": "Читать далее...",
   "articleDetailsPage": "Статья не найдена",
-  "articleRecomendations": "Рекомендуем"
+  "articleRecomendations": "Рекомендуем",
+  "articleNotFound": "Статья не найдена",
+  "articleBtnSendComment": "Отправить",
+  "articleInputPlaceholder": "Текст комментария",
+  "articleBtnEditing": "Редактировать"
 }

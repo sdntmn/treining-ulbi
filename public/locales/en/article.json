@@ -11,5 +11,9 @@
   "articleBtnBackToList": "Back to list",
   "articleBtnReadMore": "Read more...",
   "articleDetailsPage": "Article not found",
-  "articleRecomendations": "We recommend"
+  "articleRecomendations": "We recommend",
+  "articleNotFound": "Article not found",
+  "articleBtnSendComment": "Send",
+  "articleInputPlaceholder": "Comment text",
+  "articleBtnEditing": "Edit"
 }

@@ -1,4 +1,5 @@
 import { AboutPage } from "pages/AboutPage"
+import { ArticleEditPage } from "pages/ArticleEditPage"
 import { ArticleDetailsPage } from "pages/ArticlesDetailsPage"
 import { ArticlesPage } from "pages/ArticlesPage"
 import { MainPage } from "pages/MainPage"
@@ -16,6 +17,10 @@ export enum RouteNames {
   PROFILE = "profile",
   ARTICLES = "articles",
   ARTICLE_DETAILS = "article_details",
+  ARTICLE_CREATE = "article_create",
+  ARTICLE_EDIT = "article_edit",
+  // ADMIN_PANEL = "admin_panel",
+  // FORBIDDEN = "forbidden",
   NOT_FOUND = "not_found",
 }
 
@@ -25,7 +30,11 @@ export const RoutePath: Record<RouteNames, string> = {
   [RouteNames.PROFILE]: "/profile/",
   [RouteNames.ARTICLES]: "/articles",
   [RouteNames.ARTICLE_DETAILS]: "/articles/",
+  [RouteNames.ARTICLE_CREATE]: "/articles/new",
+  [RouteNames.ARTICLE_EDIT]: "/articles/:id/edit",
   [RouteNames.NOT_FOUND]: "*",
+  // [RouteNames.ADMIN_PANEL]: "",
+  // [RouteNames.FORBIDDEN]: ""
 }
 
 export const routeConfig: Record<RouteNames, AppRoutesProps> = {
@@ -46,6 +55,16 @@ export const routeConfig: Record<RouteNames, AppRoutesProps> = {
   [RouteNames.ARTICLE_DETAILS]: {
     path: `${RoutePath.article_details}:id`,
     element: <ArticleDetailsPage />,
+    authOnly: true,
+  },
+  [RouteNames.ARTICLE_CREATE]: {
+    path: `${RoutePath.article_create}`,
+    element: <ArticleEditPage />,
+    authOnly: true,
+  },
+  [RouteNames.ARTICLE_EDIT]: {
+    path: `${RoutePath.article_edit}`,
+    element: <ArticleEditPage />,
     authOnly: true,
   },
   [RouteNames.NOT_FOUND]: {
