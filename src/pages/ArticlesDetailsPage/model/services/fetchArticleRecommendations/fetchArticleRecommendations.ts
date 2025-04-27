@@ -21,7 +21,6 @@ export const fetchArticleRecommendations = createAsyncThunk<
       if (!response.data) {
         throw new Error()
       }
-      console.info("fetchCommentsByArticleId", response.data)
       return response.data
     } catch (_e) {
       return rejectWithValue("error")

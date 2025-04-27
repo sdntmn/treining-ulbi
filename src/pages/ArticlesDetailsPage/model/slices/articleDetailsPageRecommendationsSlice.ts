@@ -36,8 +36,6 @@ const articleDetailsPageRecommendationsSlice = createSlice({
       .addCase(fetchArticleRecommendations.fulfilled, (state, action) => {
         state.isLoading = false
         recommendationsAdapter.setAll(state, action.payload)
-        console.info(action.payload)
-        console.info(state)
       })
       .addCase(fetchArticleRecommendations.rejected, (state, action) => {
         state.isLoading = false

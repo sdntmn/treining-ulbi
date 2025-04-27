@@ -1,6 +1,5 @@
-import React, { HTMLAttributeAnchorTarget, memo, useCallback } from "react"
+import React, { HTMLAttributeAnchorTarget, memo } from "react"
 import { useTranslation } from "react-i18next"
-import { useNavigate } from "react-router-dom"
 import EyeIcon from "shared/assets/icons/eye-outlined.svg"
 import { RoutePath } from "shared/config/routerConfig/routerConfig"
 import { cn } from "shared/lib/classNames/classNames"
@@ -34,11 +33,6 @@ export const ArticleListItem: React.FC<ArticleItemProps> = memo(
     const { className, article, view, target } = props
     const { t } = useTranslation("article")
     const [isHover, bindHover] = useHover()
-    const navigate = useNavigate()
-
-    const onOpenArticle = useCallback(() => {
-      navigate(RoutePath.article_details + article.id)
-    }, [article?.id, navigate])
 
     const types = (
       <TextParagraf
@@ -95,7 +89,7 @@ export const ArticleListItem: React.FC<ArticleItemProps> = memo(
                 target={target}
                 to={RoutePath.article_details + article.id}
               >
-                <Button onClick={onOpenArticle} buttonVar={ButtonVar.OUTLINE}>
+                <Button buttonVar={ButtonVar.OUTLINE}>
                   {t("articleBtnReadMore")}
                 </Button>
               </AppLink>

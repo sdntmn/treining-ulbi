@@ -6,8 +6,6 @@ export const validateProfileData = (profile?: Profile) => {
   }
   const { first, lastName, age, country } = profile
 
-  console.info("update validate")
-
   const errors: ValidateProfileError[] = []
 
   if (!first || !lastName) {

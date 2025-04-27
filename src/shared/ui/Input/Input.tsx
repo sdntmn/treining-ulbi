@@ -44,7 +44,6 @@ export const Input: React.FC<InputProps> = memo(function Input(
   const isCaretVisible = isFocused && !isReadonly
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.info(e.target.value)
     onChange?.(e.target.value)
     setCaretPosition(e.target.value.length)
   }

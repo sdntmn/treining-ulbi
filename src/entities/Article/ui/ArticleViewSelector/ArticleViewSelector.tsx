@@ -39,10 +39,7 @@ export const ArticleViewSelector: React.FC<ArticleViewSelectorProps> = memo(
       onViewClick?.(newView)
     }
 
-    console.info("view", view)
-
     const renderButton = (viewType: ViewTypeItem) => {
-      console.info("viewType.view", viewType.view)
       return (
         <Button
           key={viewType.view}

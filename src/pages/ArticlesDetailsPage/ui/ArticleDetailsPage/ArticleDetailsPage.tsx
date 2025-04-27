@@ -3,11 +3,6 @@ import { ArticleDetails, ArticleList } from "entities/Article"
 import { getArticleDetailsIsLoading } from "entities/Article/model/selectors/articleDetails"
 import { CommentList } from "entities/Comment"
 import { AddCommentForm } from "features/AddCommentForm"
-import { getArticleRecommendationsIsLoading } from "pages/ArticlesDetailsPage/model/selectors/recommendations"
-import { addCommentForArticle } from "pages/ArticlesDetailsPage/model/services/addCommentForArticle/addCommentForArticle"
-import { fetchArticleRecommendations } from "pages/ArticlesDetailsPage/model/services/fetchArticleRecommendations/fetchArticleRecommendations"
-import { articleDetailsPageReducer } from "pages/ArticlesDetailsPage/model/slices"
-import { getArticleRecommendations } from "pages/ArticlesDetailsPage/model/slices/articleDetailsPageRecommendationsSlice"
 import React, { memo, useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
@@ -24,8 +19,13 @@ import { Button, ButtonVar } from "shared/ui/Button/Button"
 import { TextParagraf, TextSize } from "shared/ui/TextParagraf/TextParagraf"
 import { Page } from "widgets/Page"
 
+import { getArticleRecommendationsIsLoading } from "../../model/selectors/recommendations"
+import { addCommentForArticle } from "../../model/services/addCommentForArticle/addCommentForArticle"
+import { fetchArticleRecommendations } from "../../model/services/fetchArticleRecommendations/fetchArticleRecommendations"
 import { fetchCommentsByArticleId } from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId"
+import { articleDetailsPageReducer } from "../../model/slices"
 import { getArticleComments } from "../../model/slices/articleDetailsCommentsSlice"
+import { getArticleRecommendations } from "../../model/slices/articleDetailsPageRecommendationsSlice"
 
 import "./ArticleDetailsPage.module.scss"
 
@@ -44,12 +44,9 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = ({
   const navigate = useNavigate()
   const { t } = useTranslation("article")
   const { id } = useParams<{ id: string }>()
-  console.info("Id from useParams:", id)
 
   const comments = useSelector(getArticleComments.selectAll)
   const recommendations = useSelector(getArticleRecommendations.selectAll)
-  console.log("Recommendations from recommendations:", recommendations)
-  console.log("Recommendations from comments:", comments)
 
   const isLoadingComments = useSelector(getArticleDetailsIsLoading)
   const isLoadingRecommendations = useSelector(
