@@ -38,7 +38,7 @@ export function buildPlugins({
   if (isDev) {
     plugins.push(new webpack.HotModuleReplacementPlugin())
     plugins.push(
-      new BundleAnalyzerPlugin({ openAnalyzer: false, analyzerPort: 8890 })
+      new BundleAnalyzerPlugin({ openAnalyzer: false, analyzerPort: 8899 })
     )
     plugins.push(new ReactRefreshWebpackPlugin())
   }
