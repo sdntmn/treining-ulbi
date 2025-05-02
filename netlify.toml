@@ -1,10 +1,4 @@
-[build]
-  timeout = 25
-  command = "yarn run build:prod && yarn cache clean"
-
-[build.environment]
-  NODE_ENV = "production"
-  NODE_OPTIONS = "--max_old_space_size=4096"
-
-[[plugins]]
-  package = "netlify-plugin-cache-nextjs"
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

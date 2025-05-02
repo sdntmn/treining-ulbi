@@ -37,6 +37,7 @@
   "goOut": "goOut",
   "headerProfileTitle": "headerProfileTitle",
   "language": "language",
+  "languageShort": "languageShort",
   "login": "login",
   "mainPageTitle": "mainPageTitle",
   "navLinkAbout": "navLinkAbout",
