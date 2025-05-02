@@ -1,12 +1,11 @@
+import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin"
+import CopyPlugin from "copy-webpack-plugin"
 import HtmlWebpackPlugin from "html-webpack-plugin"
 import MiniCssExtractPlugin from "mini-css-extract-plugin"
-import CopyPlugin from "copy-webpack-plugin"
 import webpack from "webpack"
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer"
 
 import { type BuildOptions } from "./types/config"
-
-import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin"
 
 export function buildPlugins({
   paths,
@@ -32,9 +31,7 @@ export function buildPlugins({
     }),
     new BundleAnalyzerPlugin({ openAnalyzer: false }),
     new CopyPlugin({
-      patterns: [
-        { from: paths.locales, to: paths.buildLocales },
-      ],
+      patterns: [{ from: paths.locales, to: paths.buildLocales }],
     }),
   ]
 
