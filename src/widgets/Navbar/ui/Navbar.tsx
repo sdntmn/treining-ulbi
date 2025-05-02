@@ -19,8 +19,8 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = memo(function Navbar({
   className,
 }: NavbarProps) {
-  const dispath = useAppDispatch()
-  const { t } = useTranslation("translation")
+  const dispatch = useAppDispatch()
+  const { t } = useTranslation("common")
   const [isAuthModal, setIsAuthModal] = useState<boolean>(false)
 
   const authData: User | undefined = useSelector(getUserAuthData)
@@ -34,8 +34,8 @@ export const Navbar: React.FC<NavbarProps> = memo(function Navbar({
   }, [])
 
   const onLogout = useCallback(() => {
-    dispath(userActions.logOut())
-  }, [dispath])
+    dispatch(userActions.logOut())
+  }, [dispatch])
 
   if (authData) {
     return (
@@ -59,10 +59,7 @@ export const Navbar: React.FC<NavbarProps> = memo(function Navbar({
         >
           {t("goOut")}
         </Button>
-        <LoginModal
-          isOpen={isAuthModal}
-          onClose={onCloseModalAuth}
-        ></LoginModal>
+        <LoginModal isOpen={isAuthModal} onClose={onCloseModalAuth} />
       </header>
     )
   }

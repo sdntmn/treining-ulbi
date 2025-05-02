@@ -1,5 +1,6 @@
 import HtmlWebpackPlugin from "html-webpack-plugin"
 import MiniCssExtractPlugin from "mini-css-extract-plugin"
+import CopyPlugin from "copy-webpack-plugin"
 import webpack from "webpack"
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer"
 
@@ -30,6 +31,11 @@ export function buildPlugins({
       __PROJECT__: JSON.stringify(project),
     }),
     new BundleAnalyzerPlugin({ openAnalyzer: false }),
+    new CopyPlugin({
+      patterns: [
+        { from: paths.locales, to: paths.buildLocales },
+      ],
+    }),
   ]
 
   if (isDev) {
