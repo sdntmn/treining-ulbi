@@ -22,6 +22,8 @@ interface PageProps {
   onScrollEnd?: () => void
 }
 
+export const PAGE_ID = "PAGE_ID"
+
 export const Page: React.FC<PageProps> = ({
   className,
   children,
@@ -60,6 +62,7 @@ export const Page: React.FC<PageProps> = ({
       ref={wrapperRef}
       className={cn("page", [className])}
       onScroll={onScroll}
+      id={PAGE_ID}
     >
       {children}
       {onScrollEnd ? (

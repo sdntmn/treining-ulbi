@@ -1,5 +1,6 @@
-import React, { HTMLAttributeAnchorTarget } from "react"
-import { cn } from "shared/lib/classNames/classNames"
+import { useVirtualizer } from "@tanstack/react-virtual"
+import React, { HTMLAttributeAnchorTarget, useRef } from "react"
+import { PAGE_ID } from "widgets/Page/ui/Page"
 
 import { ArticleViewType, Article } from "../../model/types/article"
 import { ArticleListItem } from "../ArticleListItem/ArticleListItem"
@@ -19,11 +20,7 @@ const getSkeletons = (view: ArticleViewType) => {
   const skeletons = Array.from(
     { length: view === ArticleViewType.CARD ? 9 : 3 },
     (_, index) => (
-      <ArticleListItemSkeleton
-        className="article-list__card"
-        key={`skeleton-${index}`}
-        view={view}
-      />
+      <ArticleListItemSkeleton key={`skeleton-${index}`} view={view} />
     )
   )
   return skeletons
@@ -32,29 +29,121 @@ const getSkeletons = (view: ArticleViewType) => {
 export const ArticleList: React.FC<ArticleListProps> = (
   props: ArticleListProps
 ) => {
-  const {
-    className,
-    articles,
-    isLoading,
-    view = ArticleViewType.CARD,
-    target,
-  } = props
+  const { articles, isLoading, view = ArticleViewType.CARD, target } = props
 
-  const renderArticle = (article: Article) => {
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  const config = {
+    [ArticleViewType.CARD]: {
+      itemsPerRow: 3,
+      itemHeight: 300,
+      itemWidth: undefined, // будет рассчитываться автоматически
+      rowHeight: 320,
+    },
+    [ArticleViewType.LIST]: {
+      itemsPerRow: 1,
+      itemHeight: 150,
+      itemWidth: "100%",
+      rowHeight: 640,
+    },
+  }
+
+  const currentConfig = config[view]
+  const rowCount = Math.ceil(articles.length / currentConfig.itemsPerRow)
+
+  const rowVirtualizer = useVirtualizer({
+    count: rowCount,
+    getScrollElement: () => document.getElementById(PAGE_ID),
+    estimateSize: () => currentConfig.rowHeight,
+    overscan: 5,
+    paddingStart: 20,
+    paddingEnd: 20,
+  })
+
+  const renderRow = (rowIndex: number) => {
+    const startIndex = rowIndex * currentConfig.itemsPerRow
+    const endIndex = Math.min(
+      startIndex + currentConfig.itemsPerRow,
+      articles.length
+    )
+    const rowItems = articles.slice(startIndex, endIndex)
+
     return (
-      <ArticleListItem
-        article={article}
-        view={view}
-        className="article-list__card"
-        key={article.id}
-        target={target}
-      />
+      <div
+        key={rowIndex}
+        style={{
+          display: "flex",
+          gap: "16px",
+          marginBottom: "16px",
+          height: `${currentConfig.rowHeight}px`,
+        }}
+      >
+        {rowItems.map((article) => (
+          <div
+            key={article.id}
+            style={{
+              flex: currentConfig.itemsPerRow > 1 ? 1 : undefined,
+              width: currentConfig.itemWidth,
+            }}
+          >
+            <ArticleListItem
+              article={article}
+              view={view}
+              className="article-list__item"
+              target={target}
+            />
+          </div>
+        ))}
+      </div>
     )
   }
+
+  // const renderArticle = (article: Article) => {
+  //   return (
+  //     <ArticleListItem
+  //       article={article}
+  //       view={view}
+  //       className="article-list__card"
+  //       key={article.id}
+  //       target={target}
+  //     />
+  //   )
+  // }
+  // return (
+  //   <div ref={parentRef} className={cn("article-list", [className])}>
+  //     {articles.length ? articles.map(renderArticle) : "Нет статей"}
+  //     {isLoading && getSkeletons(view)}
+  //   </div>
+  // )
   return (
-    <div className={cn("article-list", [className])}>
-      {articles.length ? articles.map(renderArticle) : "Нет статей"}
-      {isLoading && getSkeletons(view)}
+    <div
+      ref={containerRef}
+      style={{
+        height: `${rowVirtualizer.getTotalSize()}px`,
+        position: "relative",
+        width: "100%",
+      }}
+    >
+      {rowVirtualizer.getVirtualItems().map((virtualRow) => (
+        <div
+          key={virtualRow.key}
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            transform: `translateY(${virtualRow.start}px)`,
+          }}
+        >
+          {renderRow(virtualRow.index)}
+        </div>
+      ))}
+
+      {isLoading && (
+        <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+          {getSkeletons(view)}
+        </div>
+      )}
     </div>
   )
 }

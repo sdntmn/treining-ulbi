@@ -15,31 +15,32 @@ interface ArticleListItemSkeletonProps {
 export const ArticleListItemSkeleton: React.FC<ArticleListItemSkeletonProps> =
   memo(function ArticleListItemSkeleton(props: ArticleListItemSkeletonProps) {
     const { className, view } = props
+    console.info(view)
 
     if (view === ArticleViewType.LIST) {
       return (
-        <div className={cn("article-list-item", [className])}>
-          <Card className="article-list-item__card">
-            <div className="article-list-item__header">
+        <div className={cn("article-list-card", [className])}>
+          <Card className="article-list-card__card">
+            <div className="article-list-card__header">
               <Skeleton border="50%" height={30} width={30} />
               <Skeleton
-                width={150}
+                // width={150}
                 height={16}
-                className="article-list-item__username"
+                className="article-list-card__username"
               />
               <Skeleton
                 width={150}
                 height={16}
-                className="article-list-item__date"
+                className="article-list-card__date"
               />
             </div>
             <Skeleton
               width={250}
               height={24}
-              className="article-list-item__title"
+              className="article-list-card__title"
             />
-            <Skeleton height={208} className="article-list-item__img" />
-            <div className="article-list-item__footer">
+            <Skeleton height={208} className="article-list-card__img" />
+            <div className="article-list-card__footer">
               <Skeleton height={36} width={200} />
             </div>
           </Card>
@@ -48,8 +49,8 @@ export const ArticleListItemSkeleton: React.FC<ArticleListItemSkeletonProps> =
     }
 
     return (
-      <div className={cn("article-list-item", [className])}>
-        <Card className="article-list-item__card">
+      <div className={cn("article-list-row", [className])}>
+        {/* <Card className="article-list-item__card">
           <div className="article-list-item__image-wrapper">
             <Skeleton
               width={200}
@@ -65,7 +66,7 @@ export const ArticleListItemSkeleton: React.FC<ArticleListItemSkeletonProps> =
             height={16}
             className="article-list-item__title"
           />
-        </Card>
+        </Card> */}
       </div>
     )
   })
