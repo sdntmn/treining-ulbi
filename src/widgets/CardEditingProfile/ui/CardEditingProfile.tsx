@@ -12,19 +12,11 @@ import React, { useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
 import { Currency, Country } from "shared/const/common"
-import { cn } from "shared/lib/classNames/classNames"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
+import { VStack } from "shared/ui/Stack"
 import { TextParagraf, TextVar } from "shared/ui/TextParagraf/TextParagraf"
 
-import "./CardEditingProfile.module.scss"
-
-export interface CardEditingProfileProps {
-  className?: string
-}
-
-export const CardEditingProfile: React.FC<CardEditingProfileProps> = ({
-  className,
-}: CardEditingProfileProps) => {
+export const CardEditingProfile: React.FC = () => {
   const dispatch = useAppDispatch()
   const { t } = useTranslation("proile")
   const formData = useSelector(getProfileForm)
@@ -95,7 +87,7 @@ export const CardEditingProfile: React.FC<CardEditingProfileProps> = ({
   )
 
   return (
-    <div className={cn("card-editing-profile", [className])}>
+    <VStack max>
       {Boolean(validateErrors) &&
         validateErrors?.map((err) => (
           <TextParagraf
@@ -118,6 +110,6 @@ export const CardEditingProfile: React.FC<CardEditingProfileProps> = ({
         onChangeCurrency={onChangeCurrency}
         onChangeFirstName={onChangeFirstName}
       />
-    </div>
+    </VStack>
   )
 }

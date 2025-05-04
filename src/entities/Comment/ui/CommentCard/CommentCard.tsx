@@ -4,6 +4,7 @@ import { cn } from "shared/lib/classNames/classNames"
 import { AppLink } from "shared/ui/AppLink/AppLink"
 import { Avatar } from "shared/ui/Avatar/Avatar"
 import { Skeleton } from "shared/ui/Skeleton/Skeleton"
+import { VStack } from "shared/ui/Stack"
 import { TextParagraf } from "shared/ui/TextParagraf/TextParagraf"
 
 import { Comment } from "../../model/types/comment"
@@ -48,7 +49,7 @@ export const CommentCard: React.FC<CommentCardProps> = memo(
     }
 
     return (
-      <div className={cn("comment-card", [className])}>
+      <VStack gap="8" max className={cn("comment-card", [className])}>
         <AppLink
           to={`${RoutePath.profile}${comment?.user?.id}`}
           className="comment-card__header"
@@ -64,7 +65,7 @@ export const CommentCard: React.FC<CommentCardProps> = memo(
         </AppLink>
 
         <TextParagraf className="comment-card__text" text={comment?.text} />
-      </div>
+      </VStack>
     )
   }
 )

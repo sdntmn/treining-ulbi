@@ -12,6 +12,7 @@ import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEf
 import { Avatar } from "shared/ui/Avatar/Avatar"
 import { Icon } from "shared/ui/Icon/Icon"
 import { Skeleton } from "shared/ui/Skeleton/Skeleton"
+import { HStack, VStack } from "shared/ui/Stack"
 import { TextParagraf, TextSize } from "shared/ui/TextParagraf/TextParagraf"
 
 import {
@@ -74,59 +75,41 @@ export const ArticleDetails: React.FC<ArticleDetailsProps> = memo(
     }, [])
 
     const renderSkeleton = () => (
-      <>
+      <VStack gap="16" max>
         <Skeleton
           className="article-details__skeleton-avatar"
           width={200}
           height={200}
           border="50%"
         />
-        <Skeleton
-          className="article-details__skeleton-title"
-          width={300}
-          height={32}
-        />
-        <Skeleton
-          className="article-details__skeleton"
-          width={600}
-          height={24}
-        />
-        <Skeleton
-          className="article-details__skeleton"
-          width="100%"
-          height={200}
-        />
-        <Skeleton
-          className="article-details__skeleton"
-          width="100%"
-          height={200}
-        />
-      </>
+        <Skeleton width={300} height={32} />
+        <Skeleton width={600} height={24} />
+        <Skeleton width="100%" height={200} />
+        <Skeleton width="100%" height={200} />
+      </VStack>
     )
 
     const renderContent = () => (
       <>
-        <div className="article-details__avatar-wrapper">
-          <Avatar
-            size={200}
-            src={article?.img}
-            className="article-details__avatar"
+        <HStack justify="center" max>
+          <Avatar size={200} src={article?.img} />
+        </HStack>
+
+        <VStack gap="4" max>
+          <TextParagraf
+            title={article?.title}
+            text={article?.subTitle}
+            size={TextSize.L}
           />
-        </div>
-        <TextParagraf
-          className="article-details__paragraf"
-          title={article?.title}
-          text={article?.subTitle}
-          size={TextSize.L}
-        />
-        <div className="article-details__info">
-          <Icon className="article-details__icon" Svg={EyeIcon} />
-          <TextParagraf text={String(article?.views)} />
-        </div>
-        <div className="article-details__info">
-          <Icon className="article-details__icon" Svg={CalendarIcon} />
-          <TextParagraf text={article?.createdAt} />
-        </div>
+          <HStack gap="8">
+            <Icon Svg={EyeIcon} />
+            <TextParagraf text={String(article?.views)} />
+          </HStack>
+          <HStack gap="8">
+            <Icon Svg={CalendarIcon} />
+            <TextParagraf text={article?.createdAt} />
+          </HStack>
+        </VStack>
         {article?.blocks.map(renderBlock)}
       </>
     )
@@ -139,9 +122,9 @@ export const ArticleDetails: React.FC<ArticleDetailsProps> = memo(
 
     return (
       <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-        <div className={cn("article-details", [className])}>
+        <VStack gap="16" className={cn("article-details", [className])}>
           {isLoading ? renderSkeleton() : renderContent()}
-        </div>
+        </VStack>
       </DynamicModuleLoader>
     )
   }

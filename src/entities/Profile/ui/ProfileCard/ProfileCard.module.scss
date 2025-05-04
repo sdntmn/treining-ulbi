@@ -1,40 +1,12 @@
 .profile-card {
-  display: flex;
-  gap: 8px;
-  flex-direction: column;
   padding: 20px;
   border: 2px solid var(--navbar-bg-color);
-  width: 100%;
-
-  &__input {
-  }
 
   &__loading {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 200px;
-    width: 100%;
+    min-height: 317px;
   }
 
   &__error {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 200px;
-    width: 100%;
+    min-height: 317px;
   }
-
-  &__avatar {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-  }
-}
-
-
-
-
-.editing {
-  border: 2px solid var(--secondary-color);
 }

@@ -8,20 +8,12 @@ import { getUserAuthData } from "entities/User"
 import React, { useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
-import { cn } from "shared/lib/classNames/classNames"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
 import { Button, ButtonVar } from "shared/ui/Button/Button"
+import { HStack } from "shared/ui/Stack"
 import { TextParagraf } from "shared/ui/TextParagraf/TextParagraf"
 
-import "./HeaderProfilePage.module.scss"
-
-interface HeaderProfilePageProps {
-  className?: string
-}
-
-export const HeaderProfilePage: React.FC<HeaderProfilePageProps> = ({
-  className,
-}: HeaderProfilePageProps) => {
+export const HeaderProfilePage: React.FC = () => {
   const { t } = useTranslation("profile")
   const readOnly = useSelector(getProfileReadonly)
   const dispatch = useAppDispatch()
@@ -42,38 +34,29 @@ export const HeaderProfilePage: React.FC<HeaderProfilePageProps> = ({
   }, [dispatch])
 
   return (
-    <div className={cn("header-profile-page", [className])}>
+    <HStack justify="between" max>
       <TextParagraf title={t("headerProfileTitle")} />
       {canEdit && (
-        <div className={"header-profile-page__buttons"}>
+        <HStack gap="16">
           {readOnly ? (
-            <Button
-              className={"header-profile-page__btn"}
-              buttonVar={ButtonVar.OUTLINE}
-              onClick={onEdit}
-            >
+            <Button buttonVar={ButtonVar.OUTLINE} onClick={onEdit}>
               {t("btnProfileEdit")}
             </Button>
           ) : (
             <>
               <Button
-                className={"header-profile-page__btn"}
                 buttonVar={ButtonVar.OUTLINE_ERROR}
                 onClick={onCancelEdit}
               >
                 {t("btnProfileCancel")}
               </Button>
-              <Button
-                className={"header-profile-page__btn"}
-                buttonVar={ButtonVar.OUTLINE}
-                onClick={onSave}
-              >
+              <Button buttonVar={ButtonVar.OUTLINE} onClick={onSave}>
                 {t("btnProfileSave")}
               </Button>
             </>
           )}
-        </div>
+        </HStack>
       )}
-    </div>
+    </HStack>
   )
 }

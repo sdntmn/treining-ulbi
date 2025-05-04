@@ -5,6 +5,7 @@ import { cn } from "shared/lib/classNames/classNames"
 import { Avatar } from "shared/ui/Avatar/Avatar"
 import { Input } from "shared/ui/Input/Input"
 import { Loader } from "shared/ui/Loader/Loader"
+import { HStack, VStack } from "shared/ui/Stack"
 import {
   TextAlign,
   TextParagraf,
@@ -56,20 +57,24 @@ export const ProfileCard: React.FC<ProfileCardProps> = (
 
   if (isLoading) {
     return (
-      <div
+      <HStack
+        justify="center"
+        max
         className={cn("profile-card", [
           className,
           isLoading && "profile-card__loading",
         ])}
       >
         <Loader />
-      </div>
+      </HStack>
     )
   }
 
   if (error) {
     return (
-      <div
+      <HStack
+        justify="center"
+        max
         className={cn("profile-card", [
           className,
           error && "profile-card__error",
@@ -81,16 +86,16 @@ export const ProfileCard: React.FC<ProfileCardProps> = (
           text={t("profileCardErrorText")}
           align={TextAlign.CENTER}
         />
-      </div>
+      </HStack>
     )
   }
 
   return (
-    <div className={cn("profile-card", [className])}>
+    <VStack gap="8" max className={cn("profile-card", [className])}>
       {data?.avatar && (
-        <div className={cn("profile-card__avatar", [className])}>
+        <HStack justify="center" max>
           <Avatar src={data?.avatar} alt="Аватар" size={50} />
-        </div>
+        </HStack>
       )}
       <Input
         className={"profile-card__input"}
@@ -146,6 +151,6 @@ export const ProfileCard: React.FC<ProfileCardProps> = (
         onChange={onChangeCountry}
         isReadonly={isReadonly}
       />
-    </div>
+    </VStack>
   )
 }

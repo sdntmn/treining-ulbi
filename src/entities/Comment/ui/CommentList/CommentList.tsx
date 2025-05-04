@@ -1,13 +1,13 @@
 import React, { memo } from "react"
 import { useTranslation } from "react-i18next"
 import { cn } from "shared/lib/classNames/classNames"
+import { VStack } from "shared/ui/Stack"
 import { TextParagraf } from "shared/ui/TextParagraf/TextParagraf"
 
 import { Comment } from "../../model/types/comment"
 import { CommentCard } from "../CommentCard/CommentCard"
 
 import "./CommentList.module.scss"
-
 interface CommentListProps {
   className?: string
   comments?: Comment[]
@@ -21,16 +21,16 @@ export const CommentList: React.FC<CommentListProps> = memo(
 
     if (isLoading) {
       return (
-        <div className={cn("comment-list", [className])}>
+        <VStack gap="8" max className={cn("", [className])}>
           <CommentCard isLoading />
           <CommentCard isLoading />
           <CommentCard isLoading />
-        </div>
+        </VStack>
       )
     }
 
     return (
-      <div className={cn("comment-list", [className])}>
+      <VStack gap="16" max className={cn("comment-list", [className])}>
         {comments?.length ? (
           comments.map((comment) => (
             <CommentCard
@@ -43,7 +43,7 @@ export const CommentList: React.FC<CommentListProps> = memo(
         ) : (
           <TextParagraf text={t("noComments")} />
         )}
-      </div>
+      </VStack>
     )
   }
 )
