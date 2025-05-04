@@ -58,7 +58,7 @@ export const Page: React.FC<PageProps> = ({
   })
 
   return (
-    <section
+    <main
       ref={wrapperRef}
       className={cn("page", [className])}
       onScroll={onScroll}
@@ -68,6 +68,6 @@ export const Page: React.FC<PageProps> = ({
       {onScrollEnd ? (
         <div className={"page__trigger"} ref={triggerRef}></div>
       ) : null}
-    </section>
+    </main>
   )
 }

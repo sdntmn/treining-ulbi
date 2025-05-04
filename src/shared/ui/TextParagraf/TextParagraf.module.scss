@@ -4,10 +4,10 @@
   font: var(--font-m);
   color: var(--secondary-color);
 
-  &__title {
-    font: var(--font-l);
-    color: var(--primary-color);
-  }
+  // &__title {
+  //   font: var(--font-l);
+  //   color: var(--primary-color);
+  // }
 
   &__text {
     font: var(--font-m);
@@ -24,6 +24,16 @@
     }
   }
 
+  &__inverted {
+    .title {
+      color: var(--inverted-primary-color);
+    }
+
+    .text {
+      color: var(--inverted-secondary-color);
+    }
+  }
+
   &__left {
     text-align: left;
   }
@@ -37,10 +47,31 @@
   }
 
   &__size_m {
-    font: var(--font-m);
+    .paragraf__title {
+      font: var(--font-l)
+    }
+    .paragraf__text {
+      font: var(--font-m)
+    }
   }
 
   &__size_l {
-    font: var(--font-l);  
+    .paragraf__title {
+      font: var(--font-xl)
+    }
+
+    .paragraf__text {
+      font: var(--font-l)
+    }
+  }
+
+  &__size_s {
+    .paragraf__title {
+      font: var(--font-m)
+    }
+
+    .paragraf__text {
+      font: var(--font-s)
+    }
   }
 }

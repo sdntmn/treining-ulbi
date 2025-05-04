@@ -5,6 +5,7 @@ import "./TextParagraf.module.scss"
 
 export enum TextVar {
   PRIMARY = "primary",
+  INVERTED = "inverted",
   ERROR = "error",
 }
 
@@ -15,6 +16,7 @@ export enum TextAlign {
 }
 
 export enum TextSize {
+  S = "size_s",
   M = "size_m",
   L = "size_l",
 }
@@ -28,6 +30,14 @@ interface TextParagrafProps {
   size?: TextSize
 }
 
+type HeaderTagType = "h1" | "h2" | "h3"
+
+const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
+  [TextSize.S]: "h3",
+  [TextSize.M]: "h2",
+  [TextSize.L]: "h1",
+}
+
 export const TextParagraf: React.FC<TextParagrafProps> = memo(
   function TextParagraf(props: TextParagrafProps) {
     const {
@@ -39,6 +49,8 @@ export const TextParagraf: React.FC<TextParagrafProps> = memo(
       size = TextSize.M,
     } = props
 
+    const HeaderTag = mapSizeToHeaderTag[size]
+
     return (
       <div
         className={cn("paragraf", [
@@ -48,7 +60,7 @@ export const TextParagraf: React.FC<TextParagrafProps> = memo(
           size && `paragraf__${size}`,
         ])}
       >
-        {title && <p className="paragraf__title">{title}</p>}
+        {title && <HeaderTag className="paragraf__title">{title}</HeaderTag>}
         {text && <p className="paragraf__text">{text}</p>}
       </div>
     )

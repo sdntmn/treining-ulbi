@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
-import { TextParagraf } from "./TextParagraf"
+import { TextAlign, TextParagraf, TextSize } from "./TextParagraf"
 
 const meta: Meta<typeof TextParagraf> = {
   title: "shared/TextParagraf",
@@ -26,6 +26,39 @@ export const OnlyTitle: Story = {
 
 export const OnlyText: Story = {
   args: {
+    text: "Текст",
+  },
+}
+
+export const TextAlignCenter: Story = {
+  args: {
+    title: "Заголовок",
+    size: TextSize.S,
+    text: "Текст",
+    align: TextAlign.CENTER,
+  },
+}
+
+export const SizyTitleS: Story = {
+  args: {
+    title: "Заголовок",
+    size: TextSize.S,
+    text: "Текст",
+  },
+}
+
+export const SizyTitleM: Story = {
+  args: {
+    title: "Заголовок",
+    size: TextSize.M,
+    text: "Текст",
+  },
+}
+
+export const SizyTitleL: Story = {
+  args: {
+    title: "Заголовок",
+    size: TextSize.L,
     text: "Текст",
   },
 }

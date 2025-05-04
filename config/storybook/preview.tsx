@@ -78,6 +78,7 @@ const preview: Preview = {
               <div
                 style={{
                   ...(position === "center" ? centerPosition : {}),
+                  width: "100%",
                 }}
                 className={`app ${theme === "dark" ? "app-dark-theme" : "app-custom-theme"}`}
               >
