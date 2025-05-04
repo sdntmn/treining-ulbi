@@ -7,9 +7,17 @@
  */
 const classNames = (
   cls: string,
-  additional: Array<string | null | undefined> = []
+  additional: Array<string | null | undefined | boolean> = []
 ): string => {
-  return [cls, ...additional.filter(Boolean).map(String)].join(" ")
+  return [
+    cls,
+    ...additional
+      .filter(
+        (item) =>
+          typeof item === "string" || (typeof item === "boolean" && item)
+      )
+      .map(String),
+  ].join(" ")
 }
 
 export const cn = classNames
