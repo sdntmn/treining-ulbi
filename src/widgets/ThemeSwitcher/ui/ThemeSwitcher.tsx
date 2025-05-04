@@ -6,7 +6,6 @@ import { cn } from "shared/lib/classNames/classNames"
 import { useTheme } from "shared/lib/hooks/useTheme/useTheme"
 import { Button, ButtonVar } from "shared/ui/Button/Button"
 
-// import "./ThemeSwitcher.module.scss"
 interface ThemeSwitcherProps {
   className?: string
 }

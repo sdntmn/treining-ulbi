@@ -11,9 +11,9 @@ import { Card } from "shared/ui/Card/Card"
 import { Icon } from "shared/ui/Icon/Icon"
 import { TextParagraf } from "shared/ui/TextParagraf/TextParagraf"
 
+import { ArticleBlock } from "../../model/types/article"
 import {
   Article,
-  ArticleBlock,
   ArticleBlockType,
   ArticleViewType,
 } from "../../model/types/article"

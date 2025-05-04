@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import { ArticleList } from "entities/Article"
-import React, { memo, useCallback, useRef } from "react"
+import React, { memo, useCallback } from "react"
 import { useSelector } from "react-redux"
 import { useSearchParams } from "react-router-dom"
 import { cn } from "shared/lib/classNames/classNames"
@@ -39,7 +39,6 @@ const ArticlesPage: React.FC<ArticlesPageProps> = ({
   className,
 }: ArticlesPageProps) => {
   const dispatch = useAppDispatch()
-  const parentRef = useRef<HTMLDivElement>(null)
   const articles = useSelector(getArticles.selectAll)
   const isLoading = useSelector(getArticlesPageIsLoading)
   const view = useSelector(getArticlesPageView)
