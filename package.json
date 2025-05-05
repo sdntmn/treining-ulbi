@@ -16,7 +16,8 @@
     "unit": "jest --config ./config/jest/jest.config.ts",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "build-storybook": "storybook build -c ./config/storybook",
-    "chromatic": "npx chromatic --project-token=chpt_564275ec95fd3cf"
+    "chromatic": "npx chromatic --project-token=chpt_564275ec95fd3cf",
+    "generate:slice": "node ./scripts/createSlice/index.js"
   },
   "license": "MIT",
   "devDependencies": {
