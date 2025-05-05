@@ -7,7 +7,9 @@ import { RoutePath } from "shared/config/routerConfig/routerConfig"
 import { cn } from "shared/lib/classNames/classNames"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
 import { AppLink, AppLinkColor } from "shared/ui/AppLink/AppLink"
+import { Avatar } from "shared/ui/Avatar/Avatar"
 import { Button, ButtonVar } from "shared/ui/Button/Button"
+import { Dropdown } from "shared/ui/Dropdown/Dropdown"
 import { TextParagraf, TextVar } from "shared/ui/TextParagraf/TextParagraf"
 
 import "./Navbar.module.scss"
@@ -52,14 +54,21 @@ export const Navbar: React.FC<NavbarProps> = memo(function Navbar({
         >
           {t("Создать статью")}
         </AppLink>
-        <Button
+        <Dropdown
+          direction="bottom left"
           className="navbar__login"
-          buttonVar={ButtonVar.CLEAR}
-          onClick={onLogout}
-        >
-          {t("goOut")}
-        </Button>
-        <LoginModal isOpen={isAuthModal} onClose={onCloseModalAuth} />
+          items={[
+            {
+              content: t("Профиль"),
+              href: RoutePath.profile + authData.id,
+            },
+            {
+              content: t("goOut"),
+              onClick: onLogout,
+            },
+          ]}
+          trigger={<Avatar size={30} src={authData.avatar} />}
+        />
       </header>
     )
   }
