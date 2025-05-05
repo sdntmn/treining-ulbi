@@ -58,8 +58,9 @@ export const Button: React.FC<ButtonProps> = memo(function Button({
         square && `button__${square}`,
         fontSize && `button__${fontSize}`,
         size && `button__${size}`,
-        disabled ? "button__disabled" : "",
+        disabled && "button__disabled",
       ])}
+      disabled={disabled}
       {...otherProps}
     >
       {children}

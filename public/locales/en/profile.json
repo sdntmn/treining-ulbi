@@ -11,7 +11,7 @@
   "btnProfileCancel": "Cancel",
   "btnProfileSave": "Save",
   "headerProfileTitle": "Profile",
-
+  "profileNotFound": "Profile not found",
   "errorEditProfileServer": "Server error while saving",
   "errorEditProfileAge": "Incorrect age",
   "errorEditProfileCountry": "Select country",

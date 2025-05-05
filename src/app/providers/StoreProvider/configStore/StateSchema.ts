@@ -1,17 +1,19 @@
 import { Action, EnhancedStore, ReducersMapObject } from "@reduxjs/toolkit"
 import { AxiosInstance } from "axios"
 import { ArticleDetailsSchema } from "entities/Article"
-import { ProfileSchema } from "entities/Profile"
 import { UserSchema } from "entities/User"
 import { AddCommentFormSchema } from "features/AddCommentForm"
 import { LoginSchema } from "features/AuthByUserName"
+import { ProfileSchema } from "features/EditableProfileCard"
 import { ScrollPageSchema } from "features/ScrollSave"
 import { ArticleDetailsPageSchema } from "pages/ArticlesDetailsPage"
 import { ArticlesPageSchema } from "pages/ArticlesPage"
+import { rtkApi } from "shared/api/rtkApi"
 
 export interface StateSchema {
   user: UserSchema
   scrollPage: ScrollPageSchema
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
 
   // Асинхронные редюсеры
   loginForm?: LoginSchema

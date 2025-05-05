@@ -1,23 +1,13 @@
-import { fetchProfileData, profileReducer } from "entities/Profile"
-import { HeaderProfilePage } from "features/HeaderProfilePage"
+import { EditableProfileCard } from "features/EditableProfileCard"
 import React from "react"
+import { useTranslation } from "react-i18next"
 import { useParams } from "react-router-dom"
 import { cn } from "shared/lib/classNames/classNames"
-import {
-  DynamicModuleLoader,
-  ReducersList,
-} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
-import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect"
 import { VStack } from "shared/ui/Stack"
-import { CardEditingProfile } from "widgets/CardEditingProfile"
+import { TextParagraf } from "shared/ui/TextParagraf/TextParagraf"
 import { Page } from "widgets/Page/ui/Page"
 
 import "./ProfilePage.module.scss"
-
-const reducers: ReducersList = {
-  profile: profileReducer,
-}
 
 interface ProfilePageProps {
   className?: string
@@ -26,25 +16,20 @@ interface ProfilePageProps {
 const ProfilePage: React.FC<ProfilePageProps> = ({
   className,
 }: ProfilePageProps) => {
-  const dispatch = useAppDispatch()
+  const { t } = useTranslation("profile")
 
   const { id } = useParams<{ id: string }>()
 
-  useInitialEffect(() => {
-    if (id) {
-      dispatch(fetchProfileData(id))
-    }
-  })
+  if (!id) {
+    return <TextParagraf text={t("profileNotFound")} />
+  }
 
   return (
-    <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <Page className={cn("profile-page", [className])}>
-        <VStack gap="16" max={true}>
-          <HeaderProfilePage />
-          <CardEditingProfile />
-        </VStack>
-      </Page>
-    </DynamicModuleLoader>
+    <Page className={cn("profile-page", [className])}>
+      <VStack gap="16" max={true}>
+        <EditableProfileCard id={id} />
+      </VStack>
+    </Page>
   )
 }
 

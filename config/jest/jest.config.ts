@@ -20,10 +20,7 @@ const config: Config = {
     "^.+\\.tsx?$": ["babel-jest", { presets: ["@babel/preset-react"] }],
     "^.+\\.scss$": "jest-scss-transform",
   },
-  setupFilesAfterEnv: [
-    "<rootDir>config/jest/setup-jest.ts",
-    "<rootDir>src/app/setup-jest.ts",
-  ],
+  setupFilesAfterEnv: ["<rootDir>config/jest/setup-jest.ts"],
   transformIgnorePatterns: [
     "/node_modules/(?![@autofiy/autofiyable|@autofiy/property]).+\\.js$",
     "/node_modules/(?![@autofiy/autofiyable|@autofiy/property]).+\\.ts$",

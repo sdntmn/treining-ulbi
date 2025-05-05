@@ -15,5 +15,6 @@
   "articleNotFound": "Article not found",
   "articleBtnSendComment": "Send",
   "articleInputPlaceholder": "Comment text",
-  "articleBtnEditing": "Edit"
+  "articleBtnEditing": "Edit",
+  "articleErrorLoading": "Error loading articles"
 }

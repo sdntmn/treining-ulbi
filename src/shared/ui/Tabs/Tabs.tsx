@@ -1,6 +1,7 @@
 import React, { memo, ReactNode, useCallback } from "react"
 import { cn } from "shared/lib/classNames/classNames"
-import { Card, CardTheme } from "shared/ui/Card/Card"
+
+import { Card, CardTheme } from "../Card/Card"
 
 import "./Tabs.module.scss"
 

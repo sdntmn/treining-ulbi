@@ -2,6 +2,7 @@
 import { configureStore, Reducer, ReducersMapObject } from "@reduxjs/toolkit"
 import { scrollSaveReducer } from "features/ScrollSave"
 import { $api } from "shared/api/api"
+import { rtkApi } from "shared/api/rtkApi"
 
 import { userReducer } from "../../../../entities/User"
 import { createReducerManager } from "./reducerManager"
@@ -16,6 +17,7 @@ export function createReduxStore(
     ...asyncReducers,
     user: userReducer,
     scrollPage: scrollSaveReducer,
+    [rtkApi.reducerPath]: rtkApi.reducer,
   }
 
   const reducerManager = createReducerManager(rootReducers)
@@ -33,7 +35,7 @@ export function createReduxStore(
         thunk: {
           extraArgument: extraArg,
         },
-      }),
+      }).concat(rtkApi.middleware),
   })
 
   // @ts-ignore

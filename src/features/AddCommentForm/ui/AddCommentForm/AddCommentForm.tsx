@@ -31,9 +31,9 @@ const AddCommentForm: React.FC<AddCommentFormProps> = ({
   className,
   onSendComment,
 }: AddCommentFormProps) => {
+  const dispatch = useAppDispatch()
   const { t } = useTranslation("article")
   const text = useSelector(getAddCommentFormText)
-  const dispatch = useAppDispatch()
 
   const onCommentTextChange = useCallback(
     (value: string) => {

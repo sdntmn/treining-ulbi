@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react"
+import React from "react"
 
 import { Button, ButtonVar } from "./Button"
 
@@ -10,7 +11,7 @@ describe("Button", () => {
 
   test("применяет стили для варианта clear", () => {
     render(<Button buttonVar={ButtonVar.CLEAR}>TEST</Button>)
-    expect(screen.getByText("TEST")).toHaveClass("clear")
+    expect(screen.getByText("TEST")).toHaveClass("button__clear")
   })
 
   test("обрабатывает клик", () => {
@@ -23,6 +24,8 @@ describe("Button", () => {
 
   test("отключается при disabled=true", () => {
     render(<Button disabled>TEST</Button>)
-    expect(screen.getByText("TEST")).toBeDisabled()
+    const button = screen.getByText("TEST")
+    expect(button).toBeDisabled()
+    expect(button).toHaveClass("button__disabled")
   })
 })

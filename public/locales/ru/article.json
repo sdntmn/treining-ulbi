@@ -15,5 +15,6 @@
   "articleNotFound": "Статья не найдена",
   "articleBtnSendComment": "Отправить",
   "articleInputPlaceholder": "Текст комментария",
-  "articleBtnEditing": "Редактировать"
+  "articleBtnEditing": "Редактировать",
+  "articleErrorLoading": "Ошибка при загрузке статей"
 }

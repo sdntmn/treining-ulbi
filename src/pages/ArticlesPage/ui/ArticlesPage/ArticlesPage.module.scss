@@ -2,14 +2,13 @@
   padding: 24px;
 
     &__list {
-
     margin-top: 30px;
   }
 
   &__card {
         display: grid;
     grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-    gap: 16px; /* расстояние между карточками */
+    gap: 16px;
     padding: 16px;
   }
 }
