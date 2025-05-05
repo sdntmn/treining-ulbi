@@ -36,5 +36,18 @@ const config: Config = {
     "^shared/(.*)$": "<rootDir>/src/shared/$1",
     // axios: "axios/dist/node/axios.cjs",
   },
+  reporters: [
+    "default",
+    [
+      "./node_modules/jest-html-reporter",
+      {
+        pageTitle: "Test Report",
+        publicPath: "<rootDir>/reports/unit",
+        filename: "report.html",
+        openReport: true,
+        inlineSource: true,
+      },
+    ],
+  ],
 }
 export default config

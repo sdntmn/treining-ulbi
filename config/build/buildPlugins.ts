@@ -55,7 +55,7 @@ export function buildPlugins({
       new BundleAnalyzerPlugin({
         openAnalyzer: false,
         analyzerPort: 8899,
-        analyzerMode: "static", // Можно включить через env переменную
+        analyzerMode: "disabled", // Можно включить через env переменную
       })
     )
   }
