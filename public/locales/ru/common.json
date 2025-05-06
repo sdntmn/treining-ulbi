@@ -7,5 +7,6 @@
   "navLinkMain": "Главная страница",
   "errorPage": "Произошла непредвиденная ошибка",
   "refreshPage": "Обновить страница",
-  "errorNoData": "Нет данных"
+  "errorNoData": "Нет данных",
+  "headerProfileTitle": "Профиль",
 }

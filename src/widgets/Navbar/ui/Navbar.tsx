@@ -1,4 +1,10 @@
-import { getUserAuthData, User, userActions } from "entities/User"
+import {
+  getUserAuthData,
+  isUserAdmin,
+  isUserManager,
+  User,
+  userActions,
+} from "entities/User"
 import { LoginModal } from "features/AuthByUserName"
 import React, { memo, useCallback, useState } from "react"
 import { useTranslation } from "react-i18next"
@@ -26,6 +32,8 @@ export const Navbar: React.FC<NavbarProps> = memo(function Navbar({
   const [isAuthModal, setIsAuthModal] = useState<boolean>(false)
 
   const authData: User | undefined = useSelector(getUserAuthData)
+  const isAdmin = useSelector(isUserAdmin)
+  const isManager = useSelector(isUserManager)
 
   const onCloseModalAuth = useCallback(() => {
     setIsAuthModal(false)
@@ -38,6 +46,9 @@ export const Navbar: React.FC<NavbarProps> = memo(function Navbar({
   const onLogout = useCallback(() => {
     dispatch(userActions.logOut())
   }, [dispatch])
+
+  const isAdminPanelAvailable = isAdmin || isManager
+  console.info("isAdmin:", isAdminPanelAvailable)
 
   if (authData) {
     return (
@@ -58,13 +69,25 @@ export const Navbar: React.FC<NavbarProps> = memo(function Navbar({
           direction="bottom left"
           className="navbar__login"
           items={[
+            ...(isAdminPanelAvailable
+              ? [
+                {
+                  content: t("Админка"),
+                  href: RoutePath.admin_panel,
+                },
+              ]
+              : []),
             {
               content: t("Профиль"),
-              href: RoutePath.profile + authData.id,
+              href: `${RoutePath.profile}/${authData?.id ?? ""}`,
             },
             {
-              content: t("goOut"),
-              onClick: onLogout,
+              content: t("Выйти"),
+              onClick: () => {
+                if (onLogout) {
+                  onLogout()
+                }
+              },
             },
           ]}
           trigger={<Avatar size={30} src={authData.avatar} />}

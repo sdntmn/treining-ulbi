@@ -2074,21 +2074,28 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN",
+      "roles": ["ADMIN"],
       "avatar": "https://gas-kvas.com/uploads/posts/2023-01/1673717784_gas-kvas-com-p-risunok-avatar-poetapno-posledovatelno-8.jpg"
     },
     {
       "id": "2",
       "username": "author",
       "password": "123",
-      "role": "AUTHOR",
+      "roles": ["AUTHOR"],
       "avatar": "https://gas-kvas.com/uploads/posts/2023-01/1673717784_gas-kvas-com-p-risunok-avatar-poetapno-posledovatelno-8.jpg"
     },
     {
       "id": "3",
       "username": "user",
       "password": "123",
-      "role": "USER",
+      "roles": ["USER"],
+      "avatar": "https://gas-kvas.com/uploads/posts/2023-01/1673717784_gas-kvas-com-p-risunok-avatar-poetapno-posledovatelno-8.jpg"
+    },
+    {
+      "id": "4",
+      "username": "manager",
+      "password": "123",
+      "roles": ["MANAGER"],
       "avatar": "https://gas-kvas.com/uploads/posts/2023-01/1673717784_gas-kvas-com-p-risunok-avatar-poetapno-posledovatelno-8.jpg"
     }
   ],

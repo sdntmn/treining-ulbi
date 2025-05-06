@@ -10,7 +10,6 @@
   "btnProfileEdit": "Редактировать",
   "btnProfileCancel": "Отменить",
   "btnProfileSave": "Сохранить",
-  "headerProfileTitle": "Профиль",
   "profileNotFound": "Профиль не найден",
   "errorEditProfileServer": "Ошибка сервера при сохранении",
   "errorEditProfileAge": "Не корректный возраст",
