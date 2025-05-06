@@ -122,6 +122,7 @@ export const EditableProfileCard: React.FC<EditableProfileCardProps> = (
               key={err}
               textVar={TextVar.ERROR}
               text={validateErrorTranslates[err]}
+              data-testid={"EditableProfileCard.Error"}
             />
           ))}
         <ProfileCard

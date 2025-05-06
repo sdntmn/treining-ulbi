@@ -17,3 +17,10 @@ const localStorageMock = {
   clear: jest.fn(),
 }
 global.localStorage = localStorageMock as any
+
+class ResizeObserver {
+  observe() {}
+  unobserve() {}
+  disconnect() {}
+}
+window.ResizeObserver = ResizeObserver

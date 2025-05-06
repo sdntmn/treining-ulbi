@@ -98,23 +98,6 @@ export const ArticleList: React.FC<ArticleListProps> = (
     )
   }
 
-  // const renderArticle = (article: Article) => {
-  //   return (
-  //     <ArticleListItem
-  //       article={article}
-  //       view={view}
-  //       className="article-list__card"
-  //       key={article.id}
-  //       target={target}
-  //     />
-  //   )
-  // }
-  // return (
-  //   <div ref={parentRef} className={cn("article-list", [className])}>
-  //     {articles.length ? articles.map(renderArticle) : "Нет статей"}
-  //     {isLoading && getSkeletons(view)}
-  //   </div>
-  // )
   return (
     <div
       ref={containerRef}

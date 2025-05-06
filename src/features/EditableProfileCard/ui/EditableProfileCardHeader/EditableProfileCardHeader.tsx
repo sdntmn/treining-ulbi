@@ -45,7 +45,11 @@ export const EditableProfileCardHeader: React.FC<
       {canEdit && (
         <HStack gap="16">
           {readOnly ? (
-            <Button buttonVar={ButtonVar.OUTLINE} onClick={onEdit}>
+            <Button
+              buttonVar={ButtonVar.OUTLINE}
+              onClick={onEdit}
+              data-testid="EditableProfileCardHeader.EditButton"
+            >
               {t("btnProfileEdit")}
             </Button>
           ) : (
@@ -53,10 +57,15 @@ export const EditableProfileCardHeader: React.FC<
               <Button
                 buttonVar={ButtonVar.OUTLINE_ERROR}
                 onClick={onCancelEdit}
+                data-testid="EditableProfileCardHeader.CancelButton"
               >
                 {t("btnProfileCancel")}
               </Button>
-              <Button buttonVar={ButtonVar.OUTLINE} onClick={onSave}>
+              <Button
+                buttonVar={ButtonVar.OUTLINE}
+                onClick={onSave}
+                data-testid="EditableProfileCardHeader.SaveButton"
+              >
                 {t("btnProfileSave")}
               </Button>
             </>

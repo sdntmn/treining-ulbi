@@ -28,6 +28,8 @@ interface TextParagrafProps {
   textVar?: TextVar
   align?: TextAlign
   size?: TextSize
+
+  "data-testid"?: string
 }
 
 type HeaderTagType = "h1" | "h2" | "h3"
@@ -47,6 +49,7 @@ export const TextParagraf: React.FC<TextParagrafProps> = memo(
       align = TextAlign.LEFT,
       textVar = TextVar.PRIMARY,
       size = TextSize.M,
+      "data-testid": dataTestId = "TextParagraf",
     } = props
 
     const HeaderTag = mapSizeToHeaderTag[size]
@@ -60,8 +63,19 @@ export const TextParagraf: React.FC<TextParagrafProps> = memo(
           size && `paragraf__${size}`,
         ])}
       >
-        {title && <HeaderTag className="paragraf__title">{title}</HeaderTag>}
-        {text && <p className="paragraf__text">{text}</p>}
+        {title && (
+          <HeaderTag
+            className="paragraf__title"
+            data-testid={`${dataTestId}.title`}
+          >
+            {title}
+          </HeaderTag>
+        )}
+        {text && (
+          <p className="paragraf__text" data-testid={`${dataTestId}.text`}>
+            {text}
+          </p>
+        )}
       </div>
     )
   }
