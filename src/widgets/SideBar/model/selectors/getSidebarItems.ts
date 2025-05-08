@@ -5,7 +5,7 @@ import ArticleIcon from "shared/assets/icons/article.svg"
 import MainIcon from "shared/assets/icons/main-page.svg"
 import ProfileIcon from "shared/assets/icons/profile-page.svg"
 import { APP_PATHS } from "shared/const/routes"
-import { getProfilePath } from "shared/lib/helpers/getPath"
+import { routePatch } from "shared/lib/helpers/getPath"
 
 import { SidebarItemType } from "../types/sidebar"
 
@@ -25,7 +25,7 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
   if (userData) {
     sidebarItemsList.push(
       {
-        path: getProfilePath(userData.id),
+        path: routePatch.profile(userData.id),
         Icon: ProfileIcon,
         text: "Профиль",
         authOnly: true,

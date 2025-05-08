@@ -2,7 +2,7 @@ import React, { HTMLAttributeAnchorTarget, memo } from "react"
 import { useTranslation } from "react-i18next"
 import EyeIcon from "shared/assets/icons/eye-outlined.svg"
 import { cn } from "shared/lib/classNames/classNames"
-import { getArticleDetailsPath } from "shared/lib/helpers/getPath"
+import { routePatch } from "shared/lib/helpers/getPath"
 import { useHover } from "shared/lib/hooks/useHover/useHover"
 import { AppLink } from "shared/ui/AppLink"
 import { Avatar } from "shared/ui/Avatar/Avatar"
@@ -82,7 +82,10 @@ export const ArticleListItem: React.FC<ArticleItemProps> = memo(
               />
             )}
             <div className="article-item__footer">
-              <AppLink target={target} to={getArticleDetailsPath(article.id)}>
+              <AppLink
+                target={target}
+                to={routePatch.articleDetails(article.id)}
+              >
                 <Button buttonVar={ButtonVar.OUTLINE}>
                   {t("articleBtnReadMore")}
                 </Button>
@@ -98,7 +101,7 @@ export const ArticleListItem: React.FC<ArticleItemProps> = memo(
       <AppLink
         target={target}
         className={cn("article-item__card", [className])}
-        to={getArticleDetailsPath(article.id)}
+        to={routePatch.articleDetails(article.id)}
       >
         <Card className="article-item__card-item ">
           <div className="article-item__image-wrapper">

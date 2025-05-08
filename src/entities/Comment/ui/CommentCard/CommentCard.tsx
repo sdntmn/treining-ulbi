@@ -1,6 +1,6 @@
 import React, { memo } from "react"
 import { cn } from "shared/lib/classNames/classNames"
-import { getProfilePath } from "shared/lib/helpers/getPath"
+import { routePatch } from "shared/lib/helpers/getPath"
 import { AppLink } from "shared/ui/AppLink"
 import { Avatar } from "shared/ui/Avatar/Avatar"
 import { Skeleton } from "shared/ui/Skeleton/Skeleton"
@@ -51,7 +51,7 @@ export const CommentCard: React.FC<CommentCardProps> = memo(
     return (
       <VStack gap="8" max className={cn("comment-card", [className])}>
         <AppLink
-          to={getProfilePath(comment?.user?.id)}
+          to={routePatch.profile(comment?.user?.id)}
           className="comment-card__header"
         >
           {comment?.user?.avatar ? (

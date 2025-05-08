@@ -10,7 +10,7 @@ import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
 import { AppLinkColor } from "shared/const/enums"
 import { cn } from "shared/lib/classNames/classNames"
-import { getProfilePath, routeHelpers } from "shared/lib/helpers/getPath"
+import { routePatch } from "shared/lib/helpers/getPath"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
 import { AppLink } from "shared/ui/AppLink"
 import { Avatar } from "shared/ui/Avatar/Avatar"
@@ -51,7 +51,7 @@ export const Navbar: React.FC<NavbarProps> = memo(function Navbar({
         />
 
         <AppLink
-          to={routeHelpers.create()}
+          to={routePatch.articleCreate()}
           appLinkColor={AppLinkColor.SECONDARY}
           className="navbar__create-btn"
         >
@@ -63,21 +63,10 @@ export const Navbar: React.FC<NavbarProps> = memo(function Navbar({
           className="navbar__login"
           items={[
             ...(isAdminPanelAvailable
-              ? [
-                {
-                  content: t("Админка"),
-                  href: routeHelpers.adminPanel(),
-                },
-              ]
+              ? [{ content: t("Админка"), href: routePatch.adminPanel() }]
               : []),
-            {
-              content: t("Профиль"),
-              href: getProfilePath(authData.id),
-            },
-            {
-              content: t("Выйти"),
-              onClick: onLogout,
-            },
+            { content: t("Профиль"), href: routePatch.profile(authData.id) },
+            { content: t("Выйти"), onClick: onLogout },
           ]}
           trigger={<Avatar size={30} src={authData.avatar} />}
         />

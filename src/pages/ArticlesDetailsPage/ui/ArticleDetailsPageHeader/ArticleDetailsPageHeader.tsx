@@ -8,7 +8,7 @@ import { Button, ButtonVar } from "shared/ui/Button/Button"
 import { HStack } from "shared/ui/Stack"
 // Импортируем из нового модуля путей
 
-import { getArticleEditPath, getArticlesPath } from "shared/lib/helpers/getPath"
+import { routePatch } from "shared/lib/helpers/getPath"
 
 import { getCanEditArticle } from "../../model/selectors/article"
 
@@ -26,12 +26,12 @@ export const ArticleDetailsPageHeader: React.FC<ArticleDetailsPageHeaderProps> =
     const article = useSelector(getArticleDetailsData)
 
     const onBackToList = useCallback(() => {
-      navigate(getArticlesPath()) // Используем хелпер для пути к списку статей
+      navigate(routePatch.articles()) // Используем хелпер для пути к списку статей
     }, [navigate])
 
     const onEditArticle = useCallback(() => {
       if (article?.id) {
-        navigate(getArticleEditPath(article.id)) // Используем хелпер для пути редактирования
+        navigate(routePatch.articleEdit(article.id)) // Используем хелпер для пути редактирования
       }
     }, [article?.id, navigate])
 
