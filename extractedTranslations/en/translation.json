@@ -29,6 +29,7 @@
   "errorEditProfileNoData": "errorEditProfileNoData",
   "errorEditProfileServer": "errorEditProfileServer",
   "errorEditProfileUserData": "errorEditProfileUserData",
+  "errorFormAuth": "errorFormAuth",
   "errorPage": "errorPage",
   "goOut": "goOut",
   "headerProfileTitle": "headerProfileTitle",
