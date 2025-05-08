@@ -1,4 +1,4 @@
-import { Country, Currency } from "shared/const/common"
+import { Country, Currency } from "shared/const/enums"
 import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk"
 
 import { fetchProfileData } from "./fetchProfileData"

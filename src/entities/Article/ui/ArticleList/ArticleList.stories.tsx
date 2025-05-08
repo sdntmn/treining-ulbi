@@ -2,14 +2,14 @@
 /* eslint-disable max-len */
 import type { Meta, StoryObj } from "@storybook/react"
 
+import { RouterDecorator } from "shared/config/storybook/RouterDecorator/RouterDecorator"
+
 import {
-  Article,
   ArticleBlockType,
   ArticleType,
   ArticleViewType,
-} from "entities/Article/model/types/article"
-import { RouterDecorator } from "shared/config/storybook/RouterDecorator/RouterDecorator"
-
+} from "../../model/consts/consts"
+import { Article } from "../../model/types/article"
 import { ArticleList } from "./ArticleList"
 
 const meta: Meta<typeof ArticleList> = {

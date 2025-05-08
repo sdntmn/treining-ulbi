@@ -2,9 +2,7 @@ import React, { memo } from "react"
 import { cn } from "shared/lib/classNames/classNames"
 import { Code } from "shared/ui/Code/Code"
 
-import { ArticleCode } from "../../model/types/article"
-
-import "./ArticleCodeBlock.module.scss"
+import type { ArticleCode } from "../../model/types"
 
 interface ArticleCodeBlockProps {
   className?: string

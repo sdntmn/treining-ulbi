@@ -3,7 +3,7 @@ import { ProfileCard } from "entities/Profile/ui/ProfileCard/ProfileCard"
 import React, { useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
-import { Currency, Country } from "shared/const/common"
+import { Currency, Country } from "shared/const/enums"
 import { cn } from "shared/lib/classNames/classNames"
 import {
   DynamicModuleLoader,

@@ -3,10 +3,12 @@ import React, { memo, useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
-import { RoutePath } from "shared/config/routerConfig/routerConfig"
 import { cn } from "shared/lib/classNames/classNames"
 import { Button, ButtonVar } from "shared/ui/Button/Button"
 import { HStack } from "shared/ui/Stack"
+// Импортируем из нового модуля путей
+
+import { getArticleEditPath, getArticlesPath } from "shared/lib/helpers/getPath"
 
 import { getCanEditArticle } from "../../model/selectors/article"
 
@@ -19,19 +21,18 @@ export const ArticleDetailsPageHeader: React.FC<ArticleDetailsPageHeaderProps> =
     className,
   }: ArticleDetailsPageHeaderProps) {
     const { t } = useTranslation("article")
-
     const navigate = useNavigate()
-
     const canEdit = useSelector(getCanEditArticle)
-
     const article = useSelector(getArticleDetailsData)
 
     const onBackToList = useCallback(() => {
-      navigate(RoutePath.articles)
+      navigate(getArticlesPath()) // Используем хелпер для пути к списку статей
     }, [navigate])
 
     const onEditArticle = useCallback(() => {
-      navigate(`${RoutePath.article_details}${article?.id}/edit`)
+      if (article?.id) {
+        navigate(getArticleEditPath(article.id)) // Используем хелпер для пути редактирования
+      }
     }, [article?.id, navigate])
 
     return (

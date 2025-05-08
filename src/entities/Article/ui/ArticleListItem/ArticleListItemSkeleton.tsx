@@ -3,7 +3,7 @@ import { cn } from "shared/lib/classNames/classNames"
 import { Card } from "shared/ui/Card/Card"
 import { Skeleton } from "shared/ui/Skeleton/Skeleton"
 
-import { ArticleViewType } from "../../model/types/article"
+import { ArticleViewType } from "../../model/consts/consts"
 
 import "./ArticleListItem.module.scss"
 

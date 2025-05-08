@@ -16,5 +16,6 @@
   "articleBtnSendComment": "Send",
   "articleInputPlaceholder": "Comment text",
   "articleBtnEditing": "Edit",
-  "articleErrorLoading": "Error loading articles"
+  "articleErrorLoading": "Error loading articles",
+  "articleCommentsLoading": "...Loading"
 }

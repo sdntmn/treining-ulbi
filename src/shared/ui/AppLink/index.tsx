@@ -1,18 +1,15 @@
-import React, { memo } from "react"
+import React, { memo, ReactNode } from "react"
 import { Link, LinkProps } from "react-router-dom"
 import { cn } from "shared/lib/classNames/classNames"
 
-import "./AppLink.module.scss"
+import { AppLinkColor } from "../../const/enums"
 
-export enum AppLinkColor {
-  PRIMARY = "primary",
-  SECONDARY = "secondary",
-}
+import "./AppLink.module.scss"
 
 export interface AppLinkProps extends LinkProps {
   className?: string
   appLinkColor?: AppLinkColor
-  children: React.ReactNode
+  children: ReactNode
 }
 
 export const AppLink: React.FC<AppLinkProps> = memo<AppLinkProps>(

@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import React, { memo, useCallback } from "react"
+import React, { lazy, memo, useCallback } from "react"
 import { useSearchParams } from "react-router-dom"
 import { cn } from "shared/lib/classNames/classNames"
 import {
@@ -55,3 +55,4 @@ const ArticlesPage: React.FC<ArticlesPageProps> = ({
 }
 
 export default memo(ArticlesPage)
+export const ArticlesPageAsync = lazy(() => import("./ArticlesPage"))

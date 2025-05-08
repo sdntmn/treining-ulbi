@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import { CommentList } from "entities/Comment"
 import { AddCommentForm } from "features/AddCommentForm"
-import React, { memo, useCallback } from "react"
+import React, { memo, Suspense, useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
@@ -41,7 +41,11 @@ export const ArticleDetailsComments: React.FC<ArticleDetailsCommentsProps> =
     return (
       <VStack gap="16">
         <TextParagraf title={t("articleComments")} />
-        <AddCommentForm onSendComment={onSendComment} />
+        <Suspense
+          fallback={<TextParagraf text={t("articleCommentsLoading")} />}
+        >
+          <AddCommentForm onSendComment={onSendComment} />
+        </Suspense>
         <CommentList isLoading={isLoadingComments} comments={comments} />
       </VStack>
     )

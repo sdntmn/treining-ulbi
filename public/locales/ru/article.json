@@ -16,5 +16,6 @@
   "articleBtnSendComment": "Отправить",
   "articleInputPlaceholder": "Текст комментария",
   "articleBtnEditing": "Редактировать",
-  "articleErrorLoading": "Ошибка при загрузке статей"
+  "articleErrorLoading": "Ошибка при загрузке статей",
+  "articleCommentsLoading": "...Загрузка"
 }

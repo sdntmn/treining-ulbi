@@ -9,7 +9,10 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
     "plugin:prettier/recommended",
-    "plugin:i18next/recommended"
+    "plugin:i18next/recommended",
+    "plugin:import/errors", // добавляем, чтобы включить rules из плагина
+    "plugin:import/warnings", // добавляет дополнительные warnings
+    "plugin:import/typescript" // включаем поддержку typescript
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -25,7 +28,8 @@
     "eslint-plugin-prefer-arrow",
     "i18next",
     "prettier",
-    "paths-import"
+    "paths-import",
+    "import"
   ],
   "settings": {
     "react": {
@@ -106,6 +110,7 @@
     "max-len": [ "error", { "code": 100 , "ignoreComments": true } ],
     "function-spacing": "off",
     // "react/prop-types": ["enabled", {"customValidators": "customValidator", "skipUndeclared": "skipUndeclared" } ],
+    "import/no-cycle": [ "error" ],
 
     //?
     "no-useless-escape": "off",

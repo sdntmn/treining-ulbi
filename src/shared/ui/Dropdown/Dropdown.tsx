@@ -3,7 +3,7 @@ import React, { Fragment, ReactNode } from "react"
 import { cn } from "shared/lib/classNames/classNames"
 import { DropdownDirection } from "shared/types/ui"
 
-import { AppLink } from "../AppLink/AppLink"
+import { AppLink } from "../AppLink"
 
 import "./Dropdown.module.scss"
 

@@ -1,22 +1,19 @@
 import React, { HTMLAttributeAnchorTarget, memo } from "react"
 import { useTranslation } from "react-i18next"
 import EyeIcon from "shared/assets/icons/eye-outlined.svg"
-import { RoutePath } from "shared/config/routerConfig/routerConfig"
 import { cn } from "shared/lib/classNames/classNames"
+import { getArticleDetailsPath } from "shared/lib/helpers/getPath"
 import { useHover } from "shared/lib/hooks/useHover/useHover"
-import { AppLink } from "shared/ui/AppLink/AppLink"
+import { AppLink } from "shared/ui/AppLink"
 import { Avatar } from "shared/ui/Avatar/Avatar"
 import { Button, ButtonVar } from "shared/ui/Button/Button"
 import { Card } from "shared/ui/Card/Card"
 import { Icon } from "shared/ui/Icon/Icon"
 import { TextParagraf } from "shared/ui/TextParagraf/TextParagraf"
 
-import { ArticleBlock } from "../../model/types/article"
-import {
-  Article,
-  ArticleBlockType,
-  ArticleViewType,
-} from "../../model/types/article"
+import type { Article, ArticleBlock } from "../../model/types"
+
+import { ArticleBlockType, ArticleViewType } from "../../model/consts"
 import { ArticleTextBlock } from "../ArticleTextBlock/ArticleTextBlock"
 
 import "./ArticleListItem.module.scss"
@@ -85,10 +82,7 @@ export const ArticleListItem: React.FC<ArticleItemProps> = memo(
               />
             )}
             <div className="article-item__footer">
-              <AppLink
-                target={target}
-                to={RoutePath.article_details + article.id}
-              >
+              <AppLink target={target} to={getArticleDetailsPath(article.id)}>
                 <Button buttonVar={ButtonVar.OUTLINE}>
                   {t("articleBtnReadMore")}
                 </Button>
@@ -104,7 +98,7 @@ export const ArticleListItem: React.FC<ArticleItemProps> = memo(
       <AppLink
         target={target}
         className={cn("article-item__card", [className])}
-        to={RoutePath.article_details + article.id}
+        to={getArticleDetailsPath(article.id)}
       >
         <Card className="article-item__card-item ">
           <div className="article-item__image-wrapper">

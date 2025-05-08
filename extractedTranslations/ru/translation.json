@@ -6,6 +6,7 @@
   "articleBtnReadMore": "articleBtnReadMore",
   "articleBtnSendComment": "articleBtnSendComment",
   "articleComments": "articleComments",
+  "articleCommentsLoading": "articleCommentsLoading",
   "articleDetailsPage": "articleDetailsPage",
   "articleErrorLoading": "articleErrorLoading",
   "articleInputPlaceholder": "articleInputPlaceholder",

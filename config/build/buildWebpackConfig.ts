@@ -64,8 +64,8 @@ export function buildWebpackConfig(
             test: /[\\/]node_modules[\\/]/,
             priority: -10,
             reuseExistingChunk: true,
-            name(module: { context: string }) {
-              const packageName = module.context.match(
+            name(module: webpack.Module) {
+              const packageName = module.context?.match(
                 /[\\/]node_modules[\\/](.*?)([\\/]|$)/
               )?.[1]
               return `vendor.${packageName?.replace("@", "") ?? "lib"}`

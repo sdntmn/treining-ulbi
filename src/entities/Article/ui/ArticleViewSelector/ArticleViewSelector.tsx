@@ -5,7 +5,7 @@ import { cn } from "shared/lib/classNames/classNames"
 import { Button, ButtonVar } from "shared/ui/Button/Button"
 import { Icon } from "shared/ui/Icon/Icon"
 
-import { ArticleViewType } from "../../model/types/article"
+import { ArticleViewType } from "../../model/consts"
 
 import "./ArticleViewSelector.module.scss"
 

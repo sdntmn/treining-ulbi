@@ -15,13 +15,15 @@ import { Skeleton } from "shared/ui/Skeleton/Skeleton"
 import { HStack, VStack } from "shared/ui/Stack"
 import { TextParagraf, TextSize } from "shared/ui/TextParagraf/TextParagraf"
 
+import type { ArticleBlock } from "../../model/types"
+
+import { ArticleBlockType } from "../../model/consts/consts"
 import {
   getArticleDetailsData,
   getArticleDetailsIsLoading,
 } from "../../model/selectors/articleDetails"
 import { fetchArticleById } from "../../model/services/fetchArticleById/fetchArticleById"
 import { articleDetailsReducer } from "../../model/slice/articleDetailsSlice"
-import { ArticleBlock, ArticleBlockType } from "../../model/types/article"
 import { ArticleCodeBlock } from "../ArticleCodeBlock/ArticleCodeBlock"
 import { ArticleImageBlock } from "../ArticleImageBlock/ArticleImageBlock"
 import { ArticleTextBlock } from "../ArticleTextBlock/ArticleTextBlock"

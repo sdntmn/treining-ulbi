@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import { ArticleDetails } from "entities/Article"
 import { ArticleRecommendationList } from "features/ArticleRecommendationList"
-import React, { memo } from "react"
+import React, { lazy, memo } from "react"
 import { useTranslation } from "react-i18next"
 import { useParams } from "react-router-dom"
 import { cn } from "shared/lib/classNames/classNames"
@@ -48,3 +48,6 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = ({
 }
 
 export default memo(ArticleDetailsPage)
+export const ArticleDetailsPageAsync = lazy(
+  () => import("./ArticleDetailsPage")
+)

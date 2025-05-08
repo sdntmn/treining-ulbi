@@ -1,8 +1,10 @@
 import { useVirtualizer } from "@tanstack/react-virtual"
 import React, { HTMLAttributeAnchorTarget, useRef } from "react"
-import { PAGE_ID } from "widgets/Page/ui/Page"
+import { PAGE_ID } from "widgets/Page"
 
-import { ArticleViewType, Article } from "../../model/types/article"
+import type { Article } from "../../model/types"
+
+import { ArticleViewType } from "../../model/consts"
 import { ArticleListItem } from "../ArticleListItem/ArticleListItem"
 import { ArticleListItemSkeleton } from "../ArticleListItem/ArticleListItemSkeleton"
 
