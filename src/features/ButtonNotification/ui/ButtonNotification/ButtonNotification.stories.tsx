@@ -1,11 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
-import { CountrySelect } from "./CountrySelect"
+import { ButtonNotification } from "./ButtonNotification"
 
 const meta = {
-  title: "entities/CountrySelect",
-  component: CountrySelect,
-} satisfies Meta<typeof CountrySelect>
+  title: "feature/ButtonNotification",
+
+  component: ButtonNotification,
+} satisfies Meta<typeof ButtonNotification>
 
 export default meta
 

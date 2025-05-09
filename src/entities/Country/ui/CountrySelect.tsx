@@ -1,6 +1,6 @@
 import React, { memo, useCallback } from "react"
 import { useTranslation } from "react-i18next"
-import { ListBox } from "shared/ui/ListBox/ListBox"
+import { ListBox } from "shared/ui/Popups"
 
 import { Country } from "../model/types/country"
 
@@ -42,8 +42,8 @@ export const CountrySelect: React.FC<CountrySelectProps> = memo(
         className={className}
         items={options}
         onChange={onChangeHandler}
-        isReadonly={isReadonly}
-        direction="bottom"
+        readonly={isReadonly}
+        direction="bottom right"
       />
     )
   }
