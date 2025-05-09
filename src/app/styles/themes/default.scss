@@ -1,27 +1,49 @@
+// :root {
+//   --bg-color: #cfcfdc;
+//   --inverted-bg-color: #191999;
+//   --primary-color: #082e56;
+//   --secondary-color: #5e9bff;
+//   --navbar-bg-color: #4267a4;
+//   --inverted-primary-color: #cfcfdc;
+//   --inverted-secondary-color: #5e9bff;
+//   --button-background: #082e56;
+
+//   /* skeleton */
+//   --skeleton-color: #fff;
+//   --skeleton-shadow: #cacaca;
+
+//       /* Цвет */
+//   --primary-bg-color: #e8e8ea;
+//   --link-color: #e7ebe7;
+//   --loader-bg-color: #20208b;
+//   --black: #000;
+//   --primary-error-color: #f00;
+
+//   //card
+//   --card-bg: #dfafaf;
+  
+//   //listbox
+//   --listbox-bg: #dfafaf;
+// }
 :root {
-  --bg-color: #cfcfdc;
-  --inverted-bg-color: #191999;
-  --primary-color: #082e56;
-  --secondary-color: #5e9bff;
-  --navbar-bg-color: #4267a4;
-  --inverted-primary-color: #cfcfdc;
-  --inverted-secondary-color: #5e9bff;
-  --button-background: #082e56;
-
-  /* skeleton */
-  --skeleton-color: #fff;
-  --skeleton-shadow: #cacaca;
-
-      /* Цвет */
+  --bg-color: #323267;
+  --inverted-bg-color: #cfcfdc;
+  --primary-color: #7a7a91;
+  --secondary-color: #61716d;
+  --navbar-bg-color: #25254d;
+  --inverted-primary-color: #5e9bff;
+  --inverted-secondary-color: #cfcfdc;
+  --loader-bg-color: #69697a;
   --primary-bg-color: #e8e8ea;
   --link-color: #e7ebe7;
-  --loader-bg-color: #20208b;
   --black: #000;
   --primary-error-color: #f00;
-
+  /* skeleton */
+  --skeleton-color: #1515ad;
+  --skeleton-shadow: #2b2be8;
   //card
-  --card-bg: #dfafaf;
-  
+  --card-bg: #414e83;
+  --notification-bg: #2a2a58;
   //listbox
-  --listbox-bg: #dfafaf;
+  --listbox-bg: #414e83;
 }

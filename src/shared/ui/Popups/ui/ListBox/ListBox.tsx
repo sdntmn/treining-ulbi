@@ -3,7 +3,6 @@ import React, { Fragment, ReactNode } from "react"
 import { cn } from "shared/lib/classNames/classNames"
 import { DropdownDirection } from "shared/types/ui"
 
-import { Button } from "../../../Button/Button"
 import { HStack } from "../../../Stack"
 import { mapDirectionClass } from "../../styles/consts"
 
@@ -52,7 +51,7 @@ export const ListBox: React.FC<ListBoxProps> = (props: ListBoxProps) => {
         onChange={onChange}
       >
         <HListBox.Button disabled={readonly} className="list-box__trigger">
-          <Button disabled={readonly}>{value ?? defaultValue}</Button>
+          {value ?? defaultValue}
         </HListBox.Button>
         <HListBox.Options className={cn("list-box__options ", optionsClasses)}>
           {items?.map((item) => (

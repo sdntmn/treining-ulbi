@@ -1,27 +1,49 @@
+// .app-custom-theme {
+//   --bg-color: #F4F7FB;
+//   --inverted-bg-color: #F4F4FB;
+//   --primary-color: #2a049e;
+//   --secondary-color: #89b6ff;
+//   --navbar-bg-color: #4267a4;
+//   --inverted-primary-color: #cfcfdc;
+//   --inverted-secondary-color: #5e9bff;
+//   --button-background: #7c9dd3;
+
+//   /* skeleton */
+//   --skeleton-color: #fff;
+//   --skeleton-shadow: #cacaca;
+
+//   /* Цвет */
+//   --primary-bg-color: #e8e8ea;
+//   --link-color: #e7ebe7;
+//   --loader-bg-color: #20208b;
+//   --black: #000;
+//   --primary-error-color: #f00;
+
+//   /* card */
+//   --card-bg: #dfafaf;
+
+//   //listbox
+//     --listbox-bg: #dfafaf;
+// }
 .app-custom-theme {
   --bg-color: #F4F7FB;
   --inverted-bg-color: #F4F4FB;
   --primary-color: #2a049e;
   --secondary-color: #89b6ff;
   --navbar-bg-color: #4267a4;
-  --inverted-primary-color: #cfcfdc;
-  --inverted-secondary-color: #5e9bff;
-  --button-background: #7c9dd3;
-
-  /* skeleton */
-  --skeleton-color: #fff;
-  --skeleton-shadow: #cacaca;
-
-  /* Цвет */
+  --inverted-primary-color: #5e9bff;
+  --inverted-secondary-color: #cfcfdc;
+  --loader-bg-color: #69697a;
   --primary-bg-color: #e8e8ea;
   --link-color: #e7ebe7;
-  --loader-bg-color: #20208b;
   --black: #000;
   --primary-error-color: #f00;
-
-  /* card */
-  --card-bg: #dfafaf;
-
+  /* skeleton */
+  --skeleton-color: #1515ad;
+  --skeleton-shadow: #2b2be8;
+  //card
+  --card-bg: #536b93;
+  --notification-bg: #456eb5;
   //listbox
-    --listbox-bg: #dfafaf;
+  --listbox-bg: #536b93;
 }
