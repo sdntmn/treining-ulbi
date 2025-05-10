@@ -1,7 +1,7 @@
 .code {
   position: relative;
-    background: #272822; // Фон Monokai
-    color: #f8f8f2; // Основной текст
+    background: var(--navbar-bg-color);
+    color: #f8f8f2;
     border-radius: 6px;
     padding: 16px;
     font-family: 'Fira Code', monospace;
@@ -21,8 +21,6 @@
         opacity: 1;
       }
   }
-
-    
 
   &__copy-icon path {
     stroke: var(--primary-color);

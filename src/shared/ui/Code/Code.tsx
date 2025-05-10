@@ -1,9 +1,9 @@
 import Prism from "prismjs"
-import React, { memo, useCallback, useEffect } from "react"
 import "prismjs/components/prism-javascript"
 import "prismjs/components/prism-typescript"
 import "prismjs/components/prism-jsx"
 import "prismjs/components/prism-css"
+import React, { memo, useCallback, useEffect } from "react"
 
 import CopyIcon from "../../assets/icons/copy_file.svg"
 import { cn } from "../../lib/classNames/classNames"
