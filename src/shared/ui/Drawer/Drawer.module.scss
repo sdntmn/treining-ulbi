@@ -48,4 +48,10 @@
       border-radius: 12px;
     }
   }
+
+  &_closing {
+    .drawer__content {
+      transform: translateY(100%);
+    }
+  }
 }
