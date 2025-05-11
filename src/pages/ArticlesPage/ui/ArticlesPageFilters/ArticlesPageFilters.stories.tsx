@@ -5,7 +5,7 @@ import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDe
 import { ArticlesPageFilters } from "./ArticlesPageFilters"
 
 const meta: Meta<typeof ArticlesPageFilters> = {
-  title: "entities/ArticlesPageFilters",
+  title: "pages/ArticlesPageFilters",
   component: ArticlesPageFilters,
 } satisfies Meta<typeof ArticlesPageFilters>
 

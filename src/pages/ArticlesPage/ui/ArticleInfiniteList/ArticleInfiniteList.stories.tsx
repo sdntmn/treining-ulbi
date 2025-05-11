@@ -6,7 +6,7 @@ import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDe
 import { ArticleInfiniteList } from "./ArticleInfiniteList"
 
 const meta: Meta<typeof ArticleInfiniteList> = {
-  title: "page/ArticleInfiniteList",
+  title: "pages/ArticleInfiniteList",
 
   component: ArticleInfiniteList,
 } satisfies Meta<typeof ArticleInfiniteList>

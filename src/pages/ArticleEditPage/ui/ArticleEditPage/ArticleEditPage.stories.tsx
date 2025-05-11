@@ -9,7 +9,7 @@ import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDe
 import ArticleEditPage from "./ArticleEditPage"
 
 const meta: Meta<typeof ArticleEditPage> = {
-  title: "page/ArticleEditPage",
+  title: "pages/ArticleEditPage",
   component: ArticleEditPage,
 } satisfies Meta<typeof ArticleEditPage>
 

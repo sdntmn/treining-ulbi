@@ -1,4 +1,4 @@
-import { memo } from "react"
+import React, { memo } from "react"
 
 import { cn } from "@/shared/lib/classNames/classNames"
 import { Skeleton } from "@/shared/ui/Skeleton/Skeleton"
