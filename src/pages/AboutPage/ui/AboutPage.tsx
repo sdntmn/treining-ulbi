@@ -24,6 +24,10 @@ const AboutPage: React.FC = () => {
         ts-morph -для изменения ts кода
         <a>https://ts-morph.com/</a>
       </p>
+      <p>
+        добавлен vite - для сборки
+        <a>https://vite.dev/guide/</a>
+      </p>
       <h2>Контекст:</h2>
       <p>Темы</p>
       <p>Анимации</p>

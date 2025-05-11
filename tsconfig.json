@@ -36,7 +36,8 @@
   },
   "ts-node": {
     "compilerOptions": {
-      "module": "CommonJS"
+      "module": "CommonJS",
+      "jsx": "react-jsx"
     }
   },
   "testEnvironment": "jsdom",
