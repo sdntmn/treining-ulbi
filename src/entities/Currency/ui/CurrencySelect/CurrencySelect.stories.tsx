@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
-import { Currency } from "entities/Currency"
+import { Currency } from "@/entities/Currency"
 
 import { CurrencySelect } from "./CurrencySelect"
 

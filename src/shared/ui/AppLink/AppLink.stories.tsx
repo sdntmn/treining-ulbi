@@ -2,7 +2,8 @@ import type { Meta, StoryObj } from "@storybook/react"
 
 import React from "react"
 import { BrowserRouter } from "react-router-dom"
-import { AppLinkColor } from "shared/const/enums"
+
+import { AppLinkColor } from "@/shared/const/enums"
 
 import { AppLink } from "."
 

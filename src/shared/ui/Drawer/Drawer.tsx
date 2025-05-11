@@ -1,6 +1,7 @@
 import React, { memo, ReactNode, useCallback, useEffect } from "react"
-import { cn } from "shared/lib/classNames/classNames"
-import { useAnimationLibs } from "shared/lib/components/AnimationProvider"
+
+import { cn } from "@/shared/lib/classNames/classNames"
+import { useAnimationLibs } from "@/shared/lib/components/AnimationProvider"
 
 import { useTheme } from "../../lib/hooks/useTheme/useTheme"
 import { Overlay } from "../Overlay/Overlay"

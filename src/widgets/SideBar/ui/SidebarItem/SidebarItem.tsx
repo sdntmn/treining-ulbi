@@ -1,10 +1,11 @@
-import { getUserAuthData } from "entities/User"
 import React, { memo } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
-import { AppLinkColor } from "shared/const/enums"
-import { cn } from "shared/lib/classNames/classNames"
-import { AppLink } from "shared/ui/AppLink"
+
+import { getUserAuthData } from "@/entities/User"
+import { AppLinkColor } from "@/shared/const/enums"
+import { cn } from "@/shared/lib/classNames/classNames"
+import { AppLink } from "@/shared/ui/AppLink"
 
 import { SidebarItemType } from "../../model/types/sidebar"
 

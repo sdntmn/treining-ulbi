@@ -1,4 +1,4 @@
-import { Country, Currency } from "shared/const/enums"
+import { Country, Currency } from "@/shared/const/enums"
 
 import { updateProfileData } from "../services/updateProfileData/updateProfileData"
 import { profileActions, profileReducer } from "../slice/profileSlice"

@@ -1,13 +1,14 @@
 /* eslint-disable max-len */
-import { CommentList } from "entities/Comment"
-import { AddCommentForm } from "features/AddCommentForm"
 import React, { memo, Suspense, useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
-import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect"
-import { VStack } from "shared/ui/Stack"
-import { TextParagraf } from "shared/ui/TextParagraf/TextParagraf"
+
+import { CommentList } from "@/entities/Comment"
+import { AddCommentForm } from "@/features/AddCommentForm"
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch"
+import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect/useInitialEffect"
+import { VStack } from "@/shared/ui/Stack"
+import { TextParagraf } from "@/shared/ui/TextParagraf/TextParagraf"
 
 import { getArticleCommentsIsLoading } from "../../model/selectors/comments"
 import { addCommentForArticle } from "../../model/services/addCommentForArticle/addCommentForArticle"

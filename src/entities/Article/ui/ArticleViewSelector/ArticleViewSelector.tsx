@@ -1,9 +1,10 @@
 import React, { memo } from "react"
-import TiledIcon from "shared/assets/icons/card.svg"
-import ListIcon from "shared/assets/icons/list.svg"
-import { cn } from "shared/lib/classNames/classNames"
-import { Button, ButtonVar } from "shared/ui/Button/Button"
-import { Icon } from "shared/ui/Icon/Icon"
+
+import TiledIcon from "@/shared/assets/icons/card.svg"
+import ListIcon from "@/shared/assets/icons/list.svg"
+import { cn } from "@/shared/lib/classNames/classNames"
+import { Button, ButtonVar } from "@/shared/ui/Button/Button"
+import { Icon } from "@/shared/ui/Icon/Icon"
 
 import { ArticleViewType } from "../../model/consts"
 

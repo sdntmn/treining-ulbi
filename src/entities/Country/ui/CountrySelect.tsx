@@ -1,6 +1,7 @@
 import React, { memo, useCallback } from "react"
 import { useTranslation } from "react-i18next"
-import { ListBox } from "shared/ui/Popups"
+
+import { ListBox } from "@/shared/ui/Popups"
 
 import { Country } from "../model/types/country"
 

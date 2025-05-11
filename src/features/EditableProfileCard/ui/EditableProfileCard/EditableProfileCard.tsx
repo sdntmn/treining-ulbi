@@ -1,18 +1,19 @@
 /* eslint-disable max-len */
-import { ProfileCard } from "entities/Profile/ui/ProfileCard/ProfileCard"
 import React, { useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
-import { Currency, Country } from "shared/const/enums"
-import { cn } from "shared/lib/classNames/classNames"
+
+import { ProfileCard } from "@/entities/Profile/ui/ProfileCard/ProfileCard"
+import { Currency, Country } from "@/shared/const/enums"
+import { cn } from "@/shared/lib/classNames/classNames"
 import {
   DynamicModuleLoader,
   ReducersList,
-} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
-import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect"
-import { VStack } from "shared/ui/Stack"
-import { TextParagraf, TextVar } from "shared/ui/TextParagraf/TextParagraf"
+} from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch"
+import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect/useInitialEffect"
+import { VStack } from "@/shared/ui/Stack"
+import { TextParagraf, TextVar } from "@/shared/ui/TextParagraf/TextParagraf"
 
 import { getProfileError } from "../../model/selectors/getProfileError/getProfileError"
 import { getProfileForm } from "../../model/selectors/getProfileForm/getProfileForm"

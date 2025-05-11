@@ -1,15 +1,16 @@
 /* eslint-disable max-len */
-import { ArticleDetails } from "entities/Article"
-import { ArticleRecommendationList } from "features/ArticleRecommendationList"
 import React, { lazy, memo } from "react"
 import { useTranslation } from "react-i18next"
 import { useParams } from "react-router-dom"
-import { cn } from "shared/lib/classNames/classNames"
+
+import { ArticleDetails } from "@/entities/Article"
+import { ArticleRecommendationList } from "@/features/ArticleRecommendationList"
+import { cn } from "@/shared/lib/classNames/classNames"
 import {
   DynamicModuleLoader,
   ReducersList,
-} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
-import { Page } from "widgets/Page"
+} from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
+import { Page } from "@/widgets/Page"
 
 import { articleDetailsPageReducer } from "../../model/slices"
 import { ArticleDetailsComments } from "../ArticleDetailsComments/ArticleDetailsComments"

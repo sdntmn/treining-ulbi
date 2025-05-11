@@ -14,16 +14,21 @@ export function buildPlugins({
   apiUrl,
   project,
 }: BuildOptions & { analyze?: boolean }): webpack.WebpackPluginInstance[] {
+  let minify
+  if (!isDev) {
+    minify = {
+      collapseWhitespace: true,
+      removeComments: true,
+      removeRedundantAttributes: true,
+    }
+  } else {
+    minify = false
+  }
+
   const plugins: webpack.WebpackPluginInstance[] = [
     new HtmlWebpackPlugin({
       template: paths.html,
-      minify: !isDev
-        ? {
-            collapseWhitespace: true,
-            removeComments: true,
-            removeRedundantAttributes: true,
-          }
-        : false,
+      minify: minify,
     }),
     new webpack.ProgressPlugin(),
     new MiniCssExtractPlugin({

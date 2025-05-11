@@ -56,27 +56,66 @@
         "ignoreRestSiblings": true
       }
     ],
-    "sort-imports": "off",
-    "perfectionist/sort-imports": [
+    "import/order": [
       "error",
       {
-        "order": "asc",
-        "ignoreCase": true,
-        "internalPattern": [ "~/**" ],
-        "newlinesBetween": "always",
         "groups": [
-          "type",
-          [ "builtin", "external" ],
-          "internal-type",
-          "internal",
-          [ "parent-type", "sibling-type", "index-type" ],
-          [ "parent", "sibling", "index" ],
-          "object",
-          "side-effect-style"
-        ]
+          "type", // 1. Типы (TypeScript)
+          "builtin", // 2. Встроенные модули Node.js (`fs`, `path`)
+          "external", // 3. Внешние зависимости (`react`, `lodash`)
+          "internal", // 4. Проектные импорты (`@/app`, `@/shared`)
+          [ "parent", "sibling" ], // 5. Родительские и соседние файлы (`../utils`, `./components`)
+          "index", // 6. `index.ts` (если есть)
+          "object" // 7. Специфичные импорты (WASM, workers)
+          // "side-effect-style" // 8. Импорты для side-эффектов (`import 'styles.css'`)
+        ],
+        "pathGroups": [
+          {
+            "pattern": "*.+(css|scss|sass|less)",
+            "group": "object",
+            "position": "after"
+          },
+          // Группировка для алиасов `@/` (Vue, React, Next.js и др.)
+          {
+            "pattern": "@/**",
+            "group": "internal",
+            "position": "after" // или "after" в зависимости от предпочтений
+          },
+          // Можно добавить отдельные группы для `@/app`, `@/shared` и т. д.
+          {
+            "pattern": "@/app/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@/entities/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@/features/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@/pages/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@/shared/**",
+            "group": "internal",
+            "position": "before"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": [ "builtin", "type" ],
+        "newlines-between": "always", // пустые строки между группами
+        "alphabetize": {
+          "order": "asc", // сортировка по алфавиту (A -> Z)
+          "caseInsensitive": true // регистронезависимо
+        }
       }
     ],
-    "perfectionist/sort-objects": "off", // ?
     "indent": [
       "error",
       2, { "SwitchCase": 1 }

@@ -1,7 +1,7 @@
-import { User } from "entities/User"
+import { User } from "@/entities/User"
 
-import { ArticleType } from "../consts/consts"
 import { ArticleBlock } from "./articleBlocks"
+import { ArticleType } from "../consts/consts"
 
 export interface Article {
   id: string

@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { AsyncThunkAction } from "@reduxjs/toolkit"
-import { StateSchema } from "app/providers/StoreProvider"
 import axios, { AxiosStatic } from "axios"
+
+import { StateSchema } from "@/app/providers/StoreProvider"
 
 type DeepPartial<T> = T extends object
   ? {

@@ -1,5 +1,5 @@
-import { LoginSchema } from "../types/LoginSchema"
 import { loginActions, loginReducer } from "./LoginSlice"
+import { LoginSchema } from "../types/LoginSchema"
 
 jest.mock("../services/LoginByUserName/loginByUserName", () => ({
   loginByUsername: {

@@ -1,15 +1,16 @@
-import { getUserInitialized, userActions } from "entities/User"
 import React, { Suspense, useEffect } from "react"
 import { useSelector } from "react-redux"
-import { cn } from "shared/lib/classNames/classNames"
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
-import { useTheme } from "shared/lib/hooks/useTheme/useTheme"
-import { Navbar } from "widgets/Navbar"
-import { Sidebar } from "widgets/SideBar"
+
+import { getUserInitialized, userActions } from "@/entities/User"
+import { cn } from "@/shared/lib/classNames/classNames"
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch"
+import { useTheme } from "@/shared/lib/hooks/useTheme/useTheme"
+import { Navbar } from "@/widgets/Navbar"
+import { Sidebar } from "@/widgets/SideBar"
 
 import { AppRouter } from "./providers/router"
 
-import "app/styles/index.scss"
+import "@/app/styles/index.scss"
 
 const App: React.FC = () => {
   const { theme } = useTheme()

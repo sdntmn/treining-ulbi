@@ -1,4 +1,4 @@
-import { APP_PATHS } from "shared/const/routes"
+import { APP_PATHS } from "@/shared/const/routes"
 
 export const routePatch = {
   // Основные пути

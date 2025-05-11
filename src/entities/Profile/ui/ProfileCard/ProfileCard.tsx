@@ -1,16 +1,17 @@
 import React from "react"
 import { useTranslation } from "react-i18next"
-import { Country, Currency } from "shared/const/enums"
-import { cn } from "shared/lib/classNames/classNames"
-import { Avatar } from "shared/ui/Avatar/Avatar"
-import { Input } from "shared/ui/Input/Input"
-import { Loader } from "shared/ui/Loader/Loader"
-import { HStack, VStack } from "shared/ui/Stack"
+
+import { Country, Currency } from "@/shared/const/enums"
+import { cn } from "@/shared/lib/classNames/classNames"
+import { Avatar } from "@/shared/ui/Avatar/Avatar"
+import { Input } from "@/shared/ui/Input/Input"
+import { Loader } from "@/shared/ui/Loader/Loader"
+import { HStack, VStack } from "@/shared/ui/Stack"
 import {
   TextAlign,
   TextParagraf,
   TextVar,
-} from "shared/ui/TextParagraf/TextParagraf"
+} from "@/shared/ui/TextParagraf/TextParagraf"
 
 import { CountrySelect } from "../../../Country"
 import { CurrencySelect } from "../../../Currency"

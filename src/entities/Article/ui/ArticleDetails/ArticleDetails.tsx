@@ -1,21 +1,22 @@
+import type { ArticleBlock } from "../../model/types"
+
 import React, { memo, useCallback } from "react"
 import { useSelector } from "react-redux"
-import CalendarIcon from "shared/assets/icons/clarity_date-line.svg"
-import EyeIcon from "shared/assets/icons/eye-outlined.svg"
-import { cn } from "shared/lib/classNames/classNames"
+
+import CalendarIcon from "@/shared/assets/icons/clarity_date-line.svg"
+import EyeIcon from "@/shared/assets/icons/eye-outlined.svg"
+import { cn } from "@/shared/lib/classNames/classNames"
 import {
   DynamicModuleLoader,
   ReducersList,
-} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
-import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect"
-import { Avatar } from "shared/ui/Avatar/Avatar"
-import { Icon } from "shared/ui/Icon/Icon"
-import { Skeleton } from "shared/ui/Skeleton/Skeleton"
-import { HStack, VStack } from "shared/ui/Stack"
-import { TextParagraf, TextSize } from "shared/ui/TextParagraf/TextParagraf"
-
-import type { ArticleBlock } from "../../model/types"
+} from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch"
+import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect/useInitialEffect"
+import { Avatar } from "@/shared/ui/Avatar/Avatar"
+import { Icon } from "@/shared/ui/Icon/Icon"
+import { Skeleton } from "@/shared/ui/Skeleton/Skeleton"
+import { HStack, VStack } from "@/shared/ui/Stack"
+import { TextParagraf, TextSize } from "@/shared/ui/TextParagraf/TextParagraf"
 
 import { ArticleBlockType } from "../../model/consts/consts"
 import {

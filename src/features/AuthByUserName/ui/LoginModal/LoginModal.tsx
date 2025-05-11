@@ -1,7 +1,8 @@
 import React, { Suspense } from "react"
-import { cn } from "shared/lib/classNames/classNames"
-import { Loader } from "shared/ui/Loader/Loader"
-import { Modal } from "shared/ui/Modal/Modal"
+
+import { cn } from "@/shared/lib/classNames/classNames"
+import { Loader } from "@/shared/ui/Loader/Loader"
+import { Modal } from "@/shared/ui/Modal/Modal"
 
 import { LoginFormAsync } from "../LoginForm/LoginForm.async"
 

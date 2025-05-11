@@ -2,9 +2,9 @@
 /* eslint-disable max-len */
 import type { Meta, StoryObj } from "@storybook/react"
 
-import { Article, ArticleBlockType, ArticleType } from "entities/Article"
-import { RouterDecorator } from "shared/config/storybook/RouterDecorator/RouterDecorator"
-import { StoreDecorator } from "shared/config/storybook/StoreDecorator/StoreDecorator"
+import { Article, ArticleBlockType, ArticleType } from "@/entities/Article"
+import { RouterDecorator } from "@/shared/config/storybook/RouterDecorator/RouterDecorator"
+import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDecorator"
 
 import ArticleDetailsPage from "./ArticleDetailsPage"
 

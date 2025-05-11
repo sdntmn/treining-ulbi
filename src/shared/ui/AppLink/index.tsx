@@ -1,6 +1,7 @@
 import React, { memo, ReactNode } from "react"
 import { Link, LinkProps } from "react-router-dom"
-import { cn } from "shared/lib/classNames/classNames"
+
+import { cn } from "@/shared/lib/classNames/classNames"
 
 import { AppLinkColor } from "../../const/enums"
 

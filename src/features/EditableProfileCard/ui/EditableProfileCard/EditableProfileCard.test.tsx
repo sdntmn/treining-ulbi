@@ -1,15 +1,16 @@
 /* eslint-disable i18next/no-literal-string */
 import { cleanup, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { Country } from "entities/Country"
-import { Currency } from "entities/Currency"
-import { Profile } from "entities/Profile"
 import React from "react"
-import { $api } from "shared/api/api"
-import { ComponentRender } from "shared/lib/tests/СomponentRender/ComponentRender"
 
-import { profileReducer } from "../../model/slice/profileSlice"
+import { Country } from "@/entities/Country"
+import { Currency } from "@/entities/Currency"
+import { Profile } from "@/entities/Profile"
+import { $api } from "@/shared/api/api"
+import { ComponentRender } from "@/shared/lib/tests/СomponentRender/ComponentRender"
+
 import { EditableProfileCard } from "./EditableProfileCard"
+import { profileReducer } from "../../model/slice/profileSlice"
 
 const profile: Profile = {
   id: "1",

@@ -1,12 +1,13 @@
 /* eslint-disable max-len */
 import { StoryFn } from "@storybook/react"
-import { StateSchema, StoreProvider } from "app/providers/StoreProvider"
-import { articleDetailsReducer } from "entities/Article/model/slice/articleDetailsSlice"
-import { addCommentFormReducer } from "features/AddCommentForm/model/slice/addCommentFormSlice"
-import { loginReducer } from "features/AuthByUserName"
-import { profileReducer } from "features/EditableProfileCard/model/slice/profileSlice"
-import { articleDetailsPageReducer } from "pages/ArticlesDetailsPage/model/slices"
 import React from "react"
+
+import { StateSchema, StoreProvider } from "@/app/providers/StoreProvider"
+import { articleDetailsReducer } from "@/entities/Article/model/slice/articleDetailsSlice"
+import { addCommentFormReducer } from "@/features/AddCommentForm/model/slice/addCommentFormSlice"
+import { loginReducer } from "@/features/AuthByUserName"
+import { profileReducer } from "@/features/EditableProfileCard/model/slice/profileSlice"
+import { articleDetailsPageReducer } from "@/pages/ArticlesDetailsPage/model/slices"
 
 import { ReducersList } from "../../../lib/components/DynamicModuleLoader/DynamicModuleLoader"
 

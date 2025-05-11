@@ -1,7 +1,7 @@
-import { Country, Currency } from "shared/const/enums"
+import { Country, Currency } from "@/shared/const/enums"
 
-import { ValidateProfileError } from "../../types/EditableProfileCardSchema"
 import { validateProfileData } from "./validateProfileData"
+import { ValidateProfileError } from "../../types/EditableProfileCardSchema"
 
 const data = {
   first: "Денис",

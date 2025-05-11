@@ -1,14 +1,13 @@
-import { getArticleDetailsData } from "entities/Article/model/selectors/articleDetails"
 import React, { memo, useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
-import { cn } from "shared/lib/classNames/classNames"
-import { Button, ButtonVar } from "shared/ui/Button/Button"
-import { HStack } from "shared/ui/Stack"
-// Импортируем из нового модуля путей
 
-import { routePatch } from "shared/lib/helpers/getPath"
+import { getArticleDetailsData } from "@/entities/Article/model/selectors/articleDetails"
+import { cn } from "@/shared/lib/classNames/classNames"
+import { routePatch } from "@/shared/lib/helpers/getPath"
+import { Button, ButtonVar } from "@/shared/ui/Button/Button"
+import { HStack } from "@/shared/ui/Stack"
 
 import { getCanEditArticle } from "../../model/selectors/article"
 

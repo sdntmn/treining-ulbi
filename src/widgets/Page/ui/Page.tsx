@@ -1,5 +1,3 @@
-import { StateSchema } from "app/providers/StoreProvider"
-import { getScrollByPath, scrollSaveActions } from "features/ScrollSave"
 import React, {
   MutableRefObject,
   ReactNode,
@@ -8,11 +6,14 @@ import React, {
 } from "react"
 import { useSelector } from "react-redux"
 import { useLocation } from "react-router-dom"
-import { cn } from "shared/lib/classNames/classNames"
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
-import { useInfiniteScroll } from "shared/lib/hooks/useInfiniteScroll/useInfiniteScroll"
-import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect"
-import { useThrottle } from "shared/lib/hooks/useThrottle/useThrottle"
+
+import { StateSchema } from "@/app/providers/StoreProvider"
+import { getScrollByPath, scrollSaveActions } from "@/features/ScrollSave"
+import { cn } from "@/shared/lib/classNames/classNames"
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch"
+import { useInfiniteScroll } from "@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll"
+import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect/useInitialEffect"
+import { useThrottle } from "@/shared/lib/hooks/useThrottle/useThrottle"
 
 import "./Page.module.scss"
 

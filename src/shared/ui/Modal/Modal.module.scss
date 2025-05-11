@@ -4,7 +4,6 @@
   align-items: center;
   position: fixed;
   inset: 0;
-  z-index: var(--modal-z-index);
   opacity: 0;
   pointer-events: none;
   transform: scale(1);
@@ -27,6 +26,7 @@
     transform: scale(0.5);
     max-width: 50%;
     height: fit-content;
+    z-index: var(--modal-z-index);
   }
 
   &__closing {

@@ -1,5 +1,6 @@
 import React, { ChangeEvent, useMemo } from "react"
-import { cn } from "shared/lib/classNames/classNames"
+
+import { cn } from "@/shared/lib/classNames/classNames"
 
 import "./Select.module.scss"
 

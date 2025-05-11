@@ -2958,6 +2958,15 @@
   resolved "https://registry.npmjs.org/@trysound/sax/-/sax-0.2.0.tgz"
   integrity sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==
 
+"@ts-morph/common@~0.26.0":
+  version "0.26.1"
+  resolved "https://registry.yarnpkg.com/@ts-morph/common/-/common-0.26.1.tgz#a346188e59d2befe4c71f66a7d626d81b1abe2a8"
+  integrity sha512-Sn28TGl/4cFpcM+jwsH1wLncYq3FtN/BIpem+HOygfBWPT5pAeS5dB4VFVzV8FbnOKHpDLZmvAl4AjPEev5idA==
+  dependencies:
+    fast-glob "^3.3.2"
+    minimatch "^9.0.4"
+    path-browserify "^1.0.1"
+
 "@tsconfig/node10@^1.0.7":
   version "1.0.11"
   resolved "https://registry.npmjs.org/@tsconfig/node10/-/node10-1.0.11.tgz"
@@ -3505,15 +3514,15 @@
     natural-compare "^1.4.0"
     ts-api-utils "^2.0.1"
 
-"@typescript-eslint/parser@^8.5.0":
-  version "8.24.0"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/parser/-/parser-8.24.0.tgz#bba837f9ee125b78f459ad947ff9b61be8139085"
-  integrity sha512-MFDaO9CYiard9j9VepMNa9MTcqVvSny2N4hkY6roquzj8pdCBRENhErrteaQuu7Yjn1ppk0v1/ZF9CG3KIlrTA==
+"@typescript-eslint/parser@^8.32.0":
+  version "8.32.0"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/parser/-/parser-8.32.0.tgz#fe840ecb2726a82fa9f5562837ec40503ae71caf"
+  integrity sha512-B2MdzyWxCE2+SqiZHAjPphft+/2x2FlO9YBx7eKE1BCb+rqBlQdhtAEhzIEdozHd55DXPmxBdpMygFJjfjjA9A==
   dependencies:
-    "@typescript-eslint/scope-manager" "8.24.0"
-    "@typescript-eslint/types" "8.24.0"
-    "@typescript-eslint/typescript-estree" "8.24.0"
-    "@typescript-eslint/visitor-keys" "8.24.0"
+    "@typescript-eslint/scope-manager" "8.32.0"
+    "@typescript-eslint/types" "8.32.0"
+    "@typescript-eslint/typescript-estree" "8.32.0"
+    "@typescript-eslint/visitor-keys" "8.32.0"
     debug "^4.3.4"
 
 "@typescript-eslint/scope-manager@8.11.0":
@@ -3531,6 +3540,14 @@
   dependencies:
     "@typescript-eslint/types" "8.24.0"
     "@typescript-eslint/visitor-keys" "8.24.0"
+
+"@typescript-eslint/scope-manager@8.32.0":
+  version "8.32.0"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/scope-manager/-/scope-manager-8.32.0.tgz#6be89f652780f0d3d19d58dc0ee107b1a9e3282c"
+  integrity sha512-jc/4IxGNedXkmG4mx4nJTILb6TMjL66D41vyeaPWvDUmeYQzF3lKtN15WsAeTr65ce4mPxwopPSo1yUUAWw0hQ==
+  dependencies:
+    "@typescript-eslint/types" "8.32.0"
+    "@typescript-eslint/visitor-keys" "8.32.0"
 
 "@typescript-eslint/scope-manager@8.5.0":
   version "8.5.0"
@@ -3559,6 +3576,11 @@
   version "8.24.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/types/-/types-8.24.0.tgz#694e7fb18d70506c317b816de9521300b0f72c8e"
   integrity sha512-VacJCBTyje7HGAw7xp11q439A+zeGG0p0/p2zsZwpnMzjPB5WteaWqt4g2iysgGFafrqvyLWqq6ZPZAOCoefCw==
+
+"@typescript-eslint/types@8.32.0":
+  version "8.32.0"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/types/-/types-8.32.0.tgz#a4a66b8876b8391970cf069b49572e43f1fc957a"
+  integrity sha512-O5Id6tGadAZEMThM6L9HmVf5hQUXNSxLVKeGJYWNhhVseps/0LddMkp7//VDkzwJ69lPL0UmZdcZwggj9akJaA==
 
 "@typescript-eslint/types@8.5.0", "@typescript-eslint/types@^8.5.0":
   version "8.5.0"
@@ -3592,6 +3614,20 @@
     minimatch "^9.0.4"
     semver "^7.6.0"
     ts-api-utils "^2.0.1"
+
+"@typescript-eslint/typescript-estree@8.32.0":
+  version "8.32.0"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/typescript-estree/-/typescript-estree-8.32.0.tgz#11d45f47bfabb141206a3da6c7b91a9d869ff32d"
+  integrity sha512-pU9VD7anSCOIoBFnhTGfOzlVFQIA1XXiQpH/CezqOBaDppRwTglJzCC6fUQGpfwey4T183NKhF1/mfatYmjRqQ==
+  dependencies:
+    "@typescript-eslint/types" "8.32.0"
+    "@typescript-eslint/visitor-keys" "8.32.0"
+    debug "^4.3.4"
+    fast-glob "^3.3.2"
+    is-glob "^4.0.3"
+    minimatch "^9.0.4"
+    semver "^7.6.0"
+    ts-api-utils "^2.1.0"
 
 "@typescript-eslint/typescript-estree@8.5.0":
   version "8.5.0"
@@ -3651,6 +3687,14 @@
   integrity sha512-kArLq83QxGLbuHrTMoOEWO+l2MwsNS2TGISEdx8xgqpkbytB07XmlQyQdNDrCc1ecSqx0cnmhGvpX+VBwqqSkg==
   dependencies:
     "@typescript-eslint/types" "8.24.0"
+    eslint-visitor-keys "^4.2.0"
+
+"@typescript-eslint/visitor-keys@8.32.0":
+  version "8.32.0"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/visitor-keys/-/visitor-keys-8.32.0.tgz#0cca2cac046bc71cc40ce8214bac2850d6ecf4a6"
+  integrity sha512-1rYQTCLFFzOI5Nl0c8LUpJT8HxpwVRn9E4CkMsYfuN6ctmQqExjSTzzSk0Tz2apmXy7WU6/6fyaZVVA/thPN+w==
+  dependencies:
+    "@typescript-eslint/types" "8.32.0"
     eslint-visitor-keys "^4.2.0"
 
 "@typescript-eslint/visitor-keys@8.5.0":
@@ -4967,6 +5011,11 @@ co@^4.6.0:
   version "4.6.0"
   resolved "https://registry.npmjs.org/co/-/co-4.6.0.tgz"
   integrity sha512-QVb0dM5HvG+uaxitm8wONl7jltx8dqhfU33DcqtOZcLSVIKSDDLDi7+0LbAKiyI8hD9u42m2YxXSkMGWThaecQ==
+
+code-block-writer@^13.0.3:
+  version "13.0.3"
+  resolved "https://registry.yarnpkg.com/code-block-writer/-/code-block-writer-13.0.3.tgz#90f8a84763a5012da7af61319dd638655ae90b5b"
+  integrity sha512-Oofo0pq3IKnsFtuHqSF7TqBfr71aeyZDVJ0HpmqB7FBM2qEigL0iPONSCZSO9pE9dZTAxANe5XHG9Uy0YMv8cg==
 
 collect-v8-coverage@^1.0.0:
   version "1.0.2"
@@ -12545,6 +12594,11 @@ ts-api-utils@^2.0.1:
   resolved "https://registry.yarnpkg.com/ts-api-utils/-/ts-api-utils-2.0.1.tgz#660729385b625b939aaa58054f45c058f33f10cd"
   integrity sha512-dnlgjFSVetynI8nzgJ+qF62efpglpWRk8isUEWZGWlJYySCTD6aKvbUDu+zbPeDakk3bg5H4XpitHukgfL1m9w==
 
+ts-api-utils@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/ts-api-utils/-/ts-api-utils-2.1.0.tgz#595f7094e46eed364c13fd23e75f9513d29baf91"
+  integrity sha512-CUgTZL1irw8u29bzrOD/nH85jqyc74D6SshFgujOIA7osm2Rz7dYH77agkx7H4FBNxDq7Cjf+IjaX/8zwFW+ZQ==
+
 ts-dedent@^2.0.0, ts-dedent@^2.2.0:
   version "2.2.0"
   resolved "https://registry.npmjs.org/ts-dedent/-/ts-dedent-2.2.0.tgz"
@@ -12575,6 +12629,14 @@ ts-loader@^9.5.1:
     micromatch "^4.0.0"
     semver "^7.3.4"
     source-map "^0.7.4"
+
+ts-morph@^25.0.1:
+  version "25.0.1"
+  resolved "https://registry.yarnpkg.com/ts-morph/-/ts-morph-25.0.1.tgz#7de0b60fcc6e86955c8766831bcd2c5d87ffbd4f"
+  integrity sha512-QJEiTdnz1YjrB3JFhd626gX4rKHDLSjSVMvGGG4v7ONc3RBwa0Eei98G9AT9uNFDMtV54JyuXsFeC+OH0n6bXQ==
+  dependencies:
+    "@ts-morph/common" "~0.26.0"
+    code-block-writer "^13.0.3"
 
 ts-node@^10.9.2:
   version "10.9.2"

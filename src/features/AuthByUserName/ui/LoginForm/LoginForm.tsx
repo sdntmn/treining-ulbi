@@ -1,17 +1,18 @@
 /* eslint-disable max-len */
-import { getLoginError } from "features/AuthByUserName/model/selectors/getLoginError/getLoginError"
 import React, { memo, useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
-import { cn } from "shared/lib/classNames/classNames"
+
+import { getLoginError } from "@/features/AuthByUserName/model/selectors/getLoginError/getLoginError"
+import { cn } from "@/shared/lib/classNames/classNames"
 import {
   DynamicModuleLoader,
   ReducersList,
-} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
-import { Button, ButtonVar } from "shared/ui/Button/Button"
-import { Input } from "shared/ui/Input/Input"
-import { TextParagraf, TextVar } from "shared/ui/TextParagraf/TextParagraf"
+} from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch"
+import { Button, ButtonVar } from "@/shared/ui/Button/Button"
+import { Input } from "@/shared/ui/Input/Input"
+import { TextParagraf, TextVar } from "@/shared/ui/TextParagraf/TextParagraf"
 
 import { getLoginIsLoading } from "../../model/selectors/getLoginIsLoading/getLoginIsLoading"
 import { getLoginPassword } from "../../model/selectors/getLoginPassword/getLoginPassword"

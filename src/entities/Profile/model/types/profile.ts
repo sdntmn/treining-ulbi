@@ -1,4 +1,4 @@
-import { Country, Currency } from "shared/const/enums"
+import { Country, Currency } from "@/shared/const/enums"
 
 export interface Profile {
   id?: string

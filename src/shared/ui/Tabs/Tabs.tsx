@@ -1,5 +1,6 @@
 import React, { memo, ReactNode, useCallback } from "react"
-import { cn } from "shared/lib/classNames/classNames"
+
+import { cn } from "@/shared/lib/classNames/classNames"
 
 import { Card, CardTheme } from "../Card/Card"
 

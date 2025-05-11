@@ -1,5 +1,6 @@
 import React from "react"
-import { cn } from "shared/lib/classNames/classNames"
+
+import { cn } from "@/shared/lib/classNames/classNames"
 
 import { useModal } from "../../lib/hooks/useModal/useModal"
 import { Overlay } from "../Overlay/Overlay"
@@ -42,8 +43,8 @@ export const Modal: React.FC<ModalProps> = ({
       <div
         className={cn("modal", [
           className,
-          isOpen ? "modal__open" : "",
-          isClosing ? "modal__closing" : "",
+          isOpen && "modal__open",
+          isClosing && "modal__closing",
         ])}
       >
         <Overlay onClick={close} />
