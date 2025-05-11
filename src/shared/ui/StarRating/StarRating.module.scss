@@ -1,0 +1,19 @@
+.star-rating {
+  &__icon {
+    fill: none;
+    stroke: var(--primary-color);
+    cursor: pointer;
+  }
+
+  &__selected {
+    cursor: auto;
+  }
+
+  &_hovered {
+    fill: var(--primary-color);
+  }
+
+  &_normal {
+    fill: none;
+  }
+}

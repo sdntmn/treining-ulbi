@@ -37,7 +37,7 @@ export const Dropdown: React.FC<DropdownProps> = (props: DropdownProps) => {
         {items.map((item, index: number) => {
           const content = ({ active }: { active: boolean }) => (
             <button
-              key={index}
+              key={"drop-down__item" + index}
               type="button"
               disabled={item.disabled}
               onClick={item.onClick}
@@ -51,7 +51,7 @@ export const Dropdown: React.FC<DropdownProps> = (props: DropdownProps) => {
             return (
               <Menu.Item
                 refName="href"
-                key={index}
+                key={"drop-down__item" + index}
                 as={AppLink}
                 to={item.href}
                 disabled={item.disabled}

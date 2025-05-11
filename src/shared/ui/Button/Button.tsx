@@ -36,6 +36,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children?: React.ReactNode
   fontSize?: ButtonFontSize
   size?: ButtonSize
+  fullWidth?: boolean
   disabled?: boolean
 }
 
@@ -47,6 +48,7 @@ export const Button: React.FC<ButtonProps> = memo(function Button({
   size = ButtonSize.M,
   fontSize = ButtonFontSize.FONT_M,
   disabled,
+  fullWidth,
   ...otherProps
 }: ButtonProps) {
   return (
@@ -59,6 +61,7 @@ export const Button: React.FC<ButtonProps> = memo(function Button({
         fontSize && `button__${fontSize}`,
         size && `button__${size}`,
         disabled && "button__disabled",
+        fullWidth && "button__fullWidth",
       ])}
       disabled={disabled}
       {...otherProps}

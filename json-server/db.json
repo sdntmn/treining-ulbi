@@ -2108,28 +2108,36 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "roles": ["ADMIN"],
+      "roles": [
+        "ADMIN"
+      ],
       "avatar": "https://gas-kvas.com/uploads/posts/2023-01/1673717784_gas-kvas-com-p-risunok-avatar-poetapno-posledovatelno-8.jpg"
     },
     {
       "id": "2",
       "username": "author",
       "password": "123",
-      "roles": ["AUTHOR"],
+      "roles": [
+        "AUTHOR"
+      ],
       "avatar": "https://gas-kvas.com/uploads/posts/2023-01/1673717784_gas-kvas-com-p-risunok-avatar-poetapno-posledovatelno-8.jpg"
     },
     {
       "id": "3",
       "username": "user",
       "password": "123",
-      "roles": ["USER"],
+      "roles": [
+        "USER"
+      ],
       "avatar": "https://gas-kvas.com/uploads/posts/2023-01/1673717784_gas-kvas-com-p-risunok-avatar-poetapno-posledovatelno-8.jpg"
     },
     {
       "id": "4",
       "username": "manager",
       "password": "123",
-      "roles": ["MANAGER"],
+      "roles": [
+        "MANAGER"
+      ],
       "avatar": "https://gas-kvas.com/uploads/posts/2023-01/1673717784_gas-kvas-com-p-risunok-avatar-poetapno-posledovatelno-8.jpg"
     }
   ],
@@ -2166,6 +2174,99 @@
       "city": "Tyumen",
       "username": "admin",
       "avatar": "https://i.pinimg.com/originals/39/3d/f1/393df1b167dfe31ee22081e6cafdaf62.jpg"
+    }
+  ],
+  "article-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "2"
+    },
+    {
+      "userId": "1",
+      "articleId": "3",
+      "rate": 3,
+      "feedback": "",
+      "id": "I7ofk1u"
+    },
+    {
+      "userId": "1",
+      "articleId": "9",
+      "rate": 5,
+      "feedback": "asdasdasdasd",
+      "id": "Y7MhPzo"
+    },
+    {
+      "userId": "1",
+      "articleId": "10",
+      "rate": 1,
+      "feedback": "отстой",
+      "id": "II0a75O"
+    },
+    {
+      "userId": "1",
+      "articleId": "7",
+      "rate": 3,
+      "feedback": "",
+      "id": "bcPnbbZ"
+    },
+    {
+      "userId": "1",
+      "articleId": "2",
+      "rate": 3,
+      "feedback": "",
+      "id": "Hkjo98g"
+    },
+    {
+      "userId": "1",
+      "articleId": "39",
+      "rate": 3,
+      "id": "SzvT0Jb"
+    },
+    {
+      "userId": "1",
+      "articleId": "39",
+      "rate": 4,
+      "feedback": "",
+      "id": "ESPBdwn"
+    },
+    {
+      "userId": "1",
+      "articleId": "40",
+      "rate": 5,
+      "id": "yVQ7QGB"
+    },
+    {
+      "userId": "1",
+      "articleId": "37",
+      "rate": 5,
+      "feedback": "",
+      "id": "EOfGkRW"
+    }
+  ],
+  "profile-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "profileId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "profileId": "2"
     }
   ]
 }

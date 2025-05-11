@@ -1,9 +1,9 @@
-/* eslint-disable max-len */
 import React, { lazy, memo } from "react"
 import { useTranslation } from "react-i18next"
 import { useParams } from "react-router-dom"
 
 import { ArticleDetails } from "@/entities/Article"
+import ArticleRating from "@/features/ArticleRating/ui/ArticleRating/ArticleRating"
 import { ArticleRecommendationList } from "@/features/ArticleRecommendationList"
 import { cn } from "@/shared/lib/classNames/classNames"
 import {
@@ -41,6 +41,7 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = ({
       <Page className={cn("article-details-page", [className])}>
         <ArticleDetailsPageHeader />
         <ArticleDetails id={id} />
+        <ArticleRating articleId={id} />
         <ArticleRecommendationList />
         <ArticleDetailsComments id={id} />
       </Page>
