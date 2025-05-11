@@ -1,9 +1,14 @@
 .modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   inset: 0;
   z-index: var(--modal-z-index);
   opacity: 0;
   pointer-events: none;
+  transform: scale(1);
+    transition: opacity 0.3s, transform 0.3s;
 
   &__open {
     opacity: 1;
@@ -14,21 +19,6 @@
     }
   }
 
-  &__closing {
-    .modal__content {
-      transform: scale(0.2);
-    }
-  }
-
-  &__overlay {
-    width: 100%;
-    height: 100%;
-    background-color: var(--overlay-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
   &__content {
     background: var(--bg-color);
     padding: 20px;
@@ -36,5 +26,12 @@
     transition: 0.3s transform;
     transform: scale(0.5);
     max-width: 50%;
+    height: fit-content;
+  }
+
+  &__closing {
+    .modal__content {
+      transform: scale(0.2);
+    }
   }
 }

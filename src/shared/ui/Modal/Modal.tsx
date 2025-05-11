@@ -2,6 +2,7 @@ import React from "react"
 import { cn } from "shared/lib/classNames/classNames"
 
 import { useModal } from "../../lib/hooks/useModal/useModal"
+import { Overlay } from "../Overlay/Overlay"
 import { Portal } from "../Portal/Portal"
 
 import "./Modal.module.scss"
@@ -45,10 +46,9 @@ export const Modal: React.FC<ModalProps> = ({
           isClosing ? "modal__closing" : "",
         ])}
       >
-        <div className="modal__overlay" onClick={close}>
-          <div className="modal__content" onClick={onContentClick}>
-            {children}
-          </div>
+        <Overlay onClick={close} />
+        <div className="modal__content" onClick={onContentClick}>
+          {children}
         </div>
       </div>
     </Portal>

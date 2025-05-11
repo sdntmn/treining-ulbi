@@ -3,6 +3,7 @@ import React, { memo, useCallback, useState } from "react"
 import { BrowserView, MobileView } from "react-device-detect"
 import NotificationIcon from "shared/assets/icons/notification.svg"
 import { cn } from "shared/lib/classNames/classNames"
+import { AnimationProvider } from "shared/lib/components/AnimationProvider"
 import { Button } from "shared/ui/Button/Button"
 import { Drawer } from "shared/ui/Drawer/Drawer"
 import { Icon } from "shared/ui/Icon/Icon"
@@ -43,10 +44,11 @@ export const ButtonNotification: React.FC<NotificationButtonProps> = memo(
         </BrowserView>
         <MobileView>
           <Button onClick={onOpenDrawer}> {trigger}</Button>
-
-          <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
-            <NotificationList />
-          </Drawer>
+          <AnimationProvider>
+            <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
+              <NotificationList />
+            </Drawer>
+          </AnimationProvider>
         </MobileView>
       </div>
     )
