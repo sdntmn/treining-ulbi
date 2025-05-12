@@ -2,11 +2,11 @@
 /* eslint-disable prettier/prettier */
 import type { Meta, StoryObj } from "@storybook/react"
 
-import { Comment } from "@/entities/Comment/model/types/comment"
 import { User } from "@/entities/User"
 import { RouterDecorator } from "@/shared/config/storybook/RouterDecorator/RouterDecorator"
 
 import { CommentCard } from "./CommentCard"
+import { Comment } from "../../model/types/comment"
 
 const meta: Meta<typeof CommentCard> = {
   title: "entities/CommentCard",

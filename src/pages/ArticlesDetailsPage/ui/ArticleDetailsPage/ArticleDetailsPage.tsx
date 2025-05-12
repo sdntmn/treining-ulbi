@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next"
 import { useParams } from "react-router-dom"
 
 import { ArticleDetails } from "@/entities/Article"
-import ArticleRating from "@/features/ArticleRating/ui/ArticleRating/ArticleRating"
+import { ArticleRating } from "@/features/ArticleRating"
 import { ArticleRecommendationList } from "@/features/ArticleRecommendationList"
 import { cn } from "@/shared/lib/classNames/classNames"
 import {
@@ -12,7 +12,7 @@ import {
 } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
 import { Page } from "@/widgets/Page"
 
-import { articleDetailsPageReducer } from "../../model/slices"
+import { articleDetailsPageReducer } from "../../model/slice"
 import { ArticleDetailsComments } from "../ArticleDetailsComments/ArticleDetailsComments"
 import { ArticleDetailsPageHeader } from "../ArticleDetailsPageHeader/ArticleDetailsPageHeader"
 

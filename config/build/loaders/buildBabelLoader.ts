@@ -13,6 +13,7 @@ export function buildBabelLoader({ isDev, isTsx }: BuildBabelLoaderProps) {
       loader: "babel-loader",
       options: {
         presets: ["@babel/preset-env"],
+        // eslint-disable-next-line no-sparse-arrays
         plugins: [
           [
             "i18next-extract",

@@ -155,7 +155,8 @@
     "no-useless-escape": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "error",
-    "paths-import/path-checker": ["error", {"alias": "@"}]
+    "paths-import/path-checker": ["error", {"alias": "@"}],
+    "paths-import/imports-public-api": ["error", {"alias": "@", "testFilesPatterns": ["**/*.test.*", "**/StoreDecorator.tsx", "**/*.story.*"]}]
   },
   "globals": {
     "__IS_DEV__": true,

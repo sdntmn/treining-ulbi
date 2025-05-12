@@ -1,9 +1,7 @@
-/* eslint-disable max-len */
 import React, { memo, useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
 
-import { getLoginError } from "@/features/AuthByUserName/model/selectors/getLoginError/getLoginError"
 import { cn } from "@/shared/lib/classNames/classNames"
 import {
   DynamicModuleLoader,
@@ -14,6 +12,7 @@ import { Button, ButtonVar } from "@/shared/ui/Button/Button"
 import { Input } from "@/shared/ui/Input/Input"
 import { TextParagraf, TextVar } from "@/shared/ui/TextParagraf/TextParagraf"
 
+import { getLoginError } from "../../model/selectors/getLoginError/getLoginError"
 import { getLoginIsLoading } from "../../model/selectors/getLoginIsLoading/getLoginIsLoading"
 import { getLoginPassword } from "../../model/selectors/getLoginPassword/getLoginPassword"
 import { getLoginUsername } from "../../model/selectors/getLoginUsername/getLoginUsername"
