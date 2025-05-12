@@ -1,7 +1,9 @@
 import { StoryFn } from "@storybook/react"
 
+import { Theme } from "@/shared/const/enums"
+
+// eslint-disable-next-line paths-import/imports-layers
 import { ThemeProvider } from "@/app/providers/ThemeProvider"
-import { Theme } from "@/app/providers/ThemeProvider/lib/theme/ThemeContext"
 
 export const ThemeDecorator = (theme: Theme) => {
   function DecoratedStory(StoryComponent: StoryFn) {

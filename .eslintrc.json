@@ -60,14 +60,14 @@
       "error",
       {
         "groups": [
-          "type", // 1. Типы (TypeScript)
-          "builtin", // 2. Встроенные модули Node.js (`fs`, `path`)
-          "external", // 3. Внешние зависимости (`react`, `lodash`)
-          "internal", // 4. Проектные импорты (`@/app`, `@/shared`)
-          [ "parent", "sibling" ], // 5. Родительские и соседние файлы (`../utils`, `./components`)
-          "index", // 6. `index.ts` (если есть)
-          "object" // 7. Специфичные импорты (WASM, workers)
-          // "side-effect-style" // 8. Импорты для side-эффектов (`import 'styles.css'`)
+          "type", // Импорты типов (TypeScript)
+          "builtin", // Встроенные модули (node.js)
+          "external", // Внешние зависимости (node_modules)
+          "internal", // Внутренние пути (алиасы, например `@/`)
+          "parent", // Родительские директории (`../`)
+          "sibling", // Файлы в той же директории (`./`)
+          "index", // Индексные файлы (`./index`)
+          "object" // Импорты-объекты (например, `import * as React`)
         ],
         "pathGroups": [
           {
@@ -75,20 +75,28 @@
             "group": "object",
             "position": "after"
           },
-          // Группировка для алиасов `@/` (Vue, React, Next.js и др.)
           {
-            "pattern": "@/**",
-            "group": "internal",
-            "position": "after" // или "after" в зависимости от предпочтений
-          },
-          // Можно добавить отдельные группы для `@/app`, `@/shared` и т. д.
-          {
-            "pattern": "@/app/**",
+            "pattern": "@/shared/**",
             "group": "internal",
             "position": "before"
           },
           {
             "pattern": "@/entities/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@/shared/ui/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "@/entities/ui/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "@/app/**",
             "group": "internal",
             "position": "before"
           },
@@ -103,7 +111,7 @@
             "position": "before"
           },
           {
-            "pattern": "@/shared/**",
+            "pattern": "@/widgets/**",
             "group": "internal",
             "position": "before"
           }
@@ -138,7 +146,6 @@
     "one-var": [ "error", { "var": "always", "let": "never", "const": "never" } ],
     "import/no-unresolved": "off",
     "react/jsx-props-no-spreading": "warn",
-    // "react/function-component-definition": "off",
     "import/extensions": "off",
     "import/no-extraneous-dependencies": "off",
     "no-underscore-dangle": "off",
@@ -148,7 +155,6 @@
     "i18next/no-literal-string": [ "error", { "markupOnly": true, "ignoreAttribute": ["data-testid", "to"] } ],
     "max-len": [ "error", { "code": 100 , "ignoreComments": true } ],
     "function-spacing": "off",
-    // "react/prop-types": ["enabled", {"customValidators": "customValidator", "skipUndeclared": "skipUndeclared" } ],
     "import/no-cycle": [ "error" ],
 
     //?
@@ -156,7 +162,11 @@
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "error",
     "paths-import/path-checker": ["error", {"alias": "@"}],
-    "paths-import/imports-public-api": ["error", {"alias": "@", "testFilesPatterns": ["**/*.test.*", "**/StoreDecorator.tsx", "**/*.story.*"]}]
+    "paths-import/imports-public-api": ["error", {"alias": "@", "testFilesPatterns": ["**/*.test.*", "**/StoreDecorator.tsx", "**/*.stories.*"]}],
+    "paths-import/imports-layers": [ "error", {
+    "alias": "@",
+    "ignoreImportPatterns": [ "**/*.test.*", "**/StoreDecorator.tsx", "**/stories.*" ]
+    }]
   },
   "globals": {
     "__IS_DEV__": true,
@@ -165,9 +175,10 @@
   },
   "overrides": [
     {
-      "files": [ "**src/**/*.test.{ts, tsx}" ],
+      "files": [ "**src/**/*.test.{ts, tsx}", "*.types.ts", "*.interface.ts" ],
       "rules": {
-        "i18next/no-literal-string": "off"
+        "i18next/no-literal-string": "off",
+        "paths-import/imports-layers": "off"
       }
     }
   ]

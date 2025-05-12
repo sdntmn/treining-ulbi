@@ -1,15 +1,18 @@
 import { Action, EnhancedStore, ReducersMapObject } from "@reduxjs/toolkit"
 import { AxiosInstance } from "axios"
 
+import { rtkApi } from "@/shared/api/rtkApi"
+
 import { ArticleDetailsSchema } from "@/entities/Article"
 import { UserSchema } from "@/entities/User"
+
 import { AddCommentFormSchema } from "@/features/AddCommentForm"
 import { LoginSchema } from "@/features/AuthByUserName"
 import { ProfileSchema } from "@/features/EditableProfileCard"
 import { ScrollPageSchema } from "@/features/ScrollSave"
+
 import { ArticleDetailsPageSchema } from "@/pages/ArticlesDetailsPage"
 import { ArticlesPageSchema } from "@/pages/ArticlesPage"
-import { rtkApi } from "@/shared/api/rtkApi"
 
 export interface StateSchema {
   user: UserSchema
@@ -55,18 +58,3 @@ export interface ThunkConfig<T, Arg = void> {
     requestStatus: RequestStatus
   }
 }
-
-// export interface ThunkConfig<
-//   RejectValue = unknown,
-//   Arg = void,
-//   State = StateSchema,
-// > {
-//   state: State
-//   extra: ThunkExtraArg
-//   rejectValue: RejectValue
-//   meta: {
-//     arg: Arg
-//     requestId: string
-//     requestStatus: "pending" | "fulfilled" | "rejected"
-//   }
-// }

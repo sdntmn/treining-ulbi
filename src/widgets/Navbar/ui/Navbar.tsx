@@ -3,10 +3,6 @@ import React, { memo, useCallback, useState } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
 
-import { getUserAuthData } from "@/entities/User"
-import { LoginModal } from "@/features/AuthByUserName"
-import { AvatarDropdown } from "@/features/AvatarDropdown"
-import { ButtonNotification } from "@/features/ButtonNotification"
 import { AppLinkColor } from "@/shared/const/enums"
 import { cn } from "@/shared/lib/classNames/classNames"
 import { routePatch } from "@/shared/lib/helpers/getPath"
@@ -14,6 +10,12 @@ import { AppLink } from "@/shared/ui/AppLink"
 import { Button, ButtonVar } from "@/shared/ui/Button/Button"
 import { HStack } from "@/shared/ui/Stack"
 import { TextParagraf, TextVar } from "@/shared/ui/TextParagraf/TextParagraf"
+
+import { getUserAuthData } from "@/entities/User"
+
+import { LoginModal } from "@/features/AuthByUserName"
+import { AvatarDropdown } from "@/features/AvatarDropdown"
+import { ButtonNotification } from "@/features/ButtonNotification"
 
 import "./Navbar.module.scss"
 

@@ -5,8 +5,10 @@ import {
   PayloadAction,
 } from "@reduxjs/toolkit"
 
-import { StateSchema } from "@/app/providers/StoreProvider"
 import { Comment } from "@/entities/Comment"
+
+// eslint-disable-next-line paths-import/imports-layers
+import { StateSchema } from "@/app/providers/StoreProvider"
 
 import { fetchCommentsByArticleId } from "../services/fetchCommentsByArticleId/fetchCommentsByArticleId"
 import { ArticleDetailsCommentsSchema } from "../types/ArticleDetailsCommentsSchema"

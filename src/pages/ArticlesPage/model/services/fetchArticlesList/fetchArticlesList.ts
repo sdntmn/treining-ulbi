@@ -1,8 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
 
-import { ThunkConfig } from "@/app/providers/StoreProvider"
-import { Article, ArticleType } from "@/entities/Article"
 import { addQueryParams } from "@/shared/lib/url/addQueryParams/addQueryParams"
+
+import { Article, ArticleType } from "@/entities/Article"
+
+// eslint-disable-next-line paths-import/imports-layers
+import { ThunkConfig } from "@/app/providers/StoreProvider"
 
 import {
   getArticlesPageLimit,

@@ -1,7 +1,9 @@
+// eslint-disable-next-line paths-import/imports-layers
 import { User } from "@/entities/User"
 
-import { ArticleBlock } from "./articleBlocks"
 import { ArticleType } from "../consts/consts"
+
+import { ArticleBlock } from "./articleBlocks"
 
 export interface Article {
   id: string

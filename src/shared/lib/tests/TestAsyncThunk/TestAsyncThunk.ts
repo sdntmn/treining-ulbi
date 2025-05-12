@@ -2,6 +2,7 @@
 import { AsyncThunkAction } from "@reduxjs/toolkit"
 import axios, { AxiosStatic } from "axios"
 
+// eslint-disable-next-line paths-import/imports-layers
 import { StateSchema } from "@/app/providers/StoreProvider"
 
 type DeepPartial<T> = T extends object

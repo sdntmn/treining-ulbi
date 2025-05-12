@@ -1,6 +1,9 @@
 import React from "react"
 
-import { UserRole } from "@/entities/User"
+import { RouteNames, UserRole } from "@/shared/const/enums"
+import { APP_PATHS } from "@/shared/const/routes"
+import { AppRoutesProps } from "@/shared/types/routerType"
+
 import { AboutPageAsync } from "@/pages/AboutPage"
 import { AdminPanelPage } from "@/pages/AdminPanelPage"
 import { ArticleEditPage } from "@/pages/ArticleEditPage"
@@ -10,9 +13,6 @@ import { ForbiddenPage } from "@/pages/ForbiddenPage"
 import { MainPage } from "@/pages/MainPage"
 import { NotFoundPage } from "@/pages/NotFoundPage"
 import { ProfilePage } from "@/pages/ProfilePage"
-import { RouteNames } from "@/shared/const/enums"
-import { APP_PATHS } from "@/shared/const/routes"
-import { AppRoutesProps } from "@/shared/types/routerType"
 
 export const routeConfig: Record<RouteNames, AppRoutesProps> = {
   [RouteNames.MAIN]: { path: APP_PATHS.MAIN, element: <MainPage /> },

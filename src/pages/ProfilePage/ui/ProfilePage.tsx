@@ -2,10 +2,12 @@ import React from "react"
 import { useTranslation } from "react-i18next"
 import { useParams } from "react-router-dom"
 
-import { EditableProfileCard } from "@/features/EditableProfileCard"
 import { cn } from "@/shared/lib/classNames/classNames"
 import { VStack } from "@/shared/ui/Stack"
 import { TextParagraf } from "@/shared/ui/TextParagraf/TextParagraf"
+
+import { EditableProfileCard } from "@/features/EditableProfileCard"
+
 import { Page } from "@/widgets/Page"
 
 import "./ProfilePage.module.scss"

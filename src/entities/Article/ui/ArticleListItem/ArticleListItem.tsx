@@ -1,5 +1,3 @@
-import type { Article, ArticleBlock } from "../../model/types"
-
 import React, { HTMLAttributeAnchorTarget, memo } from "react"
 import { useTranslation } from "react-i18next"
 
@@ -16,6 +14,7 @@ import { TextParagraf } from "@/shared/ui/TextParagraf/TextParagraf"
 
 import { ArticleBlockType, ArticleViewType } from "../../model/consts"
 import { ArticleTextBlock } from "../ArticleTextBlock/ArticleTextBlock"
+import type { Article, ArticleBlock } from "../../model/types"
 
 import "./ArticleListItem.module.scss"
 

@@ -2,8 +2,9 @@ import React, { memo } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
 
-import { ArticleList } from "@/entities/Article"
 import { TextParagraf } from "@/shared/ui/TextParagraf/TextParagraf"
+
+import { ArticleList } from "@/entities/Article"
 
 import {
   getArticlesPageError,

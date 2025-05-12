@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
 
+// eslint-disable-next-line paths-import/imports-layers
 import { ThunkConfig } from "@/app/providers/StoreProvider"
 
 import { Article } from "../../types/article"

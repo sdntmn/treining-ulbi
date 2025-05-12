@@ -1,8 +1,10 @@
 /* eslint-disable max-len */
 import { createEntityAdapter, createSlice } from "@reduxjs/toolkit"
 
-import { StateSchema } from "@/app/providers/StoreProvider"
 import { Article } from "@/entities/Article"
+
+// eslint-disable-next-line paths-import/imports-layers
+import { StateSchema } from "@/app/providers/StoreProvider"
 
 import { fetchArticleRecommendations } from "../services/fetchArticleRecommendations/fetchArticleRecommendations"
 import { ArticleDetailsRecommendationsSchema } from "../types/ArticleDetailsRecommendationsSchema"

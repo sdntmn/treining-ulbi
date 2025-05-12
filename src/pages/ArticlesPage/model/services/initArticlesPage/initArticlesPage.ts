@@ -1,8 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
 
-import { ThunkConfig } from "@/app/providers/StoreProvider"
-import { ArticleSortField, ArticleType } from "@/entities/Article"
 import { SortOrder } from "@/shared/types"
+
+import { ArticleSortField, ArticleType } from "@/entities/Article"
+
+// eslint-disable-next-line paths-import/imports-layers
+import { ThunkConfig } from "@/app/providers/StoreProvider"
 
 import { getArticlesPageInited } from "../../selectors/articlesPageSelectors"
 import { articlesPageActions } from "../../slices/articlePageSlace"

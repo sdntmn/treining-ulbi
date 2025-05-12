@@ -1,7 +1,9 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
 
-import { ThunkConfig } from "@/app/providers/StoreProvider"
 import { Profile } from "@/entities/Profile"
+
+// eslint-disable-next-line paths-import/imports-layers
+import { ThunkConfig } from "@/app/providers/StoreProvider"
 
 import { getProfileForm } from "../../selectors/getProfileForm/getProfileForm"
 import { ValidateProfileError } from "../../types/EditableProfileCardSchema"

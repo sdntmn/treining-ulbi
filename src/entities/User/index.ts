@@ -1,5 +1,4 @@
 export type { UserSchema, User } from "./model/types/user"
-export * from "./model/consts/consts"
 export {
   isUserManager,
   isUserAdmin,

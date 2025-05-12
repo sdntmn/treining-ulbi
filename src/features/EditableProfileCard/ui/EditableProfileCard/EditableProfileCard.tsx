@@ -3,7 +3,6 @@ import React, { useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
 
-import { ProfileCard } from "@/entities/Profile"
 import { Currency, Country } from "@/shared/const/enums"
 import { cn } from "@/shared/lib/classNames/classNames"
 import {
@@ -14,6 +13,8 @@ import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect/useInitialEffect"
 import { VStack } from "@/shared/ui/Stack"
 import { TextParagraf, TextVar } from "@/shared/ui/TextParagraf/TextParagraf"
+
+import { ProfileCard } from "@/entities/Profile"
 
 import { getProfileError } from "../../model/selectors/getProfileError/getProfileError"
 import { getProfileForm } from "../../model/selectors/getProfileForm/getProfileForm"

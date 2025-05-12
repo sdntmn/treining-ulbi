@@ -1,7 +1,9 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
 
-import { ThunkConfig } from "@/app/providers/StoreProvider"
 import { Comment } from "@/entities/Comment"
+
+// eslint-disable-next-line paths-import/imports-layers
+import { ThunkConfig } from "@/app/providers/StoreProvider"
 
 export const fetchCommentsByArticleId = createAsyncThunk<
   Comment[],

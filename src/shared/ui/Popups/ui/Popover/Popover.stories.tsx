@@ -1,6 +1,6 @@
+/* eslint-disable i18next/no-literal-string */
 import type { Meta, StoryObj } from "@storybook/react"
 
-/* eslint-disable i18next/no-literal-string */
 import React from "react"
 
 import { Popover } from "./Popover"

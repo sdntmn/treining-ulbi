@@ -1,18 +1,18 @@
-/* eslint-disable max-len */
-/* eslint-disable prettier/prettier */
 import type { Meta, StoryObj } from "@storybook/react"
 
-import { User } from "@/entities/User"
 import { RouterDecorator } from "@/shared/config/storybook/RouterDecorator/RouterDecorator"
 
-import { CommentCard } from "./CommentCard"
+import { User } from "@/entities/User"
+
 import { Comment } from "../../model/types/comment"
+
+import { CommentCard } from "./CommentCard"
 
 const meta: Meta<typeof CommentCard> = {
   title: "entities/CommentCard",
   component: CommentCard,
   parameters: {
-    position: "left"
+    position: "left",
   },
 } satisfies Meta<typeof CommentCard>
 
@@ -23,7 +23,8 @@ type Story = StoryObj<typeof meta>
 const user: User = {
   id: "1",
   username: "UserName",
-  avatar: "https://img.lovepik.com/free-png/20211106/lovepik-lady-head-icon-png-image_400345236_wh1200.png",
+  avatar:
+    "https://img.lovepik.com/free-png/20211106/lovepik-lady-head-icon-png-image_400345236_wh1200.png",
 }
 
 const comment: Comment = {

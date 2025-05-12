@@ -1,9 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
 
-import { ThunkConfig } from "@/app/providers/StoreProvider"
 import { getArticleDetailsData } from "@/entities/Article"
 import { Comment } from "@/entities/Comment"
 import { getUserAuthData } from "@/entities/User"
+
+// eslint-disable-next-line paths-import/imports-layers
+import { ThunkConfig } from "@/app/providers/StoreProvider"
 
 import { fetchCommentsByArticleId } from "../fetchCommentsByArticleId/fetchCommentsByArticleId"
 

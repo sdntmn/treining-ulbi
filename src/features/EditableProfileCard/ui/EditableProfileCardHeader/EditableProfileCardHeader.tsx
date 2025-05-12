@@ -2,12 +2,13 @@ import React, { useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
 
-import { getUserAuthData } from "@/entities/User"
 import { cn } from "@/shared/lib/classNames/classNames"
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch"
 import { Button, ButtonVar } from "@/shared/ui/Button/Button"
 import { HStack } from "@/shared/ui/Stack"
 import { TextParagraf } from "@/shared/ui/TextParagraf/TextParagraf"
+
+import { getUserAuthData } from "@/entities/User"
 
 import { getProfileData } from "../../model/selectors/getProfileData/getProfileData"
 import { getProfileReadonly } from "../../model/selectors/getProfileReadonly/getProfileReadonly"

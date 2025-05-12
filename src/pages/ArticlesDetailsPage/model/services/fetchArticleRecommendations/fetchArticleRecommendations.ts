@@ -1,7 +1,9 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
 
-import { ThunkConfig } from "@/app/providers/StoreProvider"
 import { Article } from "@/entities/Article"
+
+// eslint-disable-next-line paths-import/imports-layers
+import { ThunkConfig } from "@/app/providers/StoreProvider"
 
 export const fetchArticleRecommendations = createAsyncThunk<
   Article[],

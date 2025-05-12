@@ -1,8 +1,9 @@
 import { Country, Currency } from "@/shared/const/enums"
 import { TestAsyncThunk } from "@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk"
 
-import { updateProfileData } from "./updateProfileData"
 import { ValidateProfileError } from "../../types/EditableProfileCardSchema"
+
+import { updateProfileData } from "./updateProfileData"
 
 const data = {
   first: "Денис",

@@ -1,8 +1,9 @@
 import { createSelector } from "@reduxjs/toolkit"
 
-import { StateSchema } from "@/app/providers/StoreProvider"
+import { UserRole } from "@/shared/const/enums"
 
-import { UserRole } from "../consts/consts"
+// eslint-disable-next-line paths-import/imports-layers
+import { StateSchema } from "@/app/providers/StoreProvider"
 
 export const getUserRoles = (state: StateSchema) => state.user.authData?.roles
 

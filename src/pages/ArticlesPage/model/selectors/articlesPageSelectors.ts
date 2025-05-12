@@ -1,9 +1,11 @@
-import { StateSchema } from "@/app/providers/StoreProvider"
 import {
   ArticleViewType,
   ArticleType,
   ArticleSortField,
 } from "@/entities/Article"
+
+// eslint-disable-next-line paths-import/imports-layers
+import { StateSchema } from "@/app/providers/StoreProvider"
 
 export const getArticlesPageIsLoading = (state: StateSchema) =>
   state.articlesPage?.isLoading || false

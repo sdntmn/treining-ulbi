@@ -1,5 +1,6 @@
-import { StateSchema } from "@/app/providers/StoreProvider"
 import { Country, Currency } from "@/shared/const/enums"
+
+import { StateSchema } from "@/app/providers/StoreProvider"
 
 import { getProfileData } from "./getProfileData"
 

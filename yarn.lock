@@ -6677,10 +6677,10 @@ eslint-plugin-import@^2.31.0:
     string.prototype.trimend "^1.0.8"
     tsconfig-paths "^3.15.0"
 
-eslint-plugin-paths-import@^0.0.8:
-  version "0.0.8"
-  resolved "https://registry.npmjs.org/eslint-plugin-paths-import/-/eslint-plugin-paths-import-0.0.8.tgz#5e4125dbd5cea3021ae4bfbc854054e9622ec7ff"
-  integrity sha512-55mj0RirelmAl5abSy7LtS1HKMGj7ML4FBQ1fox2PCqhev/fGBxeNspnOL+vVGMfBE078nH83RE5nTVE8ijAgw==
+eslint-plugin-paths-import@^0.0.9:
+  version "0.0.9"
+  resolved "https://registry.npmjs.org/eslint-plugin-paths-import/-/eslint-plugin-paths-import-0.0.9.tgz#6d11ba4691d8d088c1d59cf93a77d17572d54efb"
+  integrity sha512-bVoplNl3yxdJNXLw31x4+9LRYdm/zlifa7ibaylzPxJ38FYWSKv7a5s1tYdUnpIfHXeO+gpD5yL3VZrT0FgLBw==
   dependencies:
     generator-eslint "^5.1.2"
     micromatch "^4.0.8"

@@ -1,10 +1,11 @@
 import React, { memo } from "react"
 import { useTranslation } from "react-i18next"
 
-import { ArticleList } from "@/entities/Article"
 import { cn } from "@/shared/lib/classNames/classNames"
 import { VStack } from "@/shared/ui/Stack"
 import { TextParagraf, TextSize } from "@/shared/ui/TextParagraf/TextParagraf"
+
+import { ArticleList } from "@/entities/Article"
 
 import { useArticleRecommendationsList } from "../../api/articleRecomendationsApi"
 

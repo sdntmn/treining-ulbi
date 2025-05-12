@@ -1,8 +1,8 @@
 import React, { memo } from "react"
 
-import { Theme } from "@/app/providers/ThemeProvider/lib/theme/ThemeContext"
 import DarkIcon from "@/shared/assets/icons/theme-dark.svg"
 import LightIcon from "@/shared/assets/icons/theme-light.svg"
+import { Theme } from "@/shared/const/enums"
 import { cn } from "@/shared/lib/classNames/classNames"
 import { useTheme } from "@/shared/lib/hooks/useTheme/useTheme"
 import { Button, ButtonVar } from "@/shared/ui/Button/Button"

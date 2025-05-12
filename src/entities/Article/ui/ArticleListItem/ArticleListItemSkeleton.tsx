@@ -16,7 +16,6 @@ interface ArticleListItemSkeletonProps {
 export const ArticleListItemSkeleton: React.FC<ArticleListItemSkeletonProps> =
   memo(function ArticleListItemSkeleton(props: ArticleListItemSkeletonProps) {
     const { className, view } = props
-    console.info(view)
 
     if (view === ArticleViewType.LIST) {
       return (

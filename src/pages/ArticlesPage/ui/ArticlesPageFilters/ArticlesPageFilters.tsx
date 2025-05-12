@@ -2,6 +2,13 @@ import React, { memo, useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
 
+import { cn } from "@/shared/lib/classNames/classNames"
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch"
+import { useDebounce } from "@/shared/lib/hooks/useDebounce/useDebounce"
+import { SortOrder } from "@/shared/types"
+import { Card } from "@/shared/ui/Card/Card"
+import { Input } from "@/shared/ui/Input/Input"
+
 import {
   ArticleSortField,
   ArticleViewSelector,
@@ -9,13 +16,8 @@ import {
   ArticleTypeTabs,
   ArticleType,
 } from "@/entities/Article"
+
 import { ArticleSortSelector } from "@/features/ArticleSortSelector"
-import { cn } from "@/shared/lib/classNames/classNames"
-import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch"
-import { useDebounce } from "@/shared/lib/hooks/useDebounce/useDebounce"
-import { SortOrder } from "@/shared/types"
-import { Card } from "@/shared/ui/Card/Card"
-import { Input } from "@/shared/ui/Input/Input"
 
 import {
   getArticlesPageView,
