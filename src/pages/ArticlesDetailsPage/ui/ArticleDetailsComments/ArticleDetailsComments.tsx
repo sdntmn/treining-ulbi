@@ -13,7 +13,7 @@ import { TextParagraf } from "@/shared/ui/TextParagraf/TextParagraf"
 import { getArticleCommentsIsLoading } from "../../model/selectors/comments"
 import { addCommentForArticle } from "../../model/services/addCommentForArticle/addCommentForArticle"
 import { fetchCommentsByArticleId } from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId"
-import { getArticleComments } from "../../model/slices/articleDetailsCommentsSlice"
+import { getArticleComments } from "../../model/slice/articleDetailsCommentsSlice"
 
 interface ArticleDetailsCommentsProps {
   id: string

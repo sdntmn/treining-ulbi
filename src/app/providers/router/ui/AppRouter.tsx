@@ -1,11 +1,11 @@
 import React, { memo, useCallback, Suspense } from "react"
 import { Route, Routes } from "react-router-dom"
 
-import { routeConfig } from "@/shared/config/routerConfig/routerConfig"
 import { AppRoutesProps } from "@/shared/types/routerType"
 import { PageLoader } from "@/widgets/PageLoader"
 
 import { RequireAuth } from "./RequireAuth"
+import { routeConfig } from "../config/routeConfig"
 
 const AppRouter: React.FC = () => {
   const renderWithWrapper = useCallback((route: AppRoutesProps) => {
