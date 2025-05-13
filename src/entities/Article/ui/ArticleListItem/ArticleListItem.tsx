@@ -1,3 +1,5 @@
+import type { Article, ArticleBlock } from "../../model/types"
+
 import React, { HTMLAttributeAnchorTarget, memo } from "react"
 import { useTranslation } from "react-i18next"
 
@@ -14,7 +16,6 @@ import { TextParagraf } from "@/shared/ui/TextParagraf/TextParagraf"
 
 import { ArticleBlockType, ArticleViewType } from "../../model/consts"
 import { ArticleTextBlock } from "../ArticleTextBlock/ArticleTextBlock"
-import type { Article, ArticleBlock } from "../../model/types"
 
 import "./ArticleListItem.module.scss"
 
@@ -30,6 +31,7 @@ export const ArticleListItem: React.FC<ArticleItemProps> = memo(
     const { className, article, view, target } = props
     const { t } = useTranslation("article")
     const [isHover, bindHover] = useHover()
+    console.info(isHover)
 
     const types = (
       <TextParagraf

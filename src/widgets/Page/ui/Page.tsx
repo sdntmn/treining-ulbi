@@ -7,6 +7,7 @@ import React, {
 import { useSelector } from "react-redux"
 import { useLocation } from "react-router-dom"
 
+import { PAGE_ID } from "@/shared/const/string"
 import { cn } from "@/shared/lib/classNames/classNames"
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch"
 import { useInfiniteScroll } from "@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll"
@@ -25,8 +26,6 @@ interface PageProps {
   children: ReactNode
   onScrollEnd?: () => void
 }
-
-export const PAGE_ID = "PAGE_ID"
 
 export const Page: React.FC<PageProps> = ({
   className,

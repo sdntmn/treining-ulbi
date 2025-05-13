@@ -4,10 +4,9 @@ import userEvent from "@testing-library/user-event"
 import React from "react"
 
 import { $api } from "@/shared/api/api"
-import { Currency } from "@/shared/const/enums"
+import { Country, Currency } from "@/shared/const/enums"
 import { ComponentRender } from "@/shared/lib/tests/ComponentRender/ComponentRender"
 
-import { Country } from "@/entities/Country"
 import { Profile } from "@/entities/Profile"
 
 import { profileReducer } from "../../model/slice/profileSlice"

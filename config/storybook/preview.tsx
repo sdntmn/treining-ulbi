@@ -19,7 +19,7 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
-    layout: "centered",
+    layout: "fullscreen",
   },
   globalTypes: {
     theme: {

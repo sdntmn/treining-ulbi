@@ -1,3 +1,5 @@
+/* eslint-disable paths-import/imports-layers */
+/* eslint-disable max-len */
 import type { Meta, StoryObj } from "@storybook/react"
 
 import { RouterDecorator } from "@/shared/config/storybook/RouterDecorator/RouterDecorator"
