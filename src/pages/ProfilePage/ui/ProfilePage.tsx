@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom"
 
 import { cn } from "@/shared/lib/classNames/classNames"
 import { VStack } from "@/shared/ui/Stack"
-import { TextParagraf } from "@/shared/ui/TextParagraf/TextParagraf"
+import { TextParagraf } from "@/shared/ui/TextParagraf"
 
 import { EditableProfileCard } from "@/features/EditableProfileCard"
 

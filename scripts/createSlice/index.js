@@ -1,11 +1,12 @@
 /* eslint-disable no-undef */
 /* eslint-disable @typescript-eslint/no-require-imports */
 
-const createTemplate = require("./templates/createTemplate")
 const readline = require("readline").createInterface({
   input: process.stdin,
   output: process.stdout,
 })
+
+const createTemplate = require("./templates/createTemplate")
 
 const layers = ["features", "entities", "pages"]
 

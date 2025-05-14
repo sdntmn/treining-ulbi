@@ -3,14 +3,14 @@ import { BrowserView, MobileView } from "react-device-detect"
 import { useTranslation } from "react-i18next"
 
 import { cn } from "@/shared/lib/classNames/classNames"
-import { Button, ButtonSize, ButtonVar } from "@/shared/ui/Button/Button"
-import { Card } from "@/shared/ui/Card/Card"
-import { Drawer } from "@/shared/ui/Drawer/Drawer"
-import { Input } from "@/shared/ui/Input/Input"
-import { Modal } from "@/shared/ui/Modal/Modal"
+import { Button, ButtonSize, ButtonVar } from "@/shared/ui/Button"
+import { Card } from "@/shared/ui/Card"
+import { Drawer } from "@/shared/ui/Drawer"
+import { Input } from "@/shared/ui/Input"
+import { Modal } from "@/shared/ui/Modal"
 import { HStack, VStack } from "@/shared/ui/Stack"
-import { StarRating } from "@/shared/ui/StarRating/StarRating"
-import { TextParagraf } from "@/shared/ui/TextParagraf/TextParagraf"
+import { StarRating } from "@/shared/ui/StarRating"
+import { TextParagraf } from "@/shared/ui/TextParagraf"
 
 interface RatingCardProps {
   className?: string

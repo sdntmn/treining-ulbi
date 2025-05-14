@@ -2,7 +2,7 @@ import React, { memo, useMemo, useState } from "react"
 import { useSelector } from "react-redux"
 
 import { cn } from "@/shared/lib/classNames/classNames"
-import { Button, ButtonFontSize, ButtonVar } from "@/shared/ui/Button/Button"
+import { Button, ButtonFontSize, ButtonVar } from "@/shared/ui/Button"
 import { VStack } from "@/shared/ui/Stack"
 
 import { LangSwitcher } from "@/features/LangSwitcher"

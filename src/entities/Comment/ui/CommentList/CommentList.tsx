@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next"
 
 import { cn } from "@/shared/lib/classNames/classNames"
 import { VStack } from "@/shared/ui/Stack"
-import { TextParagraf } from "@/shared/ui/TextParagraf/TextParagraf"
+import { TextParagraf } from "@/shared/ui/TextParagraf"
 
 import { Comment } from "../../model/types/comment"
 import { CommentCard } from "../CommentCard/CommentCard"

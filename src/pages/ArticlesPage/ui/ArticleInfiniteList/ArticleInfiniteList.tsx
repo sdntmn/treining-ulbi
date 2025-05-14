@@ -2,7 +2,7 @@ import React, { memo } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
 
-import { TextParagraf } from "@/shared/ui/TextParagraf/TextParagraf"
+import { TextParagraf } from "@/shared/ui/TextParagraf"
 
 import { ArticleList } from "@/entities/Article"
 

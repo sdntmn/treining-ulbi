@@ -7,9 +7,9 @@ import { AppLinkColor } from "@/shared/const/enums"
 import { cn } from "@/shared/lib/classNames/classNames"
 import { routePatch } from "@/shared/lib/helpers/getPath"
 import { AppLink } from "@/shared/ui/AppLink"
-import { Button, ButtonVar } from "@/shared/ui/Button/Button"
+import { Button, ButtonVar } from "@/shared/ui/Button"
 import { HStack } from "@/shared/ui/Stack"
-import { TextParagraf, TextVar } from "@/shared/ui/TextParagraf/TextParagraf"
+import { TextParagraf, TextVar } from "@/shared/ui/TextParagraf"
 
 import { getUserAuthData } from "@/entities/User"
 

@@ -1,8 +1,8 @@
 import React, { memo } from "react"
 
 import { cn } from "@/shared/lib/classNames/classNames"
-import { Card } from "@/shared/ui/Card/Card"
-import { Skeleton } from "@/shared/ui/Skeleton/Skeleton"
+import { Card } from "@/shared/ui/Card"
+import { Skeleton } from "@/shared/ui/Skeleton"
 
 import { ArticleViewType } from "../../model/consts/consts"
 

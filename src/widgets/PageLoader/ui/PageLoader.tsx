@@ -1,7 +1,7 @@
 import React from "react"
 
 import { cn } from "@/shared/lib/classNames/classNames"
-import { Loader } from "@/shared/ui/Loader/Loader"
+import { Loader } from "@/shared/ui/Loader"
 
 import "./PageLoader.module.scss"
 

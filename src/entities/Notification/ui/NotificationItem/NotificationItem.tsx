@@ -1,8 +1,8 @@
 import React, { memo } from "react"
 
 import { cn } from "@/shared/lib/classNames/classNames"
-import { Card, CardTheme } from "@/shared/ui/Card/Card"
-import { TextParagraf } from "@/shared/ui/TextParagraf/TextParagraf"
+import { Card, CardTheme } from "@/shared/ui/Card"
+import { TextParagraf } from "@/shared/ui/TextParagraf"
 
 import { Notification } from "../../model/types/notification"
 

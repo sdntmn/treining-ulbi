@@ -12,11 +12,11 @@ import {
 } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch"
 import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect/useInitialEffect"
-import { Avatar } from "@/shared/ui/Avatar/Avatar"
-import { Icon } from "@/shared/ui/Icon/Icon"
-import { Skeleton } from "@/shared/ui/Skeleton/Skeleton"
+import { Avatar } from "@/shared/ui/Avatar"
+import { Icon } from "@/shared/ui/Icon"
+import { Skeleton } from "@/shared/ui/Skeleton"
 import { HStack, VStack } from "@/shared/ui/Stack"
-import { TextParagraf, TextSize } from "@/shared/ui/TextParagraf/TextParagraf"
+import { TextParagraf, TextSize } from "@/shared/ui/TextParagraf"
 
 import { ArticleBlockType } from "../../model/consts/consts"
 import {

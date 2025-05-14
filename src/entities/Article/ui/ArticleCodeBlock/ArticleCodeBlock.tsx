@@ -3,7 +3,7 @@ import type { ArticleCode } from "../../model/types"
 import React, { memo } from "react"
 
 import { cn } from "@/shared/lib/classNames/classNames"
-import { Code } from "@/shared/ui/Code/Code"
+import { Code } from "@/shared/ui/Code"
 
 interface ArticleCodeBlockProps {
   className?: string

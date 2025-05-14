@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next"
 
 import { cn } from "@/shared/lib/classNames/classNames"
 import { VStack } from "@/shared/ui/Stack"
-import { TextParagraf, TextSize } from "@/shared/ui/TextParagraf/TextParagraf"
+import { TextParagraf, TextSize } from "@/shared/ui/TextParagraf"
 
 import { ArticleList } from "@/entities/Article"
 
