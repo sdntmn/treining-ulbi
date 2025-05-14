@@ -29,7 +29,8 @@
     "i18next",
     "prettier",
     "paths-import",
-    "import"
+    "import",
+    "unused-imports"
   ],
   "settings": {
     "react": {
@@ -44,6 +45,7 @@
   },
   "rules": {
     "no-shadow": "off",
+    "unused-imports/no-unused-imports": "error",
     "@typescript-eslint/no-unused-vars": [
       "error",
       {

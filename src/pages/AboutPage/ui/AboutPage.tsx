@@ -28,6 +28,11 @@ const AboutPage: React.FC = () => {
         добавлен vite - для сборки
         <a>https://vite.dev/guide/</a>
       </p>
+      <p>
+        добавлен eslint-plugin-unused-imports - для отслеживания не используемых
+        импортов
+        <a>https://www.npmjs.com/package/eslint-plugin-unused-imports</a>
+      </p>
       <h2>Контекст:</h2>
       <p>Темы</p>
       <p>Анимации</p>
