@@ -27,7 +27,7 @@ const preview: Preview = {
       toolbar: {
         title: "Theme",
         icon: "circlehollow",
-        items: ["default", "dark"],
+        items: ["default", "dark", "custom"],
         dynamicTitle: true,
       },
     },
@@ -85,7 +85,13 @@ const preview: Preview = {
                   ...(position === "center" ? centerPosition : {}),
                   width: "100%",
                 }}
-                className={`app ${theme === "dark" ? "app-dark-theme" : "app-custom-theme"}`}
+                className={`app ${
+                  theme === "dark"
+                    ? "app-dark-theme"
+                    : theme === "custom"
+                      ? "app-custom-theme"
+                      : ""
+                }`}
               >
                 <Story />
               </div>

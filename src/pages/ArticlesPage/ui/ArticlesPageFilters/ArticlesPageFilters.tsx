@@ -11,13 +11,13 @@ import { Input } from "@/shared/ui/Input"
 
 import {
   ArticleSortField,
-  ArticleViewSelector,
   ArticleViewType,
-  ArticleTypeTabs,
   ArticleType,
 } from "@/entities/Article"
 
 import { ArticleSortSelector } from "@/features/ArticleSortSelector"
+import { ArticleTypeTabs } from "@/features/ArticleTypeTabs"
+import { ArticleViewSelector } from "@/features/ArticleViewSelector"
 
 import {
   getArticlesPageView,

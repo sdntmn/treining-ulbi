@@ -2,12 +2,12 @@ import type { Meta, StoryObj } from "@storybook/react"
 
 import { fn } from "@storybook/test"
 
-import { ArticleType } from "../../model/consts/consts"
+import { ArticleType } from "@/entities/Article"
 
 import { ArticleTypeTabs } from "./ArticleTypeTabs"
 
 const meta = {
-  title: "entities/ArticleTypeTabs",
+  title: "features/ArticleTypeTabs",
   component: ArticleTypeTabs,
   args: {
     onChangeType: fn(), // Используем fn() для мокирования действий

@@ -6,9 +6,8 @@ import { cn } from "@/shared/lib/classNames/classNames"
 import { Button, ButtonVar } from "@/shared/ui/Button"
 import { Icon } from "@/shared/ui/Icon"
 
-import { ArticleViewType } from "../../model/consts"
-
 import "./ArticleViewSelector.module.scss"
+import { ArticleViewType } from "@/entities/Article"
 
 interface ArticleViewSelectorProps {
   className?: string
