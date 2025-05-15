@@ -3,9 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react"
 import avatar from "@/shared/assets/tests/avatar.jpg"
 import { RouterDecorator } from "@/shared/config/storybook/RouterDecorator/RouterDecorator"
 import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDecorator"
-
-import { Country } from "@/entities/Country"
-import { Currency } from "@/entities/Currency"
+import { Country, Currency } from "@/shared/const/enums"
 
 import ArticlesPage from "./ArticlesPage"
 

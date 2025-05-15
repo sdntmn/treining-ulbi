@@ -21,7 +21,7 @@ export const SidebarItem: React.FC<SidebarItemProps> = memo(
   function SidebarItem({ item, collapsed }: SidebarItemProps) {
     /* i18next-extract-disable-next-line */
     /* i18next-extract-disable-line */
-    const { t } = useTranslation("common")
+    const { t } = useTranslation("sideBar")
     const isAuth = useSelector(getUserAuthData)
     if (item.authOnly && !isAuth) {
       return null

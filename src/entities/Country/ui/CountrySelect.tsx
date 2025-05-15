@@ -26,7 +26,7 @@ export const CountrySelect: React.FC<CountrySelectProps> = memo(
 
     onChange,
   }: CountrySelectProps) {
-    const { t } = useTranslation("sharedComponents")
+    const { t } = useTranslation("formAuth")
     const onChangeHandler = useCallback(
       (value: string) => {
         onChange?.(value as Country)

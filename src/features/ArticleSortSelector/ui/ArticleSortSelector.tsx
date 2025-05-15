@@ -30,11 +30,11 @@ export const ArticleSortSelector: React.FC<Props> = (props: Props) => {
     () => [
       {
         value: "asc",
-        content: t("возрастанию"),
+        content: t("articleSortedByGrowth"),
       },
       {
         value: "desc",
-        content: t("убыванию"),
+        content: t("articleSortedByDescending"),
       },
     ],
     [t]
@@ -44,15 +44,15 @@ export const ArticleSortSelector: React.FC<Props> = (props: Props) => {
     () => [
       {
         value: ArticleSortField.CREATED,
-        content: t("дате создания"),
+        content: t("articleSortedByCreate"),
       },
       {
         value: ArticleSortField.TITLE,
-        content: t("названию"),
+        content: t("articleSortedByTitle"),
       },
       {
         value: ArticleSortField.VIEWS,
-        content: t("просмотрам"),
+        content: t("articleSortedByViews"),
       },
     ],
     [t]

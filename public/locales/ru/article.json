@@ -17,5 +17,10 @@
   "articleInputPlaceholder": "Текст комментария",
   "articleBtnEditing": "Редактировать",
   "articleErrorLoading": "Ошибка при загрузке статей",
-  "articleCommentsLoading": "...Загрузка"
+  "articleCommentsLoading": "...Загрузка",
+  "articleSortedByTitle": "названию",
+  "articleSortedByCreate": "дате создания",
+  "articleSortedByViews": "просмотрам",
+  "articleSortedByGrowth": "возростанию",
+  "articleSortedByDescending": "убыванию"
 }

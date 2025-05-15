@@ -15,5 +15,6 @@
   "errorEditProfileAge": "Не корректный возраст",
   "errorEditProfileCountry": "Выберите страну",
   "errorEditProfileUserData": "Имя и фамилия должны быть заполнены",
-  "errorEditProfileNoData": "Данные не указаны"
+  "errorEditProfileNoData": "Данные не указаны",
+  "headerProfileTitle": "Профиль"
 }

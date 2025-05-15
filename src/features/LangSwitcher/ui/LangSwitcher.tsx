@@ -11,7 +11,7 @@ interface LangSwitcherProps {
 
 export const LangSwitcher: React.FC<LangSwitcherProps> = memo(
   function LangSwitcher({ className, schort }: LangSwitcherProps) {
-    const { t, i18n } = useTranslation("common")
+    const { t, i18n } = useTranslation("sideBar")
 
     const changeLanguage = async () => {
       i18n.changeLanguage(i18n.language === "ru" ? "en" : "ru")

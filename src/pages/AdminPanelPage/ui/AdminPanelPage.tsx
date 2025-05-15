@@ -4,9 +4,9 @@ import { useTranslation } from "react-i18next"
 import { Page } from "@/widgets/Page"
 
 const AdminPanelPage: React.FC = () => {
-  const { t } = useTranslation("about")
+  const { t } = useTranslation("admin")
 
-  return <Page>{t("Админ панель")}</Page>
+  return <Page>{t("adminPanelTitle")}</Page>
 }
 
 export default AdminPanelPage

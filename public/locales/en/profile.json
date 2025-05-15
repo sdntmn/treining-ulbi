@@ -15,5 +15,6 @@
   "errorEditProfileAge": "Incorrect age",
   "errorEditProfileCountry": "Select country",
   "errorEditProfileUserData": "First and last name must be filled in",
-  "errorEditProfileNoData": "Data not specified"
+  "errorEditProfileNoData": "Data not specified",
+  "headerProfileTitle": "Profile"
 }

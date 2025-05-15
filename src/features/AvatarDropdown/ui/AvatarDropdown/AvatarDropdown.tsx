@@ -21,7 +21,7 @@ interface AvatarDropdownProps {
 export const AvatarDropdown: React.FC<AvatarDropdownProps> = memo(
   (props: AvatarDropdownProps) => {
     const { className } = props
-    const { t } = useTranslation()
+    const { t } = useTranslation("common")
     const dispatch = useDispatch()
     const isAdmin = useSelector(isUserAdmin)
     const isManager = useSelector(isUserManager)
@@ -44,10 +44,10 @@ export const AvatarDropdown: React.FC<AvatarDropdownProps> = memo(
         className={cn("navbar__login", [className])}
         items={[
           ...(isAdminPanelAvailable
-            ? [{ content: t("Админка"), href: routePatch.adminPanel() }]
+            ? [{ content: t("menuAdmin"), href: routePatch.adminPanel() }]
             : []),
-          { content: t("Профиль"), href: routePatch.profile(authData.id) },
-          { content: t("Выйти"), onClick: onLogout },
+          { content: t("menuProfile"), href: routePatch.profile(authData.id) },
+          { content: t("goOut"), onClick: onLogout },
         ]}
         trigger={<Avatar size={30} src={authData.avatar} />}
       />

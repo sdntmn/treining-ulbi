@@ -31,24 +31,10 @@ export function buildPlugins({
       minify: minify,
     }),
     new webpack.ProgressPlugin(),
-    new MiniCssExtractPlugin({
-      filename: "css/[name].css",
-      chunkFilename: "css/[name].chunk.css",
-      ignoreOrder: true,
-    }),
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
       __API__: JSON.stringify(apiUrl),
       __PROJECT__: JSON.stringify(project),
-    }),
-    new CopyPlugin({
-      patterns: [
-        {
-          from: paths.locales,
-          to: paths.buildLocales,
-          noErrorOnMissing: true, // Игнорировать если локалей нет
-        },
-      ],
     }),
     new CircularDependencyPlugin({
       exclude: /node_modules/,
@@ -103,6 +89,20 @@ export function buildPlugins({
             reuseExistingChunk: true,
           },
         },
+      }),
+      new MiniCssExtractPlugin({
+        filename: "css/[name].css",
+        chunkFilename: "css/[name].chunk.css",
+        ignoreOrder: true,
+      }),
+      new CopyPlugin({
+        patterns: [
+          {
+            from: paths.locales,
+            to: paths.buildLocales,
+            noErrorOnMissing: true, // Игнорировать если локалей нет
+          },
+        ],
       })
     )
   }

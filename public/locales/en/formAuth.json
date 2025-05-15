@@ -2,5 +2,7 @@
   "titleForm": "Form authorization",
   "enterName": "Enter name",
   "enterPassword": "Enter password",
-  "enter": "Enter"
+  "enter": "Enter",
+  "specifyCountry": "Specify country",
+  "specifyCurrency": "Specify Currency"
 }

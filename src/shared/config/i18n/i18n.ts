@@ -9,10 +9,24 @@ i18n
   .use(initReactI18next)
   .init({
     fallbackLng: "ru",
+    debug: false,
     interpolation: {
       escapeValue: false,
     },
-
+    ns: [
+      "about",
+      "admin",
+      "article",
+      "comments",
+      "common",
+      "errors",
+      "formAuth",
+      "main",
+      "notPage",
+      "profile",
+      "sideBar",
+    ],
+    defaultNS: "common",
     backend: {
       loadPath: "/locales/{{lng}}/{{ns}}.json",
     },

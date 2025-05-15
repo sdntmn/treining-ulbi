@@ -1,6 +1,4 @@
 {
-  "language": "English",
-  "languageShort": "En",
   "login": "Login",
   "goOut": "Go out",
   "navLinkAbout": "About us",
@@ -8,5 +6,6 @@
   "errorPage": "There was an unforeseen error",
   "refreshPage": "Upload page",
   "errorNoData": "No data",
-  "headerProfileTitle": "Profile",
+  "menuAdmin": "Adminka",
+  "menuProfile": "Profile"
 }

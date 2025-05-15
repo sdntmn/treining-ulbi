@@ -1,12 +1,10 @@
 {
-  "language": "Русский",
-  "languageShort": "Ру",
   "login": "Войти",
   "goOut": "Выйти",
-  "navLinkAbout": "О нас",
-  "navLinkMain": "Главная страница",
   "errorPage": "Произошла непредвиденная ошибка",
   "refreshPage": "Обновить страница",
   "errorNoData": "Нет данных",
   "headerProfileTitle": "Профиль",
+  "menuAdmin": "Админка",
+  "menuProfile": "Профиль"
 }

@@ -24,7 +24,7 @@ export const CurrencySelect: React.FC<CurrencySelectProps> = memo(
     isReadonly,
     onChange,
   }: CurrencySelectProps) {
-    const { t } = useTranslation("sharedComponents")
+    const { t } = useTranslation("formAuth")
     const onChangeHandler = useCallback(
       (value: string) => {
         onChange?.(value as Currency)

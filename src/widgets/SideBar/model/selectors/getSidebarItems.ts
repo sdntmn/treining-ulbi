@@ -16,12 +16,12 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
     {
       path: APP_PATHS.MAIN,
       Icon: MainIcon,
-      text: "Главная",
+      text: "navLinkMain",
     },
     {
       path: APP_PATHS.ABOUT,
       Icon: AboutIcon,
-      text: "О нас",
+      text: "navLinkAbout",
     },
   ]
   if (userData) {
@@ -29,13 +29,13 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
       {
         path: routePatch.profile(userData.id),
         Icon: ProfileIcon,
-        text: "Профиль",
+        text: "navLinkProfile",
         authOnly: true,
       },
       {
         path: APP_PATHS.ARTICLES,
         Icon: ArticleIcon,
-        text: "Статьи",
+        text: "navLinkArticles",
         authOnly: true,
       }
     )

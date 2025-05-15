@@ -1,4 +1,5 @@
-import { UserRole } from "../consts/consts"
+import { UserRole } from "@/shared/const/enums"
+
 export interface User {
   id: string
   username: string

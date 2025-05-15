@@ -17,5 +17,10 @@
   "articleInputPlaceholder": "Comment text",
   "articleBtnEditing": "Edit",
   "articleErrorLoading": "Error loading articles",
-  "articleCommentsLoading": "...Loading"
+  "articleCommentsLoading": "...Loading",
+  "articleSortedByTitle": "title",
+  "articleSortedByCreate": "date of creation",
+  "articleSortedByViews": "views",
+  "articleSortedByGrowth": "growth",
+  "articleSortedByDescending": "descending"
 }

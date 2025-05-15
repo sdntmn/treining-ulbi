@@ -1,3 +1,4 @@
+/* eslint-disable i18next/no-literal-string */
 import React from "react"
 import { useTranslation } from "react-i18next"
 
@@ -10,6 +11,8 @@ const MainPage: React.FC = () => {
   return (
     <Page className="main-page">
       <h1>{t("mainPageTitle")}</h1>
+      <p>Имя: admin</p>
+      <p>Пароль: 123</p>
     </Page>
   )
 }
