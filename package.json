@@ -21,7 +21,20 @@
     "build-storybook": "storybook build -c ./config/storybook",
     "chromatic": "npx chromatic --project-token=chpt_564275ec95fd3cf",
     "generate:slice": "node ./scripts/createSlice/index.js",
-    "prepare": "husky"
+    "prepare": "husky",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,scss,css,md}\"",
+    "lint-staged": "lint-staged",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx}": [
+      "eslint --fix --quiet",
+      "prettier --write"
+    ],
+    "**/*.scss": [
+      "stylelint --fix",
+      "prettier --write"
+    ]
   },
   "license": "MIT",
   "devDependencies": {

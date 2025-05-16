@@ -8,5 +8,6 @@
   "bracketSpacing": true,
   "bracketSameLine": false,
   "endOfLine": "auto",
+  "printWidth": 100,
   "functionParentheses": false
 }

@@ -1,0 +1,76 @@
+name: CI Pipeline (lint, test, build)
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
+
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cache/yarn
+            node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
+
+      - name: Install dependencies
+        run: |
+          npm install -g yarn
+          yarn install --frozen-lockfile
+          yarn add eslint@8.56.0 --dev # Явно указываем ESLint v8
+
+      - name: Run TypeScript linting
+        if: false
+        run: |
+          echo "Проверяем конфигурацию ESLint..."
+          npx eslint --print-config src/index.ts > eslint_config.json
+          echo "Запускаем линтинг..."
+          npx eslint "**/*.{ts,tsx}" --max-warnings=0 --format=json > eslint_report.json || true
+          cat eslint_report.json
+          echo "Статистика ошибок:"
+          jq -r '[.[] | .errorCount] | add' eslint_report.json
+        env:
+          ESLINTRC: ./.eslintrc.json
+
+      - name: Run CSS linting
+        if: false
+        run: yarn stylelint "**/*.scss"
+
+      - name: Run unit tests
+        run: yarn test:unit
+        env:
+          CI: true
+
+      - name: Run UI tests
+        run: yarn test:ui:ci
+        timeout-minutes: 10
+
+      - name: Build production bundle
+        run: yarn build:prod
+
+      - name: Build Storybook
+        run: yarn build-storybook
+
+      - name: Upload storybook
+        if: success()
+        uses: actions/upload-artifact@v3
+        with:
+          name: storybook
+          path: storybook-static
