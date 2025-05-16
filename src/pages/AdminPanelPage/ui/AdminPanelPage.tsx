@@ -6,7 +6,7 @@ import { Page } from "@/widgets/Page"
 const AdminPanelPage: React.FC = () => {
   const { t } = useTranslation("admin")
 
-  return <Page>{t("adminPanelTitle")}</Page>
+  return <Page data-testid="AdminPanelPage">{t("adminPanelTitle")}</Page>
 }
 
 export default AdminPanelPage

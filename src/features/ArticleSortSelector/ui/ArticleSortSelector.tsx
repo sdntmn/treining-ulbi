@@ -2,7 +2,7 @@ import React, { useMemo } from "react"
 import { useTranslation } from "react-i18next"
 
 import { cn } from "@/shared/lib/classNames/classNames"
-import { SortOrder } from "@/shared/types"
+import { SortOrder } from "@/shared/types/sort"
 import { Select } from "@/shared/ui/Select"
 
 import { ArticleSortField } from "@/entities/Article"

@@ -9,7 +9,7 @@ import "./AboutPage.module.scss"
 const AboutPage: React.FC = () => {
   const { t } = useTranslation("about")
   return (
-    <Page className="about-page">
+    <Page data-testid="AboutPage" className="about-page">
       <h1>{t("aboutPageTitle")}</h1>
       <p>
         @use-gesture - позволяет привязывать события мыши и прикосновения к

@@ -46,6 +46,7 @@ const ArticlesPage: React.FC<ArticlesPageProps> = ({
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
       <Page
+        data-testid="ArticlesPage"
         onScrollEnd={onLoadNextPart}
         className={cn("articles-page", [className])}
       >

@@ -1,4 +1,4 @@
-import type { SortOrder } from "@/shared/types"
+import type { SortOrder } from "@/shared/types/sort"
 
 import { EntityState } from "@reduxjs/toolkit"
 

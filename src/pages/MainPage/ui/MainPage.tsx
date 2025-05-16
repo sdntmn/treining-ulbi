@@ -9,7 +9,7 @@ import "./MainPage.module.scss"
 const MainPage: React.FC = () => {
   const { t } = useTranslation("main")
   return (
-    <Page className="main-page">
+    <Page data-testid="MainPage" className="main-page">
       <h1>{t("mainPageTitle")}</h1>
       <p>Имя: admin</p>
       <p>Пароль: 123</p>

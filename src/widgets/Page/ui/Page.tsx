@@ -13,6 +13,7 @@ import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { useInfiniteScroll } from "@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll"
 import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect/useInitialEffect"
 import { useThrottle } from "@/shared/lib/hooks/useThrottle/useThrottle"
+import { TestProps } from "@/shared/types/tests"
 
 // eslint-disable-next-line paths-import/imports-layers
 import { StateSchema } from "@/app/providers/StoreProvider"
@@ -21,17 +22,14 @@ import { getScrollByPath, scrollSaveActions } from "@/features/ScrollSave"
 
 import "./Page.module.scss"
 
-interface PageProps {
+interface PageProps extends TestProps {
   className?: string
   children: ReactNode
   onScrollEnd?: () => void
 }
 
-export const Page: React.FC<PageProps> = ({
-  className,
-  children,
-  onScrollEnd,
-}: PageProps) => {
+export const Page: React.FC<PageProps> = (props: PageProps) => {
+  const { className, children, onScrollEnd } = props
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>
   const dispatch = useAppDispatch()
@@ -66,6 +64,7 @@ export const Page: React.FC<PageProps> = ({
       className={cn("page", [className])}
       onScroll={onScroll}
       id={PAGE_ID}
+      data-testid={props["data-testid"] ?? "Page"}
     >
       {children}
       {onScrollEnd ? (

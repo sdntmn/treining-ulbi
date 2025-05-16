@@ -19,7 +19,10 @@ const ArticleEditPage: React.FC<ArticleEditPageProps> = memo(
     const isEdit = Boolean(id)
 
     return (
-      <Page className={cn("article-edit-page", [className])}>
+      <Page
+        data-testid="ArticleEditPage"
+        className={cn("article-edit-page", [className])}
+      >
         {isEdit
           ? t("Редактирование статьи с ID = ") + id
           : t("Создание новой статьи")}
