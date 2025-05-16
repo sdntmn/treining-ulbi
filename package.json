@@ -21,7 +21,7 @@
     "build-storybook": "storybook build -c ./config/storybook",
     "chromatic": "npx chromatic --project-token=chpt_564275ec95fd3cf",
     "generate:slice": "node ./scripts/createSlice/index.js",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "license": "MIT",
   "devDependencies": {
