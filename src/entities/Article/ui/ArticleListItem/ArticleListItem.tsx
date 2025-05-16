@@ -7,11 +7,13 @@ import EyeIcon from "@/shared/assets/icons/eye-outlined.svg"
 import { cn } from "@/shared/lib/classNames/classNames"
 import { routePatch } from "@/shared/lib/helpers/getPath"
 import { useHover } from "@/shared/lib/hooks/useHover/useHover"
+import { AppImage } from "@/shared/ui/AppImage"
 import { AppLink } from "@/shared/ui/AppLink"
 import { Avatar } from "@/shared/ui/Avatar"
 import { Button, ButtonVar } from "@/shared/ui/Button"
 import { Card } from "@/shared/ui/Card"
 import { Icon } from "@/shared/ui/Icon"
+import { Skeleton } from "@/shared/ui/Skeleton"
 import { TextParagraf } from "@/shared/ui/TextParagraf"
 
 import { ArticleBlockType, ArticleViewType } from "../../model/consts"
@@ -72,10 +74,11 @@ export const ArticleListItem: React.FC<ArticleItemProps> = memo(
               className="article-item__title"
             />
             {types}
-            <img
+            <AppImage
               src={article?.img}
               className="article-item__img"
               alt={article?.title}
+              fallback={<Skeleton width={"100%"} height={"250"} />}
             />
             {textBlock && (
               <ArticleTextBlock
@@ -107,10 +110,11 @@ export const ArticleListItem: React.FC<ArticleItemProps> = memo(
       >
         <Card className="article-item__card-item ">
           <div className="article-item__image-wrapper">
-            <img
+            <AppImage
               src={article?.img}
               className="article-item__img"
               alt={article?.title}
+              fallback={<Skeleton width={"200"} height={"200"} border="50%" />}
             />
             <TextParagraf
               text={article?.createdAt}

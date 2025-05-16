@@ -49,7 +49,7 @@ export const AvatarDropdown: React.FC<AvatarDropdownProps> = memo(
           { content: t("menuProfile"), href: routePatch.profile(authData.id) },
           { content: t("goOut"), onClick: onLogout },
         ]}
-        trigger={<Avatar size={30} src={authData.avatar} />}
+        trigger={<Avatar fallbackInverted size={30} src={authData.avatar} />}
       />
     )
   }
