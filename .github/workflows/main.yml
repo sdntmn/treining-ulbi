@@ -54,7 +54,7 @@ jobs:
         run: yarn stylelint "**/*.scss"
 
       - name: Run unit tests
-        run: yarn test:unit
+        run: yarn unit
         env:
           CI: true
 

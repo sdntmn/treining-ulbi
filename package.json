@@ -17,7 +17,6 @@
     "stylelint": "stylelint **/*.scss",
     "stylelint:fix": "stylelint --fix **/*.scss",
     "unit": "jest --config ./config/jest/jest.config.ts",
-    "test": "yarn unit",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "build-storybook": "storybook build -c ./config/storybook",
     "chromatic": "npx chromatic --project-token=chpt_564275ec95fd3cf",
