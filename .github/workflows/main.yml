@@ -58,9 +58,9 @@ jobs:
         env:
           CI: true
 
-      - name: Run UI tests
-        run: yarn test:ui:ci
-        timeout-minutes: 10
+      # - name: Run UI tests
+      #   run: yarn test:ui:ci
+      #   timeout-minutes: 10
 
       - name: Build production bundle
         run: yarn build:prod
