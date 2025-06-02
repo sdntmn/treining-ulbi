@@ -30,12 +30,7 @@ export const ArticleInfiniteList: React.FC<ArticleInfiniteListProps> = memo(
     }
 
     return (
-      <ArticleList
-        isLoading={isLoading}
-        view={view}
-        articles={articles}
-        className={className}
-      />
+      <ArticleList isLoading={isLoading} view={view} articles={articles} className={className} />
     )
   }
 )

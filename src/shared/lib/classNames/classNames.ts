@@ -12,10 +12,7 @@ const classNames = (
   return [
     cls,
     ...additional
-      .filter(
-        (item) =>
-          typeof item === "string" || (typeof item === "boolean" && item)
-      )
+      .filter((item) => typeof item === "string" || (typeof item === "boolean" && item))
       .map(String),
   ].join(" ")
 }

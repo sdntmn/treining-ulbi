@@ -16,10 +16,8 @@ interface ArticleDetailsPageHeaderProps {
   className?: string
 }
 
-export const ArticleDetailsPageHeader: React.FC<ArticleDetailsPageHeaderProps> =
-  memo(function ArticleDetailsPageHeader({
-    className,
-  }: ArticleDetailsPageHeaderProps) {
+export const ArticleDetailsPageHeader: React.FC<ArticleDetailsPageHeaderProps> = memo(
+  function ArticleDetailsPageHeader({ className }: ArticleDetailsPageHeaderProps) {
     const { t } = useTranslation("article")
     const navigate = useNavigate()
     const canEdit = useSelector(getCanEditArticle)
@@ -48,4 +46,5 @@ export const ArticleDetailsPageHeader: React.FC<ArticleDetailsPageHeaderProps> =
         )}
       </HStack>
     )
-  })
+  }
+)

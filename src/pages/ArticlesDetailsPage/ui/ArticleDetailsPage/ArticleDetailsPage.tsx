@@ -53,6 +53,4 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = ({
 }
 
 export default memo(ArticleDetailsPage)
-export const ArticleDetailsPageAsync = lazy(
-  () => import("./ArticleDetailsPage")
-)
+export const ArticleDetailsPageAsync = lazy(() => import("./ArticleDetailsPage"))

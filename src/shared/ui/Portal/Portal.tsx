@@ -6,9 +6,6 @@ interface PortalProps {
   element?: HTMLElement
 }
 
-export const Portal: React.FC<PortalProps> = ({
-  children,
-  element = document.body,
-}) => {
+export const Portal: React.FC<PortalProps> = ({ children, element = document.body }) => {
   return createPortal(children, element)
 }

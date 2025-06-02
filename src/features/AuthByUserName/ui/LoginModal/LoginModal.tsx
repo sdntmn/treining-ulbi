@@ -12,18 +12,11 @@ interface LoginModalProps {
   onClose: () => void
 }
 
-export const LoginModal: React.FC<LoginModalProps> = (
-  props: LoginModalProps
-) => {
+export const LoginModal: React.FC<LoginModalProps> = (props: LoginModalProps) => {
   const { className, isOpen, onClose } = props
 
   return (
-    <Modal
-      className={cn("login-modal", [className])}
-      isOpen={isOpen}
-      onClose={onClose}
-      lazy
-    >
+    <Modal className={cn("login-modal", [className])} isOpen={isOpen} onClose={onClose} lazy>
       <Suspense fallback={<Loader />}>
         <LoginFormAsync onSuccess={onClose} />
       </Suspense>

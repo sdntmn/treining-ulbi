@@ -8,11 +8,11 @@
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
-    "plugin:prettier/recommended",
     "plugin:i18next/recommended",
     "plugin:import/errors", // добавляем, чтобы включить rules из плагина
     "plugin:import/warnings", // добавляет дополнительные warnings
-    "plugin:import/typescript" // включаем поддержку typescript
+    "plugin:import/typescript", // включаем поддержку typescript
+    "plugin:prettier/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -154,21 +154,24 @@
     "react-default-props-match-prop-types": "off",
     "no-ternary": "off",
     "react/prefer-read-only-props": "off",
-    "i18next/no-literal-string": [ "error", { "markupOnly": true, "ignoreAttribute": ["data-testid", "to"] } ],
-    "max-len": [ "error", { "code": 100 , "ignoreComments": true } ],
+    "i18next/no-literal-string": [ "error", { "markupOnly": true, "ignoreAttribute": [ "data-testid", "to" ] } ],
+    "max-len": [ "error", { "code": 100, "ignoreComments": true } ],
     "function-spacing": "off",
     "import/no-cycle": [ "error" ],
-
-    //?
     "no-useless-escape": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "error",
-    "paths-import/path-checker": ["error", {"alias": "@"}],
-    "paths-import/imports-public-api": ["error", {"alias": "@", "testFilesPatterns": ["**/*.test.*", "**/StoreDecorator.tsx", "**/*.stories.*"]}],
+    "paths-import/path-checker": [ "error", { "alias": "@" } ],
+    "paths-import/imports-public-api": [ "error", { "alias": "@", "testFilesPatterns": [ "**/*.test.*", "**/StoreDecorator.tsx", "**/*.stories.*" ] } ],
     "paths-import/imports-layers": [ "error", {
-    "alias": "@",
-    "ignoreImportPatterns": [ "**/*.test.*", "**/StoreDecorator.tsx", "**/stories.*" ]
-    }]
+        "alias": "@",
+        "ignoreImportPatterns": [ "**/*.test.*", "**/StoreDecorator.tsx", "**/stories.*" ]
+      } ],
+    "space-before-function-paren": [ "error", {
+        "anonymous": "always",
+        "named": "never",
+        "asyncArrow": "always"
+      } ]
   },
   "globals": {
     "__IS_DEV__": true,

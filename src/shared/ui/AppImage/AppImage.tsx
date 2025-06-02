@@ -1,10 +1,4 @@
-import React, {
-  ImgHTMLAttributes,
-  memo,
-  ReactElement,
-  useLayoutEffect,
-  useState,
-} from "react"
+import React, { ImgHTMLAttributes, memo, ReactElement, useLayoutEffect, useState } from "react"
 
 interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   className?: string
@@ -12,42 +6,33 @@ interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   errorFallback?: ReactElement
 }
 
-export const AppImage: React.FC<AppImageProps> = memo(
-  (props: AppImageProps) => {
-    const {
-      className,
-      src,
-      alt = "image",
-      errorFallback,
-      fallback,
-      ...otherProps
-    } = props
-    const [isLoading, setIsLoading] = useState(true)
-    const [hasError, setHasError] = useState(false)
+export const AppImage: React.FC<AppImageProps> = memo((props: AppImageProps) => {
+  const { className, src, alt = "image", errorFallback, fallback, ...otherProps } = props
+  const [isLoading, setIsLoading] = useState(true)
+  const [hasError, setHasError] = useState(false)
 
-    // useLayoutEffect вызывается еще до того как компонент вмонтирован
-    useLayoutEffect(() => {
-      const img = new Image()
-      img.src = src ?? ""
-      img.onload = () => {
-        setIsLoading(false)
-      }
-      img.onerror = () => {
-        setIsLoading(false)
-        setHasError(true)
-      }
-    }, [src])
-
-    if (isLoading && fallback) {
-      return fallback
+  // useLayoutEffect вызывается еще до того как компонент вмонтирован
+  useLayoutEffect(() => {
+    const img = new Image()
+    img.src = src ?? ""
+    img.onload = () => {
+      setIsLoading(false)
     }
-
-    if (hasError && errorFallback) {
-      return errorFallback
+    img.onerror = () => {
+      setIsLoading(false)
+      setHasError(true)
     }
+  }, [src])
 
-    return <img className={className} src={src} alt={alt} {...otherProps} />
+  if (isLoading && fallback) {
+    return fallback
   }
-)
+
+  if (hasError && errorFallback) {
+    return errorFallback
+  }
+
+  return <img className={className} src={src} alt={alt} {...otherProps} />
+})
 
 AppImage.displayName = "AppImage"

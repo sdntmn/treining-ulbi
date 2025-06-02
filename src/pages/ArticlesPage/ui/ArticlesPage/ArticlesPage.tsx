@@ -28,9 +28,7 @@ const reducers: ReducersList = {
   articlesPage: articlesPageReducer,
 }
 
-const ArticlesPage: React.FC<ArticlesPageProps> = ({
-  className,
-}: ArticlesPageProps) => {
+const ArticlesPage: React.FC<ArticlesPageProps> = ({ className }: ArticlesPageProps) => {
   const dispatch = useAppDispatch()
 
   const [searchParams] = useSearchParams()

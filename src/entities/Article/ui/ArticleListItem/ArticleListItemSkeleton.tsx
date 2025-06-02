@@ -13,8 +13,8 @@ interface ArticleListItemSkeletonProps {
   view: ArticleViewType
 }
 
-export const ArticleListItemSkeleton: React.FC<ArticleListItemSkeletonProps> =
-  memo(function ArticleListItemSkeleton(props: ArticleListItemSkeletonProps) {
+export const ArticleListItemSkeleton: React.FC<ArticleListItemSkeletonProps> = memo(
+  function ArticleListItemSkeleton(props: ArticleListItemSkeletonProps) {
     const { className, view } = props
 
     if (view === ArticleViewType.LIST) {
@@ -28,17 +28,9 @@ export const ArticleListItemSkeleton: React.FC<ArticleListItemSkeletonProps> =
                 height={16}
                 className="article-list-card__username"
               />
-              <Skeleton
-                width={150}
-                height={16}
-                className="article-list-card__date"
-              />
+              <Skeleton width={150} height={16} className="article-list-card__date" />
             </div>
-            <Skeleton
-              width={250}
-              height={24}
-              className="article-list-card__title"
-            />
+            <Skeleton width={250} height={24} className="article-list-card__title" />
             <Skeleton height={208} className="article-list-card__img" />
             <div className="article-list-card__footer">
               <Skeleton height={36} width={200} />
@@ -69,4 +61,5 @@ export const ArticleListItemSkeleton: React.FC<ArticleListItemSkeletonProps> =
         </Card> */}
       </div>
     )
-  })
+  }
+)

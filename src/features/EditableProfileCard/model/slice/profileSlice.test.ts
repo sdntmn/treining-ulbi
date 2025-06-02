@@ -2,10 +2,7 @@ import { Country, Currency } from "@/shared/const/enums"
 
 import { updateProfileData } from "../services/updateProfileData/updateProfileData"
 import { profileActions, profileReducer } from "../slice/profileSlice"
-import {
-  ProfileSchema,
-  ValidateProfileError,
-} from "../types/EditableProfileCardSchema"
+import { ProfileSchema, ValidateProfileError } from "../types/EditableProfileCardSchema"
 
 const data = {
   first: "Денис",
@@ -21,17 +18,15 @@ const data = {
 describe("profileSlice.test", () => {
   test("test set readonly", () => {
     const state: DeepPartial<ProfileSchema> = { isReadonly: false }
-    expect(
-      profileReducer(state as ProfileSchema, profileActions.setReadonly(true))
-    ).toEqual({ isReadonly: true })
+    expect(profileReducer(state as ProfileSchema, profileActions.setReadonly(true))).toEqual({
+      isReadonly: true,
+    })
   })
 
   test("test cancel edit", () => {
     const state: DeepPartial<ProfileSchema> = { data, form: { username: "" } }
 
-    expect(
-      profileReducer(state as ProfileSchema, profileActions.cancelEdit())
-    ).toEqual({
+    expect(profileReducer(state as ProfileSchema, profileActions.cancelEdit())).toEqual({
       isReadonly: true,
       validateErrors: undefined,
       data,
@@ -60,9 +55,7 @@ describe("profileSlice.test", () => {
       validateErrors: [ValidateProfileError.SERVER_ERROR],
     }
 
-    expect(
-      profileReducer(state as ProfileSchema, { ...updateProfileData.pending })
-    ).toEqual({
+    expect(profileReducer(state as ProfileSchema, { ...updateProfileData.pending })).toEqual({
       isLoading: true,
       validateErrors: undefined,
     })
@@ -73,12 +66,7 @@ describe("profileSlice.test", () => {
       isLoading: true,
     }
 
-    expect(
-      profileReducer(
-        state as ProfileSchema,
-        updateProfileData.fulfilled(data, "")
-      )
-    ).toEqual({
+    expect(profileReducer(state as ProfileSchema, updateProfileData.fulfilled(data, ""))).toEqual({
       isLoading: false,
       validateErrors: undefined,
       isReadonly: true,

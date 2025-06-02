@@ -21,8 +21,8 @@ interface ArticleDetailsCommentsProps {
   id: string
 }
 
-export const ArticleDetailsComments: React.FC<ArticleDetailsCommentsProps> =
-  memo(function ArticleDetailsComments(props: ArticleDetailsCommentsProps) {
+export const ArticleDetailsComments: React.FC<ArticleDetailsCommentsProps> = memo(
+  function ArticleDetailsComments(props: ArticleDetailsCommentsProps) {
     const dispatch = useAppDispatch()
     const { id } = props
     const { t } = useTranslation("article")
@@ -44,12 +44,11 @@ export const ArticleDetailsComments: React.FC<ArticleDetailsCommentsProps> =
     return (
       <VStack gap="16">
         <TextParagraf title={t("articleComments")} />
-        <Suspense
-          fallback={<TextParagraf text={t("articleCommentsLoading")} />}
-        >
+        <Suspense fallback={<TextParagraf text={t("articleCommentsLoading")} />}>
           <AddCommentForm onSendComment={onSendComment} />
         </Suspense>
         <CommentList isLoading={isLoadingComments} comments={comments} />
       </VStack>
     )
-  })
+  }
+)

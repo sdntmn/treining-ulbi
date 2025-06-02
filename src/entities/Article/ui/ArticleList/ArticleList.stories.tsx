@@ -5,11 +5,7 @@ import type { Meta, StoryObj } from "@storybook/react"
 
 import { RouterDecorator } from "@/shared/config/storybook/RouterDecorator/RouterDecorator"
 
-import {
-  ArticleBlockType,
-  ArticleType,
-  ArticleViewType,
-} from "../../model/consts/consts"
+import { ArticleBlockType, ArticleType, ArticleViewType } from "../../model/consts/consts"
 import { Article } from "../../model/types/article"
 
 import { ArticleList } from "./ArticleList"
@@ -34,15 +30,9 @@ const articles: Article[] = [
     user: {
       id: "1",
       username: "Ulbi tv",
-      avatar:
-        "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg",
+      avatar: "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg",
     },
-    type: [
-      ArticleType.IT,
-      ArticleType.SCIENCE,
-      ArticleType.POLITICS,
-      ArticleType.ECONOMICS,
-    ],
+    type: [ArticleType.IT, ArticleType.SCIENCE, ArticleType.POLITICS, ArticleType.ECONOMICS],
     blocks: [
       {
         id: "1",

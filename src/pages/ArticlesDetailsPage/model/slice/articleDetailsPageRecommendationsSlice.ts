@@ -19,12 +19,9 @@ const initialState: ArticleDetailsRecommendationsSchema = {
   error: undefined,
 }
 
-export const getArticleRecommendations =
-  recommendationsAdapter.getSelectors<StateSchema>(
-    (state) =>
-      state?.articleDetailsPage?.recommendations ??
-      recommendationsAdapter.getInitialState()
-  )
+export const getArticleRecommendations = recommendationsAdapter.getSelectors<StateSchema>(
+  (state) => state?.articleDetailsPage?.recommendations ?? recommendationsAdapter.getInitialState()
+)
 
 const articleDetailsPageRecommendationsSlice = createSlice({
   name: "articleDetailsPageRecommendations",

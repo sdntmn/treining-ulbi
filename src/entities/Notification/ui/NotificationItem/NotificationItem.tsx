@@ -18,22 +18,14 @@ export const NotificationItem: React.FC<NotificationItemProps> = memo(
     const { className, item } = props
 
     const content = (
-      <Card
-        theme={CardTheme.OUTLINED}
-        className={cn("notification-item", [className])}
-      >
+      <Card theme={CardTheme.OUTLINED} className={cn("notification-item", [className])}>
         <TextParagraf title={item.title} text={item.description} />
       </Card>
     )
 
     if (item.href) {
       return (
-        <a
-          className={"notification-item__link"}
-          target="_blank"
-          href={item.href}
-          rel="noreferrer"
-        >
+        <a className={"notification-item__link"} target="_blank" href={item.href} rel="noreferrer">
           {content}
         </a>
       )

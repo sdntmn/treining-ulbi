@@ -15,10 +15,7 @@ export interface ComponentRenderOptions {
   asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>
 }
 // Функция для оберки компонентов с транслитерацией
-export function ComponentRender(
-  component: React.ReactNode,
-  options: ComponentRenderOptions = {}
-) {
+export function ComponentRender(component: React.ReactNode, options: ComponentRenderOptions = {}) {
   const { route = "/", initialState, asyncReducers } = options
   return render(
     <MemoryRouter initialEntries={[route]}>

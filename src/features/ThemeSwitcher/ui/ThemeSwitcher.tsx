@@ -11,17 +11,17 @@ interface ThemeSwitcherProps {
   className?: string
 }
 
-export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = memo(
-  function ThemeSwitcher({ className }: ThemeSwitcherProps) {
-    const { theme, toggleTheme } = useTheme()
-    return (
-      <Button
-        buttonVar={ButtonVar.CLEAR}
-        className={cn("theme-switcher", [className])}
-        onClick={toggleTheme}
-      >
-        {theme === Theme.default ? <LightIcon /> : <DarkIcon />}
-      </Button>
-    )
-  }
-)
+export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = memo(function ThemeSwitcher({
+  className,
+}: ThemeSwitcherProps) {
+  const { theme, toggleTheme } = useTheme()
+  return (
+    <Button
+      buttonVar={ButtonVar.CLEAR}
+      className={cn("theme-switcher", [className])}
+      onClick={toggleTheme}
+    >
+      {theme === Theme.default ? <LightIcon /> : <DarkIcon />}
+    </Button>
+  )
+})

@@ -86,11 +86,7 @@ const preview: Preview = {
                   width: "100%",
                 }}
                 className={`app ${
-                  theme === "dark"
-                    ? "app-dark-theme"
-                    : theme === "custom"
-                      ? "app-custom-theme"
-                      : ""
+                  theme === "dark" ? "app-dark-theme" : theme === "custom" ? "app-custom-theme" : ""
                 }`}
               >
                 <Story />

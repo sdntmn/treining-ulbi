@@ -30,19 +30,11 @@ export function RequireAuth({ children, roles }: RequireAuthProps) {
   }, [roles, userRoles])
 
   if (!auth) {
-    return (
-      <Navigate to={routePatch.main()} state={{ from: location }} replace />
-    )
+    return <Navigate to={routePatch.main()} state={{ from: location }} replace />
   }
 
   if (!hasRequiredRoles) {
-    return (
-      <Navigate
-        to={routePatch.forbidden()}
-        state={{ from: location }}
-        replace
-      />
-    )
+    return <Navigate to={routePatch.forbidden()} state={{ from: location }} replace />
   }
 
   return children

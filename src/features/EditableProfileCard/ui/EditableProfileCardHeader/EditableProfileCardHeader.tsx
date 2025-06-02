@@ -19,9 +19,9 @@ interface EditableProfileCardHeaderProps {
   className?: string
 }
 
-export const EditableProfileCardHeader: React.FC<
-  EditableProfileCardHeaderProps
-> = ({ className }) => {
+export const EditableProfileCardHeader: React.FC<EditableProfileCardHeaderProps> = ({
+  className,
+}) => {
   const { t } = useTranslation("profile")
   const readOnly = useSelector(getProfileReadonly)
   const dispatch = useAppDispatch()

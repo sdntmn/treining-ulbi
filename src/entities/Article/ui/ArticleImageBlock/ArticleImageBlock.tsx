@@ -12,19 +12,14 @@ interface ArticleImageBlockProps {
   block?: ArticleImage
 }
 
-export const ArticleImageBlock: React.FC<ArticleImageBlockProps> = memo(
-  function ArticleImageBlock({ className, block }: ArticleImageBlockProps) {
-    return (
-      <div className={cn("article-image-block", [className])}>
-        <img
-          src={block?.src}
-          alt={block?.title}
-          className="article-image-block__image"
-        />
-        {block?.title && (
-          <TextParagraf text={block.title} align={TextAlign.CENTER} />
-        )}
-      </div>
-    )
-  }
-)
+export const ArticleImageBlock: React.FC<ArticleImageBlockProps> = memo(function ArticleImageBlock({
+  className,
+  block,
+}: ArticleImageBlockProps) {
+  return (
+    <div className={cn("article-image-block", [className])}>
+      <img src={block?.src} alt={block?.title} className="article-image-block__image" />
+      {block?.title && <TextParagraf text={block.title} align={TextAlign.CENTER} />}
+    </div>
+  )
+})

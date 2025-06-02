@@ -11,9 +11,7 @@ interface StoreProviderProps {
   asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>
 }
 
-export const StoreProvider: React.FC<StoreProviderProps> = (
-  props: StoreProviderProps
-) => {
+export const StoreProvider: React.FC<StoreProviderProps> = (props: StoreProviderProps) => {
   const { children, initialState, asyncReducers } = props
 
   const store = createReduxStore(

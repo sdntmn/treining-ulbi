@@ -31,9 +31,7 @@ interface ProfileCardProps {
   onChangeAge?: (value?: string) => void
 }
 
-export const ProfileCard: React.FC<ProfileCardProps> = (
-  props: ProfileCardProps
-) => {
+export const ProfileCard: React.FC<ProfileCardProps> = (props: ProfileCardProps) => {
   const {
     isReadonly,
     isLoading,
@@ -57,10 +55,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = (
       <HStack
         justify="center"
         max
-        className={cn("profile-card", [
-          className,
-          isLoading && "profile-card__loading",
-        ])}
+        className={cn("profile-card", [className, isLoading && "profile-card__loading"])}
       >
         <Loader />
       </HStack>
@@ -72,10 +67,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = (
       <HStack
         justify="center"
         max
-        className={cn("profile-card", [
-          className,
-          error && "profile-card__error",
-        ])}
+        className={cn("profile-card", [className, error && "profile-card__error"])}
       >
         <TextParagraf
           textVar={TextVar.ERROR}

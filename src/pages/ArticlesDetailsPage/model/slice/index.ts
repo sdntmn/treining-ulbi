@@ -9,7 +9,5 @@ export const articleDetailsPageReducer = combineReducers({
   recommendations: articleDetailsPageRecommendationsReducer as Reducer<
     ArticleDetailsPageSchema["recommendations"]
   >,
-  comments: articleDetailsCommentsReducer as Reducer<
-    ArticleDetailsPageSchema["comments"]
-  >,
+  comments: articleDetailsCommentsReducer as Reducer<ArticleDetailsPageSchema["comments"]>,
 })

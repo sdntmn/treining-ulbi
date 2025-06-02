@@ -16,13 +16,7 @@ interface ModalProps {
   lazy?: boolean
 }
 
-export const Modal: React.FC<ModalProps> = ({
-  className,
-  children,
-  onClose,
-  isOpen,
-  lazy,
-}) => {
+export const Modal: React.FC<ModalProps> = ({ className, children, onClose, isOpen, lazy }) => {
   const ANIMATION_DELAY = 300
   const { close, isClosing, isMounted } = useModal({
     animationDelay: ANIMATION_DELAY,
@@ -41,11 +35,7 @@ export const Modal: React.FC<ModalProps> = ({
   return (
     <Portal>
       <div
-        className={cn("modal", [
-          className,
-          isOpen && "modal__open",
-          isClosing && "modal__closing",
-        ])}
+        className={cn("modal", [className, isOpen && "modal__open", isClosing && "modal__closing"])}
       >
         <Overlay onClick={close} />
         <div className="modal__content" onClick={onContentClick}>

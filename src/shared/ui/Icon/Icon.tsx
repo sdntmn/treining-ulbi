@@ -14,9 +14,6 @@ export const Icon: React.FC<IconProps> = memo(function Icon(props: IconProps) {
   const { className, Svg, inverted, ...otherProps } = props
 
   return (
-    <Svg
-      className={cn("", [className, inverted ? "icon__inverted" : "icon"])}
-      {...otherProps}
-    />
+    <Svg className={cn("", [className, inverted ? "icon__inverted" : "icon"])} {...otherProps} />
   )
 })

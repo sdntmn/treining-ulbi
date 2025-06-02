@@ -17,9 +17,7 @@ interface SidebarProps {
   className?: string
 }
 
-export const Sidebar: React.FC<SidebarProps> = memo(function Sidebar({
-  className,
-}: SidebarProps) {
+export const Sidebar: React.FC<SidebarProps> = memo(function Sidebar({ className }: SidebarProps) {
   const [collapsed, setCollapsed] = useState<boolean>(false)
   const sidebarItemsList = useSelector(getSidebarItems)
 
@@ -38,10 +36,7 @@ export const Sidebar: React.FC<SidebarProps> = memo(function Sidebar({
   return (
     <aside
       data-testid="sidebar"
-      className={cn("sidebar", [
-        className,
-        collapsed ? "sidebar__collapsed" : "",
-      ])}
+      className={cn("sidebar", [className, collapsed ? "sidebar__collapsed" : ""])}
     >
       <VStack role="navigation" gap="16" className="sidebar__items">
         {itemsList}
@@ -50,7 +45,7 @@ export const Sidebar: React.FC<SidebarProps> = memo(function Sidebar({
       <Button
         data-testid="sidebar-toggle"
         onClick={onToggle}
-        className="sidebar__collapsed-btn"
+        className="sidebar__collapsed-btn "
         buttonVar={ButtonVar.OUTLINE}
         fontSize={ButtonFontSize.FONT_L}
       >

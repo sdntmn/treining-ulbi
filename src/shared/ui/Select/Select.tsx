@@ -26,11 +26,7 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
 
   const optionsList = useMemo(() => {
     return options?.map((valOption) => (
-      <option
-        className=" select__option"
-        value={valOption.value}
-        key={valOption.value}
-      >
+      <option className=" select__option" value={valOption.value} key={valOption.value}>
         {valOption.content}
       </option>
     ))
@@ -38,9 +34,7 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
 
   return (
     <div className={cn("select", [className])}>
-      {label && (
-        <span className={cn("select__label", [className])}> {label}</span>
-      )}
+      {label && <span className={cn("select__label", [className])}> {label}</span>}
       <select
         className="select__input"
         value={value}

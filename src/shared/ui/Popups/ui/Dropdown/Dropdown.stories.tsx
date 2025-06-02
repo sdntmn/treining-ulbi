@@ -14,11 +14,7 @@ type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
   args: {
-    items: [
-      { content: "Option 1" },
-      { content: "Option 2" },
-      { content: "Option 3" },
-    ],
+    items: [{ content: "Option 1" }, { content: "Option 2" }, { content: "Option 3" }],
     trigger: "Click",
   },
 }

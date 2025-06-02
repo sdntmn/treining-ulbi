@@ -1,7 +1,6 @@
 import { getQueryParams } from "./addQueryParams"
 
-global.window = { location: { origin: "http://localhost" } } as Window &
-  typeof globalThis
+global.window = { location: { origin: "http://localhost" } } as Window & typeof globalThis
 
 describe("shared/url/addQueryParams", () => {
   test("test with one param", () => {

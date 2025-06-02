@@ -13,16 +13,10 @@ interface ArticleRecommendationListProps {
   className?: string
 }
 
-export const ArticleRecommendationList: React.FC<ArticleRecommendationListProps> =
-  memo(function ArticleRecommendationList({
-    className,
-  }: ArticleRecommendationListProps) {
+export const ArticleRecommendationList: React.FC<ArticleRecommendationListProps> = memo(
+  function ArticleRecommendationList({ className }: ArticleRecommendationListProps) {
     const { t } = useTranslation("article")
-    const {
-      isLoading,
-      data: recomendationArticles,
-      error,
-    } = useArticleRecommendationsList(3)
+    const { isLoading, data: recomendationArticles, error } = useArticleRecommendationsList(3)
 
     if (!recomendationArticles || error) {
       return null
@@ -31,11 +25,8 @@ export const ArticleRecommendationList: React.FC<ArticleRecommendationListProps>
     return (
       <VStack gap="8" className={cn("", [className])}>
         <TextParagraf size={TextSize.L} title={t("articleRecomendations")} />
-        <ArticleList
-          articles={recomendationArticles}
-          isLoading={isLoading}
-          target="_blank"
-        />
+        <ArticleList articles={recomendationArticles} isLoading={isLoading} target="_blank" />
       </VStack>
     )
-  })
+  }
+)

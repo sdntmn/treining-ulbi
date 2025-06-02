@@ -11,9 +11,7 @@ interface SkeletonProps {
   border?: string
 }
 
-export const Skeleton: React.FC<SkeletonProps> = memo(function Skeleton(
-  props: SkeletonProps
-) {
+export const Skeleton: React.FC<SkeletonProps> = memo(function Skeleton(props: SkeletonProps) {
   const { className, height, width, border } = props
 
   const styles: CSSProperties = {

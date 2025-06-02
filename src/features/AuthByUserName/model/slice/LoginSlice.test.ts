@@ -16,9 +16,9 @@ describe("LoginSlice", () => {
     const state: DeepPartial<LoginSchema> = { username: "123" }
 
     // Test state after action
-    expect(
-      loginReducer(state as LoginSchema, loginActions.setUserName("123123"))
-    ).toEqual({ username: "123123" })
+    expect(loginReducer(state as LoginSchema, loginActions.setUserName("123123"))).toEqual({
+      username: "123123",
+    })
   })
 
   test("должен обработать ввод пароля", () => {
@@ -26,9 +26,9 @@ describe("LoginSlice", () => {
     const state: DeepPartial<LoginSchema> = { password: "123" }
 
     // Test state after action
-    expect(
-      loginReducer(state as LoginSchema, loginActions.setPassword("123123"))
-    ).toEqual({ password: "123123" })
+    expect(loginReducer(state as LoginSchema, loginActions.setPassword("123123"))).toEqual({
+      password: "123123",
+    })
   })
 
   test("должен обработать пустое начальное состояние", () => {
@@ -46,9 +46,7 @@ describe("LoginSlice", () => {
       isLoading: false,
     }
 
-    expect(
-      loginReducer(state as LoginSchema, { type: "loginByUsername/pending" })
-    ).toEqual({
+    expect(loginReducer(state as LoginSchema, { type: "loginByUsername/pending" })).toEqual({
       error: undefined,
       isLoading: true,
     })
@@ -60,9 +58,7 @@ describe("LoginSlice", () => {
       error: "error",
     }
 
-    expect(
-      loginReducer(state as LoginSchema, { type: "loginByUsername/fulfilled" })
-    ).toEqual({
+    expect(loginReducer(state as LoginSchema, { type: "loginByUsername/fulfilled" })).toEqual({
       isLoading: false,
       error: undefined,
     })

@@ -2,13 +2,9 @@ import { MutableRefObject, useCallback, useEffect, useRef } from "react"
 
 type Throttle<T extends unknown[]> = (...args: T) => void
 
-export const useThrottle = <T extends unknown[]>(
-  callback: Throttle<T>,
-  delay: number
-) => {
+export const useThrottle = <T extends unknown[]>(callback: Throttle<T>, delay: number) => {
   const throttleRef = useRef(false)
-  const timeoutRef: MutableRefObject<NodeJS.Timeout | undefined> =
-    useRef<NodeJS.Timeout>()
+  const timeoutRef: MutableRefObject<NodeJS.Timeout | undefined> = useRef<NodeJS.Timeout>()
 
   useEffect(() => {
     return () => {

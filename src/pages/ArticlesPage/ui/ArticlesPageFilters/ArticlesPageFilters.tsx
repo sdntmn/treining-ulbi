@@ -9,11 +9,7 @@ import { SortOrder } from "@/shared/types/sort"
 import { Card } from "@/shared/ui/Card"
 import { Input } from "@/shared/ui/Input"
 
-import {
-  ArticleSortField,
-  ArticleViewType,
-  ArticleType,
-} from "@/entities/Article"
+import { ArticleSortField, ArticleViewType, ArticleType } from "@/entities/Article"
 
 import { ArticleSortSelector } from "@/features/ArticleSortSelector"
 import { ArticleTypeTabs } from "@/features/ArticleTypeTabs"

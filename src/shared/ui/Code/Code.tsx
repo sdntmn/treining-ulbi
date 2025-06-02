@@ -30,11 +30,7 @@ export const Code: React.FC<CodeProps> = memo(function Code(props: CodeProps) {
 
   return (
     <pre className={cn("code", [className])}>
-      <Button
-        onClick={onCopy}
-        className="code__copy-btn"
-        buttonVar={ButtonVar.CLEAR}
-      >
+      <Button onClick={onCopy} className="code__copy-btn" buttonVar={ButtonVar.CLEAR}>
         <CopyIcon className="code__copy-icon" />
       </Button>
       <code className={`language-${language}`}>{text}</code>

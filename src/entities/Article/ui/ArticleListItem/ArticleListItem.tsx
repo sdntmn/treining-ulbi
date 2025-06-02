@@ -28,106 +28,78 @@ interface ArticleItemProps {
   target?: HTMLAttributeAnchorTarget
 }
 
-export const ArticleListItem: React.FC<ArticleItemProps> = memo(
-  function ArticleItem(props: ArticleItemProps) {
-    const { className, article, view, target } = props
-    const { t } = useTranslation("article")
-    const [isHover, bindHover] = useHover()
-    console.info(isHover)
+export const ArticleListItem: React.FC<ArticleItemProps> = memo(function ArticleItem(
+  props: ArticleItemProps
+) {
+  const { className, article, view, target } = props
+  const { t } = useTranslation("article")
+  const [isHover, bindHover] = useHover()
+  console.info(isHover)
 
-    const types = (
-      <TextParagraf
-        text={article?.type.join(", ")}
-        className="article-list-item__types"
-      />
+  const types = (
+    <TextParagraf text={article?.type.join(", ")} className="article-list-item__types" />
+  )
+  const views = (
+    <>
+      <TextParagraf text={String(article?.views)} className="article-item__views" />
+      <Icon Svg={EyeIcon} />
+    </>
+  )
+
+  if (view === ArticleViewType.LIST) {
+    const textBlock = article.blocks?.find(
+      (block: ArticleBlock) => block.type === ArticleBlockType.TEXT
     )
-    const views = (
-      <>
-        <TextParagraf
-          text={String(article?.views)}
-          className="article-item__views"
-        />
-        <Icon Svg={EyeIcon} />
-      </>
-    )
-
-    if (view === ArticleViewType.LIST) {
-      const textBlock = article.blocks?.find(
-        (block: ArticleBlock) => block.type === ArticleBlockType.TEXT
-      )
-      return (
-        <div {...bindHover} className={cn("article-item__list", [className])}>
-          <Card className="article-item__card-list">
-            <div className="article-item__header">
-              <Avatar size={30} src={article.user.avatar} />
-              <TextParagraf
-                text={article.user.username}
-                className="article-item__username"
-              />
-              <TextParagraf
-                text={article.createdAt}
-                className="article-item__date"
-              />
-            </div>
-            <TextParagraf
-              title={article.title}
-              className="article-item__title"
-            />
-            {types}
-            <AppImage
-              src={article?.img}
-              className="article-item__img"
-              alt={article?.title}
-              fallback={<Skeleton width={"100%"} height={"250"} />}
-            />
-            {textBlock && (
-              <ArticleTextBlock
-                block={textBlock}
-                className="article-item__text-block"
-              />
-            )}
-            <div className="article-item__footer">
-              <AppLink
-                target={target}
-                to={routePatch.articleDetails(article.id)}
-              >
-                <Button buttonVar={ButtonVar.OUTLINE}>
-                  {t("articleBtnReadMore")}
-                </Button>
-              </AppLink>
-              {views}
-            </div>
-          </Card>
-        </div>
-      )
-    }
-
     return (
-      <AppLink
-        target={target}
-        className={cn("article-item__card", [className])}
-        to={routePatch.articleDetails(article.id)}
-      >
-        <Card className="article-item__card-item ">
-          <div className="article-item__image-wrapper">
-            <AppImage
-              src={article?.img}
-              className="article-item__img"
-              alt={article?.title}
-              fallback={<Skeleton width={"200"} height={"200"} border="50%" />}
-            />
-            <TextParagraf
-              text={article?.createdAt}
-              className="article-item__date"
-            />
+      <div {...bindHover} className={cn("article-item__list", [className])}>
+        <Card className="article-item__card-list">
+          <div className="article-item__header">
+            <Avatar size={30} src={article.user.avatar} />
+            <TextParagraf text={article.user.username} className="article-item__username" />
+            <TextParagraf text={article.createdAt} className="article-item__date" />
           </div>
-          <div className="article-item__info-wrapper">
-            {types}
+          <TextParagraf title={article.title} className="article-item__title" />
+          {types}
+          <AppImage
+            src={article?.img}
+            className="article-item__img"
+            alt={article?.title}
+            fallback={<Skeleton width={"100%"} height={"250"} />}
+          />
+          {textBlock && <ArticleTextBlock block={textBlock} className="article-item__text-block" />}
+          <div className="article-item__footer">
+            <AppLink target={target} to={routePatch.articleDetails(article.id)}>
+              <Button buttonVar={ButtonVar.OUTLINE}>{t("articleBtnReadMore")}</Button>
+            </AppLink>
             {views}
           </div>
-          <TextParagraf text={article?.title} className="article-item__title" />
         </Card>
-      </AppLink>
+      </div>
     )
   }
-)
+
+  return (
+    <AppLink
+      target={target}
+      className={cn("article-item__card", [className])}
+      to={routePatch.articleDetails(article.id)}
+    >
+      <Card className="article-item__card-item ">
+        <div className="article-item__image-wrapper">
+          <AppImage
+            src={article?.img}
+            className="article-item__img"
+            alt={article?.title}
+            fallback={<Skeleton width={"200"} height={"200"} border="50%" />}
+          />
+          <TextParagraf text={article?.createdAt} className="article-item__date" />
+        </div>
+        <div className="article-item__info-wrapper">
+          {types}
+          {views}
+        </div>
+        <TextParagraf text={article?.title} className="article-item__title" />
+      </Card>
+    </AppLink>
+  )
+})

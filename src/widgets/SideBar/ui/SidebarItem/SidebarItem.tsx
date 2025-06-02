@@ -17,26 +17,25 @@ interface SidebarItemProps {
   collapsed: boolean
 }
 
-export const SidebarItem: React.FC<SidebarItemProps> = memo(
-  function SidebarItem({ item, collapsed }: SidebarItemProps) {
-    /* i18next-extract-disable-next-line */
-    /* i18next-extract-disable-line */
-    const { t } = useTranslation("sideBar")
-    const isAuth = useSelector(getUserAuthData)
-    if (item.authOnly && !isAuth) {
-      return null
-    }
-    return (
-      <AppLink
-        className={cn("sidebar-item", [
-          collapsed ? "sidebar-item__collapsed" : "",
-        ])}
-        appLinkColor={AppLinkColor.PRIMARY}
-        to={item.path}
-      >
-        <item.Icon className={"sidebar-item__icon"} />
-        <span className={"sidebar-item__link"}>{t(item.text)}</span>
-      </AppLink>
-    )
+export const SidebarItem: React.FC<SidebarItemProps> = memo(function SidebarItem({
+  item,
+  collapsed,
+}: SidebarItemProps) {
+  /* i18next-extract-disable-next-line */
+  /* i18next-extract-disable-line */
+  const { t } = useTranslation("sideBar")
+  const isAuth = useSelector(getUserAuthData)
+  if (item.authOnly && !isAuth) {
+    return null
   }
-)
+  return (
+    <AppLink
+      className={cn("sidebar-item", [collapsed ? "sidebar-item__collapsed" : ""])}
+      appLinkColor={AppLinkColor.PRIMARY}
+      to={item.path}
+    >
+      <item.Icon className={"sidebar-item__icon"} />
+      <span className={"sidebar-item__link"}>{t(item.text)}</span>
+    </AppLink>
+  )
+})

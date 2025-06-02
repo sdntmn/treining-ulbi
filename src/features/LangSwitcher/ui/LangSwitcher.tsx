@@ -9,27 +9,17 @@ interface LangSwitcherProps {
   schort?: boolean
 }
 
-export const LangSwitcher: React.FC<LangSwitcherProps> = memo(
-  function LangSwitcher({ className, schort }: LangSwitcherProps) {
-    const { t, i18n } = useTranslation("sideBar")
+export const LangSwitcher: React.FC<LangSwitcherProps> = memo(function LangSwitcher({
+  className,
+  schort,
+}: LangSwitcherProps) {
+  const { t, i18n } = useTranslation("sideBar")
 
-    const changeLanguage = async () => {
-      i18n.changeLanguage(i18n.language === "ru" ? "en" : "ru")
-    }
+  const changeLanguage = async () => {
+    i18n.changeLanguage(i18n.language === "ru" ? "en" : "ru")
+  }
 
-    if (schort) {
-      return (
-        <Button
-          className={cn("", [className])}
-          buttonVar={ButtonVar.CLEAR}
-          square={ButtonSquare.SQUARE_M}
-          onClick={changeLanguage}
-        >
-          {t("languageShort")}
-        </Button>
-      )
-    }
-
+  if (schort) {
     return (
       <Button
         className={cn("", [className])}
@@ -37,8 +27,19 @@ export const LangSwitcher: React.FC<LangSwitcherProps> = memo(
         square={ButtonSquare.SQUARE_M}
         onClick={changeLanguage}
       >
-        {t("language")}
+        {t("languageShort")}
       </Button>
     )
   }
-)
+
+  return (
+    <Button
+      className={cn("", [className])}
+      buttonVar={ButtonVar.CLEAR}
+      square={ButtonSquare.SQUARE_M}
+      onClick={changeLanguage}
+    >
+      {t("language")}
+    </Button>
+  )
+})

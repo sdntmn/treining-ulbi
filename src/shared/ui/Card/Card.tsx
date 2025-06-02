@@ -17,21 +17,11 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const Card: React.FC<CardProps> = memo(function Card(props: CardProps) {
-  const {
-    className,
-    children,
-    theme = CardTheme.NORMAL,
-    max,
-    ...otherProps
-  } = props
+  const { className, children, theme = CardTheme.NORMAL, max, ...otherProps } = props
 
   return (
     <div
-      className={cn("card", [
-        className,
-        theme && `card__${theme}`,
-        max && "card__width-max",
-      ])}
+      className={cn("card", [className, theme && `card__${theme}`, max && "card__width-max"])}
       {...otherProps}
     >
       {children}

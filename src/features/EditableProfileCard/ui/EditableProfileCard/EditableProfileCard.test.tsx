@@ -48,19 +48,13 @@ afterEach(() => {
 describe("features/EditableProfileCard", () => {
   test("Режим рид онли должен переключиться", async () => {
     ComponentRender(<EditableProfileCard id="1" />, options)
-    await userEvent.click(
-      screen.getByTestId("EditableProfileCardHeader.EditButton")
-    )
-    expect(
-      screen.getByTestId("EditableProfileCardHeader.CancelButton")
-    ).toBeInTheDocument()
+    await userEvent.click(screen.getByTestId("EditableProfileCardHeader.EditButton"))
+    expect(screen.getByTestId("EditableProfileCardHeader.CancelButton")).toBeInTheDocument()
   })
 
   test("При отмене значения должны обнуляться", async () => {
     ComponentRender(<EditableProfileCard id="1" />, options)
-    await userEvent.click(
-      screen.getByTestId("EditableProfileCardHeader.EditButton")
-    )
+    await userEvent.click(screen.getByTestId("EditableProfileCardHeader.EditButton"))
 
     const firstNameInput = screen.getByTestId("ProfileCard.FirstName")
     const lastNameInput = screen.getByTestId("ProfileCard.Lastname")
@@ -71,9 +65,7 @@ describe("features/EditableProfileCard", () => {
     await userEvent.type(screen.getByTestId("ProfileCard.FirstName"), "user")
     await userEvent.type(screen.getByTestId("ProfileCard.Lastname"), "user")
 
-    await userEvent.click(
-      screen.getByTestId("EditableProfileCardHeader.CancelButton")
-    )
+    await userEvent.click(screen.getByTestId("EditableProfileCardHeader.CancelButton"))
 
     expect(screen.getByTestId("ProfileCard.FirstName")).toHaveValue("admin")
     expect(screen.getByTestId("ProfileCard.Lastname")).toHaveValue("admin")
@@ -81,33 +73,23 @@ describe("features/EditableProfileCard", () => {
 
   test("Должна появиться ошибка", async () => {
     ComponentRender(<EditableProfileCard id="1" />, options)
-    await userEvent.click(
-      screen.getByTestId("EditableProfileCardHeader.EditButton")
-    )
+    await userEvent.click(screen.getByTestId("EditableProfileCardHeader.EditButton"))
 
     await userEvent.clear(screen.getByTestId("ProfileCard.FirstName"))
 
-    await userEvent.click(
-      screen.getByTestId("EditableProfileCardHeader.SaveButton")
-    )
+    await userEvent.click(screen.getByTestId("EditableProfileCardHeader.SaveButton"))
 
-    expect(
-      screen.getByTestId("EditableProfileCard.Error.text")
-    ).toBeInTheDocument()
+    expect(screen.getByTestId("EditableProfileCard.Error.text")).toBeInTheDocument()
   })
 
   test("Если нет ошибок валидации, то на сервер должен уйти PUT запрос", async () => {
     const mockPutReq = jest.spyOn($api, "put")
     ComponentRender(<EditableProfileCard id="1" />, options)
-    await userEvent.click(
-      screen.getByTestId("EditableProfileCardHeader.EditButton")
-    )
+    await userEvent.click(screen.getByTestId("EditableProfileCardHeader.EditButton"))
 
     await userEvent.type(screen.getByTestId("ProfileCard.FirstName"), "user")
 
-    await userEvent.click(
-      screen.getByTestId("EditableProfileCardHeader.SaveButton")
-    )
+    await userEvent.click(screen.getByTestId("EditableProfileCardHeader.SaveButton"))
 
     expect(mockPutReq).toHaveBeenCalled()
   })

@@ -10,12 +10,13 @@ interface ArticleCodeBlockProps {
   block: ArticleCode
 }
 
-export const ArticleCodeBlock: React.FC<ArticleCodeBlockProps> = memo(
-  function ArticleCodeBlock({ className, block }: ArticleCodeBlockProps) {
-    return (
-      <div className={cn("article-code-block", [className])}>
-        <Code className="article-code-block__code" text={block.code} />
-      </div>
-    )
-  }
-)
+export const ArticleCodeBlock: React.FC<ArticleCodeBlockProps> = memo(function ArticleCodeBlock({
+  className,
+  block,
+}: ArticleCodeBlockProps) {
+  return (
+    <div className={cn("article-code-block", [className])}>
+      <Code className="article-code-block__code" text={block.code} />
+    </div>
+  )
+})

@@ -4,10 +4,10 @@
   "semi": false,
   "singleQuote": false,
   "trailingComma": "es5",
-  "arrowParens": "always",
   "bracketSpacing": true,
   "bracketSameLine": false,
   "endOfLine": "auto",
   "printWidth": 100,
-  "functionParentheses": false
+  "functionParentheses": false,
+  "arrowParens": "always"
 }

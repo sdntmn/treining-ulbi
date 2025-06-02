@@ -1,18 +1,9 @@
-import {
-  createEntityAdapter,
-  createSlice,
-  PayloadAction,
-} from "@reduxjs/toolkit"
+import { createEntityAdapter, createSlice, PayloadAction } from "@reduxjs/toolkit"
 
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from "@/shared/const/localstorage"
 import { SortOrder } from "@/shared/types/sort"
 
-import {
-  Article,
-  ArticleViewType,
-  ArticleSortField,
-  ArticleType,
-} from "@/entities/Article"
+import { Article, ArticleViewType, ArticleSortField, ArticleType } from "@/entities/Article"
 
 // eslint-disable-next-line paths-import/imports-layers
 import { StateSchema } from "@/app/providers/StoreProvider"
@@ -73,9 +64,8 @@ const articlesPageSlice = createSlice({
 
     initState: (state) => {
       const view =
-        (localStorage.getItem(
-          ARTICLES_VIEW_LOCALSTORAGE_KEY
-        ) as ArticleViewType) || ArticleViewType.CARD
+        (localStorage.getItem(ARTICLES_VIEW_LOCALSTORAGE_KEY) as ArticleViewType) ||
+        ArticleViewType.CARD
 
       state.view = view
       state.limit = view === ArticleViewType.LIST ? 4 : 9
@@ -109,5 +99,4 @@ const articlesPageSlice = createSlice({
   },
 })
 
-export const { reducer: articlesPageReducer, actions: articlesPageActions } =
-  articlesPageSlice
+export const { reducer: articlesPageReducer, actions: articlesPageActions } = articlesPageSlice

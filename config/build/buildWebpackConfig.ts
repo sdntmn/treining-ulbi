@@ -8,9 +8,7 @@ import { buildPlugins } from "./buildPlugins"
 import { buildResolvers } from "./buildResolvers"
 import { type BuildOptions } from "./types/config"
 
-export function buildWebpackConfig(
-  options: BuildOptions
-): webpack.Configuration {
+export function buildWebpackConfig(options: BuildOptions): webpack.Configuration {
   const { isDev, mode, paths } = options
 
   return {
@@ -65,9 +63,7 @@ export function buildWebpackConfig(
             priority: -10,
             reuseExistingChunk: true,
             name(module: webpack.Module) {
-              const packageName = module.context?.match(
-                /[\\/]node_modules[\\/](.*?)([\\/]|$)/
-              )?.[1]
+              const packageName = module.context?.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)?.[1]
               return `vendor.${packageName?.replace("@", "") ?? "lib"}`
             },
           },

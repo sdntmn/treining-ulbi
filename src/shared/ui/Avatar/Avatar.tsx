@@ -33,12 +33,7 @@ export const Avatar: React.FC<AvatarProps> = ({
 
   const fallBack = <Skeleton width={size} height={size} border={"50%"} />
   const errorFallback = (
-    <Icon
-      inverted={fallbackInverted}
-      width={size}
-      height={size}
-      Svg={UserIcon}
-    />
+    <Icon inverted={fallbackInverted} width={size} height={size} Svg={UserIcon} />
   )
 
   return (

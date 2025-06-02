@@ -13,10 +13,7 @@ export function buildSlice<
   const useActions = (): typeof slice.actions => {
     const dispatch = useDispatch()
 
-    return useMemo(
-      () => bindActionCreators(slice.actions, dispatch),
-      [dispatch]
-    )
+    return useMemo(() => bindActionCreators(slice.actions, dispatch), [dispatch])
   }
 
   return {

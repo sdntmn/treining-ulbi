@@ -23,9 +23,7 @@ interface NavbarProps {
   className?: string
 }
 
-export const Navbar: React.FC<NavbarProps> = memo(function Navbar({
-  className,
-}: NavbarProps) {
+export const Navbar: React.FC<NavbarProps> = memo(function Navbar({ className }: NavbarProps) {
   const { t } = useTranslation("common")
   const [isAuthModal, setIsAuthModal] = useState<boolean>(false)
 
@@ -37,11 +35,7 @@ export const Navbar: React.FC<NavbarProps> = memo(function Navbar({
   if (authData) {
     return (
       <header className={cn("navbar", [className])}>
-        <TextParagraf
-          className="navbar-name"
-          title={t("SDN")}
-          textVar={TextVar.PRIMARY}
-        />
+        <TextParagraf className="navbar-name" title={t("SDN")} textVar={TextVar.PRIMARY} />
 
         <AppLink
           to={routePatch.articleCreate()}
@@ -60,16 +54,10 @@ export const Navbar: React.FC<NavbarProps> = memo(function Navbar({
 
   return (
     <div className={cn("navbar", [className])}>
-      <Button
-        className="navbar__login"
-        buttonVar={ButtonVar.CLEAR}
-        onClick={onOpenModalAuth}
-      >
+      <Button className="navbar__login" buttonVar={ButtonVar.CLEAR} onClick={onOpenModalAuth}>
         {t("login")}
       </Button>
-      {isAuthModal && (
-        <LoginModal isOpen={isAuthModal} onClose={onCloseModalAuth} />
-      )}
+      {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={onCloseModalAuth} />}
     </div>
   )
 })

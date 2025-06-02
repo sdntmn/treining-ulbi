@@ -12,10 +12,7 @@ import { cn } from "@/shared/lib/classNames/classNames"
 import "./Input.module.scss"
 
 // Omit позволяет забрать все пропсы, но какие то исключить
-type HTMLInputProps = Omit<
-  InputHTMLAttributes<HTMLInputElement>,
-  "value" | "onChange" | "readOnly"
->
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, "value" | "onChange" | "readOnly">
 
 interface InputProps extends HTMLInputProps {
   className?: string
@@ -25,9 +22,7 @@ interface InputProps extends HTMLInputProps {
   isReadonly?: boolean
 }
 
-export const Input: React.FC<InputProps> = memo(function Input(
-  props: InputProps
-) {
+export const Input: React.FC<InputProps> = memo(function Input(props: InputProps) {
   const {
     className,
     value,
@@ -68,12 +63,8 @@ export const Input: React.FC<InputProps> = memo(function Input(
   }, [autofocus])
 
   return (
-    <div
-      className={cn("input", [className, isReadonly ? "input__readonly" : ""])}
-    >
-      {placeholder && (
-        <div className="input__placeholder">{`${placeholder}`}</div>
-      )}
+    <div className={cn("input", [className, isReadonly ? "input__readonly" : ""])}>
+      {placeholder && <div className="input__placeholder">{`${placeholder}`}</div>}
       <div className="input__caret-wrapper">
         <input
           ref={ref}
@@ -88,10 +79,7 @@ export const Input: React.FC<InputProps> = memo(function Input(
           {...otherProps}
         />
         {isCaretVisible && (
-          <span
-            className="input__caret"
-            style={{ left: `${caretPosition * 9}px` }}
-          />
+          <span className="input__caret" style={{ left: `${caretPosition * 9}px` }} />
         )}
       </div>
     </div>

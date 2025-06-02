@@ -42,11 +42,7 @@ const urlParams = (params: URLSearchParams): UrlParams => {
   }
 }
 
-export const initArticlePage = createAsyncThunk<
-  void,
-  URLSearchParams,
-  ThunkConfig<string>
->(
+export const initArticlePage = createAsyncThunk<void, URLSearchParams, ThunkConfig<string>>(
   "articlesPage/initArticlePage",
   async (searchParams: URLSearchParams, thunkApi) => {
     const { getState, dispatch } = thunkApi

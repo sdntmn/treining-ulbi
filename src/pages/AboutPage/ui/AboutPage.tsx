@@ -12,8 +12,7 @@ const AboutPage: React.FC = () => {
     <Page data-testid="AboutPage" className="about-page">
       <h1>{t("aboutPageTitle")}</h1>
       <p>
-        @use-gesture - позволяет привязывать события мыши и прикосновения к
-        любому узлу
+        @use-gesture - позволяет привязывать события мыши и прикосновения к любому узлу
         <a>https://use-gesture.netlify.app/</a>
       </p>
       <p>
@@ -29,8 +28,7 @@ const AboutPage: React.FC = () => {
         <a>https://vite.dev/guide/</a>
       </p>
       <p>
-        добавлен eslint-plugin-unused-imports - для отслеживания не используемых
-        импортов
+        добавлен eslint-plugin-unused-imports - для отслеживания не используемых импортов
         <a>https://www.npmjs.com/package/eslint-plugin-unused-imports</a>
       </p>
       <h2>Контекст:</h2>

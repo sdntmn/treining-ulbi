@@ -12,10 +12,7 @@ import { Button, ButtonVar } from "@/shared/ui/Button"
 import { Input } from "@/shared/ui/Input"
 
 import { getAddCommentFormText } from "../../model/selectors/addCommentFormSelectors"
-import {
-  addCommentFormActions,
-  addCommentFormReducer,
-} from "../../model/slice/addCommentFormSlice"
+import { addCommentFormActions, addCommentFormReducer } from "../../model/slice/addCommentFormSlice"
 
 import "./AddCommentForm.module.scss"
 
@@ -57,11 +54,7 @@ const AddCommentForm: React.FC<AddCommentFormProps> = ({
           value={text}
           onChange={onCommentTextChange}
         />
-        <Button
-          buttonVar={ButtonVar.OUTLINE}
-          onClick={onSendHandler}
-          disabled={!text}
-        >
+        <Button buttonVar={ButtonVar.OUTLINE} onClick={onSendHandler} disabled={!text}>
           {t("articleBtnSendComment")}
         </Button>
       </div>

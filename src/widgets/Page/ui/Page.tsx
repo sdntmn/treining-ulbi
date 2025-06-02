@@ -1,9 +1,4 @@
-import React, {
-  MutableRefObject,
-  ReactNode,
-  SyntheticEvent,
-  useRef,
-} from "react"
+import React, { MutableRefObject, ReactNode, SyntheticEvent, useRef } from "react"
 import { useSelector } from "react-redux"
 import { useLocation } from "react-router-dom"
 
@@ -34,9 +29,7 @@ export const Page: React.FC<PageProps> = (props: PageProps) => {
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>
   const dispatch = useAppDispatch()
   const { pathname } = useLocation()
-  const scrollPosition = useSelector((state: StateSchema) =>
-    getScrollByPath(state, pathname)
-  )
+  const scrollPosition = useSelector((state: StateSchema) => getScrollByPath(state, pathname))
 
   const onScroll = useThrottle((e: SyntheticEvent<HTMLElement>) => {
     const scrollPosition = Math.round(e.currentTarget.scrollTop)
@@ -67,9 +60,7 @@ export const Page: React.FC<PageProps> = (props: PageProps) => {
       data-testid={props["data-testid"] ?? "Page"}
     >
       {children}
-      {onScrollEnd ? (
-        <div className={"page__trigger"} ref={triggerRef}></div>
-      ) : null}
+      {onScrollEnd ? <div className={"page__trigger"} ref={triggerRef}></div> : null}
     </main>
   )
 }

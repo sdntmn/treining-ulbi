@@ -13,24 +13,18 @@ export interface AppLinkProps extends LinkProps {
   children: ReactNode
 }
 
-export const AppLink: React.FC<AppLinkProps> = memo<AppLinkProps>(
-  function AppLink(props: AppLinkProps) {
-    const {
-      className = "",
-      children,
-      appLinkColor = AppLinkColor.PRIMARY,
-      to,
-      ...otherProps
-    } = props
+export const AppLink: React.FC<AppLinkProps> = memo<AppLinkProps>(function AppLink(
+  props: AppLinkProps
+) {
+  const { className = "", children, appLinkColor = AppLinkColor.PRIMARY, to, ...otherProps } = props
 
-    return (
-      <Link
-        className={cn("app-link", [className, `app-link__${appLinkColor}`])}
-        to={to}
-        {...otherProps}
-      >
-        {children}
-      </Link>
-    )
-  }
-)
+  return (
+    <Link
+      className={cn("app-link", [className, `app-link__${appLinkColor}`])}
+      to={to}
+      {...otherProps}
+    >
+      {children}
+    </Link>
+  )
+})

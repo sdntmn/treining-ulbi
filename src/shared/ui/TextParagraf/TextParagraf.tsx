@@ -41,43 +41,40 @@ const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
   [TextSize.L]: "h1",
 }
 
-export const TextParagraf: React.FC<TextParagrafProps> = memo(
-  function TextParagraf(props: TextParagrafProps) {
-    const {
-      className,
-      title,
-      text,
-      align = TextAlign.LEFT,
-      textVar = TextVar.PRIMARY,
-      size = TextSize.M,
-      "data-testid": dataTestId = "TextParagraf",
-    } = props
+export const TextParagraf: React.FC<TextParagrafProps> = memo(function TextParagraf(
+  props: TextParagrafProps
+) {
+  const {
+    className,
+    title,
+    text,
+    align = TextAlign.LEFT,
+    textVar = TextVar.PRIMARY,
+    size = TextSize.M,
+    "data-testid": dataTestId = "TextParagraf",
+  } = props
 
-    const HeaderTag = mapSizeToHeaderTag[size]
+  const HeaderTag = mapSizeToHeaderTag[size]
 
-    return (
-      <div
-        className={cn("paragraf", [
-          className,
-          textVar && `paragraf__${textVar}`,
-          align && `paragraf__${align}`,
-          size && `paragraf__${size}`,
-        ])}
-      >
-        {title && (
-          <HeaderTag
-            className="paragraf__title"
-            data-testid={`${dataTestId}.title`}
-          >
-            {title}
-          </HeaderTag>
-        )}
-        {text && (
-          <p className="paragraf__text" data-testid={`${dataTestId}.text`}>
-            {text}
-          </p>
-        )}
-      </div>
-    )
-  }
-)
+  return (
+    <div
+      className={cn("paragraf", [
+        className,
+        textVar && `paragraf__${textVar}`,
+        align && `paragraf__${align}`,
+        size && `paragraf__${size}`,
+      ])}
+    >
+      {title && (
+        <HeaderTag className="paragraf__title" data-testid={`${dataTestId}.title`}>
+          {title}
+        </HeaderTag>
+      )}
+      {text && (
+        <p className="paragraf__text" data-testid={`${dataTestId}.text`}>
+          {text}
+        </p>
+      )}
+    </div>
+  )
+})

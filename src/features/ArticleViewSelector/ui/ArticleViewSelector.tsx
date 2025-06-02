@@ -41,17 +41,11 @@ export const ArticleViewSelector: React.FC<ArticleViewSelectorProps> = memo(
 
     const renderButton = (viewType: ViewTypeItem) => {
       return (
-        <Button
-          key={viewType.view}
-          buttonVar={ButtonVar.CLEAR}
-          onClick={onClick(viewType.view)}
-        >
+        <Button key={viewType.view} buttonVar={ButtonVar.CLEAR} onClick={onClick(viewType.view)}>
           <Icon
             Svg={viewType.icon}
             className={cn("article-view-selector", [
-              viewType.view !== view
-                ? "article-view-selector__not-selected"
-                : "",
+              viewType.view !== view ? "article-view-selector__not-selected" : "",
             ])}
           />
         </Button>
@@ -59,9 +53,7 @@ export const ArticleViewSelector: React.FC<ArticleViewSelectorProps> = memo(
     }
 
     return (
-      <div className={cn("article-view-selector", [className])}>
-        {viewTypes.map(renderButton)}
-      </div>
+      <div className={cn("article-view-selector", [className])}>{viewTypes.map(renderButton)}</div>
     )
   }
 )

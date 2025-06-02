@@ -28,10 +28,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
           rule !== null && rule !== undefined && typeof rule === "object"
       )
       .map((rule: RuleSetRule) => {
-        if (
-          rule.test instanceof RegExp &&
-          rule.test.toString().includes("svg")
-        ) {
+        if (rule.test instanceof RegExp && rule.test.toString().includes("svg")) {
           return { ...rule, exclude: /\.svg$/i }
         }
 

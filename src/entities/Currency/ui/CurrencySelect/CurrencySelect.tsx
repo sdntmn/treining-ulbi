@@ -17,32 +17,30 @@ const options = [
   { value: Currency.USD, content: Currency.USD },
 ]
 
-export const CurrencySelect: React.FC<CurrencySelectProps> = memo(
-  function CurrencySelect({
-    value,
-    className,
-    isReadonly,
-    onChange,
-  }: CurrencySelectProps) {
-    const { t } = useTranslation("formAuth")
-    const onChangeHandler = useCallback(
-      (value: string) => {
-        onChange?.(value as Currency)
-      },
-      [onChange]
-    )
+export const CurrencySelect: React.FC<CurrencySelectProps> = memo(function CurrencySelect({
+  value,
+  className,
+  isReadonly,
+  onChange,
+}: CurrencySelectProps) {
+  const { t } = useTranslation("formAuth")
+  const onChangeHandler = useCallback(
+    (value: string) => {
+      onChange?.(value as Currency)
+    },
+    [onChange]
+  )
 
-    return (
-      <ListBox
-        label={t("specifyCurrency")}
-        defaultValue={t("specifyCurrency")}
-        className={className}
-        items={options}
-        value={value}
-        onChange={onChangeHandler}
-        readonly={isReadonly}
-        direction="bottom right"
-      />
-    )
-  }
-)
+  return (
+    <ListBox
+      label={t("specifyCurrency")}
+      defaultValue={t("specifyCurrency")}
+      className={className}
+      items={options}
+      value={value}
+      onChange={onChangeHandler}
+      readonly={isReadonly}
+      direction="bottom right"
+    />
+  )
+})

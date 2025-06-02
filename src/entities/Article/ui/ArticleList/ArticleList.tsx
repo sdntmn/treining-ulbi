@@ -20,18 +20,13 @@ interface ArticleListProps {
 }
 
 const getSkeletons = (view: ArticleViewType) => {
-  const skeletons = Array.from(
-    { length: view === ArticleViewType.CARD ? 9 : 3 },
-    (_, index) => (
-      <ArticleListItemSkeleton key={`skeleton-${index}`} view={view} />
-    )
-  )
+  const skeletons = Array.from({ length: view === ArticleViewType.CARD ? 9 : 3 }, (_, index) => (
+    <ArticleListItemSkeleton key={`skeleton-${index}`} view={view} />
+  ))
   return skeletons
 }
 
-export const ArticleList: React.FC<ArticleListProps> = (
-  props: ArticleListProps
-) => {
+export const ArticleList: React.FC<ArticleListProps> = (props: ArticleListProps) => {
   const { articles, isLoading, view = ArticleViewType.CARD, target } = props
 
   const containerRef = useRef<HTMLDivElement>(null)
@@ -65,10 +60,7 @@ export const ArticleList: React.FC<ArticleListProps> = (
 
   const renderRow = (rowIndex: number) => {
     const startIndex = rowIndex * currentConfig.itemsPerRow
-    const endIndex = Math.min(
-      startIndex + currentConfig.itemsPerRow,
-      articles.length
-    )
+    const endIndex = Math.min(startIndex + currentConfig.itemsPerRow, articles.length)
     const rowItems = articles.slice(startIndex, endIndex)
 
     return (

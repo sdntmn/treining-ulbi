@@ -18,55 +18,38 @@ interface CommentCardProps {
   isLoading?: boolean
 }
 
-export const CommentCard: React.FC<CommentCardProps> = memo(
-  function CommentCard(props: CommentCardProps) {
-    const { className, comment, isLoading } = props
+export const CommentCard: React.FC<CommentCardProps> = memo(function CommentCard(
+  props: CommentCardProps
+) {
+  const { className, comment, isLoading } = props
 
-    if (isLoading) {
-      return (
-        <div
-          className={cn("comment-card", [
-            className,
-            isLoading && "comment-card__loading",
-          ])}
-        >
-          <div className="comment-card__header">
-            <Skeleton width={30} height={30} border="50%" />
-
-            <Skeleton
-              height={16}
-              width={100}
-              className="comment-card__username"
-            />
-          </div>
-
-          <Skeleton className="comment-card__text" width="100%" height={50} />
-        </div>
-      )
-    }
-
-    if (!comment) {
-      return null
-    }
-
+  if (isLoading) {
     return (
-      <VStack gap="8" max className={cn("comment-card", [className])}>
-        <AppLink
-          to={routePatch.profile(comment?.user?.id)}
-          className="comment-card__header"
-        >
-          {comment?.user?.avatar ? (
-            <Avatar size={30} src={comment?.user?.avatar} />
-          ) : null}
+      <div className={cn("comment-card", [className, isLoading && "comment-card__loading"])}>
+        <div className="comment-card__header">
+          <Skeleton width={30} height={30} border="50%" />
 
-          <TextParagraf
-            className="comment-card__username"
-            title={comment?.user?.username}
-          />
-        </AppLink>
+          <Skeleton height={16} width={100} className="comment-card__username" />
+        </div>
 
-        <TextParagraf className="comment-card__text" text={comment?.text} />
-      </VStack>
+        <Skeleton className="comment-card__text" width="100%" height={50} />
+      </div>
     )
   }
-)
+
+  if (!comment) {
+    return null
+  }
+
+  return (
+    <VStack gap="8" max className={cn("comment-card", [className])}>
+      <AppLink to={routePatch.profile(comment?.user?.id)} className="comment-card__header">
+        {comment?.user?.avatar ? <Avatar size={30} src={comment?.user?.avatar} /> : null}
+
+        <TextParagraf className="comment-card__username" title={comment?.user?.username} />
+      </AppLink>
+
+      <TextParagraf className="comment-card__text" text={comment?.text} />
+    </VStack>
+  )
+})
