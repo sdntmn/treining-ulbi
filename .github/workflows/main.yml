@@ -2,9 +2,9 @@ name: CI Pipeline (lint, test, build)
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   pipeline:
@@ -20,7 +20,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'yarn'
+          cache: "yarn"
 
       - name: Cache dependencies
         uses: actions/cache@v3
@@ -70,7 +70,7 @@ jobs:
 
       - name: Upload storybook
         if: success()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: storybook
           path: storybook-static
