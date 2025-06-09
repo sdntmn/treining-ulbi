@@ -24,7 +24,8 @@
     "prepare": "husky",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,scss,css,md}\"",
     "lint-staged": "lint-staged",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "unit:coverage": "jest --coverage"
   },
   "lint-staged": {
     "**/*.{ts,tsx}": [

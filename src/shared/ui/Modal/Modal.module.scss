@@ -7,7 +7,7 @@
   opacity: 0;
   pointer-events: none;
   transform: scale(1);
-    transition: opacity 0.3s, transform 0.3s;
+  transition: opacity 0.3s, transform 0.3s;
 
   &__open {
     opacity: 1;
@@ -15,6 +15,12 @@
 
     .modal__content {
       transform: scale(1);
+    }
+  }
+
+  &__closing {
+    .modal__content {
+      transform: scale(0.2);
     }
   }
 
@@ -27,11 +33,5 @@
     max-width: 50%;
     height: fit-content;
     z-index: var(--modal-z-index);
-  }
-
-  &__closing {
-    .modal__content {
-      transform: scale(0.2);
-    }
   }
 }

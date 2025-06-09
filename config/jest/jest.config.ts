@@ -41,10 +41,10 @@ const config: Config = {
   reporters: [
     "default",
     [
-      "./node_modules/jest-html-reporter",
+      "jest-html-reporter",
       {
         pageTitle: "Test Report",
-        publicPath: "<rootDir>/reports/unit",
+        outputPath: "<rootDir>/reports/unit/report.html",
         filename: "report.html",
         openReport: true,
         inlineSource: true,

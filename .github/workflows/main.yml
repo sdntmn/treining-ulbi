@@ -1,4 +1,74 @@
 name: CI Pipeline (lint, test, build)
+# on:
+#   push:
+#     branches: [master]
+#   pull_request:
+#     branches: [master]
+
+# jobs:
+#   pipeline:
+#     runs-on: ubuntu-latest
+#     strategy:
+#       matrix:
+#         node-version: [18.x]
+
+#     steps:
+#       - uses: actions/checkout@v3
+
+#       - name: Setup Node.js
+#         uses: actions/setup-node@v3
+#         with:
+#           node-version: ${{ matrix.node-version }}
+#           cache: "yarn"
+
+#       - name: Cache dependencies
+#         uses: actions/cache@v3
+#         with:
+#           path: |
+#             ~/.cache/yarn
+#             node_modules
+#           key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
+
+#       - name: Install dependencies
+#         run: |
+#           npm install -g yarn
+#           yarn install --frozen-lockfile
+#           yarn add eslint@8.56.0 --dev # Явно указываем ESLint v8
+
+#       - name: Run TypeScript linting
+#         if: false
+#         run: |
+#           echo "Проверяем конфигурацию ESLint..."
+#           npx eslint --print-config src/index.ts > eslint_config.json
+#           echo "Запускаем линтинг..."
+#           npx eslint "**/*.{ts,tsx}" --max-warnings=0 --format=json > eslint_report.json || true
+#           cat eslint_report.json
+#           echo "Статистика ошибок:"
+#           jq -r '[.[] | .errorCount] | add' eslint_report.json
+#         env:
+#           ESLINTRC: ./.eslintrc.json
+
+#       - name: Run CSS linting
+#         if: false
+#         run: yarn stylelint "**/*.scss"
+
+#       - name: Run unit tests
+#         run: yarn unit
+#         env:
+#           CI: true
+
+#       - name: Build production bundle
+#         run: yarn build:prod
+
+#       - name: Build Storybook
+#         run: yarn build-storybook
+
+#       - name: Upload storybook
+#         if: success()
+#         uses: actions/upload-artifact@v4
+#         with:
+#           name: storybook
+#           path: storybook-static
 
 on:
   push:
@@ -6,24 +76,33 @@ on:
   pull_request:
     branches: [master]
 
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
 jobs:
-  pipeline:
+  lint-and-test:
+    name: Lint & Test
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [18.x]
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: "yarn"
 
       - name: Cache dependencies
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             ~/.cache/yarn
@@ -34,43 +113,65 @@ jobs:
         run: |
           npm install -g yarn
           yarn install --frozen-lockfile
-          yarn add eslint@8.56.0 --dev # Явно указываем ESLint v8
+          yarn add eslint@8.56.0 --dev
 
       - name: Run TypeScript linting
-        if: false
         run: |
-          echo "Проверяем конфигурацию ESLint..."
+          echo "Checking ESLint config..."
           npx eslint --print-config src/index.ts > eslint_config.json
-          echo "Запускаем линтинг..."
+          echo "Running linting..."
           npx eslint "**/*.{ts,tsx}" --max-warnings=0 --format=json > eslint_report.json || true
           cat eslint_report.json
-          echo "Статистика ошибок:"
+          echo "Error statistics:"
           jq -r '[.[] | .errorCount] | add' eslint_report.json
         env:
           ESLINTRC: ./.eslintrc.json
 
-      - name: Run CSS linting
-        if: false
-        run: yarn stylelint "**/*.scss"
+      # - name: Run CSS linting
+      #   run: yarn stylelint "**/*.scss"
 
       - name: Run unit tests
         run: yarn unit
-        env:
-          CI: true
+        if: always()
 
-      # - name: Run UI tests
-      #   run: yarn test:ui:ci
-      #   timeout-minutes: 10
+      - name: Prepare reports directory
+        run: |
+          mkdir -p reports
+          mv other-test-results/* reports/ || true
 
-      - name: Build production bundle
-        run: yarn build:prod
-
-      - name: Build Storybook
-        run: yarn build-storybook
-
-      - name: Upload storybook
-        if: success()
+      - name: Upload test reports artifact
         uses: actions/upload-artifact@v4
+        if: always()
         with:
-          name: storybook
-          path: storybook-static
+          name: test-reports
+          path: reports/
+
+  deploy-reports:
+    name: Deploy Reports
+    runs-on: ubuntu-latest
+    needs: lint-and-test
+    if: needs.lint-and-test.result == 'success'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download reports artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: test-reports
+          path: reports
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "reports"
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
