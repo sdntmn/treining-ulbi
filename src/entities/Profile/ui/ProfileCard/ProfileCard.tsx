@@ -100,7 +100,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = (props: ProfileCardProps)
         placeholder={t("profileCardInputPlaceholderLastName")}
         onChange={onChangeLastName}
         isReadonly={isReadonly}
-        data-testid="ProfileCard.Lastname"
+        data-testid="ProfileCard.LastName"
       />
       <Input
         className={"profile-card__input"}

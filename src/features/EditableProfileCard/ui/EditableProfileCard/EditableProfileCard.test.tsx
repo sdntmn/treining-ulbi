@@ -57,18 +57,18 @@ describe("features/EditableProfileCard", () => {
     await userEvent.click(screen.getByTestId("EditableProfileCardHeader.EditButton"))
 
     const firstNameInput = screen.getByTestId("ProfileCard.FirstName")
-    const lastNameInput = screen.getByTestId("ProfileCard.Lastname")
+    const lastNameInput = screen.getByTestId("ProfileCard.LastName")
 
     await userEvent.clear(firstNameInput)
     await userEvent.clear(lastNameInput)
 
     await userEvent.type(screen.getByTestId("ProfileCard.FirstName"), "user")
-    await userEvent.type(screen.getByTestId("ProfileCard.Lastname"), "user")
+    await userEvent.type(screen.getByTestId("ProfileCard.LastName"), "user")
 
     await userEvent.click(screen.getByTestId("EditableProfileCardHeader.CancelButton"))
 
     expect(screen.getByTestId("ProfileCard.FirstName")).toHaveValue("admin")
-    expect(screen.getByTestId("ProfileCard.Lastname")).toHaveValue("admin")
+    expect(screen.getByTestId("ProfileCard.LastName")).toHaveValue("admin")
   })
 
   test("Должна появиться ошибка", async () => {

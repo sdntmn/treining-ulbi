@@ -10,6 +10,7 @@ import {
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch"
 import { Button, ButtonVar } from "@/shared/ui/Button"
 import { Input } from "@/shared/ui/Input"
+import { HStack } from "@/shared/ui/Stack"
 
 import { getAddCommentFormText } from "../../model/selectors/addCommentFormSelectors"
 import { addCommentFormActions, addCommentFormReducer } from "../../model/slice/addCommentFormSlice"
@@ -47,17 +48,23 @@ const AddCommentForm: React.FC<AddCommentFormProps> = ({
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <div className={cn("add-comment-form", [className])}>
+      <HStack data-testid={"AddCommentForm"} className={cn("add-comment-form", [className])}>
         <Input
+          data-testid={"AddCommentForm.Input"}
           className="add-comment-form__input"
           placeholder={t("articleInputPlaceholder")}
           value={text}
           onChange={onCommentTextChange}
         />
-        <Button buttonVar={ButtonVar.OUTLINE} onClick={onSendHandler} disabled={!text}>
+        <Button
+          data-testid={"AddCommentForm.Button"}
+          buttonVar={ButtonVar.OUTLINE}
+          onClick={onSendHandler}
+          disabled={!text}
+        >
           {t("articleBtnSendComment")}
         </Button>
-      </div>
+      </HStack>
     </DynamicModuleLoader>
   )
 }

@@ -72,6 +72,7 @@ export const ArticleList: React.FC<ArticleListProps> = (props: ArticleListProps)
           marginBottom: "16px",
           height: `${currentConfig.rowHeight}px`,
         }}
+        data-testid={"ArticleList"}
       >
         {rowItems.map((article) => (
           <div

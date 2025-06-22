@@ -54,12 +54,17 @@ export const RatingCard: React.FC<RatingCardProps> = memo((props: RatingCardProp
   const modalContent = (
     <>
       <TextParagraf title={feedbackTitle} />
-      <Input value={feedback} onChange={setFeedback} placeholder={t("Ваш отзыв")} />
+      <Input
+        data-testid={"RatingCard.Input"}
+        value={feedback}
+        onChange={setFeedback}
+        placeholder={t("Ваш отзыв")}
+      />
     </>
   )
 
   return (
-    <Card className={cn("", [className])}>
+    <Card data-testid={"RatingCard"} className={cn("", [className])}>
       <VStack align="center" gap="8">
         <TextParagraf title={title} />
         <StarRating selectedStars={starsCount} size={40} onSelect={onSelectStars} />
@@ -69,10 +74,16 @@ export const RatingCard: React.FC<RatingCardProps> = memo((props: RatingCardProp
           <VStack max gap="32">
             {modalContent}
             <HStack max gap="16" justify="end">
-              <Button onClick={cancelHandle} buttonVar={ButtonVar.OUTLINE_ERROR}>
+              <Button
+                data-testid={"RatingCard.Close"}
+                onClick={cancelHandle}
+                buttonVar={ButtonVar.OUTLINE_ERROR}
+              >
                 {t("Закрыть")}
               </Button>
-              <Button onClick={acceptHandle}>{t("Отправить")}</Button>
+              <Button data-testid={"RatingCard.Send"} onClick={acceptHandle}>
+                {t("Отправить")}
+              </Button>
             </HStack>
           </VStack>
         </Modal>

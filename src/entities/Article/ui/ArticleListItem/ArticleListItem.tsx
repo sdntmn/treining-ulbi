@@ -51,7 +51,11 @@ export const ArticleListItem: React.FC<ArticleItemProps> = memo(function Article
       (block: ArticleBlock) => block.type === ArticleBlockType.TEXT
     )
     return (
-      <div {...bindHover} className={cn("article-item__list", [className])}>
+      <div
+        data-testid={"ArticleListItem"}
+        {...bindHover}
+        className={cn("article-item__list", [className])}
+      >
         <Card className="article-item__card-list">
           <div className="article-item__header">
             <Avatar size={30} src={article.user.avatar} />
@@ -80,6 +84,7 @@ export const ArticleListItem: React.FC<ArticleItemProps> = memo(function Article
 
   return (
     <AppLink
+      data-testid={"ArticleListItem"}
       target={target}
       className={cn("article-item__card", [className])}
       to={routePatch.articleDetails(article.id)}

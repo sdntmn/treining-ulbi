@@ -43,19 +43,21 @@ export const StarRating: React.FC<StarRatingProps> = memo((props: StarRatingProp
 
   return (
     <div className={cn("star-rating", [className])}>
-      {stars.map((starNumber) => (
+      {stars.map((startNumber) => (
         <Icon
+          data-testid={`StarRating.${startNumber}`}
+          data-selected={currentStarsCount >= startNumber}
           className={cn("star-rating__icon", [
             isSelected && "star-rating__selected",
-            currentStarsCount >= starNumber ? "star-rating_hovered" : "start-rating_normal",
+            currentStarsCount >= startNumber ? "star-rating_hovered" : "start-rating_normal",
           ])}
           Svg={StarIcon}
-          key={starNumber}
+          key={startNumber}
           width={size}
           height={size}
           onMouseLeave={onLeave}
-          onMouseEnter={onHover(starNumber)}
-          onClick={onClick(starNumber)}
+          onMouseEnter={onHover(startNumber)}
+          onClick={onClick(startNumber)}
         />
       ))}
     </div>

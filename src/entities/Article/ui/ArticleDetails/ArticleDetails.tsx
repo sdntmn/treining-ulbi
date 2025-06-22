@@ -82,7 +82,7 @@ export const ArticleDetails: React.FC<ArticleDetailsProps> = memo(function Artic
         <Avatar size={200} src={article?.img} />
       </HStack>
 
-      <VStack gap="4" max>
+      <VStack gap="4" max data-testid={"ArticleDetails.Info"}>
         <TextParagraf title={article?.title} text={article?.subTitle} size={TextSize.L} />
         <HStack gap="8">
           <Icon Svg={EyeIcon} />

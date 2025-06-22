@@ -23,7 +23,7 @@ export const ArticleRecommendationList: React.FC<ArticleRecommendationListProps>
     }
 
     return (
-      <VStack gap="8" className={cn("", [className])}>
+      <VStack data-testid={"ArticleRecommendationsList"} gap="8" className={cn("", [className])}>
         <TextParagraf size={TextSize.L} title={t("articleRecomendations")} />
         <ArticleList articles={recomendationArticles} isLoading={isLoading} target="_blank" />
       </VStack>

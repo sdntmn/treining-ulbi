@@ -25,7 +25,10 @@ export const CommentCard: React.FC<CommentCardProps> = memo(function CommentCard
 
   if (isLoading) {
     return (
-      <div className={cn("comment-card", [className, isLoading && "comment-card__loading"])}>
+      <VStack
+        data-testid={"CommentCard.Loading"}
+        className={cn("comment-card", [className, isLoading && "comment-card__loading"])}
+      >
         <div className="comment-card__header">
           <Skeleton width={30} height={30} border="50%" />
 
@@ -33,7 +36,7 @@ export const CommentCard: React.FC<CommentCardProps> = memo(function CommentCard
         </div>
 
         <Skeleton className="comment-card__text" width="100%" height={50} />
-      </div>
+      </VStack>
     )
   }
 
@@ -42,7 +45,12 @@ export const CommentCard: React.FC<CommentCardProps> = memo(function CommentCard
   }
 
   return (
-    <VStack gap="8" max className={cn("comment-card", [className])}>
+    <VStack
+      data-testid={"CommentCard.Content"}
+      gap="8"
+      max
+      className={cn("comment-card", [className])}
+    >
       <AppLink to={routePatch.profile(comment?.user?.id)} className="comment-card__header">
         {comment?.user?.avatar ? <Avatar size={30} src={comment?.user?.avatar} /> : null}
 

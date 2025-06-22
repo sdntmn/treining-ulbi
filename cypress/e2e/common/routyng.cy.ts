@@ -18,10 +18,10 @@ describe("Роутинг", () => {
 
   describe("Пользователь авторизован", () => {
     beforeEach(() => {
-      cy.login("admin", "123")
+      cy.login("testuser", "123")
     })
     it("Переход на страницу Профиля", () => {
-      cy.visit("/profile/1")
+      cy.visit("/profile/4")
       cy.get(selectByTestId("ProfilePage")).should("exist")
     })
     it("Переход на страницу со списком статей", () => {

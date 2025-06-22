@@ -2174,6 +2174,17 @@
       "city": "Tyumen",
       "username": "admin",
       "avatar": "https://i.pinimg.com/originals/39/3d/f1/393df1b167dfe31ee22081e6cafdaf62.jpg"
+    },
+    {
+      "id": "4",
+      "first": "test",
+      "lastName": "user",
+      "age": 36,
+      "currency": "EUR",
+      "country": "Russia",
+      "city": "Tyumen",
+      "username": "testuser",
+      "avatar": "https://cdn-edge.kwork.ru/files/portfolio/t3/82/cover-10168961-1688001496.jpg"
     }
   ],
   "article-ratings": [
@@ -2190,34 +2201,6 @@
       "feedback": "Хорошая статья",
       "userId": "1",
       "articleId": "2"
-    },
-    {
-      "userId": "1",
-      "articleId": "3",
-      "rate": 3,
-      "feedback": "",
-      "id": "I7ofk1u"
-    },
-    {
-      "userId": "1",
-      "articleId": "9",
-      "rate": 5,
-      "feedback": "asdasdasdasd",
-      "id": "Y7MhPzo"
-    },
-    {
-      "userId": "1",
-      "articleId": "10",
-      "rate": 1,
-      "feedback": "отстой",
-      "id": "II0a75O"
-    },
-    {
-      "userId": "1",
-      "articleId": "7",
-      "rate": 3,
-      "feedback": "",
-      "id": "bcPnbbZ"
     },
     {
       "userId": "1",
