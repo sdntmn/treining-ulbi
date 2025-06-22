@@ -2,7 +2,6 @@ import react from "@vitejs/plugin-react"
 import { defineConfig } from "vite"
 import svgr from "vite-plugin-svgr"
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), svgr({ include: "**/*.svg" })],
   resolve: {
@@ -15,8 +14,8 @@ export default defineConfig({
   },
   css: {
     modules: {
-      localsConvention: "dashes", // или 'dashes' для сохранения дефисов
-      generateScopedName: "[local]", // опционально
+      localsConvention: "dashes",
+      generateScopedName: "[local]",
     },
   },
 })

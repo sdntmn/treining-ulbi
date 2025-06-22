@@ -16,9 +16,9 @@ export default (env: BuildEnv) => {
     buildLocales: path.resolve(__dirname, "build", "locales"),
   }
 
-  const mode = env.mode || "development"
-  const PORT: number = env.port || 3000
-  const apiUrl = env.apiUrl || "http://localhost:8080"
+  const mode = env?.mode || "development"
+  const PORT: number = env?.port || 3000
+  const apiUrl = env?.apiUrl || "http://localhost:8080"
 
   const isDev = mode === "development"
 
