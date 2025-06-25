@@ -47,6 +47,9 @@
     "@babel/preset-react": "^7.24.7",
     "@babel/preset-typescript": "^7.24.7",
     "@chromatic-com/storybook": "^3.1.0",
+    "@cypress/mount-utils": "^4.1.2",
+    "@cypress/vite-dev-server": "^6.0.3",
+    "@cypress/webpack-dev-server": "^4.1.0",
     "@netlify/plugin-lighthouse": "^6.0.1",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.15",
     "@storybook/addon-essentials": "^8.3.6",
@@ -137,7 +140,7 @@
     "webpack": "^5.93.0",
     "webpack-bundle-analyzer": "^4.10.2",
     "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^5.0.4",
+    "webpack-dev-server": "^5.2.2",
     "whatwg-fetch": "^3.6.20"
   },
   "dependencies": {

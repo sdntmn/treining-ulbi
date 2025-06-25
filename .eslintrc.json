@@ -171,7 +171,8 @@
         "anonymous": "always",
         "named": "never",
         "asyncArrow": "always"
-      } ]
+      } ],
+    "@typescript-eslint/no-namespace": "off"
   },
   "globals": {
     "__IS_DEV__": true,
