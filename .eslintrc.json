@@ -62,13 +62,13 @@
       "error",
       {
         "groups": [
-          "type", // Импорты типов (TypeScript)
           "builtin", // Встроенные модули (node.js)
           "external", // Внешние зависимости (node_modules)
           "internal", // Внутренние пути (алиасы, например `@/`)
           "parent", // Родительские директории (`../`)
           "sibling", // Файлы в той же директории (`./`)
           "index", // Индексные файлы (`./index`)
+          "type", // Импорты типов (TypeScript)
           "object" // Импорты-объекты (например, `import * as React`)
         ],
         "pathGroups": [

@@ -1,5 +1,3 @@
-import type { ArticleBlock } from "../../model/types"
-
 import React, { memo, useCallback } from "react"
 import { useSelector } from "react-redux"
 
@@ -28,6 +26,8 @@ import { articleDetailsReducer } from "../../model/slice/articleDetailsSlice"
 import { ArticleCodeBlock } from "../ArticleCodeBlock/ArticleCodeBlock"
 import { ArticleImageBlock } from "../ArticleImageBlock/ArticleImageBlock"
 import { ArticleTextBlock } from "../ArticleTextBlock/ArticleTextBlock"
+
+import type { ArticleBlock } from "../../model/types"
 
 import "./ArticleDetails.module.scss"
 
