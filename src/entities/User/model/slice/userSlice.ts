@@ -1,6 +1,7 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 
 import { USER_LOCALSTORAGE_KEY } from "@/shared/const/localstorage"
+import { setFeatureFlags } from "@/shared/lib/features"
 
 import { User, UserSchema } from "../types/user"
 
@@ -14,13 +15,16 @@ export const userSlice = createSlice({
   reducers: {
     setAuthData: (state, action: PayloadAction<User>) => {
       state.authData = action.payload
+      setFeatureFlags(action.payload?.features || {})
       localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(action.payload))
     },
     initAuthData: (state) => {
       const user = localStorage.getItem(USER_LOCALSTORAGE_KEY)
       if (user) {
+        const userObj = JSON.parse(user) as User
         try {
-          state.authData = JSON.parse(user)
+          state.authData = userObj
+          setFeatureFlags(userObj?.features || {})
         } catch (e) {
           console.error("Failed to parse user data from localStorage", e)
         }

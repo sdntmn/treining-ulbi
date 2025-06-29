@@ -2111,6 +2111,9 @@
       "roles": [
         "ADMIN"
       ],
+      "features": {
+        "isArticleRatingEnable": true
+      },
       "avatar": "https://gas-kvas.com/uploads/posts/2023-01/1673717784_gas-kvas-com-p-risunok-avatar-poetapno-posledovatelno-8.jpg"
     },
     {
@@ -2120,6 +2123,9 @@
       "roles": [
         "AUTHOR"
       ],
+      "features": {
+        "isArticleRatingEnable": true
+      },
       "avatar": ""
     },
     {
@@ -2129,6 +2135,9 @@
       "roles": [
         "USER"
       ],
+      "features": {
+        "isArticleRatingEnable": false
+      },
       "avatar": "https://gas-kvas.com/uploads/posts/2023-01/1673717784_gas-kvas-com-p-risunok-avatar-poetapno-posledovatelno-8.jpg"
     },
     {
@@ -2138,6 +2147,9 @@
       "roles": [
         "ADMIN"
       ],
+      "features": {
+        "isArticleRatingEnable": true
+      },
       "avatar": "https://cdn-edge.kwork.ru/files/portfolio/t3/82/cover-10168961-1688001496.jpg"
     }
   ],

@@ -7,6 +7,8 @@ import {
   DynamicModuleLoader,
   ReducersList,
 } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
+import { toggleFeatures } from "@/shared/lib/features"
+import { Card } from "@/shared/ui/Card"
 
 import { ArticleDetails } from "@/entities/Article"
 
@@ -35,6 +37,12 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = ({
   const { t } = useTranslation("article")
   const { id } = useParams<{ id: string }>()
 
+  const articleRatingСard = toggleFeatures({
+    name: "isArticleRatingEnabled",
+    on: () => <ArticleRating articleId={id!} />,
+    off: () => <Card> 123 </Card>,
+  })
+
   if (!id) {
     return <Page>{t("articleDetailsPage")}</Page>
   }
@@ -44,7 +52,7 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = ({
       <Page className={cn("article-details-page", [className])}>
         <ArticleDetailsPageHeader />
         <ArticleDetails id={id} />
-        <ArticleRating articleId={id} />
+        {articleRatingСard}
         <ArticleRecommendationList />
         <ArticleDetailsComments id={id} />
       </Page>
