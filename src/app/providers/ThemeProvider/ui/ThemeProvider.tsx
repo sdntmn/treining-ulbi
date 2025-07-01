@@ -13,14 +13,14 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children, initialTheme }) => {
-  const { theme: defaultTheme = Theme.default } = useJsonSettings()
-  const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme)
+  const { theme: defaultTheme } = useJsonSettings()
+  const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme || Theme.default)
   const [isThemeInited, setThemeInited] = useState(false)
 
   const defaultProps = useMemo(() => ({ theme, setTheme }), [theme])
 
   useEffect(() => {
-    if (!isThemeInited) {
+    if (!isThemeInited && defaultTheme) {
       setTheme(defaultTheme)
       setThemeInited(true)
     }

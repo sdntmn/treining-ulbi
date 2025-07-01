@@ -10,6 +10,8 @@ import {
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch"
 import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect/useInitialEffect"
 
+import { ArticlePageGreeting } from "@/features/ArticlePageGreeting"
+
 import { Page } from "@/widgets/Page"
 
 import { fetchNextArticlesPage } from "../../model/services/fetchNextArticlesPage/fetchNextArticlesPage"
@@ -50,6 +52,7 @@ const ArticlesPage: React.FC<ArticlesPageProps> = ({ className }: ArticlesPagePr
       >
         <ArticlesPageFilters />
         <ArticleInfiniteList className="articles-page__list" />
+        <ArticlePageGreeting />
       </Page>
     </DynamicModuleLoader>
   )

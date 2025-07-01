@@ -5,9 +5,10 @@ import { cn } from "@/shared/lib/classNames/classNames"
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch"
 import { useTheme } from "@/shared/lib/hooks/useTheme/useTheme"
 
-import { getUserInitialized, userActions } from "@/entities/User"
+import { getUserInitialized, initAuthData } from "@/entities/User"
 
 import { Navbar } from "@/widgets/Navbar"
+import { PageLoader } from "@/widgets/PageLoader"
 import { Sidebar } from "@/widgets/SideBar"
 
 import { AppRouter } from "./providers/router"
@@ -26,8 +27,16 @@ const App: React.FC = () => {
   }, [theme])
 
   useEffect(() => {
-    dispatch(userActions.initAuthData())
+    dispatch(initAuthData())
   }, [dispatch])
+
+  if (!initializedUser) {
+    return (
+      <div className="app__loading">
+        <PageLoader />
+      </div>
+    )
+  }
 
   return (
     <div className={cn("app", [theme])}>

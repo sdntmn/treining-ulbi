@@ -2112,9 +2112,9 @@
         "ADMIN"
       ],
       "jsonSettings": {
-        "theme": "",
+        "theme": "app-dark-theme",
         "isFirstVisit": true,
-        "settingsPageHasBeenOpen": false
+        "isArticlesPageWasOpened": true
       },
       "features": {
         "isArticleRatingEnable": true
@@ -2131,7 +2131,7 @@
       "jsonSettings": {
         "theme": "",
         "isFirstVisit": false,
-        "settingsPageHasBeenOpen": false
+        "isArticlesPageWasOpened": false
       },
       "features": {
         "isArticleRatingEnable": true
@@ -2148,7 +2148,7 @@
       "jsonSettings": {
         "theme": "app-dark-theme",
         "isFirstVisit": false,
-        "settingsPageHasBeenOpen": false
+        "isArticlesPageWasOpened": true
       },
       "features": {
         "isArticleRatingEnable": false
