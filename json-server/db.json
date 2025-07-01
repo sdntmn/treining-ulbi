@@ -2111,6 +2111,11 @@
       "roles": [
         "ADMIN"
       ],
+      "jsonSettings": {
+        "theme": "",
+        "isFirstVisit": true,
+        "settingsPageHasBeenOpen": false
+      },
       "features": {
         "isArticleRatingEnable": true
       },
@@ -2123,6 +2128,11 @@
       "roles": [
         "AUTHOR"
       ],
+      "jsonSettings": {
+        "theme": "",
+        "isFirstVisit": false,
+        "settingsPageHasBeenOpen": false
+      },
       "features": {
         "isArticleRatingEnable": true
       },
@@ -2135,6 +2145,11 @@
       "roles": [
         "USER"
       ],
+      "jsonSettings": {
+        "theme": "app-dark-theme",
+        "isFirstVisit": false,
+        "settingsPageHasBeenOpen": false
+      },
       "features": {
         "isArticleRatingEnable": false
       },
@@ -2147,6 +2162,11 @@
       "roles": [
         "ADMIN"
       ],
+      "jsonSettings": {
+        "theme": "",
+        "isFirstVisit": true,
+        "settingsPageHasBeenOpen": false
+      },
       "features": {
         "isArticleRatingEnable": true
       },
