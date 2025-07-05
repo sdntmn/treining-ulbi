@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom"
 
 import { PAGE_ID } from "@/shared/const/string"
 import { cn } from "@/shared/lib/classNames/classNames"
+import { toggleFeatures } from "@/shared/lib/features"
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch"
 import { useInfiniteScroll } from "@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll"
 import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect/useInitialEffect"
@@ -51,10 +52,16 @@ export const Page: React.FC<PageProps> = (props: PageProps) => {
     wrapperRef.current.scrollTop = scrollPosition
   })
 
+  const classPage = toggleFeatures<string>({
+    name: "isAppRedesigned",
+    on: () => "page-redesigned",
+    off: () => "page",
+  })
+
   return (
     <main
       ref={wrapperRef}
-      className={cn("page", [className])}
+      className={cn(classPage, [className])}
       onScroll={onScroll}
       id={PAGE_ID}
       data-testid={props["data-testid"] ?? "Page"}

@@ -32,17 +32,40 @@ body {
   }
 }
 
+.app-redesigned {
+  background: var(--bg-redesigned);
+  min-height: 100vh;
+  font: var(--font-m-redesigned);
+  color: var(--text-redesigned);
+
+  &__page {
+    display: flex;
+  }
+
+  &__content {
+    flex-grow: 1;
+    height: calc(100vh - var(--navbar-height));
+    overflow-y: auto;
+    width: 100%;
+  }
+}
+
 *::-webkit-scrollbar {
-    width: 12px; /* ширина scrollbar */
-    height: 8px;
+  width: 12px;
+  /* ширина scrollbar */
+  height: 8px;
 }
 
 *::-webkit-scrollbar-track {
-    background: var(--card-bg); /* цвет дорожки */
+  background: var(--card-bg);
+  /* цвет дорожки */
 }
 
 *::-webkit-scrollbar-thumb {
-    background-color: var(--inverted-primary-color);    /* цвет плашки */
-    border-radius: 20px;       /* закругления плашки */
-    border: 2px solid var(--primary-color);  /* padding вокруг плашки */
+  background-color: var(--inverted-primary-color);
+  /* цвет плашки */
+  border-radius: 20px;
+  /* закругления плашки */
+  border: 2px solid var(--primary-color);
+  /* padding вокруг плашки */
 }

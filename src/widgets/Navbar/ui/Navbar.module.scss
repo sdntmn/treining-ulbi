@@ -29,3 +29,11 @@
     padding: 8px;
   }
 }
+
+.navbar-redesigned {
+  padding: 16px;
+
+  &__actions {
+    margin-left: auto;
+  }
+}

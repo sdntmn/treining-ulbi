@@ -57,9 +57,39 @@
     bottom: 160px;
   }
 
- 
-
   &__icon {
     fill: var(--secondary-color);
+  }
+}
+
+.sidebar-redesigned {
+  background: var(--light-bg-redesigned);
+  width: 220px;
+  height: 100%;
+  border-radius: 32px;
+
+  &__collapsed {
+    width: var(--sidebar-width-collapsed);
+    position: relative;
+
+    .sidebar__switchers {
+      flex-direction: column;
+    }
+
+    .sidebar__item {
+      display: flex;
+      justify-content: center;
+      padding: 0;
+    }
+
+    .sidebar__link {
+      opacity: 0;
+      transition: 0.3s opacity;
+      width: 0;
+    }
+  }
+
+  &__logo {
+    padding-top: 20px;
   }
 }

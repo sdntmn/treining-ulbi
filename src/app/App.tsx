@@ -1,7 +1,9 @@
 import React, { Suspense, useEffect } from "react"
 import { useSelector } from "react-redux"
 
+import { MainLayout } from "@/shared/layouts/MainLayout"
 import { cn } from "@/shared/lib/classNames/classNames"
+import { ToggleFeaturesComponent } from "@/shared/lib/features"
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch"
 import { useTheme } from "@/shared/lib/hooks/useTheme/useTheme"
 
@@ -39,15 +41,32 @@ const App: React.FC = () => {
   }
 
   return (
-    <div className={cn("app", [theme])}>
-      <Suspense fallback={""}>
-        <Navbar />
-        <div className="app__page">
-          <Sidebar />
-          {initializedUser && <AppRouter />}
+    <ToggleFeaturesComponent
+      feature={"isAppRedesigned"}
+      on={
+        <div className={cn("app-redesigned", [theme])}>
+          <Suspense fallback={""}>
+            <MainLayout
+              header={<Navbar />}
+              content={<AppRouter />}
+              sidebar={<Sidebar />}
+              toolbar={<div>1234455 </div>}
+            />
+          </Suspense>
         </div>
-      </Suspense>
-    </div>
+      }
+      off={
+        <div className={cn("app", [theme])}>
+          <Suspense fallback={""}>
+            <Navbar />
+            <div className="app__page">
+              <Sidebar />
+              <AppRouter />
+            </div>
+          </Suspense>
+        </div>
+      }
+    />
   )
 }
 
