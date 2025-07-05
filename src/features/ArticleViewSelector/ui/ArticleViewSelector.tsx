@@ -6,8 +6,8 @@ import { cn } from "@/shared/lib/classNames/classNames"
 import { Button, ButtonVar } from "@/shared/ui/Button"
 import { Icon } from "@/shared/ui/Icon"
 
-import "./ArticleViewSelector.module.scss"
 import { ArticleViewType } from "@/entities/Article"
+import "./ArticleViewSelector.module.scss"
 
 interface ArticleViewSelectorProps {
   className?: string
@@ -43,6 +43,8 @@ export const ArticleViewSelector: React.FC<ArticleViewSelectorProps> = memo(
       return (
         <Button key={viewType.view} buttonVar={ButtonVar.CLEAR} onClick={onClick(viewType.view)}>
           <Icon
+            width={24}
+            height={24}
             Svg={viewType.icon}
             className={cn("article-view-selector", [
               viewType.view !== view ? "article-view-selector__not-selected" : "",
