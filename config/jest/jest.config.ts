@@ -1,6 +1,6 @@
-import type { Config } from "jest"
-
 import path from "path"
+
+import type { Config } from "jest"
 
 const config: Config = {
   globals: {
@@ -17,7 +17,14 @@ const config: Config = {
   rootDir: "../../",
   testMatch: ["<rootDir>src/**/*.(spec|test).[tj]s?(x)"],
   transform: {
-    "^.+\\.tsx?$": ["babel-jest", { presets: ["@babel/preset-react"] }],
+    "^.+\\.tsx?$": [
+      "babel-jest",
+      {
+        presets: [
+          ["@babel/preset-react", { runtime: "automatic" }], // Автоматически подключает React
+        ],
+      },
+    ],
     "^.+\\.scss$": "jest-scss-transform",
   },
   setupFilesAfterEnv: ["<rootDir>config/jest/setup-jest.ts"],

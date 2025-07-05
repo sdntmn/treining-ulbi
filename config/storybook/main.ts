@@ -1,5 +1,20 @@
 import type { StorybookConfig } from "@storybook/react-webpack5"
 
+interface DefaultType {
+  presets: [
+    [
+      "@babel/preset-react",
+      {
+        runtime: "automatic"
+      },
+      "preset-react-jsx-transform",
+      "@babel/preset-typescript",
+      "@babel/preset-env",
+      "@babel/preset-flow",
+    ],
+  ]
+}
+
 const config: StorybookConfig = {
   stories: ["../../src/**/*.mdx", "../../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
 
@@ -21,7 +36,7 @@ const config: StorybookConfig = {
     backgroundsStoryGlobals: true,
   },
   staticDirs: ["../../public"],
-  babel: async (options) => ({
+  babel: async (options: DefaultType) => ({
     ...options,
     presets: [
       ...options.presets,

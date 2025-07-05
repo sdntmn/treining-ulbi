@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react"
-
 import { ArticleViewSelector } from "./ArticleViewSelector"
+
+import type { Meta, StoryObj } from "@storybook/react"
 
 const meta: Meta<typeof ArticleViewSelector> = {
   title: "features/ArticleViewSelector",

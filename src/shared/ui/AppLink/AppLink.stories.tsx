@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react"
-
 import React from "react"
 import { BrowserRouter } from "react-router-dom"
 
 import { AppLinkColor } from "@/shared/const/enums"
 
 import { AppLink } from "."
+
+import type { Meta, StoryObj } from "@storybook/react"
 
 const meta = {
   title: "shared/AppLink",

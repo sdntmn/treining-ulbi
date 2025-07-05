@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react"
-
 import { ButtonNotification } from "./ButtonNotification"
+
+import type { Meta, StoryObj } from "@storybook/react"
 
 const meta = {
   title: "feature/ButtonNotification",

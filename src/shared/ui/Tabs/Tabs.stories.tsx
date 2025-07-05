@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from "@storybook/react"
-
 import { fn } from "@storybook/test"
 
 import { TabItem, Tabs } from "./Tabs"
+
+import type { Meta, StoryObj } from "@storybook/react"
 
 const meta = {
   title: "shared/Tabs",

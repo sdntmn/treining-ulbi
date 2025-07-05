@@ -1,18 +1,17 @@
-import React from "react"
-
 import { RouteNames, UserRole } from "@/shared/const/enums"
 import { APP_PATHS } from "@/shared/const/routes"
-import { AppRoutesProps } from "@/shared/types/routerType"
 
 import { AboutPageAsync } from "@/pages/AboutPage"
 import { AdminPanelPage } from "@/pages/AdminPanelPage"
 import { ArticleEditPage } from "@/pages/ArticleEditPage"
-import { ArticleDetailsPageAsync } from "@/pages/ArticlesDetailsPage"
+import { ArticleDetailsPage } from "@/pages/ArticlesDetailsPage"
 import { ArticlesPageAsync } from "@/pages/ArticlesPage"
 import { ForbiddenPage } from "@/pages/ForbiddenPage"
 import { MainPage } from "@/pages/MainPage"
 import { NotFoundPage } from "@/pages/NotFoundPage"
 import { ProfilePage } from "@/pages/ProfilePage"
+
+import type { AppRoutesProps } from "@/shared/types/routerType"
 
 export const routeConfig: Record<RouteNames, AppRoutesProps> = {
   [RouteNames.MAIN]: { path: APP_PATHS.MAIN, element: <MainPage /> },
@@ -31,7 +30,7 @@ export const routeConfig: Record<RouteNames, AppRoutesProps> = {
 
   [RouteNames.ARTICLE_DETAILS]: {
     path: `${APP_PATHS.ARTICLE_DETAILS}:id`,
-    element: <ArticleDetailsPageAsync />,
+    element: <ArticleDetailsPage />,
     authOnly: true,
   },
   [RouteNames.ARTICLE_CREATE]: {

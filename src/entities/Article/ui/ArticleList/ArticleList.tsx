@@ -1,5 +1,3 @@
-import type { Article } from "../../model/types"
-
 import { useVirtualizer } from "@tanstack/react-virtual"
 import React, { HTMLAttributeAnchorTarget, useRef } from "react"
 
@@ -8,6 +6,8 @@ import { PAGE_ID } from "@/shared/const/string"
 import { ArticleViewType } from "../../model/consts"
 import { ArticleListItem } from "../ArticleListItem/ArticleListItem"
 import { ArticleListItemSkeleton } from "../ArticleListItem/ArticleListItemSkeleton"
+
+import type { Article } from "../../model/types"
 
 import "./ArticleList.module.scss"
 

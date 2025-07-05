@@ -18,7 +18,7 @@ export const userSlice = createSlice({
   reducers: {
     setAuthData: (state, action: PayloadAction<User>) => {
       state.authData = action.payload
-      setFeatureFlags(action.payload?.features || {})
+      setFeatureFlags(action.payload.features)
       localStorage.setItem(USER_LOCALSTORAGE_KEY, action.payload.id)
     },
     // initAuthData: (state) => {
@@ -54,9 +54,7 @@ export const userSlice = createSlice({
       state.initializedUser = true
     })
     builder.addCase(initAuthData.rejected, (state) => {
-      if (state.authData) {
-        state.initializedUser = true
-      }
+      state.initializedUser = true
     })
   },
 })

@@ -1,4 +1,8 @@
 {
+  "enter": "",
+  "enterName": "",
+  "enterPassword": "",
   "specifyCountry": "",
-  "specifyCurrency": ""
+  "specifyCurrency": "",
+  "titleForm": ""
 }

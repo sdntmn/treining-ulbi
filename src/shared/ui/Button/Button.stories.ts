@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react"
-
 import { Button, ButtonFontSize, ButtonSize, ButtonVar } from "./Button"
+
+import type { Meta, StoryObj } from "@storybook/react"
 
 const meta: Meta<typeof Button> = {
   title: "shared/Button",

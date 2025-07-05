@@ -1,5 +1,3 @@
-import type webpack from "webpack"
-
 import TerserPlugin from "terser-webpack-plugin"
 
 import { buildDevServer } from "./buildDevServer"
@@ -7,6 +5,8 @@ import { buildLoaders } from "./buildLoaders"
 import { buildPlugins } from "./buildPlugins"
 import { buildResolvers } from "./buildResolvers"
 import { type BuildOptions } from "./types/config"
+
+import type webpack from "webpack"
 
 export function buildWebpackConfig(options: BuildOptions): webpack.Configuration {
   const { isDev, mode, paths } = options

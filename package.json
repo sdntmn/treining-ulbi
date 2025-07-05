@@ -26,7 +26,8 @@
     "lint-staged": "lint-staged",
     "precommit": "lint-staged",
     "unit:coverage": "jest --coverage",
-    "cy:open": "cypress open"
+    "cy:open": "cypress open",
+    "remove-feature": "node ./scripts/remove-feature/index.js"
   },
   "lint-staged": {
     "**/*.{ts,tsx}": [
@@ -48,6 +49,7 @@
     "@babel/preset-typescript": "^7.24.7",
     "@chromatic-com/storybook": "^3.1.0",
     "@cypress/mount-utils": "^4.1.2",
+    "@cypress/react": "^9.0.1",
     "@cypress/vite-dev-server": "^6.0.3",
     "@cypress/webpack-dev-server": "^4.1.0",
     "@netlify/plugin-lighthouse": "^6.0.1",
@@ -58,6 +60,7 @@
     "@storybook/addon-onboarding": "^8.3.6",
     "@storybook/addon-webpack5-compiler-swc": "1.0.5",
     "@storybook/blocks": "^8.3.6",
+    "@storybook/core-common": "^8.6.14",
     "@storybook/react": "^8.3.6",
     "@storybook/react-webpack5": "^8.3.6",
     "@storybook/test": "^8.3.6",
@@ -66,6 +69,7 @@
     "@testing-library/jest-dom": "^6.5.0",
     "@testing-library/react": "^16.0.1",
     "@types/circular-dependency-plugin": "^5.0.8",
+    "@types/cypress": "^1.1.6",
     "@types/jest": "^29.5.13",
     "@types/node": "^20.14.10",
     "@types/prismjs": "^1.26.5",

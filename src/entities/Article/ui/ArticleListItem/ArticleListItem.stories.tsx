@@ -1,14 +1,14 @@
 /* eslint-disable quotes */
 /* eslint-disable max-len */
 
-import type { Meta, StoryObj } from "@storybook/react"
-
 import { RouterDecorator } from "@/shared/config/storybook/RouterDecorator/RouterDecorator"
 
 import { ArticleBlockType, ArticleType, ArticleViewType } from "../../model/consts/consts"
 import { Article } from "../../model/types/article"
 
 import { ArticleListItem } from "./ArticleListItem"
+
+import type { Meta, StoryObj } from "@storybook/react"
 
 const meta: Meta<typeof ArticleListItem> = {
   title: "entities/ArticleItem",

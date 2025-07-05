@@ -1,6 +1,4 @@
-import type { Article, ArticleBlock } from "../../model/types"
-
-import React, { HTMLAttributeAnchorTarget, memo } from "react"
+import React, { memo } from "react"
 import { useTranslation } from "react-i18next"
 
 import EyeIcon from "@/shared/assets/icons/eye-outlined.svg"
@@ -18,6 +16,9 @@ import { TextParagraf } from "@/shared/ui/TextParagraf"
 
 import { ArticleBlockType, ArticleViewType } from "../../model/consts"
 import { ArticleTextBlock } from "../ArticleTextBlock/ArticleTextBlock"
+
+import type { Article, ArticleBlock } from "../../model/types"
+import type { HTMLAttributeAnchorTarget } from "react"
 
 import "./ArticleListItem.module.scss"
 

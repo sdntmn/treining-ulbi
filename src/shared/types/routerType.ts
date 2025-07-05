@@ -1,6 +1,6 @@
-import type { RouteProps } from "react-router-dom"
-
 import { RouteNames, UserRole } from "../const/enums"
+
+import type { RouteProps } from "react-router-dom"
 
 export type AppRoutesProps = RouteProps & {
   authOnly?: boolean

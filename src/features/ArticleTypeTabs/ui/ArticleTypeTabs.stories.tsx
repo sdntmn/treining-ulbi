@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react"
-
 import { fn } from "@storybook/test"
 
 import { ArticleType } from "@/entities/Article"
 
 import { ArticleTypeTabs } from "./ArticleTypeTabs"
+
+import type { Meta, StoryObj } from "@storybook/react"
 
 const meta = {
   title: "features/ArticleTypeTabs",

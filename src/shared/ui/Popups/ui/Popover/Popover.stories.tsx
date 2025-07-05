@@ -1,9 +1,10 @@
 /* eslint-disable i18next/no-literal-string */
-import type { Meta, StoryObj } from "@storybook/react"
 
 import React from "react"
 
 import { Popover } from "./Popover"
+
+import type { Meta, StoryObj } from "@storybook/react"
 
 const meta = {
   title: "shared/Popover",

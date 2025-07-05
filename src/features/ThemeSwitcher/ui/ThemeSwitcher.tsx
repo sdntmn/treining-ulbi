@@ -22,7 +22,6 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = memo(function ThemeSw
 
   const onToggleTheme = useCallback(() => {
     toggleTheme((newTheme: Theme) => {
-      console.log("Тема переключена" + newTheme)
       dispatch(saveJsonSettings({ theme: newTheme }))
     })
   }, [dispatch, toggleTheme])

@@ -1,9 +1,9 @@
-import type { Meta, StoryObj } from "@storybook/react"
-
 import { RouterDecorator } from "@/shared/config/storybook/RouterDecorator/RouterDecorator"
 import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDecorator"
 
 import AddCommentForm from "./AddCommentForm"
+
+import type { Meta, StoryObj } from "@storybook/react"
 
 const meta: Meta<typeof AddCommentForm> = {
   title: "feature/AddCommentForm",

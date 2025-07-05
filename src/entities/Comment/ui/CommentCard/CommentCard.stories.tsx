@@ -1,6 +1,5 @@
 /* eslint-disable paths-import/imports-layers */
 /* eslint-disable max-len */
-import type { Meta, StoryObj } from "@storybook/react"
 
 import { RouterDecorator } from "@/shared/config/storybook/RouterDecorator/RouterDecorator"
 
@@ -9,6 +8,8 @@ import { User } from "@/entities/User"
 import { Comment } from "../../model/types/comment"
 
 import { CommentCard } from "./CommentCard"
+
+import type { Meta, StoryObj } from "@storybook/react"
 
 const meta: Meta<typeof CommentCard> = {
   title: "entities/CommentCard",

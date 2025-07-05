@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from "@storybook/react"
-
 import { Currency } from "@/shared/const/enums"
 
 import { CurrencySelect } from "./CurrencySelect"
+
+import type { Meta, StoryObj } from "@storybook/react"
 
 const meta = {
   title: "entities/CurrencySelect",

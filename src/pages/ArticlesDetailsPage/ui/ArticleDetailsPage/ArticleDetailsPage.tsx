@@ -1,13 +1,11 @@
+/* eslint-disable max-len */
 import React, { lazy, memo } from "react"
 import { useTranslation } from "react-i18next"
 import { useParams } from "react-router-dom"
 
 import { cn } from "@/shared/lib/classNames/classNames"
-import {
-  DynamicModuleLoader,
-  ReducersList,
-} from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
-import { toggleFeatures } from "@/shared/lib/features"
+import { DynamicModuleLoader } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
+import { ToggleFeaturesComponent } from "@/shared/lib/features"
 import { Card } from "@/shared/ui/Card"
 
 import { ArticleDetails } from "@/entities/Article"
@@ -20,6 +18,8 @@ import { Page } from "@/widgets/Page"
 import { articleDetailsPageReducer } from "../../model/slice"
 import { ArticleDetailsComments } from "../ArticleDetailsComments/ArticleDetailsComments"
 import { ArticleDetailsPageHeader } from "../ArticleDetailsPageHeader/ArticleDetailsPageHeader"
+
+import type { ReducersList } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
 
 import "./ArticleDetailsPage.module.scss"
 
@@ -37,12 +37,6 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = ({
   const { t } = useTranslation("article")
   const { id } = useParams<{ id: string }>()
 
-  const articleRatingСard = toggleFeatures({
-    name: "isArticleRatingEnabled",
-    on: () => <ArticleRating articleId={id!} />,
-    off: () => <Card> 123 </Card>,
-  })
-
   if (!id) {
     return <Page>{t("articleDetailsPage")}</Page>
   }
@@ -52,7 +46,12 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = ({
       <Page className={cn("article-details-page", [className])}>
         <ArticleDetailsPageHeader />
         <ArticleDetails id={id} />
-        {articleRatingСard}
+        <ToggleFeaturesComponent
+          feature={"isArticleRatingEnabled"}
+          on={<ArticleRating articleId={id!} />}
+          off={<Card> 123 </Card>}
+        />
+        <ArticleRating articleId={id} />
         <ArticleRecommendationList />
         <ArticleDetailsComments id={id} />
       </Page>

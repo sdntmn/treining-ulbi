@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react"
-
 import { TextAlign, TextParagraf, TextSize } from "./TextParagraf"
+
+import type { Meta, StoryObj } from "@storybook/react"
 
 const meta: Meta<typeof TextParagraf> = {
   title: "shared/TextParagraf",

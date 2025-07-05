@@ -1,3 +1,4 @@
+/// <reference types="@cypress/react" />
 /// <reference types="cypress" />
 import React from "react"
 

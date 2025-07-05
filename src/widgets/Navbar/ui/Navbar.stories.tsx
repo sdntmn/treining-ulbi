@@ -1,9 +1,9 @@
-import type { Meta, StoryObj } from "@storybook/react"
-
 import { RouterDecorator } from "@/shared/config/storybook/RouterDecorator/RouterDecorator"
 import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDecorator"
 
 import { Navbar } from "./Navbar"
+
+import type { Meta, StoryObj } from "@storybook/react"
 
 const meta = {
   title: "widgets/Navbar",

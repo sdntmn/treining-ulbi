@@ -1,12 +1,13 @@
 /* eslint-disable paths-import/imports-layers */
+
 import { createAsyncThunk } from "@reduxjs/toolkit"
 
 import { USER_LOCALSTORAGE_KEY } from "@/shared/const/localstorage"
 
-import { ThunkConfig } from "@/app/providers/StoreProvider"
-
 import { getUserDataByIdQuery } from "../../api/userApi"
-import { User } from "../types/user"
+
+import type { User } from "../types/user"
+import type { ThunkConfig } from "@/app/providers/StoreProvider"
 
 export const initAuthData = createAsyncThunk<User, void, ThunkConfig<string>>(
   "user/initAuthData",
@@ -14,7 +15,6 @@ export const initAuthData = createAsyncThunk<User, void, ThunkConfig<string>>(
     const { rejectWithValue, dispatch } = thunkApi
 
     const userId = localStorage.getItem(USER_LOCALSTORAGE_KEY)
-    console.info(userId)
 
     if (!userId) {
       return rejectWithValue("")

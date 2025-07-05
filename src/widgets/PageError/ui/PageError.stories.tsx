@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react"
-
 import { PageError } from "./PageError"
+
+import type { Meta, StoryObj } from "@storybook/react"
 
 const meta = {
   title: "widgets/PageError",

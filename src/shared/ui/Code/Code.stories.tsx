@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react"
-
 import { Code } from "./Code"
+
+import type { Meta, StoryObj } from "@storybook/react"
 
 const meta: Meta<typeof Code> = {
   title: "shared/Code",
