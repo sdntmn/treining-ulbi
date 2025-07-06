@@ -8,9 +8,9 @@ import {
   ReducersList,
 } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch"
-import { Button, ButtonVar } from "@/shared/ui/Button"
-import { Input } from "@/shared/ui/Input"
-import { TextParagraf, TextVar } from "@/shared/ui/TextParagraf"
+import { Button, ButtonVar } from "@/shared/ui/deprecated/Button"
+import { Input } from "@/shared/ui/deprecated/Input"
+import { TextParagraf, TextVar } from "@/shared/ui/deprecated/TextParagraf"
 
 import { getLoginError } from "../../model/selectors/getLoginError/getLoginError"
 import { getLoginIsLoading } from "../../model/selectors/getLoginIsLoading/getLoginIsLoading"

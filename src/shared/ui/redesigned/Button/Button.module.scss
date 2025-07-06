@@ -1,0 +1,83 @@
+.button {
+  cursor: pointer;
+  color: var(--text-redesigned);
+  padding: 6px 16px;
+
+  &:hover {
+    color: var(--accent-redesigned);
+  }
+
+  &__clear {
+    padding: 0;
+    border: none;
+    background: none;
+    outline: none;
+  }
+
+  &__outline {
+    border: 1px solid var(--primary-color);
+    color: var(--secondary-color);
+    background: none;
+  }
+
+  &__outline-error {
+    border: 1px solid var(--primary-error-color);
+    color: var(--primary-error-color);
+    background: none;
+  }
+
+  &__praymary {
+    background: var(--button-background);
+    color: var(--secondary-color);
+    border: 1px solid var(--button-background);
+  }
+
+  &__square-m {
+    padding: 8px;
+  }
+
+  &__square-l {
+    padding: 10px;
+  }
+
+  &__square-xl {
+    padding: 12px;
+  }
+
+  &__size {
+    &_m {
+      padding: 8px 16px;
+    }
+
+    &_l {
+      padding: 10px 20px;
+    }
+
+    &_xl {
+      padding: 12px 24px;
+    }
+  }
+
+  &__font-m {
+    font: var(--font-m-redesigned);
+  }
+
+  &__font-l {
+    font: var(--font-l-redesigned);
+  }
+
+  &__font-xl {
+    font: var(--font-xl-redesigned);
+  }
+
+  &__disabled {
+    cursor: default;
+    opacity: 0.6;
+    fill-opacity: 0.6;
+    stroke-opacity: 0.6;
+  }
+
+  &__fullWidth {
+    width: 100%;
+  }
+}

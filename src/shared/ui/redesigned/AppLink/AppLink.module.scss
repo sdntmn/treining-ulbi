@@ -1,0 +1,21 @@
+.app-link {
+  &__primary {
+    color: var(--text-redesigned);
+
+    &:hover {
+      color: var(--accent-redesigned);
+    }
+  }
+
+  &__secondary {
+    color: var(--secondary-color);
+  }
+
+  &__red {
+    color: var(--cancel-redesigned)
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

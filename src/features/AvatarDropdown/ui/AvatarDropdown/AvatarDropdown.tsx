@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from "react-redux"
 
 import { cn } from "@/shared/lib/classNames/classNames"
 import { routePatch } from "@/shared/lib/helpers/getPath"
-import { Avatar } from "@/shared/ui/Avatar"
-import { Dropdown } from "@/shared/ui/Popups"
+import { Avatar } from "@/shared/ui/deprecated/Avatar"
+import { Dropdown } from "@/shared/ui/deprecated/Popups"
 
 import { getUserAuthData, isUserAdmin, isUserManager, userActions } from "@/entities/User"
 

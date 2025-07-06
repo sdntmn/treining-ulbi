@@ -2,9 +2,11 @@ import React, { memo } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
 
-import { AppLinkColor } from "@/shared/const/enums"
 import { cn } from "@/shared/lib/classNames/classNames"
-import { AppLink } from "@/shared/ui/AppLink"
+import { ToggleFeaturesComponent } from "@/shared/lib/features"
+import { AppLink as AppLinkDeprecated } from "@/shared/ui/deprecated/AppLink"
+import { AppLink } from "@/shared/ui/redesigned/AppLink"
+import { Icon } from "@/shared/ui/redesigned/Icon"
 
 import { getUserAuthData } from "@/entities/User"
 
@@ -21,21 +23,36 @@ export const SidebarItem: React.FC<SidebarItemProps> = memo(function SidebarItem
   item,
   collapsed,
 }: SidebarItemProps) {
-  /* i18next-extract-disable-next-line */
-  /* i18next-extract-disable-line */
   const { t } = useTranslation("sideBar")
   const isAuth = useSelector(getUserAuthData)
   if (item.authOnly && !isAuth) {
     return null
   }
+
   return (
-    <AppLink
-      className={cn("sidebar-item", [collapsed ? "sidebar-item__collapsed" : ""])}
-      appLinkColor={AppLinkColor.PRIMARY}
-      to={item.path}
-    >
-      <item.Icon className={"sidebar-item__icon"} />
-      <span className={"sidebar-item__link"}>{t(item.text)}</span>
-    </AppLink>
+    <ToggleFeaturesComponent
+      feature={"isAppRedesigned"}
+      on={
+        <AppLink
+          className={cn("sidebar-item-redesign", [collapsed && "sidebar-item-redesign__collapsed"])}
+          appLinkColor={"primary"}
+          to={item.path}
+          activeClassName={"sidebar-item-redesign__active"}
+        >
+          <Icon Svg={item.Icon} />
+          <span className={"sidebar-item-redesign__link"}>{t(item.text)}</span>
+        </AppLink>
+      }
+      off={
+        <AppLinkDeprecated
+          className={cn("sidebar-item", [collapsed && "sidebar-item__collapsed"])}
+          appLinkColor={"primary"}
+          to={item.path}
+        >
+          <item.Icon className={"sidebar-item__icon"} />
+          <span className={"sidebar-item__link"}>{t(item.text)}</span>
+        </AppLinkDeprecated>
+      }
+    />
   )
 })

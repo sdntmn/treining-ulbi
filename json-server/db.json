@@ -2112,7 +2112,7 @@
         "ADMIN"
       ],
       "jsonSettings": {
-        "theme": "",
+        "theme": "app-dark-theme",
         "isFirstVisit": true,
         "isArticlesPageWasOpened": true
       },
@@ -2147,7 +2147,7 @@
         "USER"
       ],
       "jsonSettings": {
-        "theme": "app-custom-theme",
+        "theme": "",
         "isFirstVisit": false,
         "isArticlesPageWasOpened": true
       },

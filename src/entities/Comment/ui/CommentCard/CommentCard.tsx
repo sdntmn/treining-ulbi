@@ -2,11 +2,11 @@ import React, { memo } from "react"
 
 import { cn } from "@/shared/lib/classNames/classNames"
 import { routePatch } from "@/shared/lib/helpers/getPath"
-import { AppLink } from "@/shared/ui/AppLink"
-import { Avatar } from "@/shared/ui/Avatar"
-import { Skeleton } from "@/shared/ui/Skeleton"
-import { VStack } from "@/shared/ui/Stack"
-import { TextParagraf } from "@/shared/ui/TextParagraf"
+import { AppLink } from "@/shared/ui/deprecated/AppLink"
+import { Avatar } from "@/shared/ui/deprecated/Avatar"
+import { Skeleton } from "@/shared/ui/deprecated/Skeleton"
+import { VStack } from "@/shared/ui/deprecated/Stack"
+import { TextParagraf } from "@/shared/ui/deprecated/TextParagraf"
 
 import { Comment } from "../../model/types/comment"
 

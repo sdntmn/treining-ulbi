@@ -2,7 +2,7 @@ import React, { memo, useCallback } from "react"
 import { useTranslation } from "react-i18next"
 
 import { Country } from "@/shared/const/enums"
-import { ListBox } from "@/shared/ui/Popups"
+import { ListBox } from "@/shared/ui/deprecated/Popups"
 
 interface CountrySelectProps {
   value?: Country

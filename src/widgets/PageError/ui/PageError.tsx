@@ -2,8 +2,7 @@ import React from "react"
 import { useTranslation } from "react-i18next"
 
 import { cn } from "@/shared/lib/classNames/classNames"
-import { Button } from "@/shared/ui/Button"
-
+import { Button } from "@/shared/ui/deprecated/Button"
 import "./PageError.module.scss"
 
 interface PageErrorProps {

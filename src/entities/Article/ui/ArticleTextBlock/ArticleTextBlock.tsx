@@ -1,7 +1,7 @@
 import React, { memo } from "react"
 
 import { cn } from "@/shared/lib/classNames/classNames"
-import { TextParagraf } from "@/shared/ui/TextParagraf"
+import { TextParagraf } from "@/shared/ui/deprecated/TextParagraf"
 
 import { ArticleText } from "../../model/types"
 

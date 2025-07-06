@@ -5,8 +5,8 @@ import { useNavigate } from "react-router-dom"
 
 import { cn } from "@/shared/lib/classNames/classNames"
 import { routePatch } from "@/shared/lib/helpers/getPath"
-import { Button, ButtonVar } from "@/shared/ui/Button"
-import { HStack } from "@/shared/ui/Stack"
+import { Button, ButtonVar } from "@/shared/ui/deprecated/Button"
+import { HStack } from "@/shared/ui/deprecated/Stack"
 
 import { getArticleDetailsData } from "@/entities/Article"
 

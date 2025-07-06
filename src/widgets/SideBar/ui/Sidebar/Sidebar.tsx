@@ -1,11 +1,13 @@
 import React, { memo, useMemo, useState } from "react"
 import { useSelector } from "react-redux"
 
+import ArrowIcon from "@/shared/assets/icons/arrow-bottom.svg"
 import { cn } from "@/shared/lib/classNames/classNames"
 import { ToggleFeaturesComponent } from "@/shared/lib/features"
-import { AppLogo } from "@/shared/ui/AppLogo"
-import { Button, ButtonFontSize, ButtonVar } from "@/shared/ui/Button"
-import { VStack } from "@/shared/ui/Stack"
+import { Button, ButtonFontSize, ButtonVar } from "@/shared/ui/deprecated/Button"
+import { VStack } from "@/shared/ui/deprecated/Stack"
+import { AppLogo } from "@/shared/ui/redesigned/AppLogo"
+import { Icon } from "@/shared/ui/redesigned/Icon"
 
 import { LangSwitcher } from "@/features/LangSwitcher"
 import { ThemeSwitcher } from "@/features/ThemeSwitcher"
@@ -24,6 +26,7 @@ export const Sidebar: React.FC<SidebarProps> = memo(function Sidebar({ className
   const sidebarItemsList = useSelector(getSidebarItems)
 
   const onToggle = () => {
+    console.log(collapsed)
     setCollapsed((prev) => !prev)
   }
 
@@ -43,10 +46,24 @@ export const Sidebar: React.FC<SidebarProps> = memo(function Sidebar({ className
           data-testid="sidebar"
           className={cn("sidebar-redesigned", [
             className,
-            collapsed ? "sidebar-redesigned__collapsed" : "",
+            collapsed && "sidebar-redesigned__collapsed",
           ])}
         >
-          <AppLogo className="sidebar-redesigned__logo" />
+          <AppLogo size={collapsed ? 30 : 50} className="sidebar-redesigned__logo" />
+          <VStack role="navigation" gap="16" className="sidebar-redesigned__items">
+            {itemsList}
+          </VStack>
+          <Icon
+            data-testid="sidebar-toggle"
+            onClick={onToggle}
+            className="sidebar-redesigned__collapsed-btn "
+            Svg={ArrowIcon}
+            clickable
+          />
+          <div className="sidebar-redesigned__switchers">
+            <ThemeSwitcher />
+            <LangSwitcher short={collapsed} />
+          </div>
         </aside>
       }
       off={
@@ -70,7 +87,7 @@ export const Sidebar: React.FC<SidebarProps> = memo(function Sidebar({ className
 
           <div className="sidebar__switchers">
             <ThemeSwitcher />
-            <LangSwitcher schort={collapsed} />
+            <LangSwitcher short={collapsed} />
           </div>
         </aside>
       }

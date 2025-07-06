@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom"
 import { cn } from "@/shared/lib/classNames/classNames"
 import { DynamicModuleLoader } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
 import { ToggleFeaturesComponent } from "@/shared/lib/features"
-import { Card } from "@/shared/ui/Card"
+import { Card } from "@/shared/ui/deprecated/Card"
 
 import { ArticleDetails } from "@/entities/Article"
 

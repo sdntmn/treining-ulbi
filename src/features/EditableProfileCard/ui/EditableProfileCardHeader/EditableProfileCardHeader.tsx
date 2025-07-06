@@ -4,9 +4,9 @@ import { useSelector } from "react-redux"
 
 import { cn } from "@/shared/lib/classNames/classNames"
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch"
-import { Button, ButtonVar } from "@/shared/ui/Button"
-import { HStack } from "@/shared/ui/Stack"
-import { TextParagraf } from "@/shared/ui/TextParagraf"
+import { Button, ButtonVar } from "@/shared/ui/deprecated/Button"
+import { HStack } from "@/shared/ui/deprecated/Stack"
+import { TextParagraf } from "@/shared/ui/deprecated/TextParagraf"
 
 import { getUserAuthData } from "@/entities/User"
 

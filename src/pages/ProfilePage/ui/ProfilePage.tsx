@@ -3,8 +3,8 @@ import { useTranslation } from "react-i18next"
 import { useParams } from "react-router-dom"
 
 import { cn } from "@/shared/lib/classNames/classNames"
-import { VStack } from "@/shared/ui/Stack"
-import { TextParagraf } from "@/shared/ui/TextParagraf"
+import { VStack } from "@/shared/ui/deprecated/Stack"
+import { TextParagraf } from "@/shared/ui/deprecated/TextParagraf"
 
 import { EditableProfileCard } from "@/features/EditableProfileCard"
 

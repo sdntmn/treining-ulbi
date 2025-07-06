@@ -11,11 +11,6 @@ export enum Currency {
   USD = "USD",
 }
 
-export enum AppLinkColor {
-  PRIMARY = "primary",
-  SECONDARY = "secondary",
-}
-
 export enum RouteNames {
   MAIN = "main",
   ABOUT = "about",
