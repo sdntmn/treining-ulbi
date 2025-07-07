@@ -27,7 +27,7 @@
     "precommit": "lint-staged",
     "unit:coverage": "jest --coverage",
     "cy:open": "cypress open",
-    "remove-feature": "node ./scripts/remove-feature/index.js"
+    "remove-feature": "ts-node ./scripts/remove-feature/index.ts"
   },
   "lint-staged": {
     "**/*.{ts,tsx}": [

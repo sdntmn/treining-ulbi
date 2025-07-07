@@ -1,40 +1,39 @@
 /* eslint-disable no-undef */
 /* eslint-disable @typescript-eslint/no-require-imports */
 
-import { createInterface } from "readline"
+import * as readline from "readline"
 
-import { Project, SyntaxKind } from "ts-morph"
+import { JsxAttribute, Node, Project, SyntaxKind } from "ts-morph"
 
-const rl = createInterface({
+const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 })
-
 const toggleFunctionName = "toggleFeatures"
 const toggleComponentName = "ToggleFeaturesComponent"
 
-let removedFeatureName
-let featureState
+let removedFeatureName: string
+let featureState: "on" | "off"
 
-async function askQuestion(question) {
+async function askQuestion(question: string): Promise<string> {
   return new Promise((resolve) => {
-    rl.question(question, (answer) => {
+    rl.question(question, (answer: string) => {
       resolve(answer.trim())
     })
   })
 }
 
-function isToggleFunction(node) {
+function isToggleFunction(node: Node) {
   const identifier = node.getFirstDescendantByKind(SyntaxKind.Identifier)
   return identifier?.getText() === toggleFunctionName
 }
 
-function isToggleComponent(node) {
+function isToggleComponent(node: Node) {
   const identifier = node.getFirstDescendantByKind(SyntaxKind.Identifier)
   return identifier?.getText() === toggleComponentName
 }
 
-function replaceToggleFunction(node) {
+function replaceToggleFunction(node: Node) {
   const objectOptions = node.getFirstDescendantByKind(SyntaxKind.ObjectLiteralExpression)
   if (!objectOptions) return
 
@@ -57,14 +56,14 @@ function replaceToggleFunction(node) {
   }
 }
 
-function getAttributeNodeByName(jsxAttributes, name) {
-  return jsxAttributes.find((node) => {
+function getAttributeNodeByName(jsxAttributes: JsxAttribute[], name: string) {
+  return jsxAttributes.find((node: JsxAttribute) => {
     const nameNode = node.getNameNode()
     return nameNode.getText() === name
   })
 }
 
-function getReplacedComponent(attribute) {
+function getReplacedComponent(attribute?: JsxAttribute) {
   if (!attribute) return undefined
   const value = attribute.getInitializer()
   const component = attribute
@@ -82,7 +81,7 @@ function getReplacedComponent(attribute) {
   return value?.getText()
 }
 
-function replaceComponent(node) {
+function replaceComponent(node: Node) {
   const attributes = node.getDescendantsOfKind(SyntaxKind.JsxAttribute)
 
   const onAttribute = getAttributeNodeByName(attributes, "on")
@@ -112,13 +111,13 @@ async function main() {
       throw new Error("Укажите название фича-флага")
     }
 
-    featureState = await askQuestion("Укажите состояние фичи (on или off): ")
-    featureState = featureState.toLowerCase()
+    let rawFeatureState = await askQuestion("Укажите состояние фичи (on или off): ")
+    featureState = rawFeatureState.toLowerCase() as "on" | "off"
 
     while (featureState !== "on" && featureState !== "off") {
       console.log("Некорректное значение состояния фичи (допустимо только on или off)")
-      featureState = await askQuestion("Укажите состояние фичи (on или off): ")
-      featureState = featureState.toLowerCase()
+      rawFeatureState = await askQuestion("Укажите состояние фичи (on или off): ")
+      featureState = rawFeatureState.toLowerCase() as "on" | "off"
     }
 
     const project = new Project({
