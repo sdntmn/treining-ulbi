@@ -3,9 +3,9 @@ import { memo } from "react"
 import AppSvg from "@/shared/assets/icons/app-image.svg"
 import { cn } from "@/shared/lib/classNames/classNames"
 
-import { HStack } from "../../deprecated/Stack"
 import "./AppLogo.module.scss"
 
+import { HStack } from "../Stack"
 interface AppLogoProps {
   className?: string
   size?: number

@@ -8,8 +8,8 @@ import { ToggleFeaturesComponent } from "@/shared/lib/features"
 import { routePatch } from "@/shared/lib/helpers/getPath"
 import { AppLink } from "@/shared/ui/deprecated/AppLink"
 import { Button, ButtonVar } from "@/shared/ui/deprecated/Button"
-import { HStack } from "@/shared/ui/deprecated/Stack"
 import { TextParagraf, TextVar } from "@/shared/ui/deprecated/TextParagraf"
+import { HStack } from "@/shared/ui/redesigned/Stack"
 
 import { getUserAuthData } from "@/entities/User"
 

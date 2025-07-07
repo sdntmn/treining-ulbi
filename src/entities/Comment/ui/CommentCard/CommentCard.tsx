@@ -5,8 +5,8 @@ import { routePatch } from "@/shared/lib/helpers/getPath"
 import { AppLink } from "@/shared/ui/deprecated/AppLink"
 import { Avatar } from "@/shared/ui/deprecated/Avatar"
 import { Skeleton } from "@/shared/ui/deprecated/Skeleton"
-import { VStack } from "@/shared/ui/deprecated/Stack"
 import { TextParagraf } from "@/shared/ui/deprecated/TextParagraf"
+import { VStack } from "@/shared/ui/redesigned/Stack"
 
 import { Comment } from "../../model/types/comment"
 

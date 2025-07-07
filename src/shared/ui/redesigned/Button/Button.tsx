@@ -1,6 +1,6 @@
 import React, { ButtonHTMLAttributes, memo } from "react"
 
-import { ButtonSize, ButtonVariant } from "@/shared/const/type"
+import { ButtonSize, ButtonVariant } from "@/shared/types/type"
 
 import { cn } from "../../../lib/classNames/classNames"
 

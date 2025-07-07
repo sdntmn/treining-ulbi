@@ -1,0 +1,40 @@
+.card {
+  padding: 0;
+  border-radius: 4px;
+
+  &__normal {
+    background: var(--bg-redesigned);
+  }
+
+  &__outlined {
+    background: var(--accent-redesigned);
+  }
+
+  &__light {
+    background: var(--light-bg-redesigned);
+  }
+
+  &__width-max {
+    width: 100%;
+  }
+
+  &__padding {
+    padding: 24px;
+  }
+
+  &__padding-0 {
+    padding: 0;
+  }
+
+  &__padding-8 {
+    padding: 8px;
+  }
+
+  &__padding-16 {
+    padding: 16px;
+  }
+
+  &__padding-24 {
+    padding: 24px
+  }
+}

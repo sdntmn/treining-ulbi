@@ -11,8 +11,8 @@ import {
 } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch"
 import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect/useInitialEffect"
-import { VStack } from "@/shared/ui/deprecated/Stack"
 import { TextParagraf, TextVar } from "@/shared/ui/deprecated/TextParagraf"
+import { VStack } from "@/shared/ui/redesigned/Stack"
 
 import { ProfileCard } from "@/entities/Profile"
 

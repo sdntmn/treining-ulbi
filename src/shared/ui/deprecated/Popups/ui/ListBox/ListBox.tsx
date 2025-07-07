@@ -1,10 +1,11 @@
+/* eslint-disable paths-import/path-checker */
 import { Listbox as HListBox } from "@headlessui/react"
 import React, { Fragment, ReactNode } from "react"
 
 import { cn } from "@/shared/lib/classNames/classNames"
 import { DropdownDirection } from "@/shared/types/ui"
+import { HStack } from "@/shared/ui/redesigned/Stack"
 
-import { HStack } from "../../../Stack"
 import { mapDirectionClass } from "../../styles/consts"
 
 import "../../styles/Popup.module.scss"

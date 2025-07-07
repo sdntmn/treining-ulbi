@@ -5,8 +5,8 @@ import { useSelector } from "react-redux"
 
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch"
 import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect/useInitialEffect"
-import { VStack } from "@/shared/ui/deprecated/Stack"
 import { TextParagraf } from "@/shared/ui/deprecated/TextParagraf"
+import { VStack } from "@/shared/ui/redesigned/Stack"
 
 import { CommentList } from "@/entities/Comment"
 

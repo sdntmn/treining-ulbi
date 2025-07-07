@@ -4,9 +4,8 @@ import { cn } from "@/shared/lib/classNames/classNames"
 import { AnimationProvider, useAnimationLibs } from "@/shared/lib/components/AnimationProvider"
 import { useTheme } from "@/shared/lib/hooks/useTheme/useTheme"
 
-import { Overlay } from "../Overlay/Overlay"
-import { Portal } from "../Portal/Portal"
-
+import { Overlay } from "../../redesigned/Overlay"
+import { Portal } from "../../redesigned/Portal"
 import "./Drawer.module.scss"
 
 interface DrawerProps {

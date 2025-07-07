@@ -1,12 +1,16 @@
 import React, { memo, useCallback, useState } from "react"
 import { BrowserView, MobileView } from "react-device-detect"
 
-import NotificationIcon from "@/shared/assets/icons/notification.svg"
+import NotificationIcon from "@/shared/assets/icons/notification-icon.svg"
+import NotificationIconDeprecated from "@/shared/assets/icons/notification.svg"
 import { cn } from "@/shared/lib/classNames/classNames"
-import { Button } from "@/shared/ui/deprecated/Button"
+import { ToggleFeaturesComponent } from "@/shared/lib/features"
+import { Button as ButtonDeprecated } from "@/shared/ui/deprecated/Button"
 import { Drawer } from "@/shared/ui/deprecated/Drawer"
-import { Icon } from "@/shared/ui/deprecated/Icon"
-import { Popover } from "@/shared/ui/deprecated/Popups"
+import { Icon as IconDeprecated } from "@/shared/ui/deprecated/Icon"
+import { Popover as PopoverDeprecated } from "@/shared/ui/deprecated/Popups"
+import { Icon } from "@/shared/ui/redesigned/Icon"
+import { Popover } from "@/shared/ui/redesigned/Popups"
 
 import { NotificationList } from "@/entities/Notification"
 
@@ -30,21 +34,41 @@ export const ButtonNotification: React.FC<NotificationButtonProps> = memo(
       setIsOpen(false)
     }, [])
 
-    const trigger = <Icon Svg={NotificationIcon} inverted />
+    const trigger = (
+      <ToggleFeaturesComponent
+        feature={"isAppRedesigned"}
+        on={<Icon Svg={NotificationIcon} clickable onClick={onOpenDrawer} />}
+        off={<IconDeprecated Svg={NotificationIconDeprecated} inverted />}
+      />
+    )
 
     return (
       <div>
         <BrowserView>
-          <Popover
-            className="button-notification"
-            direction="bottom left"
-            trigger={<span onClick={onOpenDrawer}>{trigger}</span>}
-          >
-            <NotificationList className={cn("", [className])} />
-          </Popover>
+          <ToggleFeaturesComponent
+            feature={"isAppRedesigned"}
+            on={
+              <Popover
+                className="button-notification"
+                direction="bottom left"
+                trigger={<span onClick={onOpenDrawer}>{trigger}</span>}
+              >
+                <NotificationList className={cn("button-notification__popover", [className])} />
+              </Popover>
+            }
+            off={
+              <PopoverDeprecated
+                className="button-notification"
+                direction="bottom left"
+                trigger={<span onClick={onOpenDrawer}>{trigger}</span>}
+              >
+                <NotificationList className={cn("button-notification__popover", [className])} />
+              </PopoverDeprecated>
+            }
+          />
         </BrowserView>
         <MobileView>
-          <Button onClick={onOpenDrawer}> {trigger}</Button>
+          <ButtonDeprecated onClick={onOpenDrawer}> {trigger}</ButtonDeprecated>
 
           <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
             <NotificationList />

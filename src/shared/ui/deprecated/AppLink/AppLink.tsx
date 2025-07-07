@@ -1,8 +1,8 @@
 import React, { memo, ReactNode } from "react"
 import { Link, LinkProps } from "react-router-dom"
 
-import { AppLinkColor } from "@/shared/const/type"
 import { cn } from "@/shared/lib/classNames/classNames"
+import { AppLinkColor } from "@/shared/types/type"
 
 import "./AppLink.module.scss"
 
