@@ -93,7 +93,7 @@ export const ArticleViewSelector: React.FC<ArticleViewSelectorProps> = memo(
                   height={24}
                   Svg={viewType.icon}
                   className={cn("article-view-selector", [
-                    viewType.view !== view ? "article-view-selector__not-selected" : "",
+                    viewType.view !== view && "article-view-selector__not-selected",
                   ])}
                 />
               </ButtonDeprecated>

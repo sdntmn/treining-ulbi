@@ -27,11 +27,10 @@ export const Icon: React.FC<IconProps> = memo(function Icon(props: IconProps) {
   const svgProps = {
     width,
     height,
-    className: cn("icon", [className]),
     ...otherProps,
     ...(clickable ? { onClick: undefined } : {}),
   }
-  const Icon = <Svg {...svgProps} />
+  const Icon = <Svg className={cn("icon", [className])} {...svgProps} />
 
   if (clickable) {
     return (
