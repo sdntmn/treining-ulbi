@@ -38,7 +38,7 @@ type DivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement
 
 export interface FlexProps extends DivProps {
   className?: string
-  children: ReactNode
+  children?: ReactNode
   justify?: FlexJustify
   align?: FlexAlign
   direction: FlexDirection

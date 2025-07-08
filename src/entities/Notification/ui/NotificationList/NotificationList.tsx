@@ -1,7 +1,7 @@
 import React, { memo } from "react"
 
 import { cn } from "@/shared/lib/classNames/classNames"
-import { Skeleton } from "@/shared/ui/deprecated/Skeleton"
+import { Skeleton } from "@/shared/ui/redesigned/Skeleton"
 import { VStack } from "@/shared/ui/redesigned/Stack"
 
 import { useNotifications } from "../../api/notificationApi"

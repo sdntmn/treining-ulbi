@@ -26,7 +26,11 @@ export const Card: React.FC<CardProps> = memo(function Card(props: CardProps) {
 
   return (
     <div
-      className={cn("card", [className, theme && `card__${theme}`, max && "card__width-max"])}
+      className={cn("card-deprecated", [
+        className,
+        theme && `card-deprecated__${theme}`,
+        max && "card-deprecated__width-max",
+      ])}
       {...otherProps}
     >
       {children}

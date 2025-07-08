@@ -1,9 +1,8 @@
 .card {
   padding: 0;
-  border-radius: 4px;
 
   &__normal {
-    background: var(--bg-redesigned);
+    background: var(--dark-bg-redesigned);
   }
 
   &__outlined {
@@ -36,5 +35,13 @@
 
   &__padding-24 {
     padding: 24px
+  }
+
+  &__border_normal {
+    border-radius: 16px;
+  }
+
+  &__border_round {
+    border-radius: 32px;
   }
 }

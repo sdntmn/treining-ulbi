@@ -1,6 +1,4 @@
-import React from "react"
-
-import { TextParagraf } from "../TextParagraf/TextParagraf"
+import { Text } from "../Text/Text"
 
 import { Card } from "./Card"
 
@@ -17,6 +15,6 @@ type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
   args: {
-    children: <TextParagraf title="test" text="text text" />,
+    children: <Text title="test" text="text text" />,
   },
 }

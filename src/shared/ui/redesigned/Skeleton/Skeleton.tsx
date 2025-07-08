@@ -20,5 +20,5 @@ export const Skeleton: React.FC<SkeletonProps> = memo(function Skeleton(props: S
     borderRadius: border,
   }
 
-  return <div className={cn("skeleton", [className])} style={styles} />
+  return <div className={cn("skeleton-redesign", [className])} style={styles} />
 })

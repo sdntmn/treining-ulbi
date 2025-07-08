@@ -3,3 +3,9 @@
     fill: var(--secondary-color);
   }
 }
+
+.article-view-selector-redesigned {
+  &__not-selected {
+    color: var(--light-bg-redesigned)
+  }
+}
