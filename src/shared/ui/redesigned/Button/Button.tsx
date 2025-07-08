@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, memo } from "react"
+import React, { ButtonHTMLAttributes, memo, ReactNode } from "react"
 
 import { ButtonSize, ButtonVariant } from "@/shared/types/type"
 
@@ -27,6 +27,8 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: ButtonSize
   fullWidth?: boolean
   disabled?: boolean
+  addonLeft?: ReactNode
+  addonRight?: ReactNode
 }
 
 export const Button: React.FC<ButtonProps> = memo(function Button({
@@ -38,6 +40,8 @@ export const Button: React.FC<ButtonProps> = memo(function Button({
   fontSize = ButtonFontSize.FONT_M,
   disabled,
   fullWidth,
+  addonLeft,
+  addonRight,
   ...otherProps
 }: ButtonProps) {
   return (
@@ -51,11 +55,15 @@ export const Button: React.FC<ButtonProps> = memo(function Button({
         size && `button__size_${size}`,
         disabled && "button__disabled",
         fullWidth && "button__fullWidth",
+        Boolean(addonLeft) && "button__with-addon-left",
+        Boolean(addonRight) && "button__with-addon-right",
       ])}
       disabled={disabled}
       {...otherProps}
     >
+      {addonLeft && <div className="button__addon-left"> {addonLeft}</div>}
       {children}
+      {addonRight && <div className="button__addon-right">{addonRight}</div>}
     </button>
   )
 })

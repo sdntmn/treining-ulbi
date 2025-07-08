@@ -2,9 +2,17 @@
   cursor: pointer;
   color: var(--text-redesigned);
   padding: 6px 16px;
+  display: flex;
+  align-items: center;
 
   &:hover {
     color: var(--accent-redesigned);
+
+    .button__addon-right svg,
+    .button__addon-left svg {
+      color: var(--accent-redesigned);
+      // fill: var(--accent-redesigned);
+    }
   }
 
   &__clear {
@@ -36,7 +44,6 @@
     background: var(--light-bg-redesigned);
     border: none;
     outline: none;
-    padding: 8px 16px;
     border-radius: 34px;
   }
 
@@ -87,5 +94,24 @@
 
   &__fullWidth {
     width: 100%;
+  }
+
+  &__addon-right,
+  &__addon-left {
+    display: flex;
+  }
+
+  &__with-addon-left {
+    padding: 0 16px;
+  }
+
+  &__with-addon-right {
+    padding: 0 16px;
+  }
+
+  .button__addon-right svg,
+  .button__addon-left svg {
+    color: var(--hint-redesigned);
+    // fill: var(--accent-redesigned);
   }
 }
