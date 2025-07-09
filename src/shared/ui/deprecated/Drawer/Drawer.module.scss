@@ -1,18 +1,18 @@
-.drawer {
-    position: fixed;
-    inset: 0;
-    opacity: 0;
-    pointer-events: none;
-    z-index: -1;
-    display: flex;
-    align-items: flex-end;
+.drawer-deprecated {
+  position: fixed;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
+  display: flex;
+  align-items: flex-end;
 
   &_opened {
     pointer-events: auto;
     opacity: 1;
     z-index: var(--modal-z-index);
 
-    .drawer__content {
+    .drawer-deprecated__content {
       transform: translateY(0%);
     }
   }

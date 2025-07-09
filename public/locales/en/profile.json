@@ -1,9 +1,9 @@
 {
   "profileCardErrorTitle": "An error occurred while loading your profile.",
   "profileCardErrorText": "Try refreshing the page",
-  "profileCardInputPlaceholderFirstName": "Your name",
-  "profileCardInputPlaceholderLastName": "Your last name",
-  "profileCardInputPlaceholderAge": "Your age",
+  "profileCardInputPlaceholderFirstName": "First name",
+  "profileCardInputPlaceholderLastName": "Last name",
+  "profileCardInputPlaceholderAge": "Age",
   "profileCardInputPlaceholderCity": "City",
   "profileCardInputPlaceholderAvatar": "Avatar",
   "profileCardInputPlaceholderNick": "Nick",

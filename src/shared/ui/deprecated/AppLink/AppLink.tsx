@@ -24,7 +24,7 @@ export const AppLink: React.FC<AppLinkProps> = memo<AppLinkProps>(function AppLi
 
   return (
     <Link
-      className={cn("app-link", [className, `app-link__${appLinkColor}`])}
+      className={cn("app-link-deprecated", [className, `app-link-deprecated__${appLinkColor}`])}
       to={to}
       {...otherProps}
     >

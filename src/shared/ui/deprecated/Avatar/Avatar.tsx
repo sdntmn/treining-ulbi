@@ -46,7 +46,7 @@ export const Avatar: React.FC<AvatarProps> = ({
       src={src}
       alt={alt}
       style={styles}
-      className={cn("avatar", [className])}
+      className={cn("avatar-deprecated", [className])}
       fallback={fallBack}
       errorFallback={errorFallback}
     />

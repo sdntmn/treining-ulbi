@@ -81,17 +81,17 @@ export const DrawerContent: React.FC<DrawerProps> = memo((props: DrawerProps) =>
   return (
     <Portal>
       <div
-        className={cn("drawer", [
+        className={cn("drawer-deprecated", [
           className,
           theme,
           "app_drawer",
-          isOpen && "drawer_opened",
+          isOpen && "drawer-deprecated_opened",
           // isClosing && "drawer_closing",
         ])}
       >
         <Overlay onClick={close} />
         <Spring.a.div
-          className="drawer__sheet"
+          className="drawer-deprecated__sheet"
           style={{ display, bottom: `calc(-100vh + ${height - 100}px)`, y }}
           {...bind()}
         >

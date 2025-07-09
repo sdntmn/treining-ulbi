@@ -59,14 +59,14 @@ export const Button: React.FC<ButtonProps> = memo(function Button({
   return (
     <button
       type="button"
-      className={cn("button", [
+      className={cn("button-deprecated", [
         className,
-        buttonVar && `button__${buttonVar}`,
-        square && `button__${square}`,
-        fontSize && `button__${fontSize}`,
-        size && `button__${size}`,
-        disabled && "button__disabled",
-        fullWidth && "button__fullWidth",
+        buttonVar && `button-deprecated__${buttonVar}`,
+        square && `button-deprecated__${square}`,
+        fontSize && `button-deprecated__${fontSize}`,
+        size && `button-deprecated__${size}`,
+        disabled && "button-deprecated__disabled",
+        fullWidth && "button-deprecated__fullWidth",
       ])}
       disabled={disabled}
       {...otherProps}

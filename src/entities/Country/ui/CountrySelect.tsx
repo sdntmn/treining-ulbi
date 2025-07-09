@@ -2,7 +2,9 @@ import React, { memo, useCallback } from "react"
 import { useTranslation } from "react-i18next"
 
 import { Country } from "@/shared/const/enums"
-import { ListBox } from "@/shared/ui/deprecated/Popups"
+import { ToggleFeaturesComponent } from "@/shared/lib/features"
+import { ListBox as ListBoxDeprecated } from "@/shared/ui/deprecated/Popups"
+import { ListBox } from "@/shared/ui/redesigned/Popups"
 
 interface CountrySelectProps {
   value?: Country
@@ -33,16 +35,22 @@ export const CountrySelect: React.FC<CountrySelectProps> = memo(function Currenc
     [onChange]
   )
 
+  const props = {
+    label: t("specifyCountry"),
+    defaultValue: t("specifyCountry"),
+    className: className,
+    items: options,
+    value: value,
+    onChange: onChangeHandler,
+    readonly: isReadonly,
+    direction: "top right" as const,
+  }
+
   return (
-    <ListBox
-      label={t("specifyCountry")}
-      defaultValue={t("specifyCountry")}
-      value={value}
-      className={className}
-      items={options}
-      onChange={onChangeHandler}
-      readonly={isReadonly}
-      direction="bottom right"
+    <ToggleFeaturesComponent
+      feature="isAppRedesigned"
+      on={<ListBox {...props} />}
+      off={<ListBoxDeprecated {...props} />}
     />
   )
 })

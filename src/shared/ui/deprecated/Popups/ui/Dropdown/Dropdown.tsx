@@ -35,18 +35,18 @@ export const Dropdown: React.FC<DropdownProps> = (props: DropdownProps) => {
   const menuClasses = [mapDirectionClass[direction]]
 
   return (
-    <Menu as="div" className={cn("drop-down", [className, "popup"])}>
-      <Menu.Button className={"popup__trigger"}>{trigger}</Menu.Button>
+    <Menu as="div" className={cn("drop-down-deprecated", [className, "popup-deprecated"])}>
+      <Menu.Button className={"popup-deprecated__trigger"}>{trigger}</Menu.Button>
 
-      <Menu.Items className={cn("drop-down__menu", menuClasses)}>
+      <Menu.Items className={cn("drop-down-deprecated__menu", menuClasses)}>
         {items.map((item, index: number) => {
           const content = ({ active }: { active: boolean }) => (
             <button
-              key={"drop-down__item" + index}
+              key={"drop-down-deprecated__item" + index}
               type="button"
               disabled={item.disabled}
               onClick={item.onClick}
-              className={cn("drop-down__item", [active && "popup_active"])}
+              className={cn("drop-down-deprecated__item", [active && "popup-deprecated_active"])}
             >
               {item.content}
             </button>
@@ -56,7 +56,7 @@ export const Dropdown: React.FC<DropdownProps> = (props: DropdownProps) => {
             return (
               <Menu.Item
                 refName="href"
-                key={"drop-down__item" + index}
+                key={"drop-down-deprecated__item" + index}
                 as={AppLink}
                 to={item.href}
                 disabled={item.disabled}

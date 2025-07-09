@@ -2112,7 +2112,7 @@
         "ADMIN"
       ],
       "jsonSettings": {
-        "theme": "app-dark-theme",
+        "theme": "app-custom-theme",
         "isFirstVisit": true,
         "isArticlesPageWasOpened": true
       },
@@ -2179,7 +2179,7 @@
       "id": "1",
       "first": "Денис",
       "lastName": "Сорокин",
-      "age": 48,
+      "age": 45,
       "currency": "USD",
       "country": "Russia",
       "city": "Tyumen",

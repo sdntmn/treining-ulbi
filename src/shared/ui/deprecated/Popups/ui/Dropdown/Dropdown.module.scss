@@ -1,4 +1,5 @@
-.drop-down {
+.drop-down-deprecated {
+
   // &__btn {
   //   background: none;
   //   outline: none;
@@ -7,7 +8,6 @@
   //   border: none;
   //   cursor: pointer;
   // }
-
   &__menu {
     background: var(--card-bg);
     position: absolute;
@@ -26,7 +26,6 @@
     outline: none;
     color: var(--primary-color);
     cursor: pointer;
-
     // &_active {
     //   background: var(--inverted-primary-color);
     // }

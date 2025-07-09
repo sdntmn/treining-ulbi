@@ -1,9 +1,9 @@
 {
   "profileCardErrorTitle": "Произошла ошибка при загрузки профиля",
   "profileCardErrorText": "Попробуйте обновить страницу",
-  "profileCardInputPlaceholderFirstName": "Ваше имя",
-  "profileCardInputPlaceholderLastName": "Ваша фамилия",
-  "profileCardInputPlaceholderAge": "Ваш возраст",
+  "profileCardInputPlaceholderFirstName": "Имя",
+  "profileCardInputPlaceholderLastName": "Фамилия",
+  "profileCardInputPlaceholderAge": "Возраст",
   "profileCardInputPlaceholderCity": "Город",
   "profileCardInputPlaceholderAvatar": "Аватар",
   "profileCardInputPlaceholderNick": "Ник",

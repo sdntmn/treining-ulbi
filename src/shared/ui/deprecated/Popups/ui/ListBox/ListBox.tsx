@@ -53,14 +53,14 @@ export const ListBox: React.FC<ListBoxProps> = (props: ListBoxProps) => {
       <HListBox
         disabled={readonly}
         as="div"
-        className={cn("list-box", [className, "popup"])}
+        className={cn("list-box-deprecated", [className, "popup-deprecated"])}
         value={value}
         onChange={onChange}
       >
-        <HListBox.Button disabled={readonly} className="list-box__trigger">
+        <HListBox.Button disabled={readonly} className="list-box-deprecated__trigger">
           {value ?? defaultValue}
         </HListBox.Button>
-        <HListBox.Options className={cn("list-box__options ", optionsClasses)}>
+        <HListBox.Options className={cn("list-box-deprecated__options ", optionsClasses)}>
           {items?.map((item) => (
             <HListBox.Option
               key={item.value}
@@ -70,9 +70,9 @@ export const ListBox: React.FC<ListBoxProps> = (props: ListBoxProps) => {
             >
               {({ active, selected }) => (
                 <li
-                  className={cn("list-box__item", [
-                    active && "popup_active",
-                    item.disabled && "popup_disable",
+                  className={cn("list-box-deprecated__item", [
+                    active && "popup-deprecated_active",
+                    item.disabled && "popup-deprecated_disable",
                   ])}
                 >
                   {selected && "!!!"}

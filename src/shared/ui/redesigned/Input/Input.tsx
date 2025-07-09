@@ -2,10 +2,17 @@ import React, { InputHTMLAttributes, ReactNode, memo, useEffect, useRef, useStat
 
 import { cn } from "@/shared/lib/classNames/classNames"
 
+import { HStack } from "../Stack"
+import { Text } from "../Text"
 import "./Input.module.scss"
 
 // Omit позволяет забрать все пропсы, но какие то исключить
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, "value" | "onChange" | "readOnly">
+type HTMLInputProps = Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  "value" | "onChange" | "readOnly" | "size"
+>
+
+type InputSize = "s" | "m" | "l"
 
 interface InputProps extends HTMLInputProps {
   className?: string
@@ -15,6 +22,8 @@ interface InputProps extends HTMLInputProps {
   isReadonly?: boolean
   addonLeft?: ReactNode
   addonRight?: ReactNode
+  label?: string
+  size?: InputSize
 }
 
 export const Input: React.FC<InputProps> = memo(function Input(props: InputProps) {
@@ -28,6 +37,8 @@ export const Input: React.FC<InputProps> = memo(function Input(props: InputProps
     isReadonly,
     addonLeft,
     addonRight,
+    label,
+    size = "m",
     ...otherProps
   } = props
   const ref = useRef<HTMLInputElement>(null)
@@ -52,7 +63,7 @@ export const Input: React.FC<InputProps> = memo(function Input(props: InputProps
     }
   }, [autofocus])
 
-  return (
+  const input = (
     <div
       className={cn("input", [
         className,
@@ -60,6 +71,7 @@ export const Input: React.FC<InputProps> = memo(function Input(props: InputProps
         isFocused && "input__focused",
         Boolean(addonLeft) && "input__with-addon-left",
         Boolean(addonRight) && "input__with-addon-right",
+        size && `input__size_${size}`,
       ])}
     >
       {addonLeft && <div className="input__addon-left"> {addonLeft}</div>}
@@ -79,4 +91,15 @@ export const Input: React.FC<InputProps> = memo(function Input(props: InputProps
       {addonRight && <div className="input__addon-right">{addonRight}</div>}
     </div>
   )
+
+  if (label) {
+    return (
+      <HStack max gap="8">
+        <Text text={label} />
+        {input}
+      </HStack>
+    )
+  }
+
+  return input
 })

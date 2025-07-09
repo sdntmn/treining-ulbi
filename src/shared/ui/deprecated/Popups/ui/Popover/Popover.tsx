@@ -27,10 +27,10 @@ export const Popover: React.FC<PopoverProps> = (props: PopoverProps) => {
   const menuClasses = [mapDirectionClass[direction]]
 
   return (
-    <HPopover className={cn("", [className, "popup"])}>
-      <HPopover.Button className={"popup__trigger"}>{trigger}</HPopover.Button>
+    <HPopover className={cn("", [className, "popup-deprecated"])}>
+      <HPopover.Button className={"popup-deprecated__trigger"}>{trigger}</HPopover.Button>
 
-      <HPopover.Panel className={cn("popover", menuClasses)}>{children}</HPopover.Panel>
+      <HPopover.Panel className={cn("popover-deprecated", menuClasses)}>{children}</HPopover.Panel>
     </HPopover>
   )
 }

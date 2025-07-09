@@ -68,15 +68,20 @@ export const Input: React.FC<InputProps> = memo(function Input(props: InputProps
   }, [autofocus])
 
   return (
-    <div className={cn("input", [className, isReadonly ? "input__readonly" : ""])}>
-      {placeholder && <div className="input__placeholder">{`${placeholder}`}</div>}
-      <div className="input__caret-wrapper">
+    <div
+      className={cn("input-deprecated", [
+        className,
+        isReadonly ? "input-deprecated__readonly" : "",
+      ])}
+    >
+      {placeholder && <div className="input-deprecated__placeholder">{`${placeholder}`}</div>}
+      <div className="input-deprecated__caret-wrapper">
         <input
           ref={ref}
           type={type}
           value={value}
           readOnly={isReadonly}
-          className="input__tag"
+          className="input-deprecated__tag"
           onBlur={onBlur}
           onFocus={onFocus}
           onSelect={onSelect}
@@ -84,7 +89,7 @@ export const Input: React.FC<InputProps> = memo(function Input(props: InputProps
           {...otherProps}
         />
         {isCaretVisible && (
-          <span className="input__caret" style={{ left: `${caretPosition * 9}px` }} />
+          <span className="input-deprecated__caret" style={{ left: `${caretPosition * 9}px` }} />
         )}
       </div>
     </div>
