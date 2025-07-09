@@ -11,6 +11,7 @@ interface TextProps {
   variant?: TextVariant
   align?: TextAlign
   size?: TextSize
+  bold?: boolean
 
   "data-testid"?: string
 }
@@ -37,6 +38,7 @@ export const Text: React.FC<TextProps> = memo(function TextParagraf(props: TextP
     align = "left",
     variant = "primary",
     size = "m",
+    bold,
     "data-testid": dataTestId = "TextParagraf",
   } = props
 
@@ -51,6 +53,7 @@ export const Text: React.FC<TextProps> = memo(function TextParagraf(props: TextP
         variant && `text__${variant}`,
         align && `text__${align}`,
         size && `text__size_${sizeClass}`,
+        bold && "text__bold",
       ])}
     >
       {title && (

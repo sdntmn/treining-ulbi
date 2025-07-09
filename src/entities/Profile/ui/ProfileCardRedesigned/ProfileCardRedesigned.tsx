@@ -12,7 +12,7 @@ import { Text } from "@/shared/ui/redesigned/Text"
 import { CountrySelect } from "@/entities/Country"
 import { CurrencySelect } from "@/entities/Currency"
 
-import { ProfileCardProps } from "../ProfileCard/ProfileCard"
+import { ProfileCardProps } from "../../types/types"
 
 export const ProfileCardRedesignedError = () => {
   const { t } = useTranslation("profile")

@@ -72,4 +72,12 @@
       }
     }
   }
+
+  &__bold {
+
+    .text__title,
+    .text__paragraf {
+      font-weight: 700;
+    }
+  }
 }

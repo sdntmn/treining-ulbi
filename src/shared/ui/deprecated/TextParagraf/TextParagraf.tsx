@@ -59,15 +59,16 @@ export const TextParagraf: React.FC<TextParagrafProps> = memo(function TextParag
     "data-testid": dataTestId = "TextParagraf",
   } = props
 
+  console.info(className)
   const HeaderTag = mapSizeToHeaderTag[size]
 
   return (
     <div
       className={cn("paragraf", [
-        className,
         textVar && `paragraf__${textVar}`,
         align && `paragraf__${align}`,
         size && `paragraf__${size}`,
+        className && className,
       ])}
     >
       {title && (

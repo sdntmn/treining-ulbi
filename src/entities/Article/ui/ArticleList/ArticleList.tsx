@@ -1,7 +1,9 @@
 import { useVirtualizer } from "@tanstack/react-virtual"
-import React, { HTMLAttributeAnchorTarget, useRef } from "react"
+import React, { HTMLAttributeAnchorTarget, useEffect, useMemo, useRef, useState } from "react"
 
 import { PAGE_ID } from "@/shared/const/string"
+import { toggleFeatures } from "@/shared/lib/features"
+import { useWindowSize } from "@/shared/lib/hooks/useWindowsSize/useWindowsSize"
 
 import { ArticleViewType } from "../../model/consts"
 import { ArticleListItem } from "../ArticleListItem/ArticleListItem"
@@ -19,49 +21,87 @@ interface ArticleListProps {
   view?: ArticleViewType
 }
 
-const getSkeletons = (view: ArticleViewType) => {
-  const skeletons = Array.from({ length: view === ArticleViewType.CARD ? 9 : 3 }, (_, index) => (
-    <ArticleListItemSkeleton key={`skeleton-${index}`} view={view} />
-  ))
-  return skeletons
-}
+const getSkeletons = (view: ArticleViewType) =>
+  new Array(view === ArticleViewType.CARD ? 15 : 3)
+    .fill(0)
+    .map((_item, index) => <ArticleListItemSkeleton key={`skeleton-${index}`} view={view} />)
 
 export const ArticleList: React.FC<ArticleListProps> = (props: ArticleListProps) => {
   const { articles, isLoading, view = ArticleViewType.CARD, target } = props
 
+  const { windowWidth } = useWindowSize()
+
+  const [containerWidth, setContainerWidth] = useState(0)
+
   const containerRef = useRef<HTMLDivElement>(null)
 
-  const config = {
+  const baseConfigRedesigned = {
     [ArticleViewType.CARD]: {
-      itemsPerRow: 3,
-      itemHeight: 300,
-      itemWidth: undefined, // будет рассчитываться автоматически
-      rowHeight: 320,
+      itemHeight: 293,
+      rowHeight: 323,
     },
     [ArticleViewType.LIST]: {
       itemsPerRow: 1,
-      itemHeight: 150,
+      itemHeight: 756,
       itemWidth: "100%",
-      rowHeight: 640,
+      rowHeight: 776,
     },
   }
 
-  const currentConfig = config[view]
-  const rowCount = Math.ceil(articles.length / currentConfig.itemsPerRow)
+  const baseConfigDeprecated = {
+    [ArticleViewType.CARD]: {
+      itemHeight: 293,
+      rowHeight: 323,
+    },
+    [ArticleViewType.LIST]: {
+      itemsPerRow: 1,
+      itemHeight: 647,
+      itemWidth: "100%",
+      rowHeight: 677,
+    },
+  }
+
+  const configBase = toggleFeatures({
+    name: "isAppRedesigned",
+    on: () => baseConfigRedesigned,
+    off: () => baseConfigDeprecated,
+  })
+
+  const getConfig = useMemo(() => {
+    if (view === ArticleViewType.LIST) {
+      return configBase[ArticleViewType.LIST]
+    }
+
+    // Рассчитываем количество карточек в ряду
+    const minCardWidth = 230 // Минимальная ширина карточки
+    const gap = 16 // Отступ между карточками
+    const itemsPerRow = Math.max(1, Math.floor((containerWidth + gap) / (minCardWidth + gap)))
+
+    return {
+      ...configBase[ArticleViewType.CARD],
+      itemsPerRow,
+      itemWidth: `calc(${100 / itemsPerRow}% - ${gap}px)`,
+    }
+  }, [view, containerWidth, configBase])
+
+  // const currentConfig = config[view]
+  const rowCount = Math.ceil(articles.length / getConfig.itemsPerRow)
 
   const rowVirtualizer = useVirtualizer({
     count: rowCount,
     getScrollElement: () => document.getElementById(PAGE_ID),
-    estimateSize: () => currentConfig.rowHeight,
+    estimateSize: () => getConfig.rowHeight,
     overscan: 5,
-    paddingStart: 20,
-    paddingEnd: 20,
+    paddingStart: 16,
+    paddingEnd: 16,
   })
 
   const renderRow = (rowIndex: number) => {
-    const startIndex = rowIndex * currentConfig.itemsPerRow
-    const endIndex = Math.min(startIndex + currentConfig.itemsPerRow, articles.length)
+    const startIndex = rowIndex * getConfig.itemsPerRow
+    const endIndex = Math.min(startIndex + getConfig.itemsPerRow, articles.length)
     const rowItems = articles.slice(startIndex, endIndex)
+    const isLastRow = rowIndex === rowCount - 1
+    const itemsInLastRow = articles.length % getConfig.itemsPerRow
 
     return (
       <div
@@ -70,7 +110,8 @@ export const ArticleList: React.FC<ArticleListProps> = (props: ArticleListProps)
           display: "flex",
           gap: "16px",
           marginBottom: "16px",
-          height: `${currentConfig.rowHeight}px`,
+          height: `${getConfig.rowHeight}px`,
+          justifyContent: isLastRow && itemsInLastRow > 0 ? "flex-start" : "space-between",
         }}
         data-testid={"ArticleList"}
       >
@@ -78,51 +119,79 @@ export const ArticleList: React.FC<ArticleListProps> = (props: ArticleListProps)
           <div
             key={article.id}
             style={{
-              flex: currentConfig.itemsPerRow > 1 ? 1 : undefined,
-              width: currentConfig.itemWidth,
+              flex: isLastRow && itemsInLastRow > 0 ? "0 1 auto" : 1,
+              width: getConfig.itemWidth,
+              minWidth: `${230}px`, // Минимальная ширина карточки
             }}
           >
-            <ArticleListItem
-              article={article}
-              view={view}
-              className="article-list__item"
-              target={target}
-            />
+            <ArticleListItem article={article} view={view} target={target} />
           </div>
         ))}
+        {/* Добавляем пустые элементы для выравнивания неполных рядов */}
+        {isLastRow &&
+          itemsInLastRow > 0 &&
+          Array(getConfig.itemsPerRow - itemsInLastRow)
+            .fill(0)
+            .map((_, index) => (
+              <div
+                key={`empty-${index}`}
+                style={{
+                  width: getConfig.itemWidth,
+                  flex: 1,
+                  visibility: "hidden",
+                }}
+              />
+            ))}
       </div>
     )
   }
 
+  useEffect(() => {
+    if (containerRef.current && windowWidth) {
+      setContainerWidth(containerRef.current.offsetWidth)
+    }
+  }, [windowWidth])
+
   return (
-    <div
-      ref={containerRef}
-      style={{
-        height: `${rowVirtualizer.getTotalSize()}px`,
-        position: "relative",
-        width: "100%",
-      }}
-    >
-      {rowVirtualizer.getVirtualItems().map((virtualRow) => (
+    <>
+      <div
+        ref={containerRef}
+        style={{
+          height: `${rowVirtualizer.getTotalSize()}px`,
+          position: "relative",
+          width: "100%",
+        }}
+      >
+        {rowVirtualizer.getVirtualItems().map((virtualRow) => (
+          <div
+            key={virtualRow.key}
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              transform: `translateY(${virtualRow.start}px)`,
+            }}
+          >
+            {renderRow(virtualRow.index)}
+          </div>
+        ))}
+      </div>
+
+      {/* Скелетоны теперь рендерятся после основного списка */}
+      {isLoading && (
         <div
-          key={virtualRow.key}
           style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            transform: `translateY(${virtualRow.start}px)`,
+            display: "flex",
+            flexDirection: view === ArticleViewType.CARD ? "row" : "column",
+            flexWrap: "wrap",
+            gap: "16px",
+            marginTop: "20px",
           }}
         >
-          {renderRow(virtualRow.index)}
-        </div>
-      ))}
-
-      {isLoading && (
-        <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
           {getSkeletons(view)}
         </div>
       )}
-    </div>
+    </>
   )
 }

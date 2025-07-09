@@ -1,5 +1,5 @@
 .article-item {
-    &__types p {
+  &__types p {
     width: 115px;
     white-space: nowrap;
     overflow: hidden;
@@ -11,7 +11,7 @@
   }
 
   &__card-list {
-    margin-bottom: 30px;
+    // margin-bottom: 30px;
     text-align: center;
   }
 
@@ -80,8 +80,6 @@
     margin-right: 8px;
   }
 
- 
-
   &__title p {
     width: 200px;
     white-space: nowrap;
@@ -89,14 +87,13 @@
     text-overflow: ellipsis;
   }
 
-    // &__card {
-    // display: grid;
-    // grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-    // gap: 16px; /* расстояние между карточками */
-    // padding: 16px;
-    // }
-
-    &__card-item{
+  // &__card {
+  // display: grid;
+  // grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  // gap: 16px; /* расстояние между карточками */
+  // padding: 16px;
+  // }
+  &__card-item {
     width: 230px;
     transition: 0.2s;
     cursor: pointer;
@@ -108,8 +105,50 @@
       transform: scale(1.01);
     }
 
-     &__date {
-        display: block;
-      }
+    &__date {
+      display: block;
+    }
+  }
+}
+
+.article-list-item {
+  &-card {}
+
+  &-list {
+    &__header {
+      display: flex;
+      align-items: center;
+    }
+
+    &__username {
+      margin-left: 8px;
+    }
+
+    &__date {
+      margin-left: auto;
+    }
+
+    &__title {
+      margin-top: 8px;
+    }
+
+    &__img {
+      width: 100%;
+      max-height: 250px;
+      object-fit: cover;
+      margin: 16px 0;
+    }
+
+    &__footer {
+      display: flex;
+      align-items: center;
+      margin-top: 16px;
+    }
+
+    &__text-block {
+      max-height: 208px;
+      overflow-y: hidden;
+      text-overflow: ellipsis;
+    }
   }
 }

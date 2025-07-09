@@ -3,7 +3,7 @@ import { createEntityAdapter, createSlice, PayloadAction } from "@reduxjs/toolki
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from "@/shared/const/localstorage"
 import { SortOrder } from "@/shared/types/sort"
 
-import { Article, ArticleViewType, ArticleSortField, ArticleType } from "@/entities/Article"
+import { Article, ArticleSortField, ArticleType, ArticleViewType } from "@/entities/Article"
 
 // eslint-disable-next-line paths-import/imports-layers
 import { StateSchema } from "@/app/providers/StoreProvider"
@@ -23,7 +23,7 @@ const baseInitialState = articlesAdapter.getInitialState<ArticlesPageSchema>({
   view: ArticleViewType.CARD,
   page: 1,
   hasMore: true,
-  limit: 9,
+  limit: 15,
   order: "asc",
   sort: ArticleSortField.CREATED,
   search: "",
@@ -62,13 +62,17 @@ const articlesPageSlice = createSlice({
       state.type = action.payload
     },
 
+    setLimit: (state, action: PayloadAction<number>) => {
+      state.limit = action.payload
+    },
+
     initState: (state) => {
       const view =
         (localStorage.getItem(ARTICLES_VIEW_LOCALSTORAGE_KEY) as ArticleViewType) ||
         ArticleViewType.CARD
 
       state.view = view
-      state.limit = view === ArticleViewType.LIST ? 4 : 9
+      state.limit = view === ArticleViewType.LIST ? 4 : 18
       state._inited = true
     },
   },
@@ -90,7 +94,7 @@ const articlesPageSlice = createSlice({
         } else {
           articlesAdapter.addMany(state, action.payload)
         }
-        state.hasMore = action.payload.length >= (state.limit || 9)
+        state.hasMore = action.payload.length >= (state.limit ?? 18)
       })
       .addCase(fetchArticlesList.rejected, (state, action) => {
         state.isLoading = false

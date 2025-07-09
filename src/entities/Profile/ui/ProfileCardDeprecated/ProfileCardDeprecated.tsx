@@ -16,7 +16,9 @@ import { HStack, VStack } from "@/shared/ui/redesigned/Stack"
 import { CountrySelect } from "@/entities/Country"
 import { CurrencySelect } from "@/entities/Currency"
 
-import { ProfileCardProps } from "../ProfileCard/ProfileCard"
+import { ProfileCardProps } from "../../types/types"
+
+import "./ProfileCardDeprecated.module.scss"
 
 export const ProfileCardDeprecatedError = () => {
   const { t } = useTranslation("profile")

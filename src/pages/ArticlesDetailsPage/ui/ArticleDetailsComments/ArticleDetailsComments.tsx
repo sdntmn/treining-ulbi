@@ -42,7 +42,7 @@ export const ArticleDetailsComments: React.FC<ArticleDetailsCommentsProps> = mem
     })
 
     return (
-      <VStack gap="16">
+      <VStack gap="16" max>
         <TextParagraf title={t("articleComments")} />
         <Suspense fallback={<TextParagraf text={t("articleCommentsLoading")} />}>
           <AddCommentForm onSendComment={onSendComment} />

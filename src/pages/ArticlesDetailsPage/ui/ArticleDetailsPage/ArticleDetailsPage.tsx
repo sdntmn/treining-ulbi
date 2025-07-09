@@ -7,6 +7,7 @@ import { cn } from "@/shared/lib/classNames/classNames"
 import { DynamicModuleLoader } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
 import { ToggleFeaturesComponent } from "@/shared/lib/features"
 import { Card } from "@/shared/ui/deprecated/Card"
+import { VStack } from "@/shared/ui/redesigned/Stack"
 
 import { ArticleDetails } from "@/entities/Article"
 
@@ -44,16 +45,17 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = ({
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <Page className={cn("article-details-page", [className])}>
-        <ArticleDetailsPageHeader />
-        <ArticleDetails id={id} />
-        <ToggleFeaturesComponent
-          feature={"isArticleRatingEnabled"}
-          on={<ArticleRating articleId={id!} />}
-          off={<Card> 123 </Card>}
-        />
-        <ArticleRating articleId={id} />
-        <ArticleRecommendationList />
-        <ArticleDetailsComments id={id} />
+        <VStack gap="16" max>
+          <ArticleDetailsPageHeader />
+          <ArticleDetails id={id} />
+          <ToggleFeaturesComponent
+            feature={"isArticleRatingEnabled"}
+            on={<ArticleRating articleId={id!} />}
+            off={<Card> {t("Оценка статей скоро появится!")}</Card>}
+          />
+          <ArticleRecommendationList />
+          <ArticleDetailsComments id={id} />
+        </VStack>
       </Page>
     </DynamicModuleLoader>
   )

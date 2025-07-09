@@ -5,7 +5,7 @@ import { cn } from "@/shared/lib/classNames/classNames"
 import { TextParagraf, TextSize } from "@/shared/ui/deprecated/TextParagraf"
 import { VStack } from "@/shared/ui/redesigned/Stack"
 
-import { ArticleList } from "@/entities/Article"
+import { ArticleList, ArticleViewType } from "@/entities/Article"
 
 import { useArticleRecommendationsList } from "../../api/articleRecomendationsApi"
 
@@ -23,9 +23,19 @@ export const ArticleRecommendationList: React.FC<ArticleRecommendationListProps>
     }
 
     return (
-      <VStack data-testid={"ArticleRecommendationsList"} gap="8" className={cn("", [className])}>
+      <VStack
+        data-testid={"ArticleRecommendationsList"}
+        gap="8"
+        className={cn("", [className])}
+        max
+      >
         <TextParagraf size={TextSize.L} title={t("articleRecomendations")} />
-        <ArticleList articles={recomendationArticles} isLoading={isLoading} target="_blank" />
+        <ArticleList
+          articles={recomendationArticles}
+          isLoading={isLoading}
+          target="_blank"
+          view={ArticleViewType.CARD}
+        />
       </VStack>
     )
   }
