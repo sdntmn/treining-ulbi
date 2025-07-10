@@ -1,7 +1,12 @@
 import React, { memo } from "react"
 
 import { cn } from "@/shared/lib/classNames/classNames"
-import { TextAlign, TextParagraf } from "@/shared/ui/deprecated/TextParagraf"
+import { ToggleFeaturesComponent } from "@/shared/lib/features"
+import {
+  TextAlign,
+  TextParagraf as TextParagrafDeprecated,
+} from "@/shared/ui/deprecated/TextParagraf"
+import { Text } from "@/shared/ui/redesigned/Text"
 
 import { ArticleImage } from "../../model/types"
 
@@ -19,7 +24,13 @@ export const ArticleImageBlock: React.FC<ArticleImageBlockProps> = memo(function
   return (
     <div className={cn("article-image-block", [className])}>
       <img src={block?.src} alt={block?.title} className="article-image-block__image" />
-      {block?.title && <TextParagraf text={block.title} align={TextAlign.CENTER} />}
+      {block?.title && (
+        <ToggleFeaturesComponent
+          feature="isAppRedesigned"
+          on={<Text text={block.title} align={"center"} />}
+          off={<TextParagrafDeprecated text={block.title} align={TextAlign.CENTER} />}
+        />
+      )}
     </div>
   )
 })

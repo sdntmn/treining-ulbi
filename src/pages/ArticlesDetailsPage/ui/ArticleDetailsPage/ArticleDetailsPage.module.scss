@@ -1,5 +1,5 @@
 .article-details-page {
-  padding: 32px;
+  padding: 0 32px 32px;
 
   &__recommendations {
     display: flex;
@@ -13,5 +13,4 @@
   &__comments {
     margin-top: 20px;
   }
-
 }
