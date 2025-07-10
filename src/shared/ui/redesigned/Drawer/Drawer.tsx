@@ -18,11 +18,6 @@ interface DrawerProps {
 
 const height = window.innerHeight - 100
 
-/**
- * Устарел, используем новые компоненты из папки redesigned
- * @deprecated
- */
-
 export const DrawerContent: React.FC<DrawerProps> = memo((props: DrawerProps) => {
   const { className, children, onClose, isOpen } = props
   const { theme } = useTheme()
@@ -79,7 +74,7 @@ export const DrawerContent: React.FC<DrawerProps> = memo((props: DrawerProps) =>
   const display = y.to((py) => (py < height ? "block" : "none"))
 
   return (
-    <Portal>
+    <Portal element={document.getElementById("app") ?? document.body}>
       <div
         className={cn("drawer-deprecated", [
           className,

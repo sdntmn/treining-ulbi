@@ -33,7 +33,6 @@ export const Card: React.FC<CardProps> = memo(function Card(props: CardProps) {
 
   const paddingClass = mapPaddingToClass?.[padding]
 
-  console.info(border && `card__border_${border}`)
   return (
     <div
       className={cn("card", [

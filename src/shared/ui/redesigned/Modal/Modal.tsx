@@ -3,8 +3,10 @@ import React from "react"
 import { cn } from "@/shared/lib/classNames/classNames"
 import { useModal } from "@/shared/lib/hooks/useModal/useModal"
 
+import { toggleFeatures } from "../../../lib/features"
 import { Overlay } from "../../redesigned/Overlay"
 import { Portal } from "../../redesigned/Portal"
+
 import "./Modal.module.scss"
 
 interface ModalProps {
@@ -14,11 +16,6 @@ interface ModalProps {
   onClose?: () => void
   lazy?: boolean
 }
-
-/**
- * Устарел, используем новые компоненты из папки redesigned
- * @deprecated
- */
 
 export const Modal: React.FC<ModalProps> = ({ className, children, onClose, isOpen, lazy }) => {
   const ANIMATION_DELAY = 300
@@ -36,13 +33,28 @@ export const Modal: React.FC<ModalProps> = ({ className, children, onClose, isOp
     return null
   }
 
+  const modalClasses = toggleFeatures<string>({
+    name: "isAppRedesigned",
+    on: () => "modal",
+    off: () => "modal-deprecated",
+  })
+  const modalContent = toggleFeatures({
+    name: "isAppRedesigned",
+    on: () => "modal__content",
+    off: () => "modal-deprecated__content",
+  })
+
   return (
-    <Portal>
+    <Portal element={document.getElementById("app") ?? document.body}>
       <div
-        className={cn("modal", [className, isOpen && "modal__open", isClosing && "modal__closing"])}
+        className={cn(modalClasses, [
+          className,
+          isOpen && `${modalClasses}__open`,
+          isClosing && `${modalClasses}__closing`,
+        ])}
       >
         <Overlay onClick={close} />
-        <div className="modal__content" onClick={onContentClick}>
+        <div className={modalContent} onClick={onContentClick}>
           {children}
         </div>
       </div>

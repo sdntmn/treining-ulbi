@@ -47,7 +47,6 @@ export const Dropdown: React.FC<DropdownProps> = (props: DropdownProps) => {
             </button>
           )
 
-          console.info(item.href)
           if (item.href) {
             return (
               <Menu.Item

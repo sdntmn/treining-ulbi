@@ -44,7 +44,7 @@ const App: React.FC = () => {
     <ToggleFeaturesComponent
       feature={"isAppRedesigned"}
       on={
-        <div className={cn("app-redesigned", [theme])}>
+        <div id="app" className={cn("app-redesigned", [theme])}>
           <Suspense fallback={""}>
             <MainLayout
               header={<Navbar />}
@@ -56,7 +56,7 @@ const App: React.FC = () => {
         </div>
       }
       off={
-        <div className={cn("app", [theme])}>
+        <div id="app" className={cn("app", [theme])}>
           <Suspense fallback={""}>
             <Navbar />
             <div className="app__page">

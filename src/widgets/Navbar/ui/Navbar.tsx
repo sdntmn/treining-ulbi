@@ -30,7 +30,9 @@ export const Navbar: React.FC<NavbarProps> = memo(function Navbar({ className }:
   const authData = useSelector(getUserAuthData)
 
   const onCloseModalAuth = useCallback(() => setIsAuthModal(false), [])
-  const onOpenModalAuth = useCallback(() => setIsAuthModal(true), [])
+  const onOpenModalAuth = useCallback(() => {
+    setIsAuthModal(true)
+  }, [])
 
   if (authData) {
     return (

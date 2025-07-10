@@ -9,16 +9,11 @@ body {
   color: var(--primary-color);
 }
 
-.app,
-.app_drawer,
-.app_modal {
-  font: var(--font-m);
-  color: var(--primary-color);
-}
-
 .app {
   background: var(--bg-color);
   min-height: 100vh;
+  font: var(--font-m);
+  color: var(--primary-color);
 
   &__page {
     display: flex;

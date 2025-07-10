@@ -59,7 +59,6 @@ export const TextParagraf: React.FC<TextParagrafProps> = memo(function TextParag
     "data-testid": dataTestId = "TextParagraf",
   } = props
 
-  console.info(className)
   const HeaderTag = mapSizeToHeaderTag[size]
 
   return (
