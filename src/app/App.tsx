@@ -50,7 +50,7 @@ const App: React.FC = () => {
               header={<Navbar />}
               content={<AppRouter />}
               sidebar={<Sidebar />}
-              toolbar={<div>1234455 </div>}
+              toolbar={<div>55 </div>}
             />
           </Suspense>
         </div>

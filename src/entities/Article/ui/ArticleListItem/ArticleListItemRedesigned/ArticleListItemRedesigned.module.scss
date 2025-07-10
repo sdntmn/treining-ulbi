@@ -52,16 +52,16 @@
 }
 
 .article-card-item {
-  width: 230px;
-  transition: 0.2s;
-  cursor: pointer;
-
-  &__date {
-    position: absolute;
-    right: 0;
-    top: 0;
-    display: none;
+  &__card {
+    width: 240px;
+    height: 350px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
   }
+
+  &__date {}
 
   &:hover {
     opacity: 0.8;
@@ -77,15 +77,15 @@
   }
 
   &__img {
-    width: 200px;
-    height: 200px;
+    width: 100%;
     object-fit: cover;
+    min-height: 140px;
+    max-height: 140px;
   }
 
-  &__info-wrapper {
-    display: flex;
-    align-items: center;
-    margin-top: 8px;
+  &__info {
+    padding: 8px 8px 16px 8px;
+    height: 100%;
   }
 
   &__views {
@@ -93,10 +93,8 @@
     margin-right: 8px;
   }
 
-  &__title p {
-    width: 200px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  &__footer {
+    height: 100%;
+    justify-content: flex-end;
   }
 }

@@ -25,7 +25,12 @@ export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
 
   const { t } = useTranslation()
 
-  const types = <Text text={article.type.join(", ")} className={"articles-item__types"} />
+  const userInfo = (
+    <>
+      <Avatar size={32} src={article.user.avatar} />
+      <Text bold text={article.user?.username} />
+    </>
+  )
 
   const views = (
     <HStack gap="8">
@@ -49,9 +54,7 @@ export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
       >
         <VStack max gap="16">
           <HStack gap="8" max>
-            <Avatar size={32} src={article.user.avatar} />
-
-            <Text bold text={article.user.username} />
+            {userInfo}
 
             <Text text={article.createdAt} />
           </HStack>
@@ -93,25 +96,24 @@ export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
       to={routePatch.articleDetails(article.id)}
       className={cn("article-card-item", [className])}
     >
-      <Card className={"article-card-item__card"}>
-        <div className={"article-card-item__image-wrapper"}>
-          <AppImage
-            fallback={<Skeleton width={200} height={200} />}
-            alt={article.title}
-            src={article.img}
-            className={"article-card-item__img"}
-          />
+      <Card className={"article-card-item__card"} padding="0">
+        <AppImage
+          fallback={<Skeleton width={240} height={140} />}
+          alt={article.title}
+          src={article.img}
+          className={"article-card-item__img"}
+        />
+        <VStack className="article-card-item__info" gap="4">
+          <Text text={article.title} className={"article-card-item__title"} />
 
-          <Text text={article.createdAt} className={"article-card-item__date"} />
-        </div>
-
-        <div className={"article-card-item__info-wrap"}>
-          {types}
-
-          {views}
-        </div>
-
-        <Text text={article.title} className={"article-card-item__title"} />
+          <VStack gap="4" className={"article-card-item__footer"} max>
+            <HStack justify="between" max>
+              <Text text={article.createdAt} className={"article-card-item__date"} />
+              {views}
+            </HStack>
+            <HStack gap="4">{userInfo}</HStack>
+          </VStack>
+        </VStack>
       </Card>
     </AppLink>
   )

@@ -1,11 +1,12 @@
 import React, { memo } from "react"
 
 import { cn } from "@/shared/lib/classNames/classNames"
-import { toggleFeatures } from "@/shared/lib/features"
+import { toggleFeatures, ToggleFeaturesComponent } from "@/shared/lib/features"
 import { Card as CardDeprecated } from "@/shared/ui/deprecated/Card"
 import { Skeleton as SkeletonDeprecated } from "@/shared/ui/deprecated/Skeleton"
 import { Card as CardRedesigned } from "@/shared/ui/redesigned/Card"
 import { Skeleton as SkeletonRedesigned } from "@/shared/ui/redesigned/Skeleton"
+import { VStack } from "@/shared/ui/redesigned/Stack"
 
 import { ArticleViewType } from "../../model/consts/consts"
 
@@ -53,17 +54,35 @@ export const ArticleListItemSkeleton: React.FC<ArticleListItemSkeletonProps> = m
     }
 
     return (
-      <div className={cn("article-list-item-card", [className])}>
-        <Card className="article-list-item-card">
-          <div className="article-list-item-card__image-wrapper">
-            <Skeleton width={200} height={200} className="article-list-item-card__img" />
+      <ToggleFeaturesComponent
+        feature="isAppRedesigned"
+        on={
+          <Card className="article-card-item-skeleton__card" padding="0">
+            <div className="article-card-item-skeleton__image-wrapper">
+              <Skeleton width={240} height={140} className="article-list-item-card__img" />
+            </div>
+            <VStack gap="8" className="article-card-item-skeleton__info">
+              <Skeleton width={120} height={16} />
+              <Skeleton width={220} height={102} />
+              <Skeleton width={220} height={16} className="article-card-item-skeleton__title" />
+              <Skeleton width={150} height={16} className="article-card-item-skeleton__title" />
+            </VStack>
+          </Card>
+        }
+        off={
+          <div className={cn("article-list-item-card", [className])}>
+            <Card className="article-list-item-card">
+              <div className="article-list-item-card__image-wrapper">
+                <Skeleton width={200} height={200} className="article-list-item-card__img" />
+              </div>
+              <div className="article-list-item-card__info-wrapper">
+                <Skeleton width={130} height={16} />
+              </div>
+              <Skeleton width={150} height={16} className="article-list-item-card__title" />
+            </Card>
           </div>
-          <div className="article-list-item-card__info-wrapper">
-            <Skeleton width={130} height={16} />
-          </div>
-          <Skeleton width={150} height={16} className="article-list-item-card__title" />
-        </Card>
-      </div>
+        }
+      />
     )
   }
 )

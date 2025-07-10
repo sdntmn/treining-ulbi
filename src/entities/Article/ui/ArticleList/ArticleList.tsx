@@ -37,8 +37,8 @@ export const ArticleList: React.FC<ArticleListProps> = (props: ArticleListProps)
 
   const baseConfigRedesigned = {
     [ArticleViewType.CARD]: {
-      itemHeight: 293,
-      rowHeight: 323,
+      itemHeight: 342,
+      rowHeight: 358,
     },
     [ArticleViewType.LIST]: {
       itemsPerRow: 1,
@@ -72,8 +72,14 @@ export const ArticleList: React.FC<ArticleListProps> = (props: ArticleListProps)
       return configBase[ArticleViewType.LIST]
     }
 
+    const minCardWidth = toggleFeatures({
+      name: "isAppRedesigned",
+      on: () => 240,
+      off: () => 230,
+    })
+
     // Рассчитываем количество карточек в ряду
-    const minCardWidth = 230 // Минимальная ширина карточки
+    // const minCardWidth = 250 // Минимальная ширина карточки
     const gap = 16 // Отступ между карточками
     const itemsPerRow = Math.max(1, Math.floor((containerWidth + gap) / (minCardWidth + gap)))
 
@@ -102,13 +108,18 @@ export const ArticleList: React.FC<ArticleListProps> = (props: ArticleListProps)
     const rowItems = articles.slice(startIndex, endIndex)
     const isLastRow = rowIndex === rowCount - 1
     const itemsInLastRow = articles.length % getConfig.itemsPerRow
+    const minCardWidth = toggleFeatures({
+      name: "isAppRedesigned",
+      on: () => 240,
+      off: () => 230,
+    })
 
     return (
       <div
         key={rowIndex}
         style={{
           display: "flex",
-          gap: "16px",
+          gap: "15px",
           marginBottom: "16px",
           height: `${getConfig.rowHeight}px`,
           justifyContent: isLastRow && itemsInLastRow > 0 ? "flex-start" : "space-between",
@@ -121,7 +132,7 @@ export const ArticleList: React.FC<ArticleListProps> = (props: ArticleListProps)
             style={{
               flex: isLastRow && itemsInLastRow > 0 ? "0 1 auto" : 1,
               width: getConfig.itemWidth,
-              minWidth: `${230}px`, // Минимальная ширина карточки
+              minWidth: `${minCardWidth}px`, // Минимальная ширина карточки
             }}
           >
             <ArticleListItem article={article} view={view} target={target} />
