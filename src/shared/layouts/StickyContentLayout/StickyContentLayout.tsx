@@ -16,9 +16,9 @@ export const StickyContentLayout = memo((props: Props) => {
 
   return (
     <div className={cn("sticky-layout", [className])}>
-      <div className="sticky-layout__left">{left}</div>
+      {left && <div className="sticky-layout__left">{left}</div>}
       <div className="sticky-layout__content">{content}</div>
-      <div className="sticky-layout__right">{right}</div>
+      {right && <div className="sticky-layout__right">{right}</div>}
     </div>
   )
 })

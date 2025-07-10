@@ -22,5 +22,8 @@
   "articleSortedByCreate": "дате создания",
   "articleSortedByViews": "просмотрам",
   "articleSortedByGrowth": "возростанию",
-  "articleSortedByDescending": "убыванию"
+  "articleSortedByDescending": "убыванию",
+  "{{count}} views_zero": "{{count}} просмотров",
+  "{{count}} views_one": "{{count}} просмотр",
+  "{{count}} views_other": "{{count}} просмотров"
 }

@@ -22,5 +22,8 @@
   "articleSortedByCreate": "date of creation",
   "articleSortedByViews": "views",
   "articleSortedByGrowth": "growth",
-  "articleSortedByDescending": "descending"
+  "articleSortedByDescending": "descending",
+  "{{count}} views_zero": "{{count}} view",
+  "{{count}} views_one": "{{count}} view",
+  "{{count}} views_other": "{{count}} views"
 }

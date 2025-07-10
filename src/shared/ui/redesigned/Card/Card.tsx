@@ -11,6 +11,7 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
   max?: boolean
   padding?: CardPadding
   border?: CardBorder
+  fullHeight?: boolean
 }
 
 const mapPaddingToClass: Record<CardPadding, string> = {
@@ -28,6 +29,7 @@ export const Card: React.FC<CardProps> = memo(function Card(props: CardProps) {
     padding = "8",
     variant = "normal",
     max,
+    fullHeight,
     ...otherProps
   } = props
 
@@ -41,6 +43,7 @@ export const Card: React.FC<CardProps> = memo(function Card(props: CardProps) {
         max && "card__width-max",
         `card__${paddingClass}`,
         border && `card__border_${border}`,
+        fullHeight && "card__full-height",
       ])}
       {...otherProps}
     >

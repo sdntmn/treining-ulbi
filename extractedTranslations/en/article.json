@@ -21,6 +21,16 @@
   "articleTypeTabsEconomics": "",
   "articleTypeTabsIT": "",
   "articleTypeTabsScience": "",
+  "{{count}} ": "",
+  "{{count}} _plural": "",
+  "{{count}} views": "",
+  "{{count}} views ": "",
+  "{{count}} views _plural": "",
+  "{{count}} views_plural": "",
+  "{{count}} просмотров": "",
+  "{{count}} просмотров_plural": "",
+  "{{count}}views ": "",
+  "{{count}}views _plural": "",
   "Оценка статей скоро появится!": "",
   "Поиск": ""
 }
