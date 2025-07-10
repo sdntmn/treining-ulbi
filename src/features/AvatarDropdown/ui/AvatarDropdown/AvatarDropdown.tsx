@@ -35,6 +35,7 @@ export const AvatarDropdown: React.FC<AvatarDropdownProps> = memo((props: Avatar
     ...(isAdminPanelAvailable ? [{ content: t("menuAdmin"), href: routePatch.adminPanel() }] : []),
     { content: t("menuProfile"), href: routePatch.profile(authData.id) },
     { content: t("goOut"), onClick: onLogout },
+    { content: t("settingPage"), href: routePatch.settings() },
   ]
 
   return (

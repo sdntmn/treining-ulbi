@@ -4,6 +4,7 @@ export const routePatch = {
   // Основные пути
   main: () => APP_PATHS.MAIN,
   about: () => APP_PATHS.ABOUT,
+  settings: () => APP_PATHS.SETTINGS,
   forbidden: () => APP_PATHS.FORBIDDEN,
   notFound: () => APP_PATHS.NOT_FOUND,
 

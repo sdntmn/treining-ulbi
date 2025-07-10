@@ -8,6 +8,7 @@ import { Card } from "@/shared/ui/redesigned/Card"
 import { Text } from "@/shared/ui/redesigned/Text"
 
 import { Notification } from "../../model/types/notification"
+
 import "./NotificationItem.module.scss"
 
 interface NotificationItemProps {
@@ -23,7 +24,7 @@ export const NotificationItem: React.FC<NotificationItemProps> = memo(
       <ToggleFeaturesComponent
         feature={"isAppRedesigned"}
         on={
-          <Card className={cn("notification-item", [className])} max>
+          <Card className={cn("notification-item", [className])} max border="none">
             <Text title={item.title} text={item.description} />
           </Card>
         }

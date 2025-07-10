@@ -1,3 +1,7 @@
 {
-  "mainPageTitle": "Главная страница"
+  "mainPageTitle": "Главная страница",
+  "settingsPage": "Настройки пользователя",
+  "newDesign": "Новый",
+  "oldDesign": "Старый",
+  "interfaceOption": "Вариант интерфейса"
 }

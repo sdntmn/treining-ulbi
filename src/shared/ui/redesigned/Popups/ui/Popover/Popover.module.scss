@@ -1,9 +1,9 @@
 .popover {
-  background: var(--bg-redesigned);
+  background: var(--dark-bg-redesigned);
   position: absolute;
   z-index: 10000;
   border-radius: 8px;
   padding: 8px;
   box-shadow: 0 3px 10px 0 rgba(16, 55, 163, 0.6);
-  border: 1px solid #5ed3f3;
+  border: 1px solid var(--accent-redesigned);
 }

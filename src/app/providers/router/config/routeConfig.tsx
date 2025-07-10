@@ -10,11 +10,13 @@ import { ForbiddenPage } from "@/pages/ForbiddenPage"
 import { MainPage } from "@/pages/MainPage"
 import { NotFoundPage } from "@/pages/NotFoundPage"
 import { ProfilePage } from "@/pages/ProfilePage"
+import { SettingsPage } from "@/pages/SettingsPage"
 
 import type { AppRoutesProps } from "@/shared/types/routerType"
 
 export const routeConfig: Record<RouteNames, AppRoutesProps> = {
   [RouteNames.MAIN]: { path: APP_PATHS.MAIN, element: <MainPage /> },
+  [RouteNames.SETTINGS]: { path: APP_PATHS.SETTINGS, element: <SettingsPage /> },
   [RouteNames.ABOUT]: { path: APP_PATHS.ABOUT, element: <AboutPageAsync /> },
   [RouteNames.PROFILE]: {
     path: `${APP_PATHS.PROFILE}:id`,

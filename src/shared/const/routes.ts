@@ -7,6 +7,7 @@ export const APP_PATHS = {
   ARTICLE_CREATE: "/articles/new",
   ARTICLE_EDIT: "/articles/:id/edit",
   ADMIN_PANEL: "/admin",
+  SETTINGS: "/settings",
   FORBIDDEN: "/forbidden",
   NOT_FOUND: "*",
 } as const

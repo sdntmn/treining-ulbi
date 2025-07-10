@@ -6,5 +6,6 @@
   "errorNoData": "Нет данных",
   "headerProfileTitle": "Профиль",
   "menuAdmin": "Админка",
-  "menuProfile": "Профиль"
+  "menuProfile": "Профиль",
+  "settingPage": "Настройки"
 }

@@ -7,5 +7,6 @@
   "refreshPage": "Upload page",
   "errorNoData": "No data",
   "menuAdmin": "Adminka",
-  "menuProfile": "Profile"
+  "menuProfile": "Profile",
+  "settingPage": "Settings"
 }

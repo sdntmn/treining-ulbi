@@ -1,3 +1,7 @@
 {
-  "mainPageTitle": "Main page"
+  "mainPageTitle": "Main page",
+  "settingsPage": "Settings user",
+  "newDesign": "New",
+  "oldDesign": "Old",
+  "interfaceOption": "Interface option"
 }

@@ -1,4 +1,6 @@
 .notification-item {
+  border-bottom: 1px solid var(--hint-redesigned);
+
   &__link {
     width: 100%;
   }
