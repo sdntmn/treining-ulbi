@@ -3,10 +3,12 @@ import React, { memo, Suspense, useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
 
+import { ToggleFeaturesComponent } from "@/shared/lib/features"
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch"
 import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect/useInitialEffect"
-import { TextParagraf } from "@/shared/ui/deprecated/TextParagraf"
+import { TextParagraf as TextParagrafDeprecated } from "@/shared/ui/deprecated/TextParagraf"
 import { VStack } from "@/shared/ui/redesigned/Stack"
+import { Text } from "@/shared/ui/redesigned/Text"
 
 import { CommentList } from "@/entities/Comment"
 
@@ -43,8 +45,12 @@ export const ArticleDetailsComments: React.FC<ArticleDetailsCommentsProps> = mem
 
     return (
       <VStack gap="16" max>
-        <TextParagraf title={t("articleComments")} />
-        <Suspense fallback={<TextParagraf text={t("articleCommentsLoading")} />}>
+        <ToggleFeaturesComponent
+          feature="isAppRedesigned"
+          on={<Text size={"l"} title={t("articleComments")} />}
+          off={<TextParagrafDeprecated title={t("articleComments")} />}
+        />
+        <Suspense fallback={<TextParagrafDeprecated text={t("articleCommentsLoading")} />}>
           <AddCommentForm onSendComment={onSendComment} />
         </Suspense>
         <CommentList isLoading={isLoadingComments} comments={comments} />

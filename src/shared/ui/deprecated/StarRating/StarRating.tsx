@@ -2,9 +2,10 @@ import React, { memo, useState } from "react"
 
 import StarIcon from "@/shared/assets/icons/star.svg"
 import { cn } from "@/shared/lib/classNames/classNames"
+import { toggleFeatures, ToggleFeaturesComponent } from "@/shared/lib/features"
 
-import { Icon } from "../Icon/Icon"
-
+import { Icon } from "../../redesigned/Icon"
+import { Icon as IconDeprecated } from "../Icon/Icon"
 import "./StarRating.module.scss"
 
 interface StarRatingProps {
@@ -47,24 +48,41 @@ export const StarRating: React.FC<StarRatingProps> = memo((props: StarRatingProp
   }
 
   return (
-    <div className={cn("star-rating", [className])}>
-      {stars.map((startNumber) => (
-        <Icon
-          data-testid={`StarRating.${startNumber}`}
-          data-selected={currentStarsCount >= startNumber}
-          className={cn("star-rating__icon", [
+    <div
+      className={cn(
+        toggleFeatures({
+          name: "isAppRedesigned",
+          off: () => "star-rating-deprecated",
+          on: () => "star-rating",
+        }),
+        [className]
+      )}
+    >
+      {stars.map((startNumber) => {
+        const commonProps = {
+          className: cn("star-rating__icon", [
             isSelected && "star-rating__selected",
             currentStarsCount >= startNumber ? "star-rating_hovered" : "start-rating_normal",
-          ])}
-          Svg={StarIcon}
-          key={startNumber}
-          width={size}
-          height={size}
-          onMouseLeave={onLeave}
-          onMouseEnter={onHover(startNumber)}
-          onClick={onClick(startNumber)}
-        />
-      ))}
+          ]),
+          Svg: StarIcon,
+          key: startNumber,
+          width: size,
+          height: size,
+          onMouseLeave: onLeave,
+          onMouseEnter: onHover(startNumber),
+          onClick: onClick(startNumber),
+          "data-testid": `StarRating.${startNumber}`,
+          "data-selected": currentStarsCount >= startNumber,
+        }
+        return (
+          <ToggleFeaturesComponent
+            key={startNumber}
+            feature="isAppRedesigned"
+            on={<Icon clickable={!isSelected} {...commonProps} />}
+            off={<IconDeprecated {...commonProps} />}
+          />
+        )
+      })}
     </div>
   )
 })

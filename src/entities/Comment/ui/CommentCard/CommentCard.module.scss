@@ -1,4 +1,4 @@
-.comment-card {
+.comment-card-deprecated {
   padding: 10px;
   border: 1px solid var(--primary-color);
 
@@ -16,6 +16,27 @@
   }
 
   &__loading {
-  border: none;
+    border: none;
+  }
 }
+
+.comment-card {
+
+  // padding: 10px;
+  // border: 1px solid var(--primary-color);
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  // &__username {
+  //   margin-left: 10px;
+  // }
+  // &__text {
+  //   margin-top: 10px;
+  // }
+  // &__loading {
+  //   border: none;
+  // }
 }

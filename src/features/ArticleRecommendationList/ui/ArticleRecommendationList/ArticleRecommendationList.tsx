@@ -2,8 +2,13 @@ import React, { memo } from "react"
 import { useTranslation } from "react-i18next"
 
 import { cn } from "@/shared/lib/classNames/classNames"
-import { TextParagraf, TextSize } from "@/shared/ui/deprecated/TextParagraf"
+import { ToggleFeaturesComponent } from "@/shared/lib/features"
+import {
+  TextParagraf as TextParagrafDeprecated,
+  TextSize,
+} from "@/shared/ui/deprecated/TextParagraf"
 import { VStack } from "@/shared/ui/redesigned/Stack"
+import { Text } from "@/shared/ui/redesigned/Text"
 
 import { ArticleList, ArticleViewType } from "@/entities/Article"
 
@@ -29,7 +34,12 @@ export const ArticleRecommendationList: React.FC<ArticleRecommendationListProps>
         className={cn("", [className])}
         max
       >
-        <TextParagraf size={TextSize.L} title={t("articleRecomendations")} />
+        <ToggleFeaturesComponent
+          feature="isAppRedesigned"
+          on={<Text size={"l"} title={t("articleRecomendations")} />}
+          off={<TextParagrafDeprecated size={TextSize.L} title={t("articleRecomendations")} />}
+        />
+
         <ArticleList
           articles={recomendationArticles}
           isLoading={isLoading}

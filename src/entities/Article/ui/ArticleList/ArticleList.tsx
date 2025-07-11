@@ -42,9 +42,9 @@ export const ArticleList: React.FC<ArticleListProps> = (props: ArticleListProps)
     },
     [ArticleViewType.LIST]: {
       itemsPerRow: 1,
-      itemHeight: 756,
+      itemHeight: 782,
       itemWidth: "100%",
-      rowHeight: 776,
+      rowHeight: 796,
     },
   }
 

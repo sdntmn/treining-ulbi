@@ -2,8 +2,10 @@ import React, { memo } from "react"
 import { useTranslation } from "react-i18next"
 
 import { cn } from "@/shared/lib/classNames/classNames"
-import { TextParagraf } from "@/shared/ui/deprecated/TextParagraf"
+import { ToggleFeaturesComponent } from "@/shared/lib/features"
+import { TextParagraf as TextParagrafDeprecated } from "@/shared/ui/deprecated/TextParagraf"
 import { VStack } from "@/shared/ui/redesigned/Stack"
+import { Text } from "@/shared/ui/redesigned/Text"
 
 import { Comment } from "../../model/types/comment"
 import { CommentCard } from "../CommentCard/CommentCard"
@@ -43,7 +45,11 @@ export const CommentList: React.FC<CommentListProps> = memo(function CommentList
           />
         ))
       ) : (
-        <TextParagraf text={t("noComments")} />
+        <ToggleFeaturesComponent
+          feature="isAppRedesigned"
+          on={<Text text={t("noComments")} />}
+          off={<TextParagrafDeprecated text={t("noComments")} />}
+        />
       )}
     </VStack>
   )

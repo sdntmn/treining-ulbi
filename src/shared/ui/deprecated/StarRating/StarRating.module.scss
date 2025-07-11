@@ -1,4 +1,4 @@
-.star-rating {
+.star-rating-deprecated {
   &__icon {
     fill: none;
     stroke: var(--primary-color);
@@ -11,6 +11,26 @@
 
   &_hovered {
     fill: var(--primary-color);
+  }
+
+  &_normal {
+    fill: none;
+  }
+}
+
+.star-rating {
+  &__icon {
+    fill: none;
+    stroke: var(--icon-redesigned);
+    cursor: pointer;
+  }
+
+  &__selected {
+    cursor: auto;
+  }
+
+  &_hovered {
+    fill: var(--icon-redesigned);
   }
 
   &_normal {
