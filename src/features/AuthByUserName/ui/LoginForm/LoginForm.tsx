@@ -7,10 +7,18 @@ import {
   DynamicModuleLoader,
   ReducersList,
 } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
+import { ToggleFeaturesComponent } from "@/shared/lib/features"
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch"
-import { Button, ButtonVar } from "@/shared/ui/deprecated/Button"
-import { Input } from "@/shared/ui/deprecated/Input"
-import { TextParagraf, TextVar } from "@/shared/ui/deprecated/TextParagraf"
+import { Button as ButtonDeprecated, ButtonVar } from "@/shared/ui/deprecated/Button"
+import { Input as InputDeprecated } from "@/shared/ui/deprecated/Input"
+import {
+  TextParagraf as TextParagrafDeprecated,
+  TextVar,
+} from "@/shared/ui/deprecated/TextParagraf"
+import { Button } from "@/shared/ui/redesigned/Button"
+import { Input } from "@/shared/ui/redesigned/Input"
+import { VStack } from "@/shared/ui/redesigned/Stack"
+import { Text } from "@/shared/ui/redesigned/Text"
 
 import { getLoginError } from "../../model/selectors/getLoginError/getLoginError"
 import { getLoginIsLoading } from "../../model/selectors/getLoginIsLoading/getLoginIsLoading"
@@ -43,8 +51,6 @@ const LoginForm: React.FC<LoginFormProps> = memo(function LoginForm({
   const error = useSelector(getLoginError)
   const isLoading = useSelector(getLoginIsLoading)
 
-  // DEVTOOLS?.log('username', username)
-
   const onChangeUserName = useCallback(
     (value: string) => {
       dispatch(loginActions.setUserName(value))
@@ -68,33 +74,66 @@ const LoginForm: React.FC<LoginFormProps> = memo(function LoginForm({
 
   return (
     <DynamicModuleLoader reducers={initialReducers}>
-      <div className={cn("login-form", [className])}>
-        <TextParagraf title={t("titleForm")} />
-        {error && <TextParagraf text={error} textVar={TextVar.ERROR} />}
-        <Input
-          autofocus
-          className={cn("login-form__input", [className])}
-          type="text"
-          placeholder={t("enterName")}
-          onChange={onChangeUserName}
-          value={username}
-        />
-        <Input
-          className={cn("login-form__input", [className])}
-          type="text"
-          placeholder={t("enterPassword")}
-          onChange={onChangePassword}
-          value={password}
-        />
-        <Button
-          buttonVar={ButtonVar.PRIMARY}
-          className={cn("login-form__btn", [className])}
-          onClick={onLoginClick}
-          disabled={isLoading}
-        >
-          {t("enter")}
-        </Button>
-      </div>
+      <ToggleFeaturesComponent
+        feature="isAppRedesigned"
+        on={
+          <VStack gap="8" className={cn("login-form", [className])}>
+            <Text title={t("titleForm")} />
+            {error && <Text text={error} variant={"error"} />}
+            <Input
+              autofocus
+              className={cn("login-form__input", [className])}
+              type="text"
+              placeholder={t("enterName")}
+              onChange={onChangeUserName}
+              value={username}
+            />
+            <Input
+              className={cn("login-form__input", [className])}
+              type="text"
+              placeholder={t("enterPassword")}
+              onChange={onChangePassword}
+              value={password}
+            />
+            <Button
+              className={cn("login-form__btn", [className])}
+              onClick={onLoginClick}
+              disabled={isLoading}
+            >
+              {t("enter")}
+            </Button>
+          </VStack>
+        }
+        off={
+          <div className={cn("login-form", [className])}>
+            <TextParagrafDeprecated title={t("titleForm")} />
+            {error && <TextParagrafDeprecated text={error} textVar={TextVar.ERROR} />}
+            <InputDeprecated
+              autofocus
+              className={cn("login-form__input", [className])}
+              type="text"
+              placeholder={t("enterName")}
+              onChange={onChangeUserName}
+              value={username}
+            />
+            <InputDeprecated
+              className={cn("login-form__input", [className])}
+              type="text"
+              placeholder={t("enterPassword")}
+              onChange={onChangePassword}
+              value={password}
+            />
+            <ButtonDeprecated
+              buttonVar={ButtonVar.PRIMARY}
+              className={cn("login-form__btn", [className])}
+              onClick={onLoginClick}
+              disabled={isLoading}
+            >
+              {t("enter")}
+            </ButtonDeprecated>
+          </div>
+        }
+      />
     </DynamicModuleLoader>
   )
 })

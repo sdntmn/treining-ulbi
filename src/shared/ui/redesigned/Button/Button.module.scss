@@ -6,7 +6,6 @@
   align-items: center;
 
   &:hover {
-    color: var(--accent-redesigned);
 
     .button__addon-right svg,
     .button__addon-left svg {
@@ -27,21 +26,43 @@
     background: none;
     border-radius: 34px;
 
-    &:hover {
-      border: 2px solid var(--accent-redesigned);
+    &.button__color_normal {
+      border: 2px solid var(--icon-redesigned);
+      color: var(--accent-redesigned);
+
+      &:hover {
+        border: 2px solid var(--accent-redesigned);
+      }
+    }
+
+    &.button__color_success {
+      border: 2px solid var(--save-redesigned);
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    &.button__color_error {
+      border: 2px solid var(--cancel-redesigned);
+
+      &:hover {
+        opacity: 0.8;
+      }
     }
   }
 
   &__outline-error {
-    border: 1px solid var(--primary-error-color);
-    color: var(--primary-error-color);
+    border: 2px solid var(--cancel-redesigned);
     background: none;
+    border-radius: 34px;
   }
 
   &__praymary {
     background: var(--button-background);
     color: var(--secondary-color);
     border: 1px solid var(--button-background);
+    border-radius: 34px;
   }
 
   &__filled {
@@ -49,6 +70,10 @@
     border: none;
     outline: none;
     border-radius: 34px;
+
+    &:hover {
+      color: var(--accent-redesigned);
+    }
   }
 
   &__square-m {
@@ -118,4 +143,8 @@
     color: var(--hint-redesigned);
     // fill: var(--accent-redesigned);
   }
+
+  // &__color_normal {}
+  // &__color_success {}
+  // &__color_error {}
 }

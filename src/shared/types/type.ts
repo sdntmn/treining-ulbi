@@ -2,6 +2,7 @@ export type AppLinkColor = "primary" | "secondary" | "red"
 
 export type ButtonVariant = "clear" | "outline" | "outline-error" | "praymary" | "filled"
 export type ButtonSize = "m" | "l" | "xl"
+export type ButtonColor = "normal" | "success" | "error"
 
 export type TextVariant = "primary" | "accent" | "error"
 export type TextAlign = "left" | "right" | "center"

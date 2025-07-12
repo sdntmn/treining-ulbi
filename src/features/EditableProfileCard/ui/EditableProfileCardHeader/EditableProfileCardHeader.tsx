@@ -3,10 +3,14 @@ import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
 
 import { cn } from "@/shared/lib/classNames/classNames"
+import { ToggleFeaturesComponent } from "@/shared/lib/features"
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch"
-import { Button, ButtonVar } from "@/shared/ui/deprecated/Button"
-import { TextParagraf } from "@/shared/ui/deprecated/TextParagraf"
+import { Button as ButtonDeprecated, ButtonVar } from "@/shared/ui/deprecated/Button"
+import { TextParagraf as TextParagrafDeprecated } from "@/shared/ui/deprecated/TextParagraf"
+import { Button } from "@/shared/ui/redesigned/Button"
+import { Card } from "@/shared/ui/redesigned/Card"
 import { HStack } from "@/shared/ui/redesigned/Stack"
+import { Text } from "@/shared/ui/redesigned/Text"
 
 import { getUserAuthData } from "@/entities/User"
 
@@ -42,38 +46,82 @@ export const EditableProfileCardHeader: React.FC<EditableProfileCardHeaderProps>
   }, [dispatch])
 
   return (
-    <HStack justify="between" max className={cn("", [className])}>
-      <TextParagraf title={t("headerProfileTitle")} />
-      {canEdit && (
-        <HStack gap="16">
-          {readOnly ? (
-            <Button
-              buttonVar={ButtonVar.OUTLINE}
-              onClick={onEdit}
-              data-testid="EditableProfileCardHeader.EditButton"
-            >
-              {t("btnProfileEdit")}
-            </Button>
-          ) : (
-            <>
-              <Button
-                buttonVar={ButtonVar.OUTLINE_ERROR}
-                onClick={onCancelEdit}
-                data-testid="EditableProfileCardHeader.CancelButton"
-              >
-                {t("btnProfileCancel")}
-              </Button>
-              <Button
-                buttonVar={ButtonVar.OUTLINE}
-                onClick={onSave}
-                data-testid="EditableProfileCardHeader.SaveButton"
-              >
-                {t("btnProfileSave")}
-              </Button>
-            </>
+    <ToggleFeaturesComponent
+      feature="isAppRedesigned"
+      on={
+        <Card padding="24" max>
+          <HStack justify="between" max className={cn("", [className])}>
+            <Text title={t("headerProfileTitle")} />
+            {canEdit && (
+              <HStack gap="16">
+                {readOnly ? (
+                  <Button
+                    variant={"outline"}
+                    onClick={onEdit}
+                    data-testid="EditableProfileCardHeader.EditButton"
+                  >
+                    {t("btnProfileEdit")}
+                  </Button>
+                ) : (
+                  <>
+                    <Button
+                      variant={"outline"}
+                      onClick={onCancelEdit}
+                      data-testid="EditableProfileCardHeader.CancelButton"
+                      color="error"
+                    >
+                      {t("btnProfileCancel")}
+                    </Button>
+                    <Button
+                      variant={"outline"}
+                      color="success"
+                      onClick={onSave}
+                      data-testid="EditableProfileCardHeader.SaveButton"
+                    >
+                      {t("btnProfileSave")}
+                    </Button>
+                  </>
+                )}
+              </HStack>
+            )}
+          </HStack>
+        </Card>
+      }
+      off={
+        <HStack justify="between" max className={cn("", [className])}>
+          <TextParagrafDeprecated title={t("headerProfileTitle")} />
+          {canEdit && (
+            <HStack gap="16">
+              {readOnly ? (
+                <ButtonDeprecated
+                  buttonVar={ButtonVar.OUTLINE}
+                  onClick={onEdit}
+                  data-testid="EditableProfileCardHeader.EditButton"
+                >
+                  {t("btnProfileEdit")}
+                </ButtonDeprecated>
+              ) : (
+                <>
+                  <ButtonDeprecated
+                    buttonVar={ButtonVar.OUTLINE_ERROR}
+                    onClick={onCancelEdit}
+                    data-testid="EditableProfileCardHeader.CancelButton"
+                  >
+                    {t("btnProfileCancel")}
+                  </ButtonDeprecated>
+                  <ButtonDeprecated
+                    buttonVar={ButtonVar.OUTLINE}
+                    onClick={onSave}
+                    data-testid="EditableProfileCardHeader.SaveButton"
+                  >
+                    {t("btnProfileSave")}
+                  </ButtonDeprecated>
+                </>
+              )}
+            </HStack>
           )}
         </HStack>
-      )}
-    </HStack>
+      }
+    />
   )
 }
