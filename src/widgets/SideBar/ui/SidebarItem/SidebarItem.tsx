@@ -40,7 +40,7 @@ export const SidebarItem: React.FC<SidebarItemProps> = memo(function SidebarItem
           activeClassName={"sidebar-item-redesign__active"}
         >
           <Icon Svg={item.Icon} />
-          <span className={"sidebar-item-redesign__link"}>{t(item.text)}</span>
+          {!collapsed && <span className={"sidebar-item-redesign__link"}>{t(item.text)}</span>}
         </AppLink>
       }
       off={
@@ -50,7 +50,7 @@ export const SidebarItem: React.FC<SidebarItemProps> = memo(function SidebarItem
           to={item.path}
         >
           <item.Icon className={"sidebar-item__icon"} />
-          <span className={"sidebar-item__link"}>{t(item.text)}</span>
+          {!collapsed && <span className={"sidebar-item__link"}>{t(item.text)}</span>}
         </AppLinkDeprecated>
       }
     />

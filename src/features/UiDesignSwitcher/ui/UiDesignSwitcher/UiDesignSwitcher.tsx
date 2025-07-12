@@ -2,10 +2,11 @@ import { memo, useState } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
 
-import { getFeatureFlag, updateFeatureFlag } from "@/shared/lib/features"
+import { getFeatureFlag, toggleFeatures, updateFeatureFlag } from "@/shared/lib/features"
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch"
+import { Skeleton as SkeletonDeprecated } from "@/shared/ui/deprecated/Skeleton"
 import { ListBox } from "@/shared/ui/redesigned/Popups"
-import { Skeleton } from "@/shared/ui/redesigned/Skeleton"
+import { Skeleton as SkeletonRedesigned } from "@/shared/ui/redesigned/Skeleton"
 import { HStack } from "@/shared/ui/redesigned/Stack"
 import { Text } from "@/shared/ui/redesigned/Text"
 
@@ -49,11 +50,17 @@ export const UiDesignSwitcher = memo((props: UiDesignSwitcherProps) => {
     }
   }
 
+  const Skeleton = toggleFeatures({
+    name: "isAppRedesigned",
+    on: () => SkeletonRedesigned,
+    off: () => SkeletonDeprecated,
+  })
+
   return (
     <HStack gap="16">
       <Text text={t("interfaceOption")} />
       {isLoading ? (
-        <Skeleton width={100} height={40} />
+        <Skeleton width={120} height={32} border="34px" />
       ) : (
         <ListBox
           onChange={onChange}
