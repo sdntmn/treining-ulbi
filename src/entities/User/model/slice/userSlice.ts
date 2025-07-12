@@ -49,6 +49,16 @@ export const userSlice = createSlice({
       }
     )
     builder.addCase(initAuthData.fulfilled, (state, { payload }: PayloadAction<User>) => {
+      const user = localStorage.getItem(USER_LOCALSTORAGE_KEY)
+      if (user) {
+        const userObj = JSON.parse(user) as User
+        try {
+          state.authData = userObj
+          setFeatureFlags(userObj?.features || {})
+        } catch (e) {
+          console.error("Failed to parse user data from localStorage", e)
+        }
+      }
       state.authData = payload
       setFeatureFlags(payload.features)
       state.initializedUser = true

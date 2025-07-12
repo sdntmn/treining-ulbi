@@ -1,6 +1,8 @@
 import React, { Suspense, useEffect } from "react"
 import { useSelector } from "react-redux"
 
+import { LOCAL_STORAGE_THEME_KEY } from "@/shared/const/localstorage"
+import { AppLoaderLayout } from "@/shared/layouts/AppLoaderLayout"
 import { MainLayout } from "@/shared/layouts/MainLayout"
 import { cn } from "@/shared/lib/classNames/classNames"
 import { ToggleFeaturesComponent } from "@/shared/lib/features"
@@ -26,6 +28,7 @@ const App: React.FC = () => {
 
   useEffect(() => {
     document.body.className = theme
+    localStorage.setItem(LOCAL_STORAGE_THEME_KEY, theme)
   }, [theme])
 
   useEffect(() => {
@@ -34,9 +37,19 @@ const App: React.FC = () => {
 
   if (!initializedUser) {
     return (
-      <div className="app__loading">
-        <PageLoader />
-      </div>
+      <ToggleFeaturesComponent
+        feature="isAppRedesigned"
+        on={
+          <div id="app" className={cn("app-redesigned", [theme])}>
+            <AppLoaderLayout />
+          </div>
+        }
+        off={
+          <div id="app" className={cn("app", [theme])}>
+            <PageLoader />{" "}
+          </div>
+        }
+      />
     )
   }
 
