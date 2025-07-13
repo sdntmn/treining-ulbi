@@ -2,7 +2,9 @@
   max-width: 100%;
   text-align: center;
 
-  &__image{
-    max-height: 160px;
+  &__image {
+    display: block;
+    height: auto;
+    width: 100%;
   }
 }

@@ -2,7 +2,10 @@ import React, { memo, useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
 
-import { Skeleton } from "@/shared/ui/deprecated/Skeleton"
+import { toggleFeatures, ToggleFeaturesComponent } from "@/shared/lib/features"
+import { Skeleton as SkeletonDeprecated } from "@/shared/ui/deprecated/Skeleton"
+import { Card } from "@/shared/ui/redesigned/Card"
+import { Skeleton as SkeletonRedesigned } from "@/shared/ui/redesigned/Skeleton"
 
 import { RatingCard } from "@/entities/Rating"
 import { getUserAuthData } from "@/entities/User"
@@ -56,8 +59,29 @@ const ArticleRating: React.FC<ArticleRatingProps> = memo((props: ArticleRatingPr
     [handleRateArticle]
   )
 
+  const Skeleton = toggleFeatures({
+    name: "isAppRedesigned",
+    on: () => SkeletonRedesigned,
+    off: () => SkeletonDeprecated,
+  })
+  const border = toggleFeatures<string>({
+    name: "isAppRedesigned",
+    on: () => "34px",
+    off: () => "",
+  })
+
   if (isLoading) {
-    return <Skeleton width="100%" height={120} />
+    return (
+      <ToggleFeaturesComponent
+        feature={"isAppRedesigned"}
+        on={
+          <Card max border="round" padding="24">
+            <Skeleton width="100%" height={120} border={border} />
+          </Card>
+        }
+        off={<Skeleton width="100%" height={120} border={border} />}
+      />
+    )
   }
 
   const rating = data?.[0]
