@@ -34,7 +34,7 @@ export const Icon: React.FC<IconProps> = memo(function Icon(props: IconProps) {
 
   if (clickable) {
     return (
-      <div
+      <span
         role="button"
         tabIndex={0}
         className="icon__button"
@@ -42,7 +42,7 @@ export const Icon: React.FC<IconProps> = memo(function Icon(props: IconProps) {
         style={{ width, height }}
       >
         {Icon}
-      </div>
+      </span>
     )
   }
 

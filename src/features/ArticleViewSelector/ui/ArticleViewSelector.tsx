@@ -71,6 +71,7 @@ export const ArticleViewSelector: React.FC<ArticleViewSelectorProps> = memo(
                 <Icon
                   key={viewType.view}
                   Svg={viewType.icon}
+                  clickable={viewType.view !== view}
                   onClick={onClick(viewType.view)}
                   className={cn("", [
                     viewType.view !== view && "article-view-selector-redesigned__not-selected",
