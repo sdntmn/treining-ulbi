@@ -98,7 +98,7 @@ export const ArticleList: React.FC<ArticleListProps> = (props: ArticleListProps)
     getScrollElement: () => document.getElementById(PAGE_ID),
     estimateSize: () => getConfig.rowHeight,
     overscan: 5,
-    paddingStart: 16,
+    paddingStart: 0,
     paddingEnd: 16,
   })
 
