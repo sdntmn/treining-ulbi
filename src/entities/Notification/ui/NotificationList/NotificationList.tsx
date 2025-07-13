@@ -42,7 +42,7 @@ export const NotificationList: React.FC<NotificationListProps> = memo(
     }
 
     return (
-      <VStack gap="16" max className={cn("notification-list", [className])}>
+      <VStack gap="16" className={cn("notification-list", [className])}>
         {data?.map((item) => <NotificationItem key={item.id} item={item} />)}
       </VStack>
     )
