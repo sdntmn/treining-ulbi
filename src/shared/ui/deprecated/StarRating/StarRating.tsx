@@ -65,7 +65,6 @@ export const StarRating: React.FC<StarRatingProps> = memo((props: StarRatingProp
             currentStarsCount >= startNumber ? "star-rating_hovered" : "start-rating_normal",
           ]),
           Svg: StarIcon,
-          key: startNumber,
           width: size,
           height: size,
           onMouseLeave: onLeave,

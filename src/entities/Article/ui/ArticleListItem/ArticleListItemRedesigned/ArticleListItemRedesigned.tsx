@@ -2,8 +2,8 @@ import { memo } from "react"
 import { useTranslation } from "react-i18next"
 
 import EyeIcon from "@/shared/assets/icons/eye.svg"
+import { getRouteArticleDetails } from "@/shared/const/routes"
 import { cn } from "@/shared/lib/classNames/classNames"
-import { routePatch } from "@/shared/lib/helpers/getPath"
 import { AppImage } from "@/shared/ui/redesigned/AppImage"
 import { AppLink } from "@/shared/ui/redesigned/AppLink"
 import { Avatar } from "@/shared/ui/redesigned/Avatar"
@@ -78,7 +78,7 @@ export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
           )}
 
           <HStack max justify="between">
-            <AppLink target={target} to={routePatch.articleDetails(article.id)}>
+            <AppLink target={target} to={getRouteArticleDetails(article.id)}>
               <Button variant="outline">{t("Читать далее...")}</Button>
             </AppLink>
 
@@ -93,7 +93,7 @@ export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
     <AppLink
       data-testid="ArticleListItem"
       target={target}
-      to={routePatch.articleDetails(article.id)}
+      to={getRouteArticleDetails(article.id)}
       className={cn("article-card-item", [className])}
     >
       <Card className={"article-card-item__card"} padding="0">

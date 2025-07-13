@@ -2146,7 +2146,7 @@
         "USER"
       ],
       "jsonSettings": {
-        "theme": "",
+        "theme": "app-dark-theme",
         "isFirstVisit": false,
         "isArticlesPageWasOpened": true
       },

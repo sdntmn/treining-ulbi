@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 describe("Пользователь заходит на страницу со списком статей", () => {
   beforeEach(() => {
     cy.login().then((data) => {

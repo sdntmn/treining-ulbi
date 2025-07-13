@@ -19,6 +19,8 @@
 }
 
 .star-rating {
+  display: flex;
+
   &__icon {
     fill: none;
     stroke: var(--icon-redesigned);

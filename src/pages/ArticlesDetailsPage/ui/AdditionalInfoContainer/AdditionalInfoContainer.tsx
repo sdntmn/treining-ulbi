@@ -2,7 +2,7 @@ import { memo, useCallback } from "react"
 import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 
-import { routePatch } from "@/shared/lib/helpers/getPath"
+import { getRouteArticleEdit } from "@/shared/const/routes"
 import { Card } from "@/shared/ui/redesigned/Card"
 
 import { getArticleDetailsData } from "@/entities/Article"
@@ -16,7 +16,7 @@ export const AdditionalInfoContainer = memo(() => {
 
   const onEditArticle = useCallback(() => {
     if (article) {
-      navigate(routePatch.articleEdit(article.id))
+      navigate(getRouteArticleEdit(article.id))
     }
   }, [article, navigate])
 

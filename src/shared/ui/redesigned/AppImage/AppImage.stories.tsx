@@ -1,4 +1,4 @@
-import AvatarImg from "../../assets/tests/avatar.jpg"
+import AvatarImg from "../../../assets/tests/avatar.jpg"
 
 import { AppImage } from "./AppImage"
 

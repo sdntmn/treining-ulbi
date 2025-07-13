@@ -2,9 +2,9 @@ import React, { memo, useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import { useDispatch, useSelector } from "react-redux"
 
+import { getRouteAdmin, getRouteProfile, getRouteSettings } from "@/shared/const/routes"
 import { cn } from "@/shared/lib/classNames/classNames"
 import { ToggleFeaturesComponent } from "@/shared/lib/features"
-import { routePatch } from "@/shared/lib/helpers/getPath"
 import { Avatar as AvatarDeprecated } from "@/shared/ui/deprecated/Avatar"
 import { Dropdown as DropdownDeprecated } from "@/shared/ui/deprecated/Popups"
 import { Avatar } from "@/shared/ui/redesigned/Avatar"
@@ -32,10 +32,10 @@ export const AvatarDropdown: React.FC<AvatarDropdownProps> = memo((props: Avatar
   }
 
   const items = [
-    ...(isAdminPanelAvailable ? [{ content: t("menuAdmin"), href: routePatch.adminPanel() }] : []),
-    { content: t("menuProfile"), href: routePatch.profile(authData.id) },
+    ...(isAdminPanelAvailable ? [{ content: t("menuAdmin"), href: getRouteAdmin() }] : []),
+    { content: t("menuProfile"), href: getRouteProfile(authData.id) },
     { content: t("goOut"), onClick: onLogout },
-    { content: t("settingPage"), href: routePatch.settings() },
+    { content: t("settingPage"), href: getRouteSettings() },
   ]
 
   return (

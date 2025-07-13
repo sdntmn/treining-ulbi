@@ -13,9 +13,11 @@ const commentsAdapter = createEntityAdapter<Comment, string>({
   selectId: (comment: Comment) => comment.id,
 })
 
+const initialState = commentsAdapter.getInitialState()
+
 // Получаем селекторы для комментариев
 export const getArticleComments = commentsAdapter.getSelectors<StateSchema>(
-  (state: StateSchema) => state.articleDetailsPage?.comments || commentsAdapter.getInitialState()
+  (state: StateSchema) => state.articleDetailsPage?.comments ?? initialState
 )
 
 const articleDetailsCommentsSlice = createSlice({

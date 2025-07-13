@@ -1,9 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-expressions */
 import { screen } from "@testing-library/react"
-import React from "react"
 
 import { UserRole } from "@/shared/const/enums"
-import { routePatch } from "@/shared/lib/helpers/getPath"
+import { getRouteAdmin, getRouteMain, getRouteProfile } from "@/shared/const/routes"
 import { ComponentRender } from "@/shared/lib/tests/ComponentRender/ComponentRender"
 
 import AppRouter from "./AppRouter"
@@ -11,7 +10,7 @@ import AppRouter from "./AppRouter"
 describe("app/router/AppRouter", () => {
   test("Страница отрисовывается", async () => {
     ComponentRender(<AppRouter />, {
-      route: routePatch.main(),
+      route: getRouteMain(),
     })
 
     const page = await screen.findByTestId("MainPage")
@@ -29,7 +28,7 @@ describe("app/router/AppRouter", () => {
 
   test("Страница запрещена для неавторизованного пользователя", async () => {
     ComponentRender(<AppRouter />, {
-      route: routePatch.profile("1"),
+      route: getRouteProfile("1"),
     })
 
     const page = await screen.findByTestId("MainPage")
@@ -38,7 +37,7 @@ describe("app/router/AppRouter", () => {
 
   test("Страница профиля доступна для авторизованного пользователя", async () => {
     ComponentRender(<AppRouter />, {
-      route: routePatch.profile("1"),
+      route: getRouteProfile("1"),
       initialState: {
         user: {
           authData: {
@@ -54,7 +53,7 @@ describe("app/router/AppRouter", () => {
 
   test("Доступ запрещен (отсутствует роль)", async () => {
     ComponentRender(<AppRouter />, {
-      route: routePatch.adminPanel(),
+      route: getRouteAdmin(),
       initialState: {
         user: {
           authData: {},
@@ -68,7 +67,7 @@ describe("app/router/AppRouter", () => {
 
   test("Страница админки доступна для пользователя с соответствующей ролью", async () => {
     ComponentRender(<AppRouter />, {
-      route: routePatch.adminPanel(),
+      route: getRouteAdmin(),
       initialState: {
         user: {
           authData: {

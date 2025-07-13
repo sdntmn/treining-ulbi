@@ -1,7 +1,6 @@
+import { UiDesignSwitcher } from "./UiDesignSwitcher"
 
 import type { Meta, StoryObj } from "@storybook/react"
-
-import { UiDesignSwitcher } from "./UiDesignSwitcher"
 
 const meta = {
   title: "features/UiDesignSwitcher",

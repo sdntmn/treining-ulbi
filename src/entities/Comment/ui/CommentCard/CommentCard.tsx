@@ -1,8 +1,8 @@
 import React, { memo } from "react"
 
+import { getRouteProfile } from "@/shared/const/routes"
 import { cn } from "@/shared/lib/classNames/classNames"
 import { toggleFeatures, ToggleFeaturesComponent } from "@/shared/lib/features"
-import { routePatch } from "@/shared/lib/helpers/getPath"
 import { AppLink as AppLinkDeprecated } from "@/shared/ui/deprecated/AppLink"
 import { Avatar } from "@/shared/ui/deprecated/Avatar"
 import { Skeleton as SkeletonDeprecated } from "@/shared/ui/deprecated/Skeleton"
@@ -68,7 +68,7 @@ export const CommentCard: React.FC<CommentCardProps> = memo(function CommentCard
             max
             className={cn("comment-card", [className])}
           >
-            <AppLink to={routePatch.profile(comment?.user?.id)} className="comment-card__header">
+            <AppLink to={getRouteProfile(comment.user.id)} className="comment-card__header">
               {comment?.user?.avatar ? <Avatar size={30} src={comment?.user?.avatar} /> : null}
 
               <Text className="comment-card__username" bold title={comment?.user?.username} />
@@ -86,7 +86,7 @@ export const CommentCard: React.FC<CommentCardProps> = memo(function CommentCard
           className={cn("comment-card-deprecated", [className])}
         >
           <AppLinkDeprecated
-            to={routePatch.profile(comment?.user?.id)}
+            to={getRouteProfile(comment.user.id)}
             className="comment-card-deprecated__header"
           >
             {comment?.user?.avatar ? <Avatar size={30} src={comment?.user?.avatar} /> : null}

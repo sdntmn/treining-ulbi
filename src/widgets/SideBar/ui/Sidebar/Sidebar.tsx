@@ -26,7 +26,6 @@ export const Sidebar: React.FC<SidebarProps> = memo(function Sidebar({ className
   const sidebarItemsList = useSelector(getSidebarItems)
 
   const onToggle = () => {
-    console.log(collapsed)
     setCollapsed((prev) => !prev)
   }
 

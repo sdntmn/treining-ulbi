@@ -2,8 +2,8 @@ import React, { memo } from "react"
 import { useTranslation } from "react-i18next"
 
 import EyeIcon from "@/shared/assets/icons/eye-outlined.svg"
+import { getRouteArticleDetails } from "@/shared/const/routes"
 import { cn } from "@/shared/lib/classNames/classNames"
-import { routePatch } from "@/shared/lib/helpers/getPath"
 import { useHover } from "@/shared/lib/hooks/useHover/useHover"
 import { AppLink } from "@/shared/ui/deprecated/AppLink"
 import { Avatar } from "@/shared/ui/deprecated/Avatar"
@@ -81,7 +81,7 @@ export const ArticleListItemDeprecated: React.FC<ArticleListItemProps> = memo(fu
           )}
 
           <div className="article-list-item-list__footer">
-            <AppLink target={target} to={routePatch.articleDetails(article.id)}>
+            <AppLink target={target} to={getRouteArticleDetails(article.id)}>
               <Button buttonVar={ButtonVar.OUTLINE}>{t("articleBtnReadMore")}</Button>
             </AppLink>
 
@@ -97,7 +97,7 @@ export const ArticleListItemDeprecated: React.FC<ArticleListItemProps> = memo(fu
       data-testid={"ArticleListItem"}
       target={target}
       className={cn("article-list-item-card", [className])}
-      to={routePatch.articleDetails(article.id)}
+      to={getRouteArticleDetails(article.id)}
     >
       <Card className="article-list-item-card">
         <div className="article-list-item-card__image-wrapper">

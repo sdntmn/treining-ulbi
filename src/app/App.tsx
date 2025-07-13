@@ -1,4 +1,5 @@
-import React, { Suspense, useEffect } from "react"
+/* eslint-disable react/display-name */
+import React, { memo, Suspense, useEffect } from "react"
 import { useSelector } from "react-redux"
 
 import { LOCAL_STORAGE_THEME_KEY } from "@/shared/const/localstorage"
@@ -15,14 +16,16 @@ import { Navbar } from "@/widgets/Navbar"
 import { PageLoader } from "@/widgets/PageLoader"
 import { Sidebar } from "@/widgets/SideBar"
 
+import { useAppToolbar } from "./lib/useAppToolbar"
 import { AppRouter } from "./providers/router"
-
+import { withTheme } from "./providers/ThemeProvider/ui/withTheme"
 import "./styles/index.scss"
 
-const App: React.FC = () => {
+const App: React.FC = memo(function App() {
   const { theme } = useTheme()
 
   const initializedUser = useSelector(getUserInitialized)
+  const toolbar = useAppToolbar()
 
   const dispatch = useAppDispatch()
 
@@ -46,7 +49,7 @@ const App: React.FC = () => {
         }
         off={
           <div id="app" className={cn("app", [theme])}>
-            <PageLoader />{" "}
+            <PageLoader />
           </div>
         }
       />
@@ -63,7 +66,7 @@ const App: React.FC = () => {
               header={<Navbar />}
               content={<AppRouter />}
               sidebar={<Sidebar />}
-              toolbar={<div>55 </div>}
+              toolbar={toolbar}
             />
           </Suspense>
         </div>
@@ -81,6 +84,6 @@ const App: React.FC = () => {
       }
     />
   )
-}
+})
 
-export default App
+export default withTheme(App)

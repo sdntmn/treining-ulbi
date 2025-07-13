@@ -3,9 +3,9 @@ import React, { memo, useCallback, useState } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
 
+import { getRouteArticleCreate } from "@/shared/const/routes"
 import { cn } from "@/shared/lib/classNames/classNames"
 import { toggleFeatures, ToggleFeaturesComponent } from "@/shared/lib/features"
-import { routePatch } from "@/shared/lib/helpers/getPath"
 import { AppLink } from "@/shared/ui/deprecated/AppLink"
 import { Button as ButtonDeprecated, ButtonVar } from "@/shared/ui/deprecated/Button"
 import { TextParagraf, TextVar } from "@/shared/ui/deprecated/TextParagraf"
@@ -52,7 +52,7 @@ export const Navbar: React.FC<NavbarProps> = memo(function Navbar({ className }:
             <TextParagraf className="" title={t("SDN")} textVar={TextVar.PRIMARY} />
 
             <AppLink
-              to={routePatch.articleCreate()}
+              to={getRouteArticleCreate()}
               appLinkColor={"secondary"}
               className="navbar-deprecated__create-btn"
             >

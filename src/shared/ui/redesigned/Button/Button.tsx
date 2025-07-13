@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, memo, ReactNode } from "react"
+import React, { ButtonHTMLAttributes, ForwardedRef, ReactNode, forwardRef } from "react"
 
 import { ButtonColor, ButtonSize, ButtonVariant } from "@/shared/types/type"
 
@@ -32,41 +32,49 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   color?: ButtonColor
 }
 
-export const Button: React.FC<ButtonProps> = memo(function Button({
-  className,
-  children,
-  variant = "outline",
-  square,
-  size = "m",
-  fontSize = ButtonFontSize.FONT_M,
-  disabled,
-  fullWidth,
-  addonLeft,
-  addonRight,
-  color = "normal",
-  ...otherProps
-}: ButtonProps) {
-  return (
-    <button
-      type="button"
-      className={cn("button", [
-        className,
-        variant && `button__${variant}`,
-        square && `button__${square}`,
-        fontSize && `button__${fontSize}`,
-        size && `button__size_${size}`,
-        disabled && "button__disabled",
-        fullWidth && "button__fullWidth",
-        color && `button__color_${color}`,
-        Boolean(addonLeft) && "button__with-addon-left",
-        Boolean(addonRight) && "button__with-addon-right",
-      ])}
-      disabled={disabled}
-      {...otherProps}
-    >
-      {addonLeft && <div className="button__addon-left"> {addonLeft}</div>}
-      {children}
-      {addonRight && <div className="button__addon-right">{addonRight}</div>}
-    </button>
-  )
-})
+export const Button: React.FC<ButtonProps> = forwardRef(
+  (
+    {
+      className,
+      children,
+      variant = "outline",
+      square,
+      size = "m",
+      fontSize = ButtonFontSize.FONT_M,
+      disabled,
+      fullWidth,
+      addonLeft,
+      addonRight,
+      color = "normal",
+      ...otherProps
+    }: ButtonProps,
+    ref: ForwardedRef<HTMLButtonElement>
+  ) => {
+    return (
+      <button
+        type="button"
+        className={cn("button", [
+          className,
+          variant && `button__${variant}`,
+          square && `button__${square}`,
+          fontSize && `button__${fontSize}`,
+          size && `button__size_${size}`,
+          disabled && "button__disabled",
+          fullWidth && "button__fullWidth",
+          color && `button__color_${color}`,
+          Boolean(addonLeft) && "button__with-addon-left",
+          Boolean(addonRight) && "button__with-addon-right",
+        ])}
+        disabled={disabled}
+        ref={ref}
+        {...otherProps}
+      >
+        {addonLeft && <div className="button__addon-left"> {addonLeft}</div>}
+        {children}
+        {addonRight && <div className="button__addon-right">{addonRight}</div>}
+      </button>
+    )
+  }
+)
+
+Button.displayName = "Button"

@@ -34,14 +34,15 @@ export const Icon: React.FC<IconProps> = memo(function Icon(props: IconProps) {
 
   if (clickable) {
     return (
-      <button
-        type="button"
+      <div
+        role="button"
+        tabIndex={0}
         className="icon__button"
         onClick={props?.onClick}
         style={{ width, height }}
       >
         {Icon}
-      </button>
+      </div>
     )
   }
 

@@ -1,4 +1,5 @@
-import { RouteNames, UserRole } from "../const/enums"
+import { UserRole } from "../const/enums"
+import { AppRoutes } from "../const/routes"
 
 import type { RouteProps } from "react-router-dom"
 
@@ -7,4 +8,4 @@ export type AppRoutesProps = RouteProps & {
   roles?: UserRole[]
 }
 
-export type RoutePaths = Record<RouteNames, string>
+export type RoutePaths = Record<AppRoutes, string>

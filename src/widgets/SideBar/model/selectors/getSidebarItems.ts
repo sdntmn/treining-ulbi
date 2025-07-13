@@ -8,9 +8,13 @@ import MainIcon from "@/shared/assets/icons/home.svg"
 import AboutIcon from "@/shared/assets/icons/Info.svg"
 import MainIconDeprecated from "@/shared/assets/icons/main-page.svg"
 import ProfileIconDeprecated from "@/shared/assets/icons/profile-page.svg"
-import { APP_PATHS } from "@/shared/const/routes"
+import {
+  getRouteAbout,
+  getRouteArticles,
+  getRouteMain,
+  getRouteProfile,
+} from "@/shared/const/routes"
 import { toggleFeatures } from "@/shared/lib/features"
-import { routePatch } from "@/shared/lib/helpers/getPath"
 
 import { getUserAuthData } from "@/entities/User"
 
@@ -19,7 +23,7 @@ import { SidebarItemType } from "../types/sidebar"
 export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
   const sidebarItemsList: SidebarItemType[] = [
     {
-      path: APP_PATHS.MAIN,
+      path: getRouteMain(),
       Icon: toggleFeatures({
         name: "isAppRedesigned",
         on: () => MainIcon,
@@ -28,7 +32,7 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
       text: "navLinkMain",
     },
     {
-      path: APP_PATHS.ABOUT,
+      path: getRouteAbout(),
       Icon: toggleFeatures({
         name: "isAppRedesigned",
         on: () => AboutIcon,
@@ -40,7 +44,7 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
   if (userData) {
     sidebarItemsList.push(
       {
-        path: routePatch.profile(userData.id),
+        path: getRouteProfile(userData.id),
         Icon: toggleFeatures({
           name: "isAppRedesigned",
           on: () => ProfileIcon,
@@ -50,7 +54,7 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
         authOnly: true,
       },
       {
-        path: APP_PATHS.ARTICLES,
+        path: getRouteArticles(),
         Icon: toggleFeatures({
           name: "isAppRedesigned",
           on: () => ArticleIcon,

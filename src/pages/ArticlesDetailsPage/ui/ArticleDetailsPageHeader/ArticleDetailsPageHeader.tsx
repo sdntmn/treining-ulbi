@@ -3,8 +3,8 @@ import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 
+import { getRouteArticleEdit, getRouteArticles } from "@/shared/const/routes"
 import { cn } from "@/shared/lib/classNames/classNames"
-import { routePatch } from "@/shared/lib/helpers/getPath"
 import { Button, ButtonVar } from "@/shared/ui/deprecated/Button"
 import { HStack } from "@/shared/ui/redesigned/Stack"
 
@@ -24,12 +24,12 @@ export const ArticleDetailsPageHeader: React.FC<ArticleDetailsPageHeaderProps> =
     const article = useSelector(getArticleDetailsData)
 
     const onBackToList = useCallback(() => {
-      navigate(routePatch.articles()) // Используем хелпер для пути к списку статей
+      navigate(getRouteArticles()) // Используем хелпер для пути к списку статей
     }, [navigate])
 
     const onEditArticle = useCallback(() => {
       if (article?.id) {
-        navigate(routePatch.articleEdit(article.id)) // Используем хелпер для пути редактирования
+        navigate(getRouteArticleEdit(article.id)) // Используем хелпер для пути редактирования
       }
     }, [article?.id, navigate])
 
