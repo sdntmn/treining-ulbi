@@ -31,7 +31,7 @@ export const NotificationList: React.FC<NotificationListProps> = memo(
 
     if (isLoading) {
       return (
-        <VStack gap="16" max className={cn("notification-list", [className])}>
+        <VStack gap="16" className={cn("notification-list", [className])}>
           <Skeleton width="100%" border="8px" height="80px" />
 
           <Skeleton width="100%" border="8px" height="80px" />
