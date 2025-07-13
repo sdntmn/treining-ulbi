@@ -58,11 +58,13 @@ export const ButtonNotification: React.FC<NotificationButtonProps> = memo(
             }
             off={
               <PopoverDeprecated
-                className="button-notification"
+                className="button-notification-deprecated"
                 direction="bottom left"
                 trigger={<span onClick={onOpenDrawer}>{trigger}</span>}
               >
-                <NotificationList className={cn("button-notification__popover", [className])} />
+                <NotificationList
+                  className={cn("button-notification-deprecated__popover", [className])}
+                />
               </PopoverDeprecated>
             }
           />
