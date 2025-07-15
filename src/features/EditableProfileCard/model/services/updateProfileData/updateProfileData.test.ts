@@ -17,8 +17,8 @@ const data = {
   id: "1",
 }
 
-describe("updateProfileData.test", () => {
-  test("success", async () => {
+describe("Обновление профиля", () => {
+  test("Успешно", async () => {
     const thunk = new TestAsyncThunk(updateProfileData, {
       profile: {
         form: data,
@@ -34,7 +34,7 @@ describe("updateProfileData.test", () => {
     expect(result.payload).toEqual(data)
   })
 
-  test("error", async () => {
+  test("Ошибка обновления сервера (HTTP 403)", async () => {
     const thunk = new TestAsyncThunk(updateProfileData, {
       profile: {
         form: data,
@@ -48,7 +48,7 @@ describe("updateProfileData.test", () => {
     expect(result.payload).toEqual([ValidateProfileError.SERVER_ERROR])
   })
 
-  test("validate error", async () => {
+  test("Ошибка валидации данных", async () => {
     const thunk = new TestAsyncThunk(updateProfileData, {
       profile: {
         form: { ...data, lastName: "" },

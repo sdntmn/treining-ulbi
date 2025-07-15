@@ -65,7 +65,7 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = ({
           />
         }
         off={
-          <Page className={cn("article-details-page", [className])}>
+          <Page className={cn("article-details-page-deprecated", [className])}>
             <VStack gap="16" max>
               <ArticleDetailsPageHeader />
               <ArticleDetails id={id} />

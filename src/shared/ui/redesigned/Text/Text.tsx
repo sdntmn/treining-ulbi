@@ -1,4 +1,4 @@
-import React, { memo } from "react"
+import React, { memo, ReactNode } from "react"
 
 import { cn } from "@/shared/lib/classNames/classNames"
 import { TextAlign, TextSize, TextVariant } from "@/shared/types/type"
@@ -6,6 +6,7 @@ import "./Text.module.scss"
 
 interface TextProps {
   className?: string
+  children?: ReactNode
   title?: string
   text?: string
   variant?: TextVariant
@@ -39,6 +40,7 @@ export const Text: React.FC<TextProps> = memo(function TextParagraf(props: TextP
     variant = "primary",
     size = "m",
     bold,
+    children,
     "data-testid": dataTestId = "TextParagraf",
   } = props
 
@@ -61,11 +63,12 @@ export const Text: React.FC<TextProps> = memo(function TextParagraf(props: TextP
           {title}
         </HeaderTag>
       )}
-      {text && (
-        <p className="text__paragraf" data-testid={`${dataTestId}.text`}>
-          {text}
-        </p>
-      )}
+      {text ||
+        (children && (
+          <p className="text__paragraf" data-testid={`${dataTestId}.text`}>
+            {text || children}
+          </p>
+        ))}
     </div>
   )
 })

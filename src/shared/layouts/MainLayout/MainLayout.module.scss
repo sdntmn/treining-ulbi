@@ -12,6 +12,7 @@
     position: sticky;
     top: 0;
     height: 100vh;
+    box-sizing: border-box;
   }
 
   &__content {
@@ -20,6 +21,7 @@
     width: 100%;
     justify-self: center;
     padding: 32px;
+    box-sizing: border-box;
   }
 
   &__rightbar {
@@ -32,11 +34,6 @@
     height: 100vh;
   }
 
-  // &__sidebar {
-  //   position: sticky;
-  //   top: 0;
-  //   height: 100vh;
-  // }
   &__toolbar {
     height: 100%;
     width: 100%;

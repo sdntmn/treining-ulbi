@@ -2,6 +2,10 @@
 import React, { lazy } from "react"
 import { useTranslation } from "react-i18next"
 
+import { AppLink } from "@/shared/ui/redesigned/AppLink"
+import { VStack } from "@/shared/ui/redesigned/Stack"
+import { Text } from "@/shared/ui/redesigned/Text"
+
 import { Page } from "@/widgets/Page"
 
 import "./AboutPage.module.scss"
@@ -10,32 +14,39 @@ const AboutPage: React.FC = () => {
   const { t } = useTranslation("about")
   return (
     <Page data-testid="AboutPage" className="about-page">
-      <h1>{t("aboutPageTitle")}</h1>
-      <p>
-        @use-gesture - позволяет привязывать события мыши и прикосновения к любому узлу
-        <a>https://use-gesture.netlify.app/</a>
-      </p>
-      <p>
-        @react-spring/web - анимациями
-        <a>https://www.react-spring.dev/</a>
-      </p>
-      <p>
-        ts-morph -для изменения ts кода
-        <a>https://ts-morph.com/</a>
-      </p>
-      <p>
-        добавлен vite - для сборки
-        <a>https://vite.dev/guide/</a>
-      </p>
-      <p>
-        добавлен eslint-plugin-unused-imports - для отслеживания не используемых импортов
-        <a>https://www.npmjs.com/package/eslint-plugin-unused-imports</a>
-      </p>
-      <h2>Контекст:</h2>
-      <p>Темы</p>
-      <p>Анимации</p>
-      <h2>Команды:</h2>
-      <p>npx ts-node ./scripts/updateImports.ts - запуск файлов ноды</p>
+      <VStack gap="32">
+        <Text size="l" title={t("aboutPageTitle")} />
+        <VStack gap="8">
+          <Text text="Проект написан в соответствии с методологией Feature sliced design" />
+          <Text>
+            <AppLink
+              appLinkColor="secondary"
+              to={"https://feature-sliced.github.io/documentation/ru/docs"}
+            >
+              Ссылка на документацию - feature sliced design
+            </AppLink>
+          </Text>
+        </VStack>
+        <VStack gap="8">
+          <Text size="m" title="Контексты"></Text>
+          <Text>Темы</Text>
+          <Text>Анимации</Text>
+        </VStack>
+        <VStack gap="8">
+          <Text size="m" title="Тестирование"></Text>
+          <Text>
+            Обычные unit тесты на jest -{" "}
+            <AppLink
+              appLinkColor="secondary"
+              to={"https://sdntmn.github.io/treining-ulbi/unit/report.html"}
+            >
+              Ссылка на отчет по тестам
+            </AppLink>
+          </Text>
+          <Text>Скриншотное тестирование</Text>
+          <Text>E2e тестирование с Cypress</Text>
+        </VStack>
+      </VStack>
     </Page>
   )
 }

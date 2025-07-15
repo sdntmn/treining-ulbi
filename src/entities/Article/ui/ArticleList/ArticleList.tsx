@@ -98,7 +98,11 @@ export const ArticleList: React.FC<ArticleListProps> = (props: ArticleListProps)
     getScrollElement: () => document.getElementById(PAGE_ID),
     estimateSize: () => getConfig.rowHeight,
     overscan: 5,
-    paddingStart: 0,
+    paddingStart: toggleFeatures({
+      name: "isAppRedesigned",
+      on: () => 0,
+      off: () => 16,
+    }),
     paddingEnd: 16,
   })
 

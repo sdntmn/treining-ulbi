@@ -6,8 +6,8 @@ import {
   getArticleDetailsIsLoading,
 } from "./articleDetails"
 
-describe("articleDetails.test", () => {
-  test("should return data", () => {
+describe("Тест: данные статьи", () => {
+  test("Возвращает данные статьи", () => {
     const data = {
       id: "1",
       title: "subtitle",
@@ -19,11 +19,11 @@ describe("articleDetails.test", () => {
     }
     expect(getArticleDetailsData(state as StateSchema)).toEqual(data)
   })
-  test("should work with empty state data", () => {
+  test("Работает с пустым состоянием данных", () => {
     const state: DeepPartial<StateSchema> = {}
     expect(getArticleDetailsData(state as StateSchema)).toEqual(undefined)
   })
-  test("should return error", () => {
+  test("Возвращает сообщение об ошибке из состояния", () => {
     const state: DeepPartial<StateSchema> = {
       articleDetails: {
         error: "error",
@@ -31,11 +31,11 @@ describe("articleDetails.test", () => {
     }
     expect(getArticleDetailsError(state as StateSchema)).toEqual("error")
   })
-  test("should work with empty state error", () => {
+  test("Возвращает `undefined`, если ошибка отсутствует", () => {
     const state: DeepPartial<StateSchema> = {}
     expect(getArticleDetailsError(state as StateSchema)).toEqual(undefined)
   })
-  test("should return isLoading", () => {
+  test("Возвращает флаг загрузки из состояния", () => {
     const state: DeepPartial<StateSchema> = {
       articleDetails: {
         isLoading: true,
