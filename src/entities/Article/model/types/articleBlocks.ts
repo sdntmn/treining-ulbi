@@ -1,3 +1,5 @@
+import { Language } from "@/shared/types/type"
+
 import { ArticleBlockType } from "../consts"
 
 export interface ArticleBaseBlock {
@@ -8,6 +10,7 @@ export interface ArticleBaseBlock {
 export interface ArticleCode extends ArticleBaseBlock {
   type: ArticleBlockType.CODE
   code: string
+  language?: Language
 }
 
 export interface ArticleImage extends ArticleBaseBlock {

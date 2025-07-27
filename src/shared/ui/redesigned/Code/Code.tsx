@@ -8,16 +8,18 @@ import React, { memo, useCallback, useEffect } from "react"
 import CopyIconNew from "@/shared/assets/icons/copy.svg"
 import { cn } from "@/shared/lib/classNames/classNames"
 import { ToggleFeaturesComponent } from "@/shared/lib/features"
+import { Language } from "@/shared/types/type"
 
 import CopyIcon from "../../../assets/icons/copy_file.svg"
 import { Button, ButtonVar } from "../../deprecated/Button/Button"
 import { Icon } from "../Icon"
+
 import "./Code.module.scss"
 
 interface CodeProps {
   className?: string
   text: string
-  language?: "javascript" | "typescript" | "jsx" | "css"
+  language?: Language
 }
 
 export const Code: React.FC<CodeProps> = memo(function Code(props: CodeProps) {

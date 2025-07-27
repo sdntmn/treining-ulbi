@@ -27,16 +27,29 @@ export const ArticleTypeTabs: React.FC<ArticleTypeTabsProps> = memo(function Art
         content: t("articleTypeTabsAll"),
       },
       {
-        value: ArticleType.IT,
-        content: t("articleTypeTabsIT"),
+        value: ArticleType.JAVASCRIPT,
+        content: t("articleTypeTabsJS"),
       },
       {
-        value: ArticleType.ECONOMICS,
-        content: t("articleTypeTabsEconomics"),
+        value: ArticleType.TYPESCRIPT,
+        content: t("articleTypeTabsTypeScript"),
       },
       {
-        value: ArticleType.SCIENCE,
-        content: t("articleTypeTabsScience"),
+        value: ArticleType.STATE_MANAGEMENT,
+        content: t("articleTypeTabsStateManeger"),
+      },
+      {
+        value: ArticleType.CSS,
+        content: t("articleTypeTabsCSS"),
+      },
+      {
+        value: ArticleType.PROMISE,
+        content: t("articleTypeTabsPromises"),
+      },
+
+      {
+        value: ArticleType.PERFORMANCE,
+        content: t("articleTypeTabsPerformance"),
       },
     ],
     [t]

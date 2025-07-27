@@ -3,6 +3,7 @@
   grid-template-areas:
     'left content right';
   grid-template-columns: min-content 1fr min-content;
+  padding-top: 32px;
 
   &__left,
   &__right {

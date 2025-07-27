@@ -11,12 +11,12 @@ export const AppLoaderLayout = memo(() => {
   return (
     <MainLayout
       header={
-        <HStack className={"header"}>
+        <HStack className={"app-loader-layout__header"}>
           <Skeleton width={40} height={40} border="50%" />
         </HStack>
       }
       content={
-        <VStack gap="16" style={{ height: "100%" }}>
+        <VStack gap="16" style={{ height: "100%" }} className={"app-loader-layout__content"}>
           <Skeleton width="70%" height={32} border="16px" />
           <Skeleton width="40%" height={20} border="16px" />
           <Skeleton width="50%" height={20} border="16px" />

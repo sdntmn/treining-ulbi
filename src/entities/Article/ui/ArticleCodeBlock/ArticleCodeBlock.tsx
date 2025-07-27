@@ -16,7 +16,7 @@ export const ArticleCodeBlock: React.FC<ArticleCodeBlockProps> = memo(function A
 }: ArticleCodeBlockProps) {
   return (
     <div className={cn("article-code-block", [className])}>
-      <Code className="article-code-block__code" text={block.code} />
+      <Code className="article-code-block__code" text={block.code} language={block.language} />
     </div>
   )
 })

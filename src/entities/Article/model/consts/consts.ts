@@ -1,9 +1,12 @@
 export enum ArticleType {
   ALL = "ALL",
   IT = "IT",
-  SCIENCE = "SCIENCE",
-  ECONOMICS = "ECONOMICS",
-  POLITICS = "POLITICS",
+  TYPESCRIPT = "TYPESCRIPT",
+  STATE_MANAGEMENT = "STATE_MANAGEMENT",
+  CSS = "CSS",
+  PROMISE = "PROMISE",
+  JAVASCRIPT = "JAVASCRIPT",
+  PERFORMANCE = "PERFORMANCE",
 }
 
 export enum ArticleViewType {
